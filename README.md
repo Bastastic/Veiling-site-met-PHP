@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # I-Project
 # De Polobeertjes (Groep 15)
 
@@ -17,6 +16,3 @@ Dit project is gemaakt voor de Hogeschool Arnhem Nijmegen en is closed source.
 - Maria Boes-Voet
 - Jorg Visch
 
-=======
-# I-Project
->>>>>>> parent of b4ad834... Update README.md
