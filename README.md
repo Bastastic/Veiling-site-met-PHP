@@ -5,3 +5,4 @@ Project van de propodeuse.
 
 #Committers
 - Dani Hengeveld
+- Peiwand Ismaiel
