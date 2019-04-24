@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="semantic.min.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="semantic.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </head>
+  <body>
+    <br />
+    <br />
+    <div class="ui raised very padded center aligned text container segment">
+      <img
+        class="ui centered tiny image"
+        src="images\512px-Circle-icons-profile.svg.png"
+      />
+      <h2 class="ui header">Registreren</h2>
+      <br />
+      <div class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="address book outline icon"></i>
+              <input type="text" name="Voornaam" placeholder="Voornaam" />
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="address book outline icon"></i>
+              <input type="text" name="Achternaam" placeholder="Achternaam" />
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="mail outline icon"></i>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              autofocus="true"
+            />
+          </div>
+        </div>
+        <div class="field">
+            <div class="ui left icon input">
+              <i class="user outline icon"></i>
+              <input
+                type="email"
+                name="Gebruikersnaam"
+                placeholder="Gebruikersnaam"
+                autofocus="true"
+              />
+            </div>
+          </div>
+        <br />
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password" />
+          </div>
+        </div>
+        <br />
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input
+              type="password"
+              name="password_confirmation"
+              placeholder="Password confirmation"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="ui form">
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden" />
+            <label>Aangemeld blijven</label>
+          </div>
+        </div>
+        <br />
+        <div class="actions">
+          <button class=" ui large teal primary button" type="submit">
+            Log in
+          </button>
+          <!-- Primary color moet verandert worden -->
+        </div>
+        <br />
+        <a href="#">Wachtwoord vergeten?</a>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div id="footer"></div>
+  </body>
+</html>
+
+<script>
+  $(".ui.checkbox").checkbox();
+</script>
