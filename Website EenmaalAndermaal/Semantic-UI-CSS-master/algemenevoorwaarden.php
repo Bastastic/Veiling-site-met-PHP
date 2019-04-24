@@ -1,5 +1,4 @@
 <!DOCTYPE php>
-<html class="no-js">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,8 +16,8 @@
   <body>
     <?php include('header.php'); ?>
         <br>
-  <div>
-    <embed src="pdf/algemenevoorwaarden.pdf" width="100%" height="100VH" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+ <div class="ui raised very padded center aligned text container segment">
+    <embed src="pdf/algemenevoorwaarden.pdf" width="100%" height="100%" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
   </div>
   <br>
   <br>
@@ -26,4 +25,5 @@
 <footer>
         <?php include('footer.php'); ?>
 </footer>
+</html>
   
