@@ -13,23 +13,17 @@
       crossorigin="anonymous"
     ></script>
     <script src="semantic.min.js"></script>
-    <script> 
-            $(function(){
-              $("#header").load("header.html"); 
-              $("#footer").load("footer.html"); 
-            });
-    </script>
   </head>
   <body>
-  <div id="header"></div>
-  <br>
+    <?php include('header.php'); ?>
+        <br>
   <div>
-    <embed src="pdf/algemenevoorwaarden.pdf" width="100%" height="auto" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+    <embed src="pdf/algemenevoorwaarden.pdf" width="100%" height="100VH" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
   </div>
   <br>
   <br>
 </body>
 <footer>
-    <div id="footer"></div>
+        <?php include('footer.php'); ?>
 </footer>
   
