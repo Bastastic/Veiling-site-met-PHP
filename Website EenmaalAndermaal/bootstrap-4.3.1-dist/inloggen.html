@@ -1,78 +1,64 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="semantic.min.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    ></script>
-    <script src="semantic.min.js"></script>
-    <script> 
-      $(function(){
-        $("#footer").load("footer.html"); 
-      });
-      </script>
+    />
+    <link rel="stylesheet" href="css/login.css"/>
+    <title>Hello, world!</title>
   </head>
   <body>
-    <br>
-    <br>
-    <div class="ui raised very padded center aligned text container segment">
-      <img
-        class="ui centered tiny image"
-        src="images\512px-Circle-icons-profile.svg.png"
-      />
-      <h2 class="ui header">Inloggen</h2>
-      <br />
-      <div class="field">
-        <div class="ui left icon input">
-          <i class="mail outline icon"></i>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            autofocus="true"
-          />
+    <form action="action_page.php">
+      <br>
+      <br>
+      <br>
+      <div class="container">
+        <div class="imgcontainer">
+        <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt=""/>
         </div>
+        <label for="Gebruikersnaam"><b>Gebruikersnaam</b></label>
+        <input type="text" placeholder="Gebruikernaam" name="Gebruikersnaam" required />
+        <label for="Wachtwoord"><b>Wachtwoord</b></label>
+        <input
+          type="password"
+          placeholder="Wachtwoord"
+          name="Wachtwoord"
+          required
+        />
+        <button type="submit">Login</button>
+        <br>
+        <br>
+          <input type="checkbox" checked="checked" name="onthoudme" /> onthouden 
+          <span class="psw">Forgot <a href="#">password?</a></span>
       </div>
-      <br />
-      <div class="field">
-        <div class="ui left icon input">
-          <i class="lock icon"></i>
-          <input type="password" name="password" placeholder="Password" />
-        </div>
-      </div>
-      <br />
-      <div class="ui form">
-        <div class="ui checkbox">
-          <input type="checkbox" tabindex="0" class="hidden" />
-          <label>Aangemeld blijven</label>
-        </div>
-      </div>
-      <br />
-      <div class="actions">
-        <button class=" ui large teal primary button" type="submit">
-          Log in
-        </button>
-        <!-- Primary color moet verandert worden -->
-      </div>
-      <br />
-      <a href="#">Wachtwoord vergeten?</a>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div id="footer"></div>
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
-
- <script>
- $('.ui.checkbox')
-  .checkbox()
-;
- </script>
