@@ -16,7 +16,8 @@
         <nav class="navbar navbar-dark navbar-expand-md">
 
             <a class="navbar-brand" href="index.php">
-                <img src="images/test.jpg"  width="50px" alt="">
+                <!-- <img src="images/test.jpg"  width="50px" alt=""> -->
+                <p font-size=""> EenmaalAndermaal</p>
             </a>
 
             <button data-toggle="collapse" data-target="#navbarToggler" type="button"
