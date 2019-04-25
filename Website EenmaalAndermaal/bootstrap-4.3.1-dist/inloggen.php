@@ -19,7 +19,7 @@
   </head>
   <body>
   <?php
-    include 'index.php'
+     include 'header.php'; 
     ?>
     <form class="inlogform"action="action_page.php">
       <div class="logincontainer">
