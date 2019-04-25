@@ -23,6 +23,7 @@
     ?>
     <form class="inlogform"action="action_page.php">
       <div class="logincontainer">
+        
         <div class="imgcontainer">
         <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt=""/>
         </div>
@@ -36,11 +37,7 @@
           name="Wachtwoord"
           required
         />
-        <button class="inlogbutton" type="submit">Login</button>
-        <br>
-        <br>
-          <input type="checkbox" checked="checked" name="onthoudme" /> onthouden 
-          <span class="password">Forgot <a href="#">password?</a></span>
+        <button class="inlogbutton" type="submit">Registreren</button>
       </div>
     </form>
   </body>
