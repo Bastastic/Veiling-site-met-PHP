@@ -30,19 +30,20 @@
         <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt=""/>
         </div>
         <label for="Gebruikersnaam"><b>Gebruikersnaam</b></label>
-        <input type="text" placeholder="Gebruikernaam" name="Gebruikersnaam" required />
+        <input class="inlogbalk" type="text" placeholder="Gebruikernaam" name="Gebruikersnaam" required />
         <label for="Wachtwoord"><b>Wachtwoord</b></label>
         <input
+          class="inlogbalk"
           type="password"
           placeholder="Wachtwoord"
           name="Wachtwoord"
           required
         />
-        <button type="submit">Login</button>
+        <button class="inlogbutton" type="submit">Login</button>
         <br>
         <br>
           <input type="checkbox" checked="checked" name="onthoudme" /> onthouden 
-          <span class="psw">Forgot <a href="#">password?</a></span>
+          <span class="password">Forgot <a href="#">password?</a></span>
       </div>
     </form>
     <!-- Optional JavaScript -->
