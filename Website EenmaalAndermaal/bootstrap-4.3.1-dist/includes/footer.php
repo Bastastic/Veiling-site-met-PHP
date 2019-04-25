@@ -39,13 +39,13 @@
             <div class="col-md-5">
                 <form>
                     <fieldset class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
                     </fieldset>
                     <fieldset class="form-group">
-                        <textarea class="form-control" id="exampleMessage" placeholder="Message"></textarea>
+                        <textarea class="form-control" id="exampleMessage" placeholder="Bericht..."></textarea>
                     </fieldset>
                     <fieldset class="form-group text-xs-right">
-                        <button type="button" class="btn btn-primary btn-lg">Send</button>
+                        <button type="button" class="btn btn-primary btn-lg">Verzenden</button>
                     </fieldset>
                 </form>
             </div>
