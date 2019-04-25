@@ -22,7 +22,6 @@
                             <li><a href="">About</a></li>
                         </ul>
                     </div>
-                    
                 </div>
                 <ul class="nav">
                     <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -31,10 +30,6 @@
                     <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
                 </ul>
                 <br>
-            </div>
-            <div class="col-md-2">
-                <h5 class="text-md-right">Contact Us</h5>
-                <hr>
             </div>
             <div class="col-md-5">
                 <form>
