@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <!doctype html>
 <html lang="nl">
@@ -9,7 +8,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <title>Index</title>
 </head>
 <body>
@@ -23,7 +21,6 @@
                 <img src="images/test.jpg"  width="50px" alt="">
             </a>
 
-
             <button data-toggle="collapse" data-target="#navbarToggler" type="button"
                     class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
 
@@ -31,7 +28,7 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                <a href="inloggen.html"  style="background-color: #44355b" class="btn btn-info" role="button">Inloggen</a>
+                <a href="inloggen.php"  style="background-color: #44355b" class="btn btn-info" role="button">Inloggen</a>
             </li>
                 <li>
                 <a href="inloggen.html"  style="background-color: #44355b" class="btn btn-info" role="button">Registreren</a>
@@ -112,18 +109,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -131,16 +116,3 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
-<body>
-</body>
-</html>
->>>>>>> af33ffa089695278bda42bf5efacae40b9f02956
