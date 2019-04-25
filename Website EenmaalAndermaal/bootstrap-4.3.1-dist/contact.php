@@ -6,6 +6,7 @@
 </head>
 <body>
 <?php include('alt_header.php'); ?>
+<br>
 <div class="container">
  
     <div class="row">
@@ -22,15 +23,15 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="form_name">Firstname *</label>
-                <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                <label for="form_name">Voornaam *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Vul alsjeblieft je voornaam in *" required="required" data-error="Voornaam is verplicht">
                 <div class="help-block with-errors"></div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="form_lastname">Lastname *</label>
-                <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                <label for="form_lastname">Achternaam *</label>
+                <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Vul alsjeblieft je achternaam in *" required="required" data-error="Achternaam is verplicht">
                 <div class="help-block with-errors"></div>
               </div>
             </div>
@@ -39,14 +40,14 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="form_email">Email *</label>
-                <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                <input id="form_email" type="email" name="email" class="form-control" placeholder="Vul alsjebleft je email in *" required="required" data-error="Juist email adres nodig">
                 <div class="help-block with-errors"></div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="form_phone">Phone</label>
-                <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                <label for="form_phone">Telefoonnummer</label>
+                <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Vul alsjeblieft je telefoonnummer in">
                 <div class="help-block with-errors"></div>
               </div>
             </div>
@@ -54,13 +55,13 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="form_message">Message *</label>
-                <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required data-error="Please,leave us a message."></textarea>
+                <label for="form_message">Bericht *</label>
+                <textarea id="form_message" name="message" class="form-control" placeholder="Vul je bericht in alsjeblieft *" rows="4" required data-error="Alsjeblieft stuur ons een bericht."></textarea>
                 <div class="help-block with-errors"></div>
               </div>
             </div>
             <div class="col-md-12">
-              <input type="submit" class="btn btn-success btn-send" value="Send message">
+              <input type="submit" class="btn btn-success btn-send" value="Stuur bericht">
             </div>
           </div>
          
