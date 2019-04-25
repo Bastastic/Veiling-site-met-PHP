@@ -20,7 +20,7 @@
 
             <a class="navbar-brand" href="index.php">
                 <!-- <img src="images/test.jpg"  width="50px" alt=""> -->
-                <p class= > EenmaalAndermaal</p>
+                <p class="lobster" > EenmaalAndermaal</p>
             </a>
 
             <button data-toggle="collapse" data-target="#navbarToggler" type="button"
@@ -30,10 +30,10 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                <a href="inloggen.php"  style="background-color: #44355b" class="btn btn-info" role="button">Inloggen</a>
+                <a href="inloggen.php" class="btn btn-info bg-info" role="button">Inloggen</a>
             </li>
                 <li>
-                <a href="inloggen.html"  style="background-color: #44355b" class="btn btn-info" role="button">Registreren</a>
+                <a href="inloggen.html" class="btn btn-info bg-info" role="button">Registreren</a>
             </li>
 
             </ul>
