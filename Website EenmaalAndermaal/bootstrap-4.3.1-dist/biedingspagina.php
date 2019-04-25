@@ -24,7 +24,9 @@
 <?php include 'includes/header.php'; ?>
 <body>
     
-<div id="demo" class="carousel slide" data-ride="carousel" >
+<div id="demo" class="carousel slide mx-auto my-3" data-ride="carousel" >
+
+    <h1> Titel van de advertentie</h1>
 
   <!-- Indicators -->
   <ul class="carousel-indicators">
