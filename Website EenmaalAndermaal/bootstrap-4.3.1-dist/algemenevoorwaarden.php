@@ -1,27 +1,19 @@
-<!DOCTYPE php>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="semantic.min.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    ></script>
-    <script src="semantic.min.js"></script>
+<head>
+ <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script scr="js/bootstrap.min.js"></script>
+ <link href="css/login.css" rel="stylesheet">
+</head>
+<body>
   </head>
   <body>
-    <?php include('header.php'); ?>
+    <?php include('alt_header.php'); ?>
         <br>
- <div class="ui raised very padded center aligned text container segment">
+  <div class="">
+ <div class="algemeencontainer">
     <embed src="pdf/algemenevoorwaarden.pdf" width="100%" height="100%" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
   </div>
-  <br>
-  <br>
+</div>
 </body>
 <footer>
         <?php include('footer.php'); ?>
