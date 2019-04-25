@@ -16,7 +16,7 @@
   }
 
   .carousel {
-  width:60%;
+  width:100%;
   height:auto;
 }
   </style>
@@ -24,18 +24,16 @@
 <?php include 'includes/header.php'; ?>
 <body>
     
-<div id="demo" class="carousel slide mx-auto my-3" data-ride="carousel" >
+<div class= "container my-3"> 
+<h1> Titel van de advertentie</h1>
+<div id="demo" class="carousel slide mx-auto" data-ride="carousel" >
 
-    <h1> Titel van de advertentie</h1>
-
-  <!-- Indicators -->
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
 
-  <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Los Angeles" >
@@ -48,13 +46,19 @@
     </div>
   </div>
 
-  <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </a>
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
+</div>
+
+<div class="form-group my-3" witdh="60%">
+  <label for="comment">Omschrijving van de veiling:</label>
+  <textarea class="form-control" rows="5" id="comment" ></textarea>
+</div>
+
 </div>
 
 </body>
