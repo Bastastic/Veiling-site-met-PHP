@@ -20,7 +20,7 @@
 
             <a class="navbar-brand" href="index.php">
                 <!-- <img src="images/test.jpg"  width="50px" alt=""> -->
-                <p class= > EenmaalAndermaal</p>
+                <p class="lobster" > EenmaalAndermaal</p>
             </a>
 
             <button data-toggle="collapse" data-target="#navbarToggler" type="button"
