@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,12 @@
     <title>Home</title>
 </head>
 
-<header>
-    <?php include 'includes/header.php'; ?>
-</header>
+<?php include 'includes/header.php'; ?>
+
 <body>
-    
+
 </body>
 
 <?php include 'includes/footer.php'; ?>
+
 </html>
