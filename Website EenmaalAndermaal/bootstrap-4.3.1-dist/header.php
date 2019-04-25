@@ -8,6 +8,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom/css/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|EB+Garamond|Lobster" rel="stylesheet">
     <title>Index</title>
 </head>
 <header>
@@ -17,7 +20,7 @@
 
             <a class="navbar-brand" href="index.php">
                 <!-- <img src="images/test.jpg"  width="50px" alt=""> -->
-                <p font-size=""> EenmaalAndermaal</p>
+                <p class= > EenmaalAndermaal</p>
             </a>
 
             <button data-toggle="collapse" data-target="#navbarToggler" type="button"
