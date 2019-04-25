@@ -14,7 +14,7 @@ create table Bestand (
 
 create table Bod (
 	Voorwerp			int				not null,
-	Bodbedrag			smallmoney		not null,
+	Bodbedrag			numeric(8,2)	not null,
 	Gebruiker			varchar(25)		not null,
 	BodDag				date			not null,
 	BodTijdstip			time			not null,
@@ -82,7 +82,7 @@ create table Voorwerp (
 	Voorwerpnummer			int				not null,
 	Titel					varchar(20)		not null,
 	beschrijving			varchar(2000)	not null,
-	Startprijs				smallmoney		not null,
+	Startprijs				numeric(8,2)	not null,
 	Betalingswijze			varchar(40)		not null,
 	Betalingsinstructie		varchar(200)	null,
 	Plaatsnaam				varchar(50)		not null,
@@ -90,7 +90,7 @@ create table Voorwerp (
 	Looptijd				tinyint			not null,
 	LooptijdbeginDag		date			not null,
 	LooptijdbeginTijdstip	time			not null,
-	Verzendkosten			smallmoney		null,
+	Verzendkosten			numeric(8,2)	null,
 	Verzendinstructies		varchar(200)	null,
 	Verkoper				varchar(25)		not null,
 	Koper					varchar(25)		not null,
