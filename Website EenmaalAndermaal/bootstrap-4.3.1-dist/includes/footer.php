@@ -1,13 +1,5 @@
-<!DOCTYPE php>
-<html>
-<head>
- <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- <script scr="js/bootstrap.min.js"></script>
- <link href="css/footer.css" rel="stylesheet">
-</head>
-<body>
+<link rel="stylesheet" href="css/footer.css">
 
-</body>
 <footer>
 <div class="container">
         <div class="row">
@@ -53,7 +45,7 @@
                         <textarea class="form-control" id="exampleMessage" placeholder="Message"></textarea>
                     </fieldset>
                     <fieldset class="form-group text-xs-right">
-                        <button type="button" class="btn btn-secondary-outline btn-lg">Send</button>
+                        <button type="button" class="btn btn-primary btn-lg">Send</button>
                     </fieldset>
                 </form>
             </div>
@@ -66,4 +58,3 @@
         </div>
     </div>
 </footer>
-</html>
