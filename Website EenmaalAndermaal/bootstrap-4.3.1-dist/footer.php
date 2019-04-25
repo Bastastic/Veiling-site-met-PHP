@@ -11,8 +11,8 @@
 <footer>
 <div class="container">
         <div class="row">
-            <div class="col-md-5">
-                <h5><i class="fa fa-road"></i> ACME CO INC.</h5>
+            <div class="col-md-2">
+                <h5><i class="fa fa-road"></i> EenmaalAndermaal</h5>
                 <div class="row">
                     <div class="col-6">
                         <ul class="list-unstyled">
@@ -30,6 +30,7 @@
                             <li><a href="">About</a></li>
                         </ul>
                     </div>
+                    
                 </div>
                 <ul class="nav">
                     <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
@@ -55,6 +56,12 @@
                         <button type="button" class="btn btn-secondary-outline btn-lg">Send</button>
                     </fieldset>
                 </form>
+            </div>
+            <div class="col-md-3">
+                <p>EenmaalAndermaal is een bedrijf van iConcepts. Wij hebben de missie om een duurzaam en groen alternatief te bieden aan de monopoly die momenteel heerst op de Nederlandse veilingsmarkten. Onze doelen zijn groen in tegenstelling tot onze grootste concutent.</p>
+            </div>
+            <div class="col-md-10">
+            <p>&copy EenmaalAndermaal - iConcepts 2019</p>
             </div>
         </div>
     </div>
