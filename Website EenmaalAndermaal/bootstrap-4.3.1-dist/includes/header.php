@@ -35,13 +35,6 @@
                         <li>
                             <form>
                                 <div class="form-group mr-2">
-                                    <input type="text" class="form-control " id="postcode" placeholder="Postcode">
-                                </div>
-                            </form>
-                        </li>
-                        <li>
-                            <form>
-                                <div class="form-group mr-2">
                                     <input type="text" class="form-control" id="zoek" placeholder="Zoek product">
                                 </div>
                             </form>
@@ -56,6 +49,13 @@
                                     <option>categorie 4</option>
                                 </select>
                             </div>
+                        </li>
+                        <li>
+                            <form>
+                                <div class="form-group mr-2">
+                                    <input type="text" class="form-control " id="postcode" placeholder="Postcode">
+                                </div>
+                            </form>
                         </li>
                         <li>
                             <div class="col-xs-3">
