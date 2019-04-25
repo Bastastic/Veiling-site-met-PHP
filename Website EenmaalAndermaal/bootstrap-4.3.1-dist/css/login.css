@@ -5,7 +5,7 @@
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+.inlogbalk {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -15,7 +15,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.inlogbutton {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -26,7 +26,7 @@ button {
 }
 
 /* Add a hover effect for buttons */
-button:hover {
+button:hover.inlogbutton {
     opacity: 0.8;
 }
 
@@ -53,14 +53,14 @@ img.avatar {
 }
 
 /* The "Forgot password" text */
-span.psw {
+span.password {
     float: right;
  
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
-    span.psw {
+    span.password {
         display: block;
         float: none;
     }
