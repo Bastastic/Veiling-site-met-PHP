@@ -1,10 +1,4 @@
-use master
-
-drop database EenmaalAndermaal
-
-create database	EenmaalAndermaal
-
-use EenmaalAndermaal
+use iproject15
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
