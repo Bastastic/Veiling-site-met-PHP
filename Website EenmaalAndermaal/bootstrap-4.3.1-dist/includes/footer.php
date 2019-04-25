@@ -3,7 +3,7 @@
 <footer>
 <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col">
                 <h5><i class="fa fa-road"></i> EenmaalAndermaal</h5>
                 <div class="row">
                     <div class="col-6">
@@ -24,14 +24,14 @@
                     </div>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-facebook fa-lg"></i></a></li>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
                 </ul>
                 <br>
             </div>
-            <div class="col-md-5">
+            <div class="col">
                 <form>
                     <fieldset class="form-group">
                         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
@@ -44,7 +44,7 @@
                     </fieldset>
                 </form>
             </div>
-            <div class="col-md-3">
+            <div class="col">
                 <p>EenmaalAndermaal is een bedrijf van iConcepts. Wij hebben de missie om een duurzaam en groen alternatief te bieden aan de monopoly die momenteel heerst op de Nederlandse veilingsmarkten. Onze doelen zijn groen in tegenstelling tot onze grootste concutent.</p>
             </div>
             <div class="col-md-10">
