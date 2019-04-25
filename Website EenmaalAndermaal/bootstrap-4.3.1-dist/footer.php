@@ -1,39 +1,67 @@
-<!DOCTYPE html>
+<!DOCTYPE php>
+<html>
+<head>
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <link href="css/footer.css" rel="stylesheet" id="footer-css">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
 <footer>
-  <div class="ui inverted orange vertical footer segment">
-    <!-- Orange moet Tetary kleur zijn  -->
-    <div class="ui container">
-      <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="three wide column">
-          <h4 class="ui inverted header">EenmaalAndermaal</h4>
-          <div class="ui inverted link list">
-            <a href="" class="item">Sitemap</a>
-            <a href="" class="item">Contact</a>
-            <a href="" class="item">Over ons</a>
-            <a href="" class="item">Vaak gevraagde vragen</a>
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Catogoriën</h4>
-          <div class="ui inverted link list">
-            <a href="" class="item">Kleding</a>
-            <a href="" class="item">Meubels</a>
-            <a href="" class="item">Game's en Spelcomputers</a>
-            <a href="" class="item">Dieren</a>
-          </div>
-        </div>
-        <div class="seven wide column">
-          <h4 class="ui inverted header">Footer Header</h4>
-          <p>EenmaalAndermaal is een concept van iConcepts. Gemaakt door de beste studenten van de Hogeschool Arnhem
-            Nijmegen, de Polobeertjes</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+						<li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				</hr>
+			</div>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+					<p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+				</div>
+				</hr>
+			</div>	
+		</div>
+	</section>
 </footer>
+</html>
