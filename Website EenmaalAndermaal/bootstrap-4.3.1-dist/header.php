@@ -14,7 +14,7 @@
     <title>Index</title>
 </head>
 <header>
-    <div id="Top-Header" style="background-color: #ffad4f">
+    <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
         <nav class="navbar navbar-dark navbar-expand-md">
 
@@ -30,10 +30,10 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                <a href="inloggen.php" class="btn btn-info bg-info" role="button">Inloggen</a>
+                <a href="inloggen.php"  class="btn btn-secondary" role="button">Inloggen</a>
             </li>
                 <li>
-                <a href="inloggen.html" class="btn btn-info bg-info" role="button">Registreren</a>
+                <a href="inloggen.html" class="btn btn-primary" role="button">Registreren</a>
             </li>
 
             </ul>
