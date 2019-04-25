@@ -18,7 +18,7 @@
                             <a href="inloggen.php" class="btn btn-secondary ml-2" role="button">Inloggen</a>
                         </li>
                         <li class="nav-item">
-                            <a href="inloggen.html" class="btn btn-primary ml-2" role="button">Registreren</a>
+                            <a href="registreren.php" class="btn btn-primary ml-2" role="button">Registreren</a>
                         </li>
 
                     </ul>
