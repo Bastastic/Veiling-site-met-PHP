@@ -53,7 +53,8 @@ create table Gebruiker (
 	Antwoordtext		varchar(100)	not null, /* hashed */
 	Verkoper			bit				not null
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
-	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE())
+	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
+	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
 
 )
 
@@ -69,8 +70,10 @@ create table Rubriek (
 	Rubrieknummer		smallint		not null,
 	Rubrieknaam			varchar(50)		not null,
 	Hoofdrubriek		smallint		null,
-	volgnr				smallint		not null,
-	constraint PK_Rubriek primary key (rubrieknummer)
+	Volgnr				smallint		not null,
+	constraint PK_Rubriek primary key (rubrieknummer),
+	constraint CK_Volgnr check (Volgnr <> Rubrieknummer),
+	constraint CK_Hoofdrubriek check (Hoofdrubriek <> Rubrieknummer)
 )
 
 create table Verkoper (
