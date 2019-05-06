@@ -6,6 +6,7 @@ create database iproject15
 
 use iproject15
 
+
 create table Bestand (
 	Filenaam			varchar(200)	not null,
 	Voorwerp			int				not null,
@@ -67,7 +68,7 @@ create table Gebruikerstelefoon (
 
 create table Rubriek (
 	Rubrieknummer		smallint		not null,
-	Rubrieknaam			varchar(24)		not null,
+	Rubrieknaam			varchar(50)		not null,
 	Hoofdrubriek		smallint		null,
 	volgnr				smallint		not null,
 	constraint PK_Rubriek primary key (rubrieknummer)
