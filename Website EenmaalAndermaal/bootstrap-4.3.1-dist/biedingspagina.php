@@ -52,7 +52,7 @@
 
             <script>
                 // Set the date we're counting down to
-                var countDownDate = new Date("May 6, 2019 12:42:50").getTime();
+                var countDownDate = new Date("May 6, 2019 14:53:50").getTime();
 
                 // Update the count down every 1 second
                 var x = setInterval(function () {
