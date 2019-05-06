@@ -1,4 +1,4 @@
-use iproject15
+USE iproject15;
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
