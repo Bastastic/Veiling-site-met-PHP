@@ -5,14 +5,13 @@
                 <div class="row justify-content-between">
                     <div class="col-3">
                         <a class="navbar-brand" href="index.php">
-                            <img src="images/LogoWit.png" class="w-100 " alt="">
+                            <img src="images/LogoWit.png" class="w-100" alt="">
                         </a>
                     </div>
-                    <div class="col">
+                    <div class="col align-self-center">
                         <div class="row">
                                 <a href="inloggen.php" class="btn btn-secondary" role="button">Inloggen</a>
                                 <a href="registreren.php" class="btn btn-primary" role="button">Registreren</a>
-                                
                         </div>
                     </div>
                     <button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler">
