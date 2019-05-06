@@ -32,6 +32,46 @@
 
     <div class="container my-3">
         <h1> Titel van de advertentie</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
 
             <ul class="carousel-indicators">
@@ -63,8 +103,9 @@
         <div class="form-group my-3">
 
             <h2>Omschrijving van de veiling</h2>
-            <textarea class="form-control " rows="10" id="comment"></textarea>
-
+            <small>
+            Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. 
+            </small>
             <div class="row">
             <div class=" my-3 w-50">
                 <h2>Biedingen</h2>
