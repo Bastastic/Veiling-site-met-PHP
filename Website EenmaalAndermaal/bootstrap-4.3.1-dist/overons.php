@@ -1,20 +1,16 @@
 <!DOCTYPE html>
+<html lang="nl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php include 'includes/links.php'; ?>
     <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Narrow Jumbotron Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../css/editor.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="narrow-jumbotron.css" rel="stylesheet">
+    <title>Over ons</title>
   </head>
-  <?php include('alt_header.php'); ?>
+  <?php
+     include 'includes/header.php'; 
+    ?>
   <body style="overflow-x:hidden">
       <div class="jumbotron">
         <h1 class="display-3">Over ons</h1>
