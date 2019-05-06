@@ -1,3 +1,9 @@
+use master
+
+drop database iproject15
+
+create database iproject15
+
 use iproject15
 
 create table Bestand (
@@ -62,9 +68,9 @@ create table Gebruikerstelefoon (
 create table Rubriek (
 	Rubrieknummer		smallint		not null,
 	Rubrieknaam			varchar(24)		not null,
-	Rubriek				smallint		null,
-	Volgnr				smallint		not null
-	constraint PK_Rubriek primary key (Rubrieknummer)
+	Hoofdrubriek		smallint		null,
+	volgnr				smallint		not null,
+	constraint PK_Rubriek primary key (rubrieknummer)
 )
 
 create table Verkoper (
@@ -143,7 +149,7 @@ alter table Gebruikerstelefoon
 			on update no action on delete no action
 
 alter table Rubriek
-	add constraint FK_Rubriek_Ref_Rubrieknummer foreign key (Rubriek)
+	add constraint FK_Rubriek_Ref_Rubrieknummer foreign key (Hoofdrubriek)
 			references Rubriek (Rubrieknummer)
 			on update no action on delete no action
 
