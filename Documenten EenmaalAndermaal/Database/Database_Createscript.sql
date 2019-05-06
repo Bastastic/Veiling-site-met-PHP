@@ -69,6 +69,7 @@ create table Rubriek (
 	Rubrieknummer		smallint		not null,
 	Rubrieknaam			varchar(24)		not null,
 	Hoofdrubriek		smallint		null,
+	volgnr				smallint		not null,
 	constraint PK_Rubriek primary key (rubrieknummer)
 )
 
