@@ -29,6 +29,15 @@
         font-size: 20px;
         margin-top: 0px;
     }
+
+    .biedbutton{
+        background-color: #ff814f;
+        color : #ffffff;
+    }
+
+    .biedbutton:hover {
+        color : black;
+    }
 </style>
 
 <?php include 'includes/header.php'; ?>
@@ -43,7 +52,7 @@
 
             <script>
                 // Set the date we're counting down to
-                var countDownDate = new Date("May 6, 2019 12:42:50").getTime();
+                var countDownDate = new Date("May 6, 2019 14:53:50").getTime();
 
                 // Update the count down every 1 second
                 var x = setInterval(function () {
@@ -63,7 +72,7 @@
                     // Output the result in an element with id="tijd"
                     document.getElementById("tijd").innerHTML = days + "d " + hours + "u " +
                         minutes + "m " + seconds + "s ";
-                    
+
 
                     // If the count down is over, write some text 
                     if (distance < 0) {
@@ -81,6 +90,9 @@
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
                 <li data-target="#demo" data-slide-to="1"></li>
                 <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+                <li data-target="#demo" data-slide-to="5"></li>
             </ul>
 
             <div class="carousel-inner">
@@ -92,6 +104,15 @@
                 </div>
                 <div class="carousel-item">
                     <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="New York">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
                 </div>
             </div>
 
@@ -118,7 +139,7 @@
                 dui quis mi consectetuer lacinia.
             </small>
             <div class="row">
-                <div class=" my-3 w-50">
+                <div class="form-group my-3 w-50">
                     <h2>Biedingen</h2>
                     <table class="table table-hover">
                         <thead>
@@ -147,11 +168,23 @@
                         </tbody>
                     </table>
                 </div>
-                <div class=" ml-3 my-3">
-                    <h2>Doe een bod!</h2>
-                    <textarea class="form-control " rows="1" id="bod"></textarea>
-                    <input type="submit" class="btn btn-info my-3" value="Bied!">
+                <div class="mx-auto my-3">
+                    <h2>Bieden</h2>
+                    
+                    <div class="input-group mb-3">
+                    <input type="text" class="form-control my-4" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1">
+                        <div class="input-group-prepend my-4">
+                            <input  type="submit" class="btn biedbutton" value="Bied">
+                        </div>
+                        
+                    </div>
+                
+            
                 </div>
+            
+            
+            
             </div>
         </div>
 
