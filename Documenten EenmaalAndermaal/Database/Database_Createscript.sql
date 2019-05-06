@@ -14,7 +14,8 @@ create table Bod (
 	BodTijdstip			time			not null,
 	constraint PK_Bod primary key (Voorwerp, Bodbedrag),
 	constraint AK_VoorwerpBodDatum unique (Voorwerp, BodDag, BodTijdstip),
-	constraint AK_GebruikerBodDatum unique (Gebruiker, BodDag, BodTijdstip)
+	constraint AK_GebruikerBodDatum unique (Gebruiker, BodDag, BodTijdstip),
+	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00)
 )
 
 create table Feedback (
@@ -45,14 +46,17 @@ create table Gebruiker (
 	Vraag				tinyint			not null,
 	Antwoordtext		varchar(100)	not null, /* hashed */
 	Verkoper			bit				not null
-	constraint PK_Gebruiker primary key (gebruikersnaam)
+	constraint PK_Gebruiker primary key (Gebruikersnaam),
+	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE())
+
 )
 
 create table Gebruikerstelefoon (
 	Volgnr				tinyint			not null,
 	Gebruiker			varchar(25)		not null,
 	Telefoon			varchar(15)		not null
-	constraint PK_Gebruikerstelefoon primary key (volgnr, Gebruiker)
+	constraint PK_Gebruikerstelefoon primary key (Volgnr, Gebruiker),
+	constraint CK_Telefoon_corr check (Telefoon LIKE '+%')
 )
 
 create table Rubriek (
@@ -60,7 +64,7 @@ create table Rubriek (
 	Rubrieknaam			varchar(24)		not null,
 	Rubriek				smallint		null,
 	Volgnr				smallint		not null
-	constraint PK_Rubriek primary key (rubrieknummer)
+	constraint PK_Rubriek primary key (Rubrieknummer)
 )
 
 create table Verkoper (
@@ -75,7 +79,7 @@ create table Verkoper (
 create table Voorwerp (
 	Voorwerpnummer			int				not null,
 	Titel					varchar(20)		not null,
-	beschrijving			varchar(2000)	not null,
+	Beschrijving			varchar(2000)	not null,
 	Startprijs				numeric(8,2)	not null,
 	Betalingswijze			varchar(40)		not null,
 	Betalingsinstructie		varchar(200)	null,
@@ -92,7 +96,8 @@ create table Voorwerp (
 	LooptijdeindeTijdstip	time			not null,
 	VeiligGesloten			bit				not null,
 	Verkoopprijs			smallmoney		null
-	constraint PK_Voorwerp primary key (Voorwerpnummer)
+	constraint PK_Voorwerp primary key (Voorwerpnummer),
+	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00)
 )
 
 create table Voorwerp_in_Rubriek (
