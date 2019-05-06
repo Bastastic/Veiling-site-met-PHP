@@ -6,6 +6,7 @@ create database iproject15
 
 use iproject15
 
+
 create table Bestand (
 	Filenaam			varchar(200)	not null,
 	Voorwerp			int				not null,
