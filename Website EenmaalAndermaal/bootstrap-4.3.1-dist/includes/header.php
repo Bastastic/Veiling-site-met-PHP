@@ -1,24 +1,19 @@
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
-            <nav class="navbar navbar-dark navbar-expand-md">
-                <div class="row">
-                    <div class="col-3">
+            <nav class="navbar navbar-dark navbar-expand-md static-top">
+                <div class="row w-100">
+                    <div class="col">
                         <a class="navbar-brand" href="index.php">
-                            <img src="images/LogoWit.png" class="w-100 " alt="">
+                            <img src="images/LogoWit.png" style="width: 120px" alt="">
                         </a>
                     </div>
                     <div class="col align-self-center">
-                        <div class="row">
-                            <div class="col">
+                        <div class="row  float-right">
                                 <a href="inloggen.php" class="btn btn-secondary" role="button">Inloggen</a>
-                            </div>
-                            <div class="col">
                                 <a href="registreren.php" class="btn btn-primary" role="button">Registreren</a>
-                            </div>
                         </div>
                     </div>
-
                     <button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler">
                         <span class="navbar-toggler-icon"></span>
                     </button>
