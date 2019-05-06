@@ -17,7 +17,7 @@
     <div class="col-sm">
     <h4 class="text-center">Antiek en Kunst</h4>
     <ul class="list-styled">
-    <li>Antiek
+    <li>Antiek</li>
         <ul>
             <li>Gebruikersvoorwerpen</li>
             <li>Meubels</li>
