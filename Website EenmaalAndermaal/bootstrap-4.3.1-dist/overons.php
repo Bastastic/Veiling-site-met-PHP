@@ -8,6 +8,12 @@
     <link rel="icon" href="../../../../favicon.ico">
     <title>Over ons</title>
   </head>
+  <style>
+  img{
+      border-radius:5px;
+      border: 3px solid #ff814f;
+  }
+  </style>
   <?php
      include 'includes/header.php'; 
     ?>

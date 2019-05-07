@@ -12,8 +12,27 @@
      include 'includes/header.php'; 
     ?>
 <body style="overflow-x:hidden">
+<div class="row">
+            
+        <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+<div class="row">
 <div class="col-xs-12 col-sm-6 col-md-6 bg-primary text-white" style="padding-top: 20px;">.bg-primary
-      <div class="column is-5">
+<div class="card-body text-center">
         <div class="item-seller">
           <div class="seller-main-details">
             <span class="seller-name">Piet Jansen</span>
@@ -36,7 +55,6 @@
               <span>Stuur Piet een bericht</span>
             </a>
           </div>
-        </div>
         <div class="item-bids">
           <div class="item-bid-top">
             <div class="columns">
@@ -85,9 +103,11 @@
                 </div>
               </div>
             </div>
+        </div>
 
           </div>
         </div>
       </div>
     </div>
+</div>
 </body>
