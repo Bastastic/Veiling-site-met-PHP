@@ -99,6 +99,10 @@ create table Voorwerp (
 	Voorwerpnummer			int				not null,
 	Titel					varchar(50)		not null,
 	Beschrijving			varchar(2000)	not null,
+	Kleur					varchar(20)		null,
+	Afmeting				varchar(20)		null,
+	Merk					varchar(20)		null,
+	Conditie				varchar(20)		not null,
 	Startprijs				numeric(8,2)	not null,
 	Betalingswijze			varchar(40)		not null,
 	Betalingsinstructie		varchar(200)	null,
@@ -116,7 +120,8 @@ create table Voorwerp (
 	VeiligGesloten			bit				not null,
 	Verkoopprijs			smallmoney		null
 	constraint PK_Voorwerp primary key (Voorwerpnummer),
-	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00)
+	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00),
+	constraint CK_Conditie	CHECK (Conditie IN ('zgan', 'gebruikt', 'gebruikersporen', 'kapot')),
 )
 
 create table Voorwerp_in_Rubriek (

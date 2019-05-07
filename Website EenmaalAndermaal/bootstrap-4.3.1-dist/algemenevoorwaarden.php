@@ -7,7 +7,7 @@
 <body>
   </head>
   <body>
-    <?php include('alt_header.php'); ?>
+    <?php include('includes/header.php'); ?>
         <br>
   <div class="">
  <div class="algemeencontainer">
@@ -16,7 +16,7 @@
 </div>
 </body>
 <footer>
-        <?php include('footer.php'); ?>
+        <?php include('includes/footer.php'); ?>
 </footer>
 </html>
   
