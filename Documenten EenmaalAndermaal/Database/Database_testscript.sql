@@ -5,9 +5,9 @@ delete Bod
 delete Feedback
 delete Voorwerp
 delete Verkoper
-delete Gebruiker
 delete Gebruikerstelefoon
-delete Rubriek
+delete Gebruiker
+--delete Rubriek
 delete Voorwerp_in_Rubriek
 delete Vraag
 
@@ -63,26 +63,26 @@ insert into Gebruiker values
 	('DioBrando2', 'ING', 'INGB-123-414234-231', 'iDeal', null)
 
 insert into Voorwerp values
-	(125325126, 'JoJo t-shirt', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(723273823, 'Mooie auto', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(214783973, 'Dikke BWM', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(712430294, 'Schep', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(930840283, 'PS4', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(234923943, 'Nintendo switch', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(234892383, 'PS3', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(123983293, 'xbox 360', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(293289033, 'Motorola G', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(234988433, 'Vodafone Smart 2', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(293297323, 'grasmaaier', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(102930892, 'Bestek', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(239482333, 'Mok (batman)', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(238749329, 'Mooie bankestel', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(234923894, 'Tafel', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(234938433, 'theekopjes', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(134783472, 'Schilderij (mona lisa)', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(234983488, 'tulpenbollen', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(234234792, 'Rolschaatsen', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	(388348392, 'Skateboard', 'Bring out your inner weeb', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null)
+	(125325126, 'JoJo t-shirt', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(723273823, 'Mooie auto', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(214783973, 'Dikke BWM', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(712430294, 'Schep', 'Bring out your inner weeb', null, null, null, 'zgan', 20 , 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(930840283, 'PS4', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(234923943, 'Nintendo switch', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(234892383, 'PS3', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(123983293, 'xbox 360', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(293289033, 'Motorola G', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(234988433, 'Vodafone Smart 2', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(293297323, 'grasmaaier', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(102930892, 'Bestek', 'Bring out your inner weeb', null, null, null,'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(239482333, 'Mok (batman)', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(238749329, 'Mooie bankestel', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(234923894, 'Tafel', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(234938433, 'theekopjes', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(134783472, 'Schilderij (mona lisa)', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(234983488, 'tulpenbollen', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(234234792, 'Rolschaatsen', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	(388348392, 'Skateboard', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null)
 
 
 insert into Bestand values
