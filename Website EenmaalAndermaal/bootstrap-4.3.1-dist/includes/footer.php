@@ -16,10 +16,9 @@
                     </div>
                     <div class="col-6">
                         <ul class="list-unstyled">
-                            <li><a href="">Documentation</a></li>
-                            <li><a href="">Support</a></li>
-                            <li><a href="">Legal Terms</a></li>
-                            <li><a href="">About</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="algemenevoorwaarden.php">Algemene Voorwaarden</a></li>
+                            <li><a href="overons.php">Over Ons</a></li>
                         </ul>
                     </div>
                 </div>
