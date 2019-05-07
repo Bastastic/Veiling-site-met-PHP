@@ -25,7 +25,7 @@
     <div id="Lower-Header" style="background-color: #e8e8e8">
         <div class="container">
             <nav class="navbar navbar-dark navbar-expand-md">
-                <div class="collapse navbar-collapse justify-content-center" id="navbarToggler">
+                <div class="collapse navbar-collapse justify-content-center mt-3" id="navbarToggler">
                     <ul class="navbar-nav">
                         <li>
                             <form>
