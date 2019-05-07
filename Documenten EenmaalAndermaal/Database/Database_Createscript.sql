@@ -1,11 +1,21 @@
-use master
-
-drop database iproject15
-
-create database iproject15
-
 use iproject15
 
+/*
+drop table Bestand
+drop table Bod
+drop table Feedback
+drop table Gebruikerstelefoon
+drop table Voorwerp_in_Rubriek
+drop table Voorwerp
+drop table Verkoper
+drop table Gebruiker
+drop table Gebruikerstelefoon
+drop table Rubriek
+drop table Verkoper
+drop table Voorwerp
+drop table Voorwerp_in_Rubriek
+drop table Vraag
+*/
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
@@ -22,7 +32,8 @@ create table Bod (
 	constraint PK_Bod primary key (Voorwerp, Bodbedrag),
 	constraint AK_VoorwerpBodDatum unique (Voorwerp, BodDag, BodTijdstip),
 	constraint AK_GebruikerBodDatum unique (Gebruiker, BodDag, BodTijdstip),
-	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00)
+	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00),
+	constraint CK_Boddag_curr check (BodDag <= GETDATE())
 )
 
 create table Feedback (
@@ -54,8 +65,8 @@ create table Gebruiker (
 	Antwoordtext		varchar(100)	not null, /* hashed */
 	Verkoper			bit				not null
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
-	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE())
-
+	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
+	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
 )
 
 create table Gebruikerstelefoon (
@@ -70,8 +81,9 @@ create table Rubriek (
 	Rubrieknummer		smallint		not null,
 	Rubrieknaam			varchar(50)		not null,
 	Hoofdrubriek		smallint		null,
-	volgnr				smallint		not null,
-	constraint PK_Rubriek primary key (rubrieknummer)
+	Volgnr				smallint		not null,
+	constraint PK_Rubriek primary key (rubrieknummer),
+	constraint CK_Hoofdrubriek check (Hoofdrubriek <> Rubrieknummer)
 )
 
 create table Verkoper (
@@ -85,7 +97,7 @@ create table Verkoper (
 
 create table Voorwerp (
 	Voorwerpnummer			int				not null,
-	Titel					varchar(20)		not null,
+	Titel					varchar(50)		not null,
 	Beschrijving			varchar(2000)	not null,
 	Startprijs				numeric(8,2)	not null,
 	Betalingswijze			varchar(40)		not null,
@@ -115,7 +127,7 @@ create table Voorwerp_in_Rubriek (
 
 create table Vraag (
 	Vraagnummer					tinyint			not null,
-	Tekst_vraag					varchar(30)		not null
+	Tekst_vraag					varchar(100)	not null
 	constraint PK_Vraag primary key (Vraagnummer)
 )
 
