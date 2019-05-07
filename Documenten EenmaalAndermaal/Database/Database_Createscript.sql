@@ -67,7 +67,6 @@ create table Gebruiker (
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
 	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
 	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
-
 )
 
 create table Gebruikerstelefoon (
@@ -84,7 +83,6 @@ create table Rubriek (
 	Hoofdrubriek		smallint		null,
 	Volgnr				smallint		not null,
 	constraint PK_Rubriek primary key (rubrieknummer),
-	constraint CK_Volgnr check (Volgnr <> Rubrieknummer),
 	constraint CK_Hoofdrubriek check (Hoofdrubriek <> Rubrieknummer)
 )
 
