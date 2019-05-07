@@ -10,37 +10,36 @@
 </head>
 
 <style>
-    #demo {
+    /* #demo {
         height: 50%;
         width: 50%;
         float: left;
-    }
+    } */
 
     .carousel-inner img {
         width: 100%;
         height: 100%;
     }
 
-    .row {
-        padding-left:2.5%;
-        padding-top:1%;
-    }
-    .row h2{
+    /* .row {
+        padding-left: 2.5%;
+        padding-top: 1%;
+    } */
+
+    .row h2 {
         font-family: Lobster;
     }
-    #ad{
-        padding-top:1%;
-        padding-right:1%;
-    }
+
     #ad img {
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
     }
-    #ad{
-        color:white;
-        background-color:#ff814f;
+
+    #ad {
+        color: white;
+        background-color: #ff814f;
         font-family: Lobster;
-        padding-left:1%;
+        padding-left: 1%;
     }
 </style>
 
@@ -52,11 +51,8 @@
 
     <div class="container">
         <div class="row align-items-start">
-            <div class="col">
-                <div class="advertisment-text-header">
-                    <h1>Uitgelicht</h1>
-                </div>
-                <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
+            <div class="col-lg-7">
+                <div id="demo" class="carousel slide mt-3" data-ride="carousel">
                     <ul class="carousel-indicators">
                         <li data-target="#demo" data-slide-to="0" class="active"></li>
                         <li data-target="#demo" data-slide-to="1"></li>
@@ -93,8 +89,8 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
-                <!-- Description first advertisement -->
-                <div class="row">
+            </div>
+            <div class="col-lg-5 mt-2">
                     <h2>Omschrijving van de veiling</h2>
                     <small>
                         Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
@@ -116,99 +112,94 @@
                         dui quis mi consectetuer lacinia.
                     </small>
                 </div>
+        </div>
+        <div class="row mt-5">
+            <!-- first column from 1st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- second column from 1st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- third column from 1st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- fourth column from 1st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- first column 2st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- second column 2st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- third column 2st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- fourth row 2st row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- first row 3th row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- second column 3th row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- third column 3th row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
+            <!-- fourth column 3th row -->
+            <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
             </div>
         </div>
-  <div class="row align-items-start">
-  <!-- first column from 1st row -->
-    <div class="col">
-      <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
     </div>
-    </div>
-    <!-- second column from 1st row -->
-    <div class="col">
-        <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- third column from 1st row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- fourth column from 1st row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-  </div>
-  <div class="row align-items-center">
-  <!-- first column 2st row -->
-  <div class="col">
-      <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- second column 2st row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- third column 2st row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- fourth row 2st row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-  </div>
-  <div class="row align-items-end">
-  <!-- first row 3th row -->
-  <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- second column 3th row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- third column 3th row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-    <!-- fourth column 3th row -->
-    <div class="col">
-    <div id="ad">
-        <img src="images/placeholder.png" alt="Responsive image">
-        <p>Advertentie titel</p>
-    </div>
-    </div>
-  </div>
-</div>
 
 
 </body>

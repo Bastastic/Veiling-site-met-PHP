@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include 'includes/links.php'; ?>
     <title>Biedingspagina</title>
+    
 </head>
 
 <style>
@@ -25,10 +26,7 @@
         resize: none;
     }
 
-    p {
-        font-size: 20px;
-        margin-top: 0px;
-    }
+    
 
     .biedbutton{
         background-color: #ff814f;
@@ -45,45 +43,8 @@
 <body>
 
     <div class="container my-3">
-        <h1> Titel van de advertentie</h1>
-
-        <div>
-            <p id="tijd"></p>
-
-            <script>
-                // Set the date we're counting down to
-                var countDownDate = new Date("May 6, 2019 14:53:50").getTime();
-
-                // Update the count down every 1 second
-                var x = setInterval(function () {
-
-                    // Get todays date and time
-                    var now = new Date().getTime();
-
-                    // Find the distance between now and the count down date
-                    var distance = countDownDate - now;
-
-                    // Time calculations for days, hours, minutes and seconds
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    // Output the result in an element with id="tijd"
-                    document.getElementById("tijd").innerHTML = days + "d " + hours + "u " +
-                        minutes + "m " + seconds + "s ";
-
-
-                    // If the count down is over, write some text 
-                    if (distance < 0) {
-                        clearInterval(x);
-                        document.getElementById("tijd").innerHTML = "Veling gesloten!";
-                    }
-
-                }, 1000);
-            </script>
-
-        </div>
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8">
         <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -121,8 +82,8 @@
             </a>
         </div>
         <div class="form-group my-3">
-            <h2>Omschrijving van de veiling</h2>
-            <small>
+        <h2>Jojo T-Shirt</h2>
+            <p>
                 Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
                 adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
                 Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis
@@ -132,10 +93,33 @@
                 mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit
                 fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac
                 dui quis mi consectetuer lacinia.
-            </small>
-            <div class="row mt-3">
+</p>
+
+        </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="col">
-                    <h2>Biedingen</h2>
+                    <p><h4>Henk Knol</h4>
+                    <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
+                    Rating 4,5 van de 5</p>
+                    <hr><h6>Omgeving Apeldoorn</h6>
+                    
+                    <div class="row  float-right">
+                                <a href="" class="btn btn-secondary" role="button">Chatten</a>
+                                &nbsp; &nbsp;
+                                <a href="" class="btn btn-primary" role="button">Meer van Henk</a>
+    
+                        </div>
+                        <br><br>
+                        <hr>
+                    <h4>Biedingen</h4>
+                    <div class="input-group mb-3">
+                    <input type="text" class="form-control my-4" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1">
+                        <div class="input-group-prepend my-4">
+                            <input  type="submit" class="btn biedbutton" value="Bied">
+                        </div>          
+                    </div>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -147,37 +131,31 @@
                         <tbody>
                             <tr>
                                 <td>John</td>
-                                <td>700</td>
+                                <td>€700,49</td>
                                 <td>john@example.com</td>
                             </tr>
                             <tr>
                                 <td>Mary</td>
-                                <td>600</td>
+                                <td>€600,13</td>
                                 <td>mary@example.com</td>
                             </tr>
                             <tr>
                                 <td>July</td>
-                                <td>500</td>
+                                <td>€530,61</td>
                                 <td>july@example.com</td>
                             </tr>
                         </tbody>
-                    </table>
-                </div>
-                <div class="col">
-                    <h2>Bieden</h2>      
-                    <div class="input-group mb-3">
-                    <input type="text" class="form-control my-4" placeholder="" aria-label=""
-                            aria-describedby="basic-addon1">
-                        <div class="input-group-prepend my-4">
-                            <input  type="submit" class="btn biedbutton" value="Bied">
-                        </div>          
-                    </div>
+                    </table>     
+                    
                 </div>
             </div>
+        </div>
+
         </div>
     </div>
 
 </body>
+<footer>
 <?php include 'includes/footer.php'; ?>
-
+</footer>
 </html>
