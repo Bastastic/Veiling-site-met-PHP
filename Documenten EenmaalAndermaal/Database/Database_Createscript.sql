@@ -1,11 +1,21 @@
-use master
-
-drop database iproject15
-
-create database iproject15
-
 use iproject15
 
+/*
+drop table Bestand
+drop table Bod
+drop table Feedback
+drop table Gebruikerstelefoon
+drop table Voorwerp_in_Rubriek
+drop table Voorwerp
+drop table Verkoper
+drop table Gebruiker
+drop table Gebruikerstelefoon
+drop table Rubriek
+drop table Verkoper
+drop table Voorwerp
+drop table Voorwerp_in_Rubriek
+drop table Vraag
+*/
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
