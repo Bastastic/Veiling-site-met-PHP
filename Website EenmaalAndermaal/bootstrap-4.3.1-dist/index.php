@@ -11,6 +11,7 @@
 
 <?php include 'includes/header.php'; ?>
 
+<?php include 'php/connectDB.php'; ?>
 <body>
 
 </body>
