@@ -1,6 +1,6 @@
 use iproject15
 
-/*
+
 drop table Bestand
 drop table Bod
 drop table Feedback
@@ -15,7 +15,7 @@ drop table Verkoper
 drop table Voorwerp
 drop table Voorwerp_in_Rubriek
 drop table Vraag
-*/
+
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
