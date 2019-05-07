@@ -112,8 +112,8 @@
                                 <a href="" class="btn btn-primary" role="button">Meer van Henk</a>
     
                         </div>
-                        <br>
-                        <br>
+                        <br><br>
+                        <hr>
                     <p><h4>Biedingen</h4>
                     <div class="input-group mb-3">
                     <input type="text" class="form-control my-4" placeholder="" aria-label=""
