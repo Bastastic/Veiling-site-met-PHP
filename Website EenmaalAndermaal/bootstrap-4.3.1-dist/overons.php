@@ -13,6 +13,9 @@
       border-radius:5px;
       border: 3px solid #ff814f;
   }
+  hr.style1{
+	border-top: 3px solid #ff814f;
+}
   </style>
   <?php
      include 'includes/header.php'; 
@@ -154,14 +157,13 @@
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            
                       </div>
                    </div>
               </div>
           </div>
       </div>
+      <hr class="style1">
     </div>
-    
     </section>
     
   
