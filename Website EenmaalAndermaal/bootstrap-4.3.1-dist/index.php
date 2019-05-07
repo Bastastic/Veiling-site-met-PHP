@@ -44,8 +44,7 @@
 </style>
 
 <?php include 'includes/header.php'; ?>
-
-<?php include 'php/connectDB.php'; ?>
+<?php require 'php/connectDB.php'; ?>
 
 <body>
 
@@ -91,117 +90,120 @@
                 </div>
             </div>
             <div class="col-lg-5 mt-2">
-                    <h2>Omschrijving van de veiling</h2>
-                    <small>
-                        Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
-                        amet
-                        adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id,
-                        lorem.
-                        Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-                        Nullam quis
-                        ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet
-                        nibh.
-                        Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                        quis
-                        gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque
-                        ut,
-                        mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis
-                        hendrerit
-                        fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                        Curae; In ac
-                        dui quis mi consectetuer lacinia.
-                    </small>
-                </div>
+                <h2>Omschrijving van de veiling</h2>
+                <small>
+                    Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+                    amet
+                    adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id,
+                    lorem.
+                    Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+                    Nullam quis
+                    ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet
+                    nibh.
+                    Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                    quis
+                    gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque
+                    ut,
+                    mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis
+                    hendrerit
+                    fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                    Curae; In ac
+                    dui quis mi consectetuer lacinia.
+                </small>
+            </div>
         </div>
         <div class="row mt-5">
-            <!-- first column from 1st row -->
+            <?php 
+
+                $sql = $dbh->prepare("select top 12 titel from Voorwerp order by titel desc");
+                $sql->execute();
+                $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($result as $key => $value) {
+                    $value = $value['titel'];
+                    echo "<div class='col-lg-3'>
+                    <div id='ad'>
+                        <img src='images/placeholder.png' alt='Responsive image'>
+                        <p>$value</p>
+                    </div>
+                </div>";
+                }
+            ?>
+
+            <!-- <div class="col-lg-3">
+                <div id="ad">
+                    <img src="images/placeholder.png" alt="Responsive image">
+                    <p>Advertentie titel</p>
+                </div>
+            </div>
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- second column from 1st row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- third column from 1st row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- fourth column from 1st row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- first column 2st row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- second column 2st row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- third column 2st row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- fourth row 2st row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- first row 3th row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- second column 3th row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
             </div>
-            <!-- third column 3th row -->
             <div class="col-lg-3">
                 <div id="ad">
                     <img src="images/placeholder.png" alt="Responsive image">
                     <p>Advertentie titel</p>
                 </div>
-            </div>
-            <!-- fourth column 3th row -->
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
+            </div> -->
         </div>
     </div>
-
-
 </body>
 
 <?php include 'includes/footer.php'; ?>

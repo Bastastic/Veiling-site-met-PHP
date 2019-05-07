@@ -17,7 +17,8 @@
     <div class="container">
     <div id='accordion'>
         <?php
-        $sql = $dbh->query("select * from Rubriek");
+        $sql = $dbh->prepare("select * from Rubriek");
+        $sql->execute();
         $resultaat = $sql->fetchAll(PDO::FETCH_NUM);
 
             if ($resultaat) {
@@ -39,7 +40,7 @@
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
                                         <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <a href=''>$rubrieknaam</a>
+                                            <a href='zoeken.php?cat=$rubrieknaam'>$rubrieknaam</a>
                                         </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
@@ -60,7 +61,7 @@
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
                                         <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <a href=''>$rubrieknaam</a>                                        </button>
+                                            <a href='zoeken.php?cat=$rubrieknaam'>$rubrieknaam</a>                                        </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
                                         <ul class='list-unstyled'>
@@ -68,7 +69,7 @@
                         }
                     } else {
                         echo "
-                            <li><a href=''>$rubrieknaam</a></li>
+                            <li><a href='zoeken.php?cat=$rubrieknaam'>$rubrieknaam</a></li>
                         ";
                     }
                 }

@@ -1,20 +1,34 @@
 use iproject15
-
+go
 
 drop table Bestand
+go
 drop table Bod
+go
 drop table Feedback
+go
 drop table Gebruikerstelefoon
+go
 drop table Voorwerp_in_Rubriek
+go
 drop table Voorwerp
+go
 drop table Verkoper
+go
 drop table Gebruiker
+go
 drop table Gebruikerstelefoon
+go
 drop table Rubriek
+go
 drop table Verkoper
+go
 drop table Voorwerp
+go
 drop table Voorwerp_in_Rubriek
+go
 drop table Vraag
+go
 
 
 create table Bestand (
@@ -22,6 +36,7 @@ create table Bestand (
 	Voorwerp			int				not null,
 	constraint PK_Bestand primary key (filenaam)
 )
+go
 
 create table Bod (
 	Voorwerp			int				not null,
@@ -35,6 +50,7 @@ create table Bod (
 	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00),
 	constraint CK_Boddag_curr check (BodDag <= GETDATE())
 )
+go
 
 create table Feedback (
 	Voorwerp			int				not null,
@@ -48,6 +64,7 @@ create table Feedback (
 	constraint CK_Feedback_min check (Feedbacksoort >= 1),
 	constraint CK_Feedback_max check (Feedbacksoort <= 5)
 )
+go
 
 create table Gebruiker (
 	Gebruikersnaam		varchar(25)		not null,
@@ -68,6 +85,7 @@ create table Gebruiker (
 	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
 	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
 )
+go
 
 create table Gebruikerstelefoon (
 	Volgnr				tinyint			not null,
@@ -76,6 +94,7 @@ create table Gebruikerstelefoon (
 	constraint PK_Gebruikerstelefoon primary key (Volgnr, Gebruiker),
 	constraint CK_Telefoon_corr check (Telefoon LIKE '+%')
 )
+go
 
 create table Rubriek (
 	Rubrieknummer		smallint		not null,
@@ -85,6 +104,7 @@ create table Rubriek (
 	constraint PK_Rubriek primary key (rubrieknummer),
 	constraint CK_Hoofdrubriek check (Hoofdrubriek <> Rubrieknummer)
 )
+go
 
 create table Verkoper (
 	Gebruiker			varchar(25)		not null,
@@ -94,9 +114,10 @@ create table Verkoper (
 	Creditcard			varchar(20)		null
 	constraint PK_Verkoper primary key (Gebruiker)
 )
+go
 
 create table Voorwerp (
-	Voorwerpnummer			int				not null,
+	Voorwerpnummer			int				IDENTITY(0,1),
 	Titel					varchar(50)		not null,
 	Beschrijving			varchar(2000)	not null,
 	Kleur					varchar(20)		null,
@@ -123,18 +144,21 @@ create table Voorwerp (
 	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00),
 	constraint CK_Conditie	CHECK (Conditie IN ('zgan', 'gebruikt', 'gebruikersporen', 'kapot')),
 )
+go
 
 create table Voorwerp_in_Rubriek (
 	Voorwerp					int				not null,
 	Rubriek_op_Laagste_Niveau	smallint		not null
 	constraint PK_VoorwerpInRubriek primary key (Voorwerp, Rubriek_op_Laagste_Niveau)
 )
+go
 
 create table Vraag (
 	Vraagnummer					tinyint			not null,
 	Tekst_vraag					varchar(100)	not null
 	constraint PK_Vraag primary key (Vraagnummer)
 )
+go
 
 
 
