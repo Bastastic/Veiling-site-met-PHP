@@ -60,8 +60,8 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Bas</h4>
+                                    <p><img class="img-fluid" src="images/bas-slijkhuis.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Bas Slijkhuis</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -75,8 +75,8 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p><img class=" img-fluid" src="images/erkan-alper.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Erkan Alper</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -90,8 +90,8 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p><img class=" img-fluid" src="images/senad-kurtovic.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Senad Kurtovic</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -105,8 +105,8 @@
                         <div class="frontside">
                             <div class="card" style="padding-top: 0px;">
                                 <div class="card-body text-center" style="padding-top: 20px;">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p><img class=" img-fluid" src="images/peiwand-ismaiel.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Peiwand Ismaiel</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -120,8 +120,8 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p><img class=" img-fluid" src="images/wesley-smeltink.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Wesley Smeltink</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -135,8 +135,8 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
+                                    <p><img class=" img-fluid" src="images/dani-hengeveld.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Dani Hengeveld</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -155,6 +155,7 @@
           </div>
       </div>
     </div>
+    
     </section>
     
   
