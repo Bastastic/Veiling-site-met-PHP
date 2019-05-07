@@ -1,11 +1,21 @@
-use master
-
-drop database iproject15
-
-create database iproject15
-
 use iproject15
 
+/*
+drop table Bestand
+drop table Bod
+drop table Feedback
+drop table Gebruikerstelefoon
+drop table Voorwerp_in_Rubriek
+drop table Voorwerp
+drop table Verkoper
+drop table Gebruiker
+drop table Gebruikerstelefoon
+drop table Rubriek
+drop table Verkoper
+drop table Voorwerp
+drop table Voorwerp_in_Rubriek
+drop table Vraag
+*/
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
@@ -22,7 +32,8 @@ create table Bod (
 	constraint PK_Bod primary key (Voorwerp, Bodbedrag),
 	constraint AK_VoorwerpBodDatum unique (Voorwerp, BodDag, BodTijdstip),
 	constraint AK_GebruikerBodDatum unique (Gebruiker, BodDag, BodTijdstip),
-	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00)
+	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00),
+	constraint CK_Boddag_curr check (BodDag <= GETDATE())
 )
 
 create table Feedback (
@@ -56,7 +67,6 @@ create table Gebruiker (
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
 	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
 	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
-
 )
 
 create table Gebruikerstelefoon (
@@ -73,7 +83,6 @@ create table Rubriek (
 	Hoofdrubriek		smallint		null,
 	Volgnr				smallint		not null,
 	constraint PK_Rubriek primary key (rubrieknummer),
-	constraint CK_Volgnr check (Volgnr <> Rubrieknummer),
 	constraint CK_Hoofdrubriek check (Hoofdrubriek <> Rubrieknummer)
 )
 
