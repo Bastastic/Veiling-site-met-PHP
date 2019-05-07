@@ -15,6 +15,7 @@
 <body>
 <br>
     <div class="container">
+    <div id='accordion'>
         <?php
         $sql = $dbh->query("select * from Rubriek");
         $resultaat = $sql->fetchAll(PDO::FETCH_NUM);
@@ -30,46 +31,39 @@
                     $volgnr = $resultaat[$i][3];
 
                     if ($hoofdrubriek == null) {
-                        // if ($kolommen % 3 == 0) {
-                        //     echo "<div class='col-4'>";
-                        // }
-
                         if ($first == true) {
                             $first = false;
                             $idnaam = $rubrieknummer;
+                            echo "<div class='row'>";
                             echo "
-                            <div id='accordion'>
-                                <div class='card'>
-                                    <div class='card-header' id='h$rubrieknummer'>
-                                        <h5 class='mb-0'>
-                                            <button class='btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            $rubrieknaam
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id='c$rubrieknummer' class='collapse show' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
-                                    <div class='card-body'>
-                                    <ul class='list-unstyled'>
+                            <div class='col-md-4 col-sm-6 col-xs-12'>
+                                    <div class='card rounded-0'>
+                                        <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
+                                            <a href=''>$rubrieknaam</a>
+                                        </button>
+                                        <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
+                                        <div class='card-body'>
+                                        <ul class='list-unstyled'>
                             ";
                         } else {
+                            if ($kolommen % 3 == 0) {
+                                echo "</div><div class='row'>";
+                            }
                             $idnaam = $rubrieknummer;
                             echo "
                             </div>
-                            </div>
                             </ul>
+
                             </div>
-                            <div id='accordion'>
-                                <div class='card'>
-                                    <div class='card-header' id='h$rubrieknummer'>
-                                        <h5 class='mb-0'>
-                                            <button class='btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            $rubrieknaam
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id='c$rubrieknummer' class='collapse show' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
-                                    <div class='card-body'>
-                                    <ul class='list-unstyled'>
+                            </div>
+                            </div>
+                            <div class='col-md-4 col-sm-6 col-xs-12'>
+                                    <div class='card rounded-0'>
+                                        <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
+                                            <a href=''>$rubrieknaam</a>                                        </button>
+                                        <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
+                                        <div class='card-body'>
+                                        <ul class='list-unstyled'>
                             ";
                         }
                     } else {
@@ -86,8 +80,15 @@
 
     </div>
     </div>
-    </ul>
     </div>
+    </div>
+    </ul>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
     <br>
 </body>
 <?php include 'includes/footer.php'; ?>
