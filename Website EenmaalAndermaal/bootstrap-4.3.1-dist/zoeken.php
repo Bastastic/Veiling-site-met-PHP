@@ -17,7 +17,8 @@
         <br>
         <h2>Zoekresultaten</h2>
         <div class="row">
-<div class="col-xs-12 col-sm-6 col-md-6" style="padding-top: 20px;">
+            
+        <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
@@ -26,14 +27,677 @@
                                     <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
                                     <h4>Voetbal westrijd</h4>
                                     <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
-                                    <h5>€500,01 <div id="time1"></div><script src="/js/script.js"></script> </h5>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
                                 </div>
                             </div>
-                      </div>
-                   </div>
-              </div>
-          </div>
-          </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
+                                    <h4>Voetbal westrijd</h4>
+                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
+                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div> 
+
+        
+              
+       </div>
     </div>
 </section>
 </body>
+<?php include 'includes/footer.php'; ?>
+
+</html>
