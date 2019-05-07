@@ -106,6 +106,7 @@
                     <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
                     Rating 4,5 van de 5</p>
                     <hr><h6>Omgeving Apeldoorn</h6>
+                    
                     <div class="row  float-right">
                                 <a href="" class="btn btn-secondary" role="button">Chatten</a>
                                 &nbsp; &nbsp;
