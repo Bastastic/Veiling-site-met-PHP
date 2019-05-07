@@ -12,10 +12,12 @@
      include 'includes/header.php'; 
     ?>
   <body style="overflow-x:hidden">
+  <div class="container">
       <div class="jumbotron">
         <h1 class="display-3">Over ons</h1>
         <p class="lead">Wij zijn EenmaalAndermaal een bedrijf van iConcepts, die een groen alternatief willen bieden op de huidige monopoly markt in Nederland.</p>
         <p><a class="btn btn-lg btn-success" href="#" role="button">Neem contact met ons op</a></p>
+      </div>
       </div>
 
       <div class="container">
