@@ -21,6 +21,24 @@
     }
     .row {
         padding-left:2.5%;
+        padding-top:1%;
+    }
+    .row h2{
+        font-family: Lobster;
+    }
+    #ad{
+        padding-top:1%;
+        padding-right:1%;
+    }
+    #ad img {
+        width:100%;
+        height:100%;
+    }
+    #ad{
+        color:white;
+        background-color:#ff814f;
+        font-family: Lobster;
+        padding-left:1%;
     }
 
 </style>
@@ -46,22 +64,22 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Los Angeles">
+                    <img src="images/placeholder.png" alt="Los Angeles">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
+                    <img src="images/placeholder.png" alt="Chicago">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="New York">
+                    <img src="images/placeholder.png" alt="New York">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
+                    <img src="images/placeholder.png" alt="Chicago">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
+                    <img src="images/placeholder.png" alt="Chicago">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
+                    <img src="images/placeholder.png" alt="Chicago">
                 </div>
             </div>
 
@@ -90,45 +108,93 @@
     </div>
   </div>
   <div class="row align-items-start">
+  <!-- first column from 1st row -->
     <div class="col">
-      One of four columns
+      <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
     </div>
-    <div class="col">
-      One of four columns
     </div>
+    <!-- second column from 1st row -->
     <div class="col">
-      One of four columns
+        <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
     </div>
+    </div>
+    <!-- third column from 1st row -->
     <div class="col">
-      One of four columns
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
+    </div>
+    </div>
+    <!-- fourth column from 1st row -->
+    <div class="col">
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
+    </div>
     </div>
   </div>
   <div class="row align-items-center">
-    <div class="col">
-      One of four columns
+  <!-- first column 2st row -->
+  <div class="col">
+      <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
     </div>
-    <div class="col">
-      One of four columns
     </div>
+    <!-- second column 2st row -->
     <div class="col">
-      One of four columns
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
     </div>
+    </div>
+    <!-- third column 2st row -->
     <div class="col">
-      One of four columns
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
+    </div>
+    </div>
+    <!-- fourth row 2st row -->
+    <div class="col">
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
+    </div>
     </div>
   </div>
   <div class="row align-items-end">
-    <div class="col">
-      One of four columns
+  <!-- first row 3th row -->
+  <div class="col">
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
     </div>
-    <div class="col">
-      One of four columns
     </div>
+    <!-- second column 3th row -->
     <div class="col">
-      One of four columns
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
     </div>
+    </div>
+    <!-- third column 3th row -->
     <div class="col">
-      One of four columns
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
+    </div>
+    </div>
+    <!-- fourth column 3th row -->
+    <div class="col">
+    <div id="ad">
+        <img src="images/placeholder.png" alt="Responsive image">
+        <p>Advertentie titel</p>
+    </div>
     </div>
   </div>
 </div>
