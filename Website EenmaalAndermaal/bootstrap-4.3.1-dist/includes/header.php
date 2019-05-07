@@ -11,6 +11,7 @@
                     <div class="col align-self-center">
                         <div class="row  float-right">
                                 <a href="inloggen.php" class="btn btn-secondary" role="button">Inloggen</a>
+                                &nbsp; &nbsp; &nbsp;
                                 <a href="registreren.php" class="btn btn-primary" role="button">Registreren</a>
                         </div>
                     </div>
