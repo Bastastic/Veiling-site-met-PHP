@@ -26,10 +26,7 @@
         resize: none;
     }
 
-    p {
-        font-size: 20px;
-        margin-top: 0px;
-    }
+    
 
     .biedbutton{
         background-color: #ff814f;
@@ -85,8 +82,8 @@
             </a>
         </div>
         <div class="form-group my-3">
-        <h2> Titel van de advertentie</h2>
-            <small>
+        <h2>Jojo T-Shirt</h2>
+            <p>
                 Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
                 adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
                 Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis
@@ -96,7 +93,7 @@
                 mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit
                 fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac
                 dui quis mi consectetuer lacinia.
-            </small>
+</p>
 
         </div>
         </div>
@@ -115,7 +112,7 @@
                         </div>
                         <br><br>
                         <hr>
-                    <p><h4>Biedingen</h4>
+                    <h4>Biedingen</h4>
                     <div class="input-group mb-3">
                     <input type="text" class="form-control my-4" placeholder="" aria-label=""
                             aria-describedby="basic-addon1">
@@ -153,7 +150,7 @@
                 </div>
             </div>
         </div>
-</p>
+
         </div>
     </div>
 
