@@ -120,7 +120,7 @@
 
                 foreach ($result as $key => $value) {
                     $value = $value['titel'];
-                    echo "<div class='col-lg-3'>
+                    echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
                     <div id='ad'>
                         <img src='images/placeholder.png' alt='Responsive image'>
                         <p>$value</p>

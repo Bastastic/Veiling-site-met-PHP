@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_TIME, 'NL_nl');
 $serverName = "mssql.iproject.icasites.nl"; 
 $uid = "iproject15";   
 $pwd = "FkKqcryvuU";  
