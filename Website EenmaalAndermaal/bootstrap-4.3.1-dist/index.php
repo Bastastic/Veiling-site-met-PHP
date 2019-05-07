@@ -114,8 +114,7 @@
         </div>
         <div class="row mt-5">
             <?php 
-
-                $sql = $dbh->prepare("select top 12 titel from Voorwerp order by titel desc");
+                $sql = $dbh->prepare("select top 12 voorwerpnummer, titel from Voorwerp order by Voorwerpnummer desc");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -129,79 +128,6 @@
                 </div>";
                 }
             ?>
-
-            <!-- <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div id="ad">
-                    <img src="images/placeholder.png" alt="Responsive image">
-                    <p>Advertentie titel</p>
-                </div>
-            </div> -->
         </div>
     </div>
 </body>
