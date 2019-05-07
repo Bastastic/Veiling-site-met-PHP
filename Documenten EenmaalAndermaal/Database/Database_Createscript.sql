@@ -22,7 +22,8 @@ create table Bod (
 	constraint PK_Bod primary key (Voorwerp, Bodbedrag),
 	constraint AK_VoorwerpBodDatum unique (Voorwerp, BodDag, BodTijdstip),
 	constraint AK_GebruikerBodDatum unique (Gebruiker, BodDag, BodTijdstip),
-	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00)
+	constraint CK_Bodbedrag_min check (Bodbedrag > 000000.00),
+	constraint CK_Boddag_curr check (BodDag <= GETDATE())
 )
 
 create table Feedback (
