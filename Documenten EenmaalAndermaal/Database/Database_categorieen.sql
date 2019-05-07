@@ -272,7 +272,6 @@ insert into Rubriek values
 
 (241, 'Diversen', null, 241),
 	(242, 'Feesten en Evenementen', 241, 242),
-	(243, 'Feesten en Evenementen', 241, 243),
-	(244, 'School-en Kantoorartikelen', 241, 244),
-	(245, 'Zorg', 241, 245),
-	(246, 'Overige', 241, 246)
+	(243, 'School-en Kantoorartikelen', 241, 243),
+	(244, 'Zorg', 241, 244),
+	(245, 'Overige', 241, 245)
