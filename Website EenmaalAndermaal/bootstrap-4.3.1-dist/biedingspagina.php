@@ -85,7 +85,6 @@
 
         </div>
         <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
-
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
                 <li data-target="#demo" data-slide-to="1"></li>
@@ -94,7 +93,6 @@
                 <li data-target="#demo" data-slide-to="4"></li>
                 <li data-target="#demo" data-slide-to="5"></li>
             </ul>
-
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Los Angeles">
@@ -115,7 +113,6 @@
                     <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
                 </div>
             </div>
-
             <a class="carousel-control-prev" href="#demo" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </a>
@@ -123,9 +120,7 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
-
         <div class="form-group my-3">
-
             <h2>Omschrijving van de veiling</h2>
             <small>
                 Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet
@@ -138,8 +133,8 @@
                 fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac
                 dui quis mi consectetuer lacinia.
             </small>
-            <div class="row">
-                <div class="form-group my-3 w-50">
+            <div class="row mt-3">
+                <div class="col">
                     <h2>Biedingen</h2>
                     <table class="table table-hover">
                         <thead>
@@ -168,27 +163,18 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="mx-auto my-3">
-                    <h2>Bieden</h2>
-                    
+                <div class="col">
+                    <h2>Bieden</h2>      
                     <div class="input-group mb-3">
                     <input type="text" class="form-control my-4" placeholder="" aria-label=""
                             aria-describedby="basic-addon1">
                         <div class="input-group-prepend my-4">
                             <input  type="submit" class="btn biedbutton" value="Bied">
-                        </div>
-                        
+                        </div>          
                     </div>
-                
-            
                 </div>
-            
-            
-            
             </div>
         </div>
-
-
     </div>
 
 </body>
