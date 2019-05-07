@@ -5,7 +5,7 @@
  <link href="css/login.css" rel="stylesheet">
 </head>
 <body>
-<?php include('alt_header.php'); ?>
+<?php include('includes/header.php'); ?>
 <br>
 <div class="container">
  
@@ -79,7 +79,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>
 </body>
 <footer>
-        <?php include('footer.php'); ?>
+        <?php include('includes/footer.php'); ?>
 </footer>
 </html>
   
