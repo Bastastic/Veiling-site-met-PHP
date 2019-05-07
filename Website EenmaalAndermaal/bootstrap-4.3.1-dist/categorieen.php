@@ -15,6 +15,7 @@
 <body>
 <br>
     <div class="container">
+    <div id='accordion'>
         <?php
         $sql = $dbh->query("select * from Rubriek");
         $resultaat = $sql->fetchAll(PDO::FETCH_NUM);
@@ -36,10 +37,9 @@
                             echo "<div class='row'>";
                             echo "
                             <div class='col-md-4 col-sm-6 col-xs-12'>
-                                <div id='accordion'>
-                                    <div class='card'>
+                                    <div class='card rounded-0'>
                                         <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            $rubrieknaam
+                                            <a href=''>$rubrieknaam</a>
                                         </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
@@ -52,18 +52,15 @@
                             $idnaam = $rubrieknummer;
                             echo "
                             </div>
-                            </div>
                             </ul>
 
                             </div>
                             </div>
                             </div>
                             <div class='col-md-4 col-sm-6 col-xs-12'>
-                                <div id='accordion'>
-                                    <div class='card'>
+                                    <div class='card rounded-0'>
                                         <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            $rubrieknaam
-                                        </button>
+                                            <a href=''>$rubrieknaam</a>                                        </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
                                         <ul class='list-unstyled'>
@@ -84,8 +81,9 @@
     </div>
     </div>
     </div>
-
+    </div>
     </ul>
+
     </div>
     </div>
     </div>
