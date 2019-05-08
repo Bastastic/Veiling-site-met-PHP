@@ -15,7 +15,7 @@
 <body>
 <br>
     <div class="container">
-    <div id='accordion'>
+    <div id="accordion">
         <?php
         $sql = $dbh->prepare("select * from Rubriek");
         $sql->execute();
