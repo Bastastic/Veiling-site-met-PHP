@@ -43,6 +43,12 @@
                                     </button>
                                 </div>
                             </li>
+                            
+                            <li>
+                                    <div class="form-group mr-2">
+                                        <input type="text" class="form-control " id="postcode" placeholder="Postcode">
+                                    </div>
+                            </li>
                             <li>
                                 <div class="form-group mr-2">
                                     <select class="form-control" id="exampleFormControlSelect1">
@@ -53,11 +59,6 @@
                                         <option>75 KM </option>
                                     </select>
                                 </div>
-                            </li>
-                            <li>
-                                    <div class="form-group mr-2">
-                                        <input type="text" class="form-control " id="postcode" placeholder="Postcode">
-                                    </div>
                             </li>
                             <li>
                                 <div class="col-xs-3">
