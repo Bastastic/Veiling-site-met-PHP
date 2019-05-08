@@ -72,6 +72,7 @@
     </div>
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
+            <?php include 'includes/categorieen.php'; ?>
     </div>
 </div>
 </header>
