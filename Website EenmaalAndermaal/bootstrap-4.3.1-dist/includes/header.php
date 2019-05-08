@@ -30,35 +30,33 @@
                 <div class="collapse navbar-collapse justify-content-center mt-3" id="navbarToggler">
                     <ul class="navbar-nav">
                         <li>
-                            <form>
+                            <form action="zoeken.php" method="get">
                                 <div class="form-group mr-2">
-                                    <input type="text" class="form-control" id="zoek" placeholder="Zoek product">
+                                    <input type="text" class="form-control" id="zoek" name="zoeken" placeholder="Zoek product">
                                 </div>
-                            </form>
-                        </li>
-                        <li>
-                            <div class="form-group mr-2">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Selecteer categorie</option>
-                                    <option>categorie 1</option>
-                                    <option>categorie 2</option>
-                                    <option>categorie 3</option>
-                                    <option>categorie 4</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li>
-                            <form>
+                            </li>
+                            <li>
                                 <div class="form-group mr-2">
-                                    <input type="text" class="form-control " id="postcode" placeholder="Postcode">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Selecteer categorie</option>
+                                        <option>categorie 1</option>
+                                        <option>categorie 2</option>
+                                        <option>categorie 3</option>
+                                        <option>categorie 4</option>
+                                    </select>
                                 </div>
-                            </form>
-                        </li>
-                        <li>
-                            <div class="col-xs-3">
-                                <button type="button" class="btn btn-primary mr-2">Zoeken</button>
-                            </div>
-                        </li>
+                            </li>
+                            <li>
+                                    <div class="form-group mr-2">
+                                        <input type="text" class="form-control " id="postcode" placeholder="Postcode">
+                                    </div>
+                            </li>
+                            <li>
+                                <div class="col-xs-3">
+                                        <button type="submit" class="btn btn-primary mr-2">Zoeken</button>
+                                </div>
+                            </li>
+                        </form>    
                     </ul>
                 </div>
             </nav>
