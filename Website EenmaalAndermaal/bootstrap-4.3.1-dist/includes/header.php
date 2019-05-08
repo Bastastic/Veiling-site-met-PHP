@@ -59,17 +59,6 @@
                                 <button type="button" class="btn btn-primary mr-2">Zoeken</button>
                             </div>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                                style="color: #1c1c1c" href="#">Bekijk categorieen</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="">Categorie 1</a>
-                                <a class="dropdown-item" href="">Categorie 2</a>
-                                <a class="dropdown-item" href="">Categorie 3</a>
-                                <a class="dropdown-item" href="">Categorie 4</a>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </nav>

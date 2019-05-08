@@ -25,17 +25,6 @@
     textarea {
         resize: none;
     }
-
-    
-
-    .biedbutton{
-        background-color: #ff814f;
-        color : #ffffff;
-    }
-
-    .biedbutton:hover {
-        color : black;
-    }
 </style>
 
 <?php include 'includes/header.php'; ?>
@@ -105,7 +94,7 @@
                     <hr><h6>Omgeving Apeldoorn</h6>
                     
                     <div class="row  float-right">
-                                <a href="" class="btn btn-secondary" role="button">Chatten</a>
+                                <a href="" class="btn btn-secondary disabled" role="button">Chatten</a>
                                 &nbsp; &nbsp;
                                 <a href="" class="btn btn-primary" role="button">Meer van Henk</a>
     
@@ -117,7 +106,7 @@
                     <input type="text" class="form-control my-4" placeholder="" aria-label=""
                             aria-describedby="basic-addon1">
                         <div class="input-group-prepend my-4">
-                            <input  type="submit" class="btn biedbutton" value="Bied">
+                            <input type="submit" class="btn btn-primary disabled" value="Bied">
                         </div>          
                     </div>
                     <table class="table table-hover">
