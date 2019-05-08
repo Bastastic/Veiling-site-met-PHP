@@ -47,6 +47,17 @@
                                 </div>
                             </li>
                             <li>
+                                <div class="form-group mr-2">
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Afstand</option>
+                                        <option>10 KM</option>
+                                        <option>25 KM</option>
+                                        <option>50 KM</option>
+                                        <option>75 KM </option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
                                     <div class="form-group mr-2">
                                         <input type="text" class="form-control " id="postcode" placeholder="Postcode">
                                     </div>
