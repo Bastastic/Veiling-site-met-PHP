@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php 
-        include 'includes/links.php';
-        require 'php/connectDB.php';
-    ?>
-    <title>Categorieën</title>
-</head>
-
-<?php include 'includes/header.php'; ?>
-<body>
 <br>
     <div class="container">
-    <div id='accordion'>
+    <div id="accordion">
         <?php
         $sql = $dbh->prepare("select * from Rubriek");
         $sql->execute();
@@ -40,7 +25,7 @@
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
                                         <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a>
+                                            <a href='zoeken.php?cat=$rubrieknaam'>$rubrieknaam</a>
                                         </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
@@ -61,7 +46,7 @@
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
                                         <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a>                                        </button>
+                                            <a href='zoeken.php?cat=$rubrieknaam'>$rubrieknaam</a>                                        </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
                                         <ul class='list-unstyled'>
@@ -69,7 +54,7 @@
                         }
                     } else {
                         echo "
-                            <li><a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a></li>
+                            <li><a href='zoeken.php?cat=$rubrieknaam'>$rubrieknaam</a></li>
                         ";
                     }
                 }
@@ -91,6 +76,3 @@
     </div>
 
     <br>
-</body>
-<?php include 'includes/footer.php'; ?>
-</html>
