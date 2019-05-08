@@ -25,7 +25,10 @@
             <h2>Zoekresultaten</h2>
             <div class="row">
                 <?php
-                    $sql = $dbh->prepare("select voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip from Voorwerp");
+                If (isset($_GET['zoeken']))
+                {
+                    $trefwoord = strval($_GET['zoeken']);
+                    $sql = $dbh->prepare("select voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip from Voorwerp WHERE titel LIKE '%$trefwoord%'");
                         $sql->execute();
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -58,6 +61,7 @@
                             </div>
                         </div>";
                         }
+                    }
                 ?>
 
                 <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer"
