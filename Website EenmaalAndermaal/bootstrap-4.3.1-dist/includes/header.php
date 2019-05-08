@@ -1,3 +1,4 @@
+<?php require_once ('php/connectDB.php'); ?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
@@ -37,19 +38,15 @@
                             </li>
                             <li>
                                 <div class="form-group mr-2">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Selecteer categorie</option>
-                                        <option>categorie 1</option>
-                                        <option>categorie 2</option>
-                                        <option>categorie 3</option>
-                                        <option>categorie 4</option>
-                                    </select>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        Categorieën
+                                    </button>
                                 </div>
                             </li>
                             <li>
-                                    <div class="form-group mr-2">
-                                        <input type="text" class="form-control " id="postcode" placeholder="Postcode">
-                                    </div>
+                                <div class="form-group mr-2">
+                                    <input type="text" class="form-control " id="postcode" placeholder="Postcode">
+                                </div>
                             </li>
                             <li>
                                 <div class="col-xs-3">
@@ -62,4 +59,8 @@
             </nav>
         </div>
     </div>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+    </div>
+</div>
 </header>
