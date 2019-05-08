@@ -36,6 +36,10 @@
                         AND titel LIKE CONCAT('%', :trefwoord, '%')");  
                     $sql->execute(['cat' => $cat, 'trefwoord' => $trefwoord]);
                     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+                    $aantal = $sql->rowCount();
+                    if($aantal < 1){
+                     echo '<p class="ml-4">Geen producten gevonden</p>';   
+                    }
                     }
                     elseif(isset($_GET['cat'])){
                         $cat = $_GET['cat'];
