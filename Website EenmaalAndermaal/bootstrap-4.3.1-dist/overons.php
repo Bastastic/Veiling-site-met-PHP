@@ -16,6 +16,9 @@
   hr.style1{
 	border-top: 3px solid #ff814f;
 }
+.col-xs-12, .col-sm-6, .col-md-4{
+    float:left;
+}
   </style>
   <?php
      include 'includes/header.php'; 
@@ -57,7 +60,7 @@
 
       
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
   <section id="team" class="pb-5">
     <div class="container">
         <h5 class="section-title h1">Ons team</h5>
@@ -161,13 +164,57 @@
                    </div>
               </div>
           </div>
-      </div>
+      <!-- break line -->
       <hr class="style1">
+      <!-- Yakup Kucuk -->
+      <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/yakup-kucuk.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Yakup Kucuk (kcky)</h4>
+                                    <p class="card-text">Procesbegeleider</p>
+                                </div>
+                            </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+        <!-- Maria Boes-Voet -->
+        <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/maria-boes-voet.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Maria Boes-Voet (boesm)</h4>
+                                    <p class="card-text">Professional Skills</p>
+                                </div>
+                            </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+        <!-- Jorg Visch -->
+        <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="images/jorg-visch.jpg" alt="card image"></p>
+                                    <h4 class="card-title">Jorg Visch (vschj)</h4>
+                                    <p class="card-text">Productsbegeleider</p>
+                                </div>
+                            </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
     </div>
-    </section>
-    
-  
-                      </body>
-                      
+    </body>     
         <?php include('includes/footer.php'); ?>
 </html>
