@@ -24,8 +24,11 @@
                             echo "
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
-                                        <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a>
+                                        <button type='button' id='h$rubrieknummer' class='bg-white border-primary rounded-0 card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
+                                            <input class='form-check-input' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer' >
+                                            <label class='form-check-label' for='catRadio$rubrieknummer'>
+                                                $rubrieknaam
+                                            </label>
                                         </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
@@ -45,8 +48,11 @@
                             </div>
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
-                                        <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a>                                        </button>
+                                        <button type='button' id='h$rubrieknummer' class='bg-white border-primary rounded-0 card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
+                                            <input class='form-check-input' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer'>
+                                            <label class='form-check-label' for='catRadio$rubrieknummer'>
+                                                $rubrieknaam
+                                            </label>                                        </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
                                         <ul class='list-unstyled'>
@@ -54,7 +60,12 @@
                         }
                     } else {
                         echo "
-                            <li><a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a></li>
+                            <li>
+                            <input class='form-check-input ml-2' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer'>
+                                <label class='form-check-label ml-4' for='catRadio$rubrieknummer'>
+                                    $rubrieknaam
+                                </label>
+                            </li>
                         ";
                     }
                 }
@@ -74,5 +85,4 @@
     </div>
     </div>
     </div>
-
-    <br>
+<br>

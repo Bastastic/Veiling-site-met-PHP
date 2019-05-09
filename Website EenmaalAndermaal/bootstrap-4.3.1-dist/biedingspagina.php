@@ -28,8 +28,27 @@
 </style>
 
 <?php include 'includes/header.php'; ?>
+<?php require 'php/connectDB.php'; ?>
 
 <body>
+
+    <?php
+    if(isset($_GET['voorwerpnummer'])){
+        $voorwerpnummer = $_GET['voorwerpnummer'];
+        $sql = $dbh->prepare(
+            'SELECT titel, beschrijving, verkoper
+            FROM Voorwerp
+            WHERE voorwerpnummer =:voorwerpnummer');
+        $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+        $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+        $titel = $resultaat['titel'];
+        $beschrijving = $resultaat['beschrijving'];
+        $verkoper = $resultaat['verkoper'];
+    }else{
+        echo '<script>window.location.replace("zoeken.php");</script>';
+        die();
+    }
+    ?>
 
     <div class="container my-3">
         <div class="row">
@@ -71,33 +90,15 @@
                     </a>
                 </div>
                 <div class="form-group my-3">
-                    <h2>Jojo T-Shirt</h2>
-                    <p>
-                        Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
-                        amet
-                        adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id,
-                        lorem.
-                        Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
-                        Nullam quis
-                        ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet
-                        nibh.
-                        Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-                        quis
-                        gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque
-                        ut,
-                        mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis
-                        hendrerit
-                        fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                        Curae; In ac
-                        dui quis mi consectetuer lacinia.
-                    </p>
+                    <h2><?=$titel;?></h2>
+                    <p><?=$beschrijving;?></p>
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="col">
                     <p>
-                        <h4>Henk Knol</h4>
+                        <h4><?=$verkoper?></h4>
                         <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
                         Rating 4,5 van de 5
                     </p>
@@ -109,8 +110,7 @@
                             <a href="" class="btn btn-secondary disabled" role="button">Chatten</a>
                         </div>
                         &nbsp; &nbsp;
-                        <a href="" class="btn btn-primary" role="button">Meer van Henk</a>
-
+                        <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van <?=$verkoper?></a>
                     </div>
                     <br><br>
                     <hr>

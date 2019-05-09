@@ -4,14 +4,14 @@
         <div class="container">
             <nav class="navbar navbar-dark navbar-expand-md static-top">
                 <div class="row w-100">
-                    <div class="col-2">
+                    <div class="col-6">
                         <a class="navbar-brand" href="index.php">
                             <img src="images/LogoWit.png" style="width: 120px" alt="">
                         </a>
                     </div>
-                    <div class="col-9 align-self-center">
-                        <div class="row float-right">
-                                <a href="inloggen.php" class="btn btn-secondary" role="button">Inloggen</a>
+                    <div class="col-5 align-self-center">
+                        <div class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
+                                <a href="inloggen.php" class="btn btn-secondary ml-1" role="button">Inloggen</a>
                                 <a href="registreren.php" class="btn btn-primary ml-1" role="button">Registreren</a>
                         </div>
                     </div>
@@ -24,6 +24,7 @@
             </nav>
         </div>
     </div>
+    <form action="zoeken.php" method="get">
 
     <div id="Lower-Header" style="background-color: #e8e8e8">
         <div class="container">
@@ -31,7 +32,6 @@
                 <div class="collapse navbar-collapse justify-content-center mt-3" id="navbarToggler">
                     <ul class="navbar-nav">
                         <li>
-                            <form action="zoeken.php" method="get">
                                 <div class="form-group mr-2">
                                     <input type="text" class="form-control" id="zoek" name="zoeken" placeholder="Zoek product">
                                 </div>
@@ -65,7 +65,6 @@
                                         <button type="submit" class="btn btn-primary mr-2">Zoeken</button>
                                 </div>
                             </li>
-                        </form>    
                     </ul>
                 </div>
             </nav>
@@ -75,5 +74,7 @@
         <div class="card card-body">
             <?php include 'includes/categorieen.php'; ?>
     </div>
+    </form>    
+
 </div>
 </header>
