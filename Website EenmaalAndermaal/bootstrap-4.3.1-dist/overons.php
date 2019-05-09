@@ -72,7 +72,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class="img-fluid" src="images/bas-slijkhuis.jpg" alt="card image"></p>
+                                    <p><img class="img-fluid" src="images/Bas-Slijkhuis.jpg" alt="card image"></p>
                                     <h4 class="card-title">Bas Slijkhuis</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
@@ -87,7 +87,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/erkan-alper.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Erkan-Alper.jpg" alt="card image"></p>
                                     <h4 class="card-title">Erkan Alper</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
@@ -102,7 +102,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/senad-kurtovic.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Senad-Kurtovic.jpg" alt="card image"></p>
                                     <h4 class="card-title">Senad Kurtovic</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
@@ -117,7 +117,7 @@
                         <div class="frontside">
                             <div class="card" style="padding-top: 0px;">
                                 <div class="card-body text-center" style="padding-top: 20px;">
-                                    <p><img class=" img-fluid" src="images/peiwand-ismaiel.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Peiwand-Ismaiel.jpg" alt="card image"></p>
                                     <h4 class="card-title">Peiwand Ismaiel</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
@@ -132,7 +132,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/wesley-smeltink.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Wesley-Smeltink.jpg" alt="card image"></p>
                                     <h4 class="card-title">Wesley Smeltink</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
@@ -147,7 +147,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/dani-hengeveld.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Dani-Hengeveld.jpg" alt="card image"></p>
                                     <h4 class="card-title">Dani Hengeveld</h4>
                                     <p class="card-text">This is basic card with image on top, title, description and button.</p>
                                 </div>
@@ -173,7 +173,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/yakup-kucuk.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Yakup-Kucuk.jpg" alt="card image"></p>
                                     <h4 class="card-title">Yakup Kucuk (kcky)</h4>
                                     <p class="card-text">Procesbegeleider</p>
                                 </div>
@@ -189,7 +189,7 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/maria-boes-voet.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Maria-Boes-Voet.jpg" alt="card image"></p>
                                     <h4 class="card-title">Maria Boes-Voet (boesm)</h4>
                                     <p class="card-text">Professional Skills</p>
                                 </div>
@@ -205,9 +205,9 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/jorg-visch.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="images/Jorg-Visch.jpg" alt="card image"></p>
                                     <h4 class="card-title">Jorg Visch (vschj)</h4>
-                                    <p class="card-text">Productsbegeleider</p>
+                                    <p class="card-text">Productbegeleider</p>
                                 </div>
                             </div>
                       </div>
