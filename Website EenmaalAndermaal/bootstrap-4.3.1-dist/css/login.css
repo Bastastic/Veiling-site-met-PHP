@@ -2,15 +2,12 @@
 form.inlogform {
 justify-content: center;
 display: flex;
-padding: 30px;
+padding: 20px;
 }
 .inlogbalk {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
@@ -44,9 +41,7 @@ img.avatar {
 
 /* Add padding to containers */
 .logincontainer {
-    padding: 16px;
-    width: 50%;
-    border: 1px solid grey;
+    width: 100%;
     /* -webkit-box-shadow: 0px 10px 20px 0px rgba(50, 50, 50, 0.52);
     -moz-box-shadow:    0px 10px 20px 0px rgba(50, 50, 50, 0.52);
     box-shadow:         0px 10px 20px 0px rgba(50, 50, 50, 0.52); */
@@ -55,15 +50,4 @@ img.avatar {
 /* The "Forgot password" text */
 span.password {
     float: right;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 600px) {
-    span.password {
-        display: block;
-        float: none;
-    }
-    .logincontainer{
-    width: 100%;    
-    }
 }
