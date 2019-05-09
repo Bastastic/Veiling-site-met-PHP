@@ -12,7 +12,7 @@
 <body>
   <br>
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-lg-8 col-lg-offset-2">
         <form id="contact-form" method="post" action="" role="form">
           <div class="messages"></div>
