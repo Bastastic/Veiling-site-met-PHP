@@ -51,6 +51,7 @@
 <body>
 
     <div class="container">
+    <div class="segment">
         <div class="row align-items-start">
             <div class="col-lg-7">
                 <div id="demo" class="carousel slide mt-3" data-ride="carousel">
@@ -113,6 +114,7 @@
                     dui quis mi consectetuer lacinia.
                 </small>
             </div>
+        </div>
         </div>
         <div class="row mt-5">
             <?php 
