@@ -11,8 +11,8 @@
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
-                                <a href="inloggen.php" class="btn btn-secondary" role="button">Inloggen</a>
-                                <a href="registreren.php" class="btn btn-primary" role="button">Registreren</a>
+                                <a href="inloggen.php" class="btn btn-secondary ml-1" role="button">Inloggen</a>
+                                <a href="registreren.php" class="btn btn-primary ml-1" role="button">Registreren</a>
                         </div>
                     </div>
                     <div class="col-1 align-self-center">
