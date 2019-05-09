@@ -23,6 +23,26 @@
         <div class="container">
             <br>
             <h2>Zoekresultaten</h2>
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Minimum prijs</span>
+                    <span class="input-group-text">€</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Maximum prijs</span>
+                    <span class="input-group-text">€</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+
             <div class="row">
                 <?php
                 if(isset($_GET['cat']) && isset($_GET['zoeken'])){
