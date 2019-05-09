@@ -9,16 +9,13 @@
   <link rel="stylesheet" href="css/login.css" />
   <title>Inloggen</title>
 </head>
-<?php
-     include 'includes/header.php'; 
-    ?>
+<?php include 'includes/header.php'; ?>
 
 <body>
   <button type="button" class="btn btn-primary" onclick="goBack()"><i class="fa fa-reply"></i></button>
 </body>
-<?php
-     include 'includes/footer.php'; 
-    ?>
+
+<?php include 'includes/footer.php'; ?>
 
 </html>
 

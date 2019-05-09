@@ -11,12 +11,9 @@
 </head>
 
 <?php
-     require 'php/connectDB.php'; 
-    ?>
-
-<?php
+     require_once 'php/connectDB.php'; 
      include 'includes/header.php'; 
-    ?>
+?>
 
 <body style="overflow-x:hidden">
     <section id="team" class="pb-5">
@@ -74,8 +71,7 @@
         </div>
     </section>
 </body>
-<footer>
-    <?php include 'includes/footer.php'; ?>
-</footer>
+
+<?php include 'includes/footer.php'; ?>
 
 </html>
