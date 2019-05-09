@@ -20,9 +20,9 @@
 
 <body style="overflow-x:hidden">
     <section id="team" class="pb-5">
-        
-        
-        
+
+
+
         <div class="container">
             <br>
             <h2>Zoekresultaten</h2>

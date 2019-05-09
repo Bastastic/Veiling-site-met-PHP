@@ -9,10 +9,10 @@
     <link rel="icon" href="../../../../favicon.ico">
     <title>Over ons</title>
 </head>
+
 <?php
      require 'php/connectDB.php'; 
     ?>
-
 
 <?php
      include 'includes/header.php'; 
@@ -75,6 +75,7 @@
     </section>
 </body>
 <footer>
-<?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 </footer>
+
 </html>

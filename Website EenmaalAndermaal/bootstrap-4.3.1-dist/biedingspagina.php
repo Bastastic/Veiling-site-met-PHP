@@ -114,46 +114,46 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5">
-                    <p>
-                        <h4><?=$voornaam . " " . $achternaam;?></h4>
-                        <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
-                        Rating 4,5 van de 5
-                    </p>
-                    <hr>
-                    <h6>Regio <?=$plaatsnaam;?></h6>
-                    <br>
-                    <div class="row justify-content-center">
-                        <div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
-                            <a href="" class="btn btn-secondary disabled" role="button">Chatten</a>
-                        </div>
-                        &nbsp; &nbsp;
-                        <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van <?=$voornaam?></a>
-
+                <p>
+                    <h4><?=$voornaam . " " . $achternaam;?></h4>
+                    <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
+                    Rating 4,5 van de 5
+                </p>
+                <hr>
+                <h6>Regio <?=$plaatsnaam;?></h6>
+                <br>
+                <div class="row justify-content-center">
+                    <div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
+                        <a href="" class="btn btn-secondary disabled" role="button">Chatten</a>
                     </div>
-                    <br><br>
-                    <hr>
-                    <h4>Biedingen</h4>
-                    <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
-                        <input type="text" class="form-control my-4" placeholder="Bijv. €20.00" aria-label=""
-                            aria-describedby="basic-addon1">
-                        <div class="input-group-prepend my-4">
-                            <div class="tooltip-wrapper" data-placement="top"
-                                data-content="Hiervoor moet je ingelogd zijn">
-                                <input type="submit" class="btn btn-primary disabled" value="Bied">
-                            </div>
+                    &nbsp; &nbsp;
+                    <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van
+                        <?=$voornaam?></a>
+
+                </div>
+                <br><br>
+                <hr>
+                <h4>Biedingen</h4>
+                <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
+                    <input type="text" class="form-control my-4" placeholder="Bijv. €20.00" aria-label=""
+                        aria-describedby="basic-addon1">
+                    <div class="input-group-prepend my-4">
+                        <div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
+                            <input type="submit" class="btn btn-primary disabled" value="Bied">
                         </div>
                     </div>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Gebruiker</th>
-                                <th>Bod</th>
-                                <th>Datum & Tijd</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Gebruiker</th>
+                            <th>Bod</th>
+                            <th>Datum & Tijd</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                            <?php
+                        <?php
                             foreach ($resultaat as $key => $value) {
                                 $datetime = date_create($value['boddag'] . " " . $value['bodtijdstip'], timezone_open("Europe/Amsterdam"));
                                 $datetime = date_format($datetime,"d/m/Y H:i");
@@ -166,9 +166,9 @@
                                 ";
                             }
                             ?>
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     </div>
