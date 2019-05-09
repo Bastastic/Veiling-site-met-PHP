@@ -24,7 +24,7 @@
                             echo "
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
-                                        <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
+                                        <button id='h$rubrieknummer' class='bg-white border-primary rounded-0 card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
                                             <a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a>
                                         </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
@@ -45,7 +45,7 @@
                             </div>
                             <div class='col-md-4 col-sm-6 col-xs-12'>
                                     <div class='card rounded-0'>
-                                        <button id='h$rubrieknummer' class='card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
+                                        <button id='h$rubrieknummer' class='bg-white border-primary rounded-0 card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
                                             <a href='zoeken.php?cat=$rubrieknummer'>$rubrieknaam</a>                                        </button>
                                         <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
                                         <div class='card-body'>
