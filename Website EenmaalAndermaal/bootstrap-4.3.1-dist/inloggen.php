@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="css/login.css" />
     <title>Inloggen</title>
 </head>
-<?php
-     include 'includes/header.php'; 
-    ?>
+
 <body>
   <form class="inlogform" action="action_page.php">
     <div class="logincontainer">
@@ -35,9 +33,5 @@
     </div>
   </form>
 </body>
-
-<?php
-     include 'includes/footer.php'; 
-    ?>
 
 </html>
