@@ -62,6 +62,7 @@
         );
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
         $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+        $hoogstebod = $resultaat[0]['bodbedrag'];
     }else{
         echo '<script>window.location.replace("zoeken.php");</script>';
         die();
@@ -135,7 +136,7 @@
                 <hr>
                 <h4>Biedingen</h4>
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
-                    <input type="text" class="form-control my-4" placeholder="Bijv. €20.00" aria-label=""
+                    <input type="text" class="form-control my-4" placeholder="Minimaal €<?=$hoogstebod?>" aria-label=""
                         aria-describedby="basic-addon1">
                     <div class="input-group-prepend my-4">
                         <div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
@@ -143,7 +144,8 @@
                         </div>
                     </div>
                 </div>
-                <table class="table table-hover">
+                <?=$hoogstebod?>
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Gebruiker</th>
