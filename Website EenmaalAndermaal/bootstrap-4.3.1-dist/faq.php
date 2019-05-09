@@ -21,11 +21,11 @@
                 <div class="nav nav-pills faq-nav" id="faq-tabs" role="tablist" aria-orientation="vertical">
                     <a href="#tab1" class="nav-link active" data-toggle="pill" role="tab" aria-controls="tab1"
                         aria-selected="true">
-                        <i class="mdi mdi-help-circle"></i> Frequently Asked Questions
+                        <i class="mdi mdi-help-circle"></i> Veel gestelde vragen
                     </a>
                     <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2"
                         aria-selected="false">
-                        <i class="mdi mdi-account"></i> Profile
+                        <i class="mdi mdi-account"></i> Profiel
                     </a>
                     <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3"
                         aria-selected="false">
@@ -33,15 +33,15 @@
                     </a>
                     <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
                         aria-selected="false">
-                        <i class="mdi mdi-heart"></i> Favorites
+                        <i class="mdi mdi-heart"></i> Favorieten
                     </a>
                     <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5"
                         aria-selected="false">
-                        <i class="mdi mdi-coin"></i> Transactions
+                        <i class="mdi mdi-coin"></i> Transacties
                     </a>
                     <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6"
                         aria-selected="false">
-                        <i class="mdi mdi-help"></i> General help
+                        <i class="mdi mdi-help"></i> Algemene hulp
                     </a>
                 </div>
             </div>
@@ -138,27 +138,6 @@
                     <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab2">
                         <div class="accordion" id="accordion-tab-2">
                             <div class="card">
-                                <div class="card-header" id="accordion-tab-2-heading-1">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-2-content-1" aria-expanded="false"
-                                            aria-controls="accordion-tab-2-content-1">Does anybody else feel jealous and
-                                            aroused and worried?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse show" id="accordion-tab-2-content-1"
-                                    aria-labelledby="accordion-tab-2-heading-1" data-parent="#accordion-tab-2">
-                                    <div class="card-body">
-                                        <p>Kif, I have mated with a woman. Inform the men. This is the worst part. The
-                                            calm before the battle. Bender, being God isn't easy. If you do too much,
-                                            people get dependent on you, and if you do nothing, they lose hope. You have
-                                            to use a light touch. Like a safecracker, or a pickpocket.</p>
-                                        <p><strong>Example: </strong>There's no part of that sentence I didn't like!
-                                            You, a bobsleder!? That I'd like to see!</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
                                 <div class="card-header" id="accordion-tab-2-heading-2">
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -243,26 +222,6 @@
                                             news! You know, I was God once. You lived before you met me?!</p>
                                         <p><strong>Example: </strong>I'm Santa Claus! Pansy. That's a popular name
                                             today. Little "e", big "B"?</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-3-heading-2">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-3-content-2" aria-expanded="false"
-                                            aria-controls="accordion-tab-3-content-2">Why am I sticky and
-                                            naked?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-3-content-2"
-                                    aria-labelledby="accordion-tab-3-heading-2" data-parent="#accordion-tab-3">
-                                    <div class="card-body">
-                                        <p>Did I miss something fun? Humans dating robots is sick. You people wonder why
-                                            I'm still single? It's 'cause all the fine robot sisters are dating humans!
-                                            Kids don't turn rotten just from watching TV.</p>
-                                        <p><strong>Example: </strong>I usually try to keep my sadness pent up inside
-                                            where it can fester quietly as a mental illness.</p>
                                     </div>
                                 </div>
                             </div>
