@@ -4,7 +4,7 @@
 <div class="container">
         <div class="row">
             <div class="col">
-                <h5><i class="fa fa-road"></i> EenmaalAndermaal</h5>
+                <h5>EenmaalAndermaal</h5>
                 <div class="row">
                     <div class="col-6">
                         <ul class="list-unstyled">
