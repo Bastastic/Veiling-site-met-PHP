@@ -1,13 +1,15 @@
 <html>
-
 <head>
-  <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script scr="js/bootstrap.min.js"></script>
-  <link href="css/login.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php include 'includes/links.php'; ?>
+    <title>Contact</title>
 </head>
 
+<?php include 'includes/header.php'; ?>
+
 <body>
-  <?php include('includes/header.php'); ?>
   <br>
   <div class="container">
     <div class="row justify-content-center">
@@ -64,7 +66,7 @@
                 </div>
               </div>
               <div class="col-md-12">
-                <input type="submit" class="btn btn-success btn-send" value="Stuur bericht">
+                <input type="submit" class="btn btn-primary btn-send" value="Stuur bericht">
               </div>
             </div>
           </div>
@@ -76,8 +78,6 @@
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'></script>
 </body>
-<footer>
-  <?php include('includes/footer.php'); ?>
-</footer>
+<?php include 'includes/footer.php'; ?>
 
 </html>

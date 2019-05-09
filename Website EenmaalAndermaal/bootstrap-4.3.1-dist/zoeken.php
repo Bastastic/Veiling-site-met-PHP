@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include 'includes/links.php'; ?>
-    <link rel="icon" href="../../../../favicon.ico">
-    <title>Over ons</title>
+    <title>Zoeken</title>
 </head>
-<?php
-    require 'php/connectDB.php'; 
-    include 'includes/header.php'; 
-?>
+
+<?php include 'includes/header.php'; ?>
 
 <body style="overflow-x:hidden">
     <section id="team" class="pb-5">
@@ -99,6 +96,7 @@
         </div>
     </section>
 </body>
+
 <?php include 'includes/footer.php'; ?>
 
 </html>
