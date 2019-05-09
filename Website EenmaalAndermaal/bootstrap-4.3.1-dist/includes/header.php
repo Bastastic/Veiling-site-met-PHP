@@ -4,15 +4,15 @@
         <div class="container">
             <nav class="navbar navbar-dark navbar-expand-md static-top">
                 <div class="row w-100">
-                    <div class="col-2">
+                    <div class="col-6">
                         <a class="navbar-brand" href="index.php">
                             <img src="images/LogoWit.png" style="width: 120px" alt="">
                         </a>
                     </div>
-                    <div class="col-9 align-self-center">
-                        <div class="row float-right">
+                    <div class="col-6 align-self-center">
+                        <div class="row float-right justify-content-end flex-lg-row flex-md-row flex-column flex-column">
                                 <a href="inloggen.php" class="btn btn-secondary" role="button">Inloggen</a>
-                                <a href="registreren.php" class="btn btn-primary ml-1" role="button">Registreren</a>
+                                <a href="registreren.php" class="btn btn-primary" role="button">Registreren</a>
                         </div>
                     </div>
                     <div class="col-1 align-self-center">
