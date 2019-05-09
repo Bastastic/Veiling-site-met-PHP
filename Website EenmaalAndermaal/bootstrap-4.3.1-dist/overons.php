@@ -87,7 +87,7 @@
 
 
     </div> <!-- /container -->
-    <section id="team" class="pb-5">
+    <section id="team">
         <div class="container">
             <h5 class="section-title h1">Ons team</h5>
             <div class="row-full">
@@ -283,7 +283,8 @@
 
                 </div>
             </div>
-            <!-- break line -->
+    <br>
+    <br>
 </div>
 </body>
 <?php include('includes/footer.php'); ?>
