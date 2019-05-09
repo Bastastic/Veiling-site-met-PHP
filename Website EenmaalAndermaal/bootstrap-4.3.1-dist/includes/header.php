@@ -28,7 +28,7 @@
             </nav>
         </div>
     </div>
-    <form action="zoeken.php" method="get">
+    <form action="zoeken.php" method="get" class="mb-0">
 
         <div id="Lower-Header" style="background-color: #e8e8e8">
             <div class="container">
