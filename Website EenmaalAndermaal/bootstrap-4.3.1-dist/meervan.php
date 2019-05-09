@@ -20,58 +20,23 @@
 
 <body style="overflow-x:hidden">
     <section id="team" class="pb-5">
-        
-        
-        
         <div class="container">
             <br>
-            <h2>Zoekresultaten</h2>
-
-
-
+            <h2>Veilingen van <?=strval($_GET['verkoper'])?></h2>
             <div class="row">
                 <?php
-                if(isset($_GET['cat']) && isset($_GET['zoeken'])){
-                    $trefwoord = strval($_GET['zoeken']);
-                    $cat = $_GET['cat'];
+                if(isset($_GET['verkoper'])){
+                    $trefwoord = strval($_GET['verkoper']);
                     $sql = $dbh->prepare(
-                        "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                        "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip, verkoper 
                         FROM Voorwerp, Voorwerp_in_Rubriek 
                         WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                        AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat
-                        AND titel LIKE CONCAT('%', :trefwoord, '%')");  
-                    $sql->execute(['cat' => $cat, 'trefwoord' => $trefwoord]);
+                        AND verkoper LIKE CONCAT('%', :verkoper, '%')");
+                    $sql->execute(['verkoper' => $trefwoord]);      
                     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     $aantal = $sql->rowCount();
                     if($aantal < 1){
                      echo '<p class="ml-4">Geen producten gevonden</p>';   
-                    }
-                    }
-                    elseif(isset($_GET['cat'])){
-                        $cat = $_GET['cat'];
-
-                        $sql = $dbh->prepare(
-                            "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
-                            FROM Voorwerp, Voorwerp_in_Rubriek 
-                            WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                            AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat");  
-                        $sql->execute(['cat' => $cat]);
-                        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-                    }
-                    elseif (isset($_GET['zoeken'])){
-                        $trefwoord = strval($_GET['zoeken']);
-                        $sql = $dbh->prepare(
-                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
-                            FROM Voorwerp 
-                            WHERE titel LIKE CONCAT('%', :trefwoord, '%')");
-                        $sql->execute(['trefwoord' => $trefwoord]);
-                        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-                    }else{
-                        $sql = $dbh->prepare(
-                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
-                            FROM Voorwerp");
-                        $sql->execute();
-                        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     }
                     foreach ($result as $key => $value) {
                         $voorwerpnummer = $value['voorwerpnummer'];
@@ -103,11 +68,13 @@
                         </div>
                     </div>";
                     }
-                ?>
+                    }
+                    ?>
             </div>
         </div>
     </section>
 </body>
+<footer>
 <?php include 'includes/footer.php'; ?>
-
+</footer>
 </html>

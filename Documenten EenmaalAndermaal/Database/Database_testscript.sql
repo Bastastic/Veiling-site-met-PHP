@@ -1,23 +1,29 @@
 use iproject15
 go
 
-delete Bestand
-delete Bod
-delete Feedback
-delete Voorwerp
-delete Verkoper
-delete Gebruikerstelefoon
-delete Gebruiker
---delete Rubriek
-delete Voorwerp_in_Rubriek
-delete Vraag
+DELETE Bestand
+DELETE Bod
+DELETE Feedback
+DELETE Gebruikerstelefoon
+DELETE Voorwerp_in_Rubriek
+DELETE Voorwerp
+DELETE Verkoper
+DELETE Gebruiker
+DELETE Gebruikerstelefoon
+DELETE Rubriek
+DELETE Verkoper
+DELETE Voorwerp
+DELETE Voorwerp_in_Rubriek
+DELETE Vraag
+
 
 insert into Vraag values
-	(1, 'Wat is je lievelingsFfruit?'),
+	(1, 'Wat is je lievelingsfruit?'),
 	(2, 'Wat is je lievelingseten?'),
 	(3, 'Hoe heet jouw beste vriend/vriedin?'),
 	(4, 'wat is de naam van jouw eerste baas?'),
 	(5, 'Hoe hete jouw eerste  engels docent?')
+
 
 insert into Gebruiker values
 	('Peter1', 'Peter', 'Petersen', 'Pastoor van beijnenstraat 181', null, '5081 AP', 'Hilvarenbeek', 'Nederland', '1989-01-01', 'peter@gmail.com', 'plaintextLol2', 1, 'Appels', 1),
@@ -63,28 +69,305 @@ insert into Gebruiker values
 	('Bazinga12', 'ING', 'INGB-123-414234-231', 'iDeal', null),
 	('DioBrando2', 'ING', 'INGB-123-414234-231', 'iDeal', null)
 
+insert into Rubriek values
+(1, 'Antiek en Kunst', null, 1),
+	(2, 'Antiek', 1, 2),
+		(3, 'Gebruikersvoorwerpen', 2, 3),
+		(4, 'Meubels', 2, 4),
+		(5, 'Eetgerei', 2, 5),
+	(6, 'Kunst', 1, 6),
+		(7, 'Schilderijen', 6, 7),
+	(8, 'Curiosa en Brocante', 1, 8),
+
+(9, 'Audio, TV en Foto', null, 9),
+	(10, 'Audio', 9, 10),
+		(11, 'Draagbaar', 10, 11),
+	(12, 'Film, Video en Tv', 9, 12),
+	(13, 'Fotografie', 9, 13),
+	(14, 'Optische apparatuur', 9, 14),
+	(15, 'Accessoires', 9, 15),
+	(16, 'Overige', 9, 16),
+
+(17, 'Auto''s', null, 17),
+	(18, 'Nieuwe auto''s', 17, 18),
+	(19, 'Oldtimers', 17, 19),
+	(20, 'Bestelauto''s', 17, 20),
+	(21, 'Vrachtauto''s', 17, 21),
+	(22, 'Auto onderdelen', 17, 22),
+
+(23, 'Boeken', null, 23),
+	(24, 'Populaire fictie', 23, 24),
+	(25, 'School, Studie en Wetenschap', 23, 25),
+	(26, 'Eten en Koken', 23, 26),
+	(27, 'Kind en Jeugd', 23, 27),
+	(28, 'Geschiedenis, Politiek en Historie', 23, 28),
+	(29, 'Stripverhalen', 23, 29),
+	(30, 'Sport, Hobby en Vrije tijd', 23, 30),
+	(31, 'Kunst en Cultuur', 23, 31),
+	(32, 'Taal en Reizen', 23, 32),
+	(33, 'Overige', 23, 33),
+
+(34, 'Caravans en Kamperen', null, 34),
+	(35, 'Caravans en Campers', 34, 35),
+	(36, 'Tenten en Vouwwagens', 34, 36),
+	(37, 'Accessoires en Toebehoren', 34, 37),
+	(38, 'Diensten', 34, 38),
+	(39, 'Inkoop', 34, 39),
+	(40, 'Overige', 34, 40),
+
+(41, 'CD''s en DVD''s', null, 41),
+	(42, 'CD''s', 41, 42),
+	(43, 'Vinyl', 41, 43),
+	(44, 'DVD''s', 41, 44),
+	(45, 'Blu-rays', 41, 45),
+	(46, 'VHS', 41, 46),
+	(47, 'Overige', 41, 47),
+
+(48, 'Computers en Software', null, 48),
+	(49, 'Tablets en E-readers', 48, 49),
+	(50, 'Computers', 48, 50),
+	(51, 'Randapparatuur', 48, 51),
+	(52, 'Computeronderdelen', 48, 52),
+	(53, 'Laptops', 48, 53),
+	(54, 'Opslag', 48, 54),
+	(55, 'Boeken', 48, 55),
+	(56, 'Software', 48, 56),
+	(57, 'Overige', 48, 57),
+
+(58, 'Dieren en Toebehoren', null, 58),
+	(59, 'Honden', 58, 59),
+	(60, 'Paarden en Pony''s', 58, 60),
+	(61, 'Katten', 58, 61),
+	(62, 'Reptielen en Amfibieën', 58, 62),
+	(63, 'Vee', 58, 63),
+	(64, 'Knaagdieren en Konijnen', 58, 64),
+	(65, 'Vissen', 58, 65),
+	(66, 'Vogels', 58, 66),
+	(67, 'Boeken', 58, 67),
+	(68, 'Toebehoren', 58, 68),
+	(69, 'Overige', 58, 69),
+
+(70, 'Doe-het-zelf en Verbouw', null, 70),
+	(71, 'Gereedschappen', 70, 71),
+	(72, 'Machines en Apparaten', 70, 72),
+	(73, 'Dak en Gevel', 70, 73),
+	(74, 'Materialen', 70, 74),
+	(75, 'Ramen, Deuren en Kozijnen', 70, 75),
+	(76, 'Verwarming en Ventilatie', 70, 76),
+	(77, 'Sanitair en Tegels', 70, 77),
+	(78, 'Verf en Schilderen', 70, 78),
+	(79, 'Verlichting, Elektra en Kabels', 70, 79),
+	(80, 'Overige', 70, 80),
+
+(81, 'Fietsen en Brommers', null, 81),
+	(82, 'Fietsen', 81, 82),
+		(83, 'Dames', 82, 83),
+		(84, 'Heren', 82, 84),
+		(85, 'Kinderen', 82, 85),
+	(86, 'Brommers', 81, 86),
+	(87, 'Brommers', 81, 87),
+	(88, 'Snorfietsen en Snorscooters', 81, 88),
+	(89, 'Fietsaccessoires en Onderdelen', 81, 89),
+	(90, 'Brommeronderdelen en Toebehoren', 81, 90),
+	(91, 'Overige', 81, 91),
+
+
+(92, 'Hobby en Vrije tijd', null, 92),
+	(93, 'Modelbouw', 92, 93),
+	(94, 'Modelauto''s', 92, 94),
+	(95, 'Modeltreinen', 92, 95),
+	(96, 'Knutselen en Handenarbeid', 92, 96),
+	(97, 'Feestartikelen', 92, 97),
+	(98, 'Spel en Strategie', 92, 98),
+	(99, 'Verzamelkaartspellen', 92, 99),
+	(100, 'Elektronica', 92, 100),
+	(101, 'Kleding en Stoffen', 92, 101),
+	(102, 'Sparen', 92, 102),
+	(103, 'Overige', 92, 103),
+
+(104, 'Huis en Inrichting', null, 104),
+	(105, 'Huizen', 104, 105),
+	(106, 'Badkamer', 104, 106),
+	(107, 'Banken en Stoelen', 104, 107),
+	(108, 'Kasten', 104, 108),
+	(109, 'Stoffering', 104, 109),
+	(110, 'Lampen', 104, 110),
+	(111, 'Keuken', 104, 111),
+	(112, 'Tafels', 104, 112),
+	(113, 'Slaapkamer', 104, 113),
+	(114, 'Woonaccessoires', 104, 114),
+	(115, 'Overige', 104, 115),
+
+
+(116, 'Kinderen en Baby''s', null, 116),
+	(117, 'Babykleding', 116, 117),
+	(118, 'Babybenodigdheden', 116, 118),
+	(119, 'Onderweg', 116, 119),
+	(120, 'Kinderkleding', 116, 120),
+	(121, 'Kindermeubilair', 116, 121),
+	(122, 'Boeken', 116, 122),
+	(123, 'Speelgoed', 116, 123),
+	(124, 'Overige', 116, 124),
+
+(125, 'Kleding', null, 125),
+	(126, 'Dames', 125, 126),
+		(127, 'Merkkleding', 126, 127),
+		(128, 'Badmode en Ondergoed', 126, 128),
+		(129, 'Accessoires', 126, 129),
+		(130, 'Schoenen en Beenmode', 126, 130),
+		(131, 'Overige', 126, 131),
+	(132, 'Heren', 125, 132),
+		(133, 'Merkkleding', 132, 133),
+		(134, 'Badmode en Ondergoed', 132, 134),
+		(135, 'Accessoires', 132, 135),
+		(136, 'Schoenen en Beenmode', 132, 136),
+		(137, 'Overige', 132, 137),
+
+(138, 'Motoren', null, 138),
+	(139, 'Onderdelen', 138, 139),
+	(140, 'Accessoires', 138, 140),
+	(141, 'Helmen en Kleding', 138, 141),
+
+(142, 'Muziek en instrumenten', null, 142),
+	(143, 'Piano''s en Toetsen', 142, 143),
+	(144, 'Snaarinstrumenten', 142, 144),
+	(145, 'Drums en Percussie', 142, 145),
+	(146, 'Blaasinstrumenten', 142, 146),
+	(147, 'Apparatuur en Elektronica', 142, 147),
+	(148, 'Strijkinstrumenten', 142, 148),
+	(149, 'Onderdelen en Toebehoren', 142, 149),
+	(150, 'Onderdelen en Toebehoren', 142, 150),
+	
+(151, 'Sieraden en Tassen', null, 151),
+	(152, 'Sieraden', 151, 152),
+	(153, 'Horloges', 151, 153),
+	(154, 'Tassen en Koffers', 151, 154),
+	(155, 'Uiterlijk', 151, 155),
+	(156, 'Zonnebrillen en Brillen', 151, 156),
+	(157, 'Accessoires', 151, 157),
+
+(158, 'Spelcomputers, Games', null, 158),
+	(159, 'Spelcomputers', 158, 159),
+		(160, 'Sony Playstation', 159, 160),
+		(161, 'Nintendo', 159, 161),
+		(162, 'Xbox', 159, 162),
+		(163, 'Overige', 159, 163),
+	(164, 'Toebehoren', 158, 164),
+		(165, 'Sony Playstation', 164, 165),
+		(166, 'Nintendo', 164, 166),
+		(167, 'Xbox', 164, 167),
+		(168, 'Overige', 164, 168),
+	(169, 'Games', 158, 169),
+		(170, 'Sony Playstation', 169, 170),
+		(171, 'Nintendo', 169, 171),
+		(172, 'Xbox', 169, 172),
+		(173, 'Overige', 169, 173),
+
+(174, 'Sport en Fitness', null, 174),
+	(175, 'Lopen, Fietsen en Skaten', 174, 175),
+	(176, 'Balsporten', 174, 176),
+	(177, 'Fitness en Gymnastiek', 174, 177),
+	(178, 'Behendigheidsporten', 174, 178),
+	(179, 'Wintersporten', 174, 179),
+	(180, 'Rijden en Vliegen', 174, 180),
+	(181, 'Vechtsporten en Zelfverdediging', 174, 181),
+	(182, 'Kleding', 174, 182),
+	(183, 'Wellness en Ontspanning', 174, 183),
+	(184, 'Overige', 174, 184),
+
+(185, 'Telecommunicatie', null, 185),
+	(186, 'Mobiele Telefoons', 185, 186),
+		(187, 'Hoesjes en Frontjes', 186, 187),
+		(188, 'Toebehoren', 186, 188),
+	(189, 'Vaste telefoons en Toebehoren', 185, 189),
+	(190, 'Zenders en Ontvangers', 185, 190),
+	(191, 'Datacommunicatie', 185, 191),
+	(192, 'Overige', 185, 192),
+
+(193, 'Tickets en Kaartjes', null, 193),
+	(194, 'Concerten', 193, 194),
+	(195, 'Cultuur', 193, 195),
+	(196, 'Recreatie en Festivals', 193, 196),
+	(197, 'Reizen', 193, 197),
+	(198, 'Sport', 193, 198),
+	(199, 'Overige', 193, 199),
+
+(200, 'Tuin en Terras', null, 200),
+	(201, 'Tuinaanleg en Decoratie', 200, 201),
+	(202, 'Bloemen en Planten', 200, 202),
+	(203, 'Huisjes en Meubelen', 200, 203),
+	(204, 'Bodem en Grond', 200, 204),
+	(205, 'Tuinaccessoires', 200, 205),
+	(206, 'Tuinaccessoires', 200, 206),
+	(207, 'Overige', 200, 207),
+
+(208, 'Verzamelen', null, 208),
+	(209, 'Ansichten, Prenten en Kaarten', 208, 209),
+	(210, 'Apparatuur', 208, 210),
+	(211, 'Apparatuur', 208, 211),
+	(212, 'Dier, Steen en Fossiel', 208, 212),
+	(213, 'Dranken, Glas en Servies', 208, 213),
+	(214, 'Film, TV en Vermaak', 208, 214),
+	(215, 'Poppen, Beren en Figuurtjes', 208, 215),
+	(216, 'Sport en Scouting', 208, 216),
+	(217, 'Vervoer en Transport', 208, 217),
+	(218, 'Kleding en Toebehoren', 208, 218),
+	(219, 'Overige', 208, 219),
+
+(220, 'Watersport en Boten', null, 220),
+	(221, 'Hengelsport', 220, 221),
+	(222, 'Roeien en Kanoën', 220, 222),
+	(223, 'Surfen, Zwemmen en Waterskien', 220, 223),
+	(224, 'Motorboten', 220, 224),
+	(225, 'Zeilboten en Toebehoren', 220, 225),
+	(226, 'Accessoires en Toebehoren', 220, 226),
+	(227, 'Overige', 220, 227),
+
+(228, 'Witgoed en Apparatuur', null, 228),
+	(229, 'Keuken', 228, 229),
+	(230, 'Huishouden', 228, 230),
+	(231, 'Persoonlijke apparatuur', 228, 231),
+	(232, 'Persoonlijke apparatuur', 228, 232),
+	(233, 'Overige', 228, 233),
+
+(234, 'Zakelijke goederen', null, 234),
+	(235, 'Machines en Bouw', 234, 235),
+	(236, 'Horeca', 234, 236),
+	(237, 'Partijgoederen en Retail', 234, 237),
+	(238, 'Kantoor, Winkel en Bedrijf', 234, 238),
+	(239, 'Agrarisch', 234, 239),
+	(240, 'Overige', 234, 240),
+
+(241, 'Diversen', null, 241),
+	(242, 'Feesten en Evenementen', 241, 242),
+	(243, 'School-en Kantoorartikelen', 241, 243),
+	(244, 'Zorg', 241, 244),
+	(245, 'Overige', 241, 245)
+
+DBCC CHECKIDENT ('Voorwerp', RESEED, -1)
+
 insert into Voorwerp (Titel, Beschrijving, Kleur, Afmeting, Merk, Conditie, Startprijs, Betalingswijze, Betalingsinstructie, Plaatsnaam, Land, Looptijd, LooptijdbeginDag, LooptijdbeginTijdstip, Verzendkosten, Verzendinstructies, Verkoper, Koper, LooptijdeindeDag, LooptijdeindeTijdstip, VeiligGesloten, Verkoopprijs)
 values
-	('JoJo t-shirt', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Mooie auto', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Dikke BWM', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Schep', 'Bring out your inner weeb', null, null, null, 'zgan', 20 , 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('PS4', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Nintendo switch', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('PS3', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('xbox 360', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Motorola G', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Vodafone Smart 2', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('grasmaaier', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Bestek', 'Bring out your inner weeb', null, null, null,'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Mok (batman)', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Mooie bankestel', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Tafel', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('theekopjes', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Schilderij (mona lisa)', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('tulpenbollen', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Rolschaatsen', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
-	('Skateboard', 'Bring out your inner weeb', null, null, null, 'zgan', 20, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE(), CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null)
+	('JoJo t-shirt', 'Bring out your inner weeb 2', null, null, null, 'zgan', 30, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE() - 7, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	('Mooie auto', 'Bring out your inner weeb 3', null, null, null, 'zgan', 45, 'Bank', null, 'Doesburg', 'Nederland', '3',  GETDATE() - 20, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+3, CURRENT_TIMESTAMP, 0, null),
+	('Dikke BWM', 'Bring out your inner weeb 4', null, null, null, 'zgan', 10, 'Bank', null, 'Doetinchem', 'Nederland', '2',  GETDATE() - 65, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+2, CURRENT_TIMESTAMP, 0, null),
+	('Schep', 'Bring out your inner weeb 5', null, null, null, 'zgan', 5, 'Bank', null, 'Apeldoorn', 'Nederland', '1',  GETDATE() - 3, CURRENT_TIMESTAMP, 0.95, null, 'Erkan1', 'Peter2', GETDATE()+1, CURRENT_TIMESTAMP, 0, null),
+	('PS4', 'Bring out your inner weeb 6', null, null, null, 'zgan', 6.99, 'Bank', null, 'Amersfoort', 'Nederland', '4',  GETDATE() - 3, CURRENT_TIMESTAMP, 0.95, null, 'Bazinga12', 'Peter1', GETDATE()+4, CURRENT_TIMESTAMP, 0, null),
+	('Nintendo switch', 'Bring out your inner weeb 7', null, null, null, 'zgan', 10.99, 'Dusseldurf', null, 'Arnhem', 'Nederland', '3',  GETDATE() - 5, CURRENT_TIMESTAMP, 0.95, null, 'Dani2', 'Peter2', GETDATE()+3, CURRENT_TIMESTAMP, 0, null),
+	('PS3', 'Bring out your inner weeb 8', null, null, null, 'zgan', 14.99, 'Bank', null, 'Laag-soeren', 'Nederland', '5',  GETDATE() - 7, CURRENT_TIMESTAMP, 0.95, null, 'Dani2', 'Peter2', GETDATE()+5, CURRENT_TIMESTAMP, 0, null),
+	('xbox 360', 'Bring out your inner weeb 9', null, null, null, 'zgan', 50, 'Bank', null, 'Dieren', 'Nederland', '2',  GETDATE() - 8, CURRENT_TIMESTAMP, 0.95, null, 'wesley5', 'Dani3', GETDATE()+2, CURRENT_TIMESTAMP, 0, null),
+	('Motorola G', 'Bring out your inner weeb 10', null, null, null, 'zgan', 60, 'Bank', null, 'Drempt', 'Nederland', '7',  GETDATE() -10, CURRENT_TIMESTAMP, 0.95, null, 'wesley5', 'Peter2', GETDATE()+7, CURRENT_TIMESTAMP, 0, null),
+	('Vodafone Smart 2', 'Bring out your inner weeb 11', null, null, null, 'zgan', 57.99, 'Bank', null, 'Eerbeek', 'Nederland', '5',  GETDATE() - 11, CURRENT_TIMESTAMP, 0.95, null, 'wesley5', 'Peter2', GETDATE()+5, CURRENT_TIMESTAMP, 0, null),
+	('grasmaaier', 'Bring out your inner weeb 12', null, null, null, 'zgan', 100, 'Bank', null, 'Laag-keppel', 'Nederland', '14',  GETDATE() - 15, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+14, CURRENT_TIMESTAMP, 0, null),
+	('Bestek', 'Bring out your inner weeb 13', null, null, null,'zgan', 110, 'Bank', null, 'Hoog-keppel', 'Nederland', '12',  GETDATE() - 19, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+12, CURRENT_TIMESTAMP, 0, null),
+	('Mok (batman)', 'Bring out your inner weeb 14', null, null, null, 'zgan', 1000, 'Bank', null, 'zutphen', 'Nederland', '10',  GETDATE() - 20, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+10, CURRENT_TIMESTAMP, 0, null),
+	('Mooie bankestel', 'Bring out your inner weeb 15', null, null, null, 'zgan', 2, 'Bank', null, 'Zevenaar', 'Nederland', '11',  GETDATE() - 1, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+11, CURRENT_TIMESTAMP, 0, null),
+	('Tafel', 'Bring out your inner weeb 16', null, null, null, 'zgan', 200, 'Bank', null, 'wilp', 'Nederland', '9',  GETDATE() - 90, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+9, CURRENT_TIMESTAMP, 0, null),
+	('theekopjes', 'Bring out your inner weeb 17', null, null, null, 'zgan', 14, 'Bank', null, 'Ede', 'Nederland', '8',  GETDATE() - 100, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+8, CURRENT_TIMESTAMP, 0, null),
+	('Schilderij (mona lisa)', 'Bring out your inner weeb 18', null, null, null, 'zgan', 11, 'Loenen', null, 'Arnhem', 'Nederland', '4',  GETDATE() - 12, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+4, CURRENT_TIMESTAMP, 0, null),
+	('tulpenbollen', 'Bring out your inner weeb 19', null, null, null, 'zgan', 33, 'Bank', null, 'Velp', 'Nederland', '5',  GETDATE() - 4, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+5, CURRENT_TIMESTAMP, 0, null),
+	('Rolschaatsen', 'Bring out your inner weeb 20', null, null, null, 'zgan', 1500, 'Bank', null, 'Rheden', 'Nederland', '5',  GETDATE() - 5, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+5, CURRENT_TIMESTAMP, 0, null),
+	('Skateboard', 'Bring out your inner weeb 21', null, null, null, 'zgan', 232, 'Bank', null, 'De steeg', 'Nederland', '5',  GETDATE() - 5, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', 'Peter2', GETDATE()+5, CURRENT_TIMESTAMP, 0, null)
 
 insert into Bestand values
 ('F:\afb\0',0),
@@ -131,26 +414,26 @@ insert into Bod values
 	(19, 43, 'DioBrando2', '2019-04-25', '01:26:32')
 
 insert into Feedback values
-	(0, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(1, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(2, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(3, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(4, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(5, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(6, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(7, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(8, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(9, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(10, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(11, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(12, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(13, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(14, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(15, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(16, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(17, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(18, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst'),
-	(19, 'Koper', 5, GETDATE(), CURRENT_TIMESTAMP, 'testTekst')
+	(0, 'Koper', 5, GETDATE() + 5, CURRENT_TIMESTAMP, 'Leuk gedaan'),
+	(1, 'Koper', 4, GETDATE() + 3, CURRENT_TIMESTAMP, 'Fijn product, heb er 2 dagen geluk mee gehad ;)'),
+	(2, 'Koper', 4, GETDATE() - 32, CURRENT_TIMESTAMP, 'UwU UwU'),
+	(3, 'Koper', 3, GETDATE() - 12, CURRENT_TIMESTAMP, 'LMAAAO'),
+	(4, 'Koper', 2, GETDATE() - 5, CURRENT_TIMESTAMP, 'slecht product, BAZInGA'),
+	(5, 'Koper', 2, GETDATE() - 4, CURRENT_TIMESTAMP, 'Lollipop'),
+	(6, 'Koper', 5, GETDATE() - 14, CURRENT_TIMESTAMP, 'WRYYYYYYYYYYYY'),
+	(7, 'Koper', 4, GETDATE() - 76, CURRENT_TIMESTAMP, 'LOL'),
+	(8, 'Koper', 1, GETDATE() - 18, CURRENT_TIMESTAMP, '281289381293'),
+	(9, 'Koper', 1, GETDATE() - 11, CURRENT_TIMESTAMP, 'Echt G E W E L D I G'),
+	(10, 'Koper', 5, GETDATE() - 14, CURRENT_TIMESTAMP, 'BRAMEN'),
+	(11, 'Koper', 4, GETDATE() - 15, CURRENT_TIMESTAMP, '\/\/\/\//'),
+	(12, 'Koper', 4, GETDATE() - 14, CURRENT_TIMESTAMP, '(0-0)'),
+	(13, 'Koper', 2, GETDATE() - 19, CURRENT_TIMESTAMP, 'teeksksts'),
+	(14, 'Koper', 2, GETDATE() - 21, CURRENT_TIMESTAMP, 'ik weet niet meer wat ik in moet typen'),
+	(15, 'Koper', 1, GETDATE() - 22, CURRENT_TIMESTAMP, 'help me'),
+	(16, 'Koper', 4, GETDATE() - 27, CURRENT_TIMESTAMP, 'ik sta op het punt om meelf wat aan te doen'),
+	(17, 'Koper', 1, GETDATE() - 31, CURRENT_TIMESTAMP, 'AHHHHHHHHHHHHH'),
+	(18, 'Koper', 2, GETDATE() - 35, CURRENT_TIMESTAMP, 'OWWWWWWWWWWWWWWWWH SHITTTT'),
+	(19, 'Koper', 3, GETDATE() - 7, CURRENT_TIMESTAMP, 'OOOF')
 
 insert into Gebruikerstelefoon values
 	(1, 'Peter1','+31634234342'),

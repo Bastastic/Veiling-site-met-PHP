@@ -37,7 +37,7 @@
         $voorwerpnummer = $_GET['voorwerpnummer'];
 
         $sql = $dbh->prepare(
-            'SELECT titel, beschrijving, voornaam, achternaam, Gebruiker.plaatsnaam
+            'SELECT titel, beschrijving, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam
             FROM Gebruiker
             INNER JOIN Voorwerp
             ON Gebruiker.gebruikersnaam = Voorwerp.verkoper
@@ -48,6 +48,7 @@
 
         $titel = $resultaat['titel'];
         $beschrijving = $resultaat['beschrijving'];
+        $verkoper = $resultaat['gebruikersnaam'];
         $voornaam = $resultaat['voornaam'];
         $achternaam = $resultaat['achternaam'];
         $plaatsnaam = $resultaat['plaatsnaam'];
@@ -126,7 +127,7 @@
                             <a href="" class="btn btn-secondary disabled" role="button">Chatten</a>
                         </div>
                         &nbsp; &nbsp;
-                        <a href="" class="btn btn-primary" role="button">Meer van <?=$voornaam?></a>
+                        <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van <?=$voornaam?></a>
 
                     </div>
                     <br><br>
