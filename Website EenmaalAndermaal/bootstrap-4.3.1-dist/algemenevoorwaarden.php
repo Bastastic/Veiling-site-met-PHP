@@ -13,7 +13,7 @@
     <?php include('includes/header.php'); ?>
     <br>
     <div class="">
-      <div class="algemeencontainer">
+      <div class="algemeencontainer mb-5">
         <embed src="pdf/algemenevoorwaarden.pdf" width="100%" height="100%" alt="pdf"
           pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
       </div>

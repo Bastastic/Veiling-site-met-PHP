@@ -135,15 +135,17 @@
                 <br><br>
                 <hr>
                 <h4>Biedingen</h4>
+                <form name="biedform" onsubmit="return validateForm()">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
-                    <input type="text" class="form-control my-4" placeholder="Minimaal €<?=$hoogstebod?>" aria-label=""
-                        aria-describedby="basic-addon1">
+                    <input type="text" class="form-control my-4" placeholder="Minimaal €<?=$hoogstebod?>" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" required>
                     <div class="input-group-prepend my-4">
                         <div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
-                            <input type="submit" class="btn btn-primary disabled" value="Bied">
+                            <input type="submit" class="btn btn-primary" value="Bied">
                         </div>
                     </div>
                 </div>
+                </form>
                 <table class="table">
                     <thead>
                         <tr>
@@ -178,6 +180,17 @@
         $('.tooltip-wrapper').popover({
             trigger: "hover"
         });
+
+        function validateForm() {
+            var bod, melding;
+
+            bod = document.getElementById("bod").value;
+
+            if (isNaN(bod) || bod <= <?=$hoogstebod?>) {
+                alert("Je moet meer bieden!");
+                return false;
+            }
+        } 
     </script>
 
 </body>
