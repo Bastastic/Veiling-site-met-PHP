@@ -63,25 +63,6 @@
                 <hr class="admin-line">
                 <div class="row">
                     <!-- Team members -->
-                    <!-- Bas Slijkhuis -->
-                    <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
-                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                            <div class="mainflip">
-                                <div class="frontside">
-                                    <div class="card">
-                                        <div class="card-body text-center">
-                                            <p><img class="img-fluid" src="images/bas-slijkhuis.jpg" alt="card image">
-                                            </p>
-                                            <h4 class="card-title">Bas Slijkhuis</h4>
-                                            <p class="card-text">This is basic card with image on top, title,
-                                                description
-                                                and button.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Erkan Alper -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
                         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -89,12 +70,27 @@
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="images/erkan-alper.jpg" alt="card image">
+                                            <p><img class="img-fluid" src="images/erkan-alper.jpg" alt="card image">
                                             </p>
-                                            <h4 class="card-title">Erkan Alper</h4>
-                                            <p class="card-text">This is basic card with image on top, title,
-                                                description
-                                                and button.</p>
+                                            <h4 class="card-title">Erkan Alper (613525)</h4>
+                                            <p class="card-text">Profiel: Infrastructure & Security Managament (ISM)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dani Hengeveld -->
+                    <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
+                        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                            <div class="mainflip">
+                                <div class="frontside">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <p><img class=" img-fluid" src="images/dani-hengeveld.jpg" alt="card image">
+                                            </p>
+                                            <h4 class="card-title">Dani Hengeveld (616743)</h4>
+                                            <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -110,10 +106,8 @@
                                         <div class="card-body text-center">
                                             <p><img class=" img-fluid" src="images/senad-kurtovic.jpg" alt="card image">
                                             </p>
-                                            <h4 class="card-title">Senad Kurtovic</h4>
-                                            <p class="card-text">This is basic card with image on top, title,
-                                                description
-                                                and button.</p>
+                                            <h4 class="card-title">Peiwand ismaiel (619856)</h4>
+                                            <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -130,48 +124,43 @@
                                             <p><img class=" img-fluid" src="images/peiwand-ismaiel.jpg"
                                                     alt="card image">
                                             </p>
-                                            <h4 class="card-title">Peiwand Ismaiel</h4>
-                                            <p class="card-text">This is basic card with image on top, title,
-                                                description
-                                                and button.</p>
+                                            <h4 class="card-title">Senad Kurtovic (555081)</h4>
+                                            <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Bas Slijkhuis -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
                         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                             <div class="mainflip">
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="images/wesley-smeltink.jpg"
+                                            <p><img class=" img-fluid" src="images/bas-slijkhuis.jpg"
                                                     alt="card image">
                                             </p>
-                                            <h4 class="card-title">Wesley Smeltink</h4>
-                                            <p class="card-text">This is basic card with image on top, title,
-                                                description
-                                                and button.</p>
+                                            <h4 class="card-title">Bas Slijkhuis (619105)</h4>
+                                            <p class="card-text">Profiel: Bedrijfskunde Informatica & Managament (BIM)</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Dani Hengeveld -->
+                    <!-- Wesley Smeltink -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
                         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                             <div class="mainflip">
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="images/dani-hengeveld.jpg" alt="card image">
+                                            <p><img class=" img-fluid" src="images/wesley-smeltink.jpg" alt="card image">
                                             </p>
-                                            <h4 class="card-title">Dani Hengeveld</h4>
-                                            <p class="card-text">This is basic card with image on top, title,
-                                                description
-                                                and button.</p>
+                                            <h4 class="card-title">Wesley Smeltink (604792)</h4>
+                                            <p class="card-text">Profiel: Infrastructur & Security Management (ISM)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +187,7 @@
                                             <p><img class=" img-fluid" src="images/yakup-kucuk.jpg" alt="card image">
                                             </p>
                                             <h4 class="card-title">Yakup Kucuk (kcky)</h4>
-                                            <p class="card-text">Procesbegeleider</p>
+                                            <p class="card-text">Procesbegeleider (HAN)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +205,7 @@
                                                     alt="card image">
                                             </p>
                                             <h4 class="card-title">Maria Boes-Voet (boesm)</h4>
-                                            <p class="card-text">Professional Skills</p>
+                                            <p class="card-text">Professional Skills (HAN)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -232,7 +221,7 @@
                                         <div class="card-body text-center">
                                             <p><img class=" img-fluid" src="images/jorg-visch.jpg" alt="card image"></p>
                                             <h4 class="card-title">Jorg Visch (vschj)</h4>
-                                            <p class="card-text">Productsbegeleider</p>
+                                            <p class="card-text">Productsbegeleider (HAN)</p>
                                         </div>
                                     </div>
                                 </div>
