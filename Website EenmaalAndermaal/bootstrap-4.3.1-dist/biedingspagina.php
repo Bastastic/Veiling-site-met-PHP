@@ -28,7 +28,7 @@
 </style>
 
 <?php include 'includes/header.php'; ?>
-<?php require 'php/connectDB.php'; ?>
+<?php require_once 'php/connectDB.php'; ?>
 
 <body>
 
@@ -181,8 +181,6 @@
     </script>
 
 </body>
-<footer>
-    <?php include 'includes/footer.php'; ?>
-</footer>
+<?php include 'includes/footer.php'; ?>
 
 </html>

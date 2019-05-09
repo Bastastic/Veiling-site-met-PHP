@@ -9,6 +9,7 @@
   <?php include 'includes/links.php'; ?>
   <title>Sitemap</title>
 </head>
+
 <?php include 'includes/header.php'; ?>
 
 <body>
