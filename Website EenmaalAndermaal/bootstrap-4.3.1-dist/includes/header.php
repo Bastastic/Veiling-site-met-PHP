@@ -9,8 +9,8 @@
                             <img src="images/LogoWit.png" style="width: 120px" alt="">
                         </a>
                     </div>
-                    <div class="col-6 align-self-center">
-                        <div class="row float-right justify-content-end flex-lg-row flex-md-row flex-column flex-column">
+                    <div class="col-5 align-self-center">
+                        <div class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
                                 <a href="inloggen.php" class="btn btn-secondary" role="button">Inloggen</a>
                                 <a href="registreren.php" class="btn btn-primary" role="button">Registreren</a>
                         </div>
