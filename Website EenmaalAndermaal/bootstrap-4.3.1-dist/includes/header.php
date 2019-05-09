@@ -24,6 +24,7 @@
             </nav>
         </div>
     </div>
+    <form action="zoeken.php" method="get">
 
     <div id="Lower-Header" style="background-color: #e8e8e8">
         <div class="container">
@@ -31,7 +32,6 @@
                 <div class="collapse navbar-collapse justify-content-center mt-3" id="navbarToggler">
                     <ul class="navbar-nav">
                         <li>
-                            <form action="zoeken.php" method="get">
                                 <div class="form-group mr-2">
                                     <input type="text" class="form-control" id="zoek" name="zoeken" placeholder="Zoek product">
                                 </div>
@@ -65,7 +65,6 @@
                                         <button type="submit" class="btn btn-primary mr-2">Zoeken</button>
                                 </div>
                             </li>
-                        </form>    
                     </ul>
                 </div>
             </nav>
@@ -75,5 +74,7 @@
         <div class="card card-body">
             <?php include 'includes/categorieen.php'; ?>
     </div>
+    </form>    
+
 </div>
 </header>
