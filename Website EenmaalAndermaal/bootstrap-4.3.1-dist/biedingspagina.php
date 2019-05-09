@@ -35,15 +35,32 @@
     <?php
     if(isset($_GET['voorwerpnummer'])){
         $voorwerpnummer = $_GET['voorwerpnummer'];
+
         $sql = $dbh->prepare(
-            'SELECT titel, beschrijving, verkoper
-            FROM Voorwerp
-            WHERE voorwerpnummer =:voorwerpnummer');
+            'SELECT titel, beschrijving, voornaam, achternaam, Gebruiker.plaatsnaam
+            FROM Gebruiker
+            INNER JOIN Voorwerp
+            ON Gebruiker.gebruikersnaam = Voorwerp.verkoper
+            WHERE Voorwerp.voorwerpnummer = :voorwerpnummer'
+        );
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
         $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+
         $titel = $resultaat['titel'];
         $beschrijving = $resultaat['beschrijving'];
-        $verkoper = $resultaat['verkoper'];
+        $voornaam = $resultaat['voornaam'];
+        $achternaam = $resultaat['achternaam'];
+        $plaatsnaam = $resultaat['plaatsnaam'];
+
+        $sql = $dbh->prepare(
+            'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
+            FROM Bod, Voorwerp
+            WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
+            AND voorwerpnummer = :voorwerpnummer
+            ORDER BY bodbedrag'
+        );
+        $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+        $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
     }else{
         echo '<script>window.location.replace("zoeken.php");</script>';
         die();
@@ -52,7 +69,7 @@
 
     <div class="container my-3">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8">
+            <div class="col-xs-12 col-sm-12 col-md-7">
                 <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
                     <ul class="carousel-indicators">
                         <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -95,29 +112,28 @@
 
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <div class="col">
+            <div class="col-xs-12 col-sm-12 col-md-5">
                     <p>
-                        <h4><?=$verkoper?></h4>
+                        <h4><?=$voornaam . " " . $achternaam;?></h4>
                         <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
                         Rating 4,5 van de 5
                     </p>
                     <hr>
-                    <h6>Omgeving Apeldoorn</h6>
-
+                    <h6>Regio <?=$plaatsnaam;?></h6>
+                    <br>
                     <div class="row justify-content-center">
                         <div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
                             <a href="" class="btn btn-secondary disabled" role="button">Chatten</a>
                         </div>
                         &nbsp; &nbsp;
-                        <a href="" class="btn btn-primary" role="button">Meer van <?=$verkoper?></a>
+                        <a href="" class="btn btn-primary" role="button">Meer van <?=$voornaam?></a>
 
                     </div>
                     <br><br>
                     <hr>
                     <h4>Biedingen</h4>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control my-4" placeholder="" aria-label=""
+                    <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
+                        <input type="text" class="form-control my-4" placeholder="Bijv. €20.00" aria-label=""
                             aria-describedby="basic-addon1">
                         <div class="input-group-prepend my-4">
                             <div class="tooltip-wrapper" data-placement="top"
@@ -131,29 +147,27 @@
                             <tr>
                                 <th>Gebruiker</th>
                                 <th>Bod</th>
-                                <th>Datum</th>
+                                <th>Datum & Tijd</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>John</td>
-                                <td>€700,49</td>
-                                <td>08-05-2019</td>
-                            </tr>
-                            <tr>
-                                <td>Mary</td>
-                                <td>€600,13</td>
-                                <td>03-05-2019</td>
-                            </tr>
-                            <tr>
-                                <td>July</td>
-                                <td>€530,61</td>
-                                <td>01-05-2019</td>
-                            </tr>
+
+                            <?php
+                            foreach ($resultaat as $key => $value) {
+                                $datetime = date_create($value['boddag'] . " " . $value['bodtijdstip'], timezone_open("Europe/Amsterdam"));
+                                $datetime = date_format($datetime,"d/m/Y H:i");
+                                echo "
+                                <tr>
+                                <td>" . $value['gebruiker'] . "</td>
+                                <td>€ " . $value['bodbedrag'] . "</td>
+                                <td>" . $datetime . "</td>
+                                </tr>
+                                ";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
-            </div>
         </div>
     </div>
     </div>
