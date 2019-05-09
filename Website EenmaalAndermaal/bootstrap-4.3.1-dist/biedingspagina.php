@@ -144,7 +144,6 @@
                         </div>
                     </div>
                 </div>
-                <?=$hoogstebod?>
                 <table class="table">
                     <thead>
                         <tr>
