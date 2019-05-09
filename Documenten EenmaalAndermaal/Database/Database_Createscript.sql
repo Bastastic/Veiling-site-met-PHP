@@ -135,7 +135,7 @@ create table Voorwerp (
 	Verzendkosten			numeric(8,2)	null,
 	Verzendinstructies		varchar(200)	null,
 	Verkoper				varchar(25)		not null,
-	Koper					varchar(25)		not null,
+	Koper					varchar(25)		null,
 	LooptijdeindeDag		date			not null,
 	LooptijdeindeTijdstip	time			not null,
 	VeiligGesloten			bit				not null,
