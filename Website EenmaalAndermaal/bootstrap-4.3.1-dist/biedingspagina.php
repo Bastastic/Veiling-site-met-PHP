@@ -110,8 +110,7 @@
                             <a href="" class="btn btn-secondary disabled" role="button">Chatten</a>
                         </div>
                         &nbsp; &nbsp;
-                        <a href="" class="btn btn-primary" role="button">Meer van <?=$verkoper?></a>
-
+                        <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van <?=$verkoper?></a>
                     </div>
                     <br><br>
                     <hr>
