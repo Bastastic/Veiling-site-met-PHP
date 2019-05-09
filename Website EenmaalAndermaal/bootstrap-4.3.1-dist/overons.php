@@ -28,7 +28,7 @@
     }
 
     .admin-line {
-        border-top: 5px solid #0326a5;
+        border-top: 5px solid #ffad4f;
     }
 
     .col-xs-12,
@@ -112,7 +112,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="first-line">
                     </div>
                     <!-- Erkan Alper -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
@@ -132,7 +131,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="second-line">
                     </div>
                     <!-- Senad Kurtovic -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
@@ -152,7 +150,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="thirth-line">
                     </div>
                     <!-- Peiwand Ismaiel -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
@@ -173,7 +170,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="fourth-line">
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
                         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -193,7 +189,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="fifth-line">
                     </div>
                     <!-- Dani Hengeveld -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
@@ -213,7 +208,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="sixth-line">
                     </div>
 
 
@@ -241,7 +235,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="first-line">
                     </div>
                     <!-- Maria Boes-Voet -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
@@ -260,7 +253,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="second-line">
                     </div>
                     <!-- Jorg Visch -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
@@ -277,7 +269,6 @@
                                 </div>
                             </div>
                         </div>
-                        <hr class="thirth-line">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
