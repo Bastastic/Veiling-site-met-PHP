@@ -37,7 +37,7 @@
         $voorwerpnummer = $_GET['voorwerpnummer'];
 
         $sql = $dbh->prepare(
-            'SELECT titel, beschrijving, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam
+            'SELECT titel, beschrijving, startprijs, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam
             FROM Gebruiker
             INNER JOIN Voorwerp
             ON Gebruiker.gebruikersnaam = Voorwerp.verkoper
@@ -52,18 +52,19 @@
         $voornaam = $resultaat['voornaam'];
         $achternaam = $resultaat['achternaam'];
         $plaatsnaam = $resultaat['plaatsnaam'];
+        $startprijs = $resultaat['startprijs'];
 
         $sql = $dbh->prepare(
             'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
             FROM Bod, Voorwerp
             WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
             AND voorwerpnummer = :voorwerpnummer
-            ORDER BY bodbedrag'
+            ORDER BY bodbedrag DESC'
         );
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
-        $count = $sql->rowCount();
         $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-        if($count > 0){
+        $hoogstebod = $startprijs;
+        if($resultaat){
             $hoogstebod = $resultaat[0]['bodbedrag'];
         }
     }else{
