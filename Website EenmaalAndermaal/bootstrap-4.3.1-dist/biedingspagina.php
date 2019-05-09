@@ -61,8 +61,8 @@
             ORDER BY bodbedrag'
         );
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+        $count = $sql->rowCount();
         $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-        $count = $resultaat->rowCount();
         if($count > 0){
             $hoogstebod = $resultaat[0]['bodbedrag'];
         }
