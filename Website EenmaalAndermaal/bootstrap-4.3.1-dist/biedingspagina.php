@@ -62,7 +62,10 @@
         );
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
         $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-        $hoogstebod = $resultaat[0]['bodbedrag'];
+        $count = $resultaat->rowCount();
+        if($count > 0){
+            $hoogstebod = $resultaat[0]['bodbedrag'];
+        }
     }else{
         echo '<script>window.location.replace("zoeken.php");</script>';
         die();
