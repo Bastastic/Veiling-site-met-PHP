@@ -106,7 +106,7 @@
                                         <div class="card-body text-center">
                                             <p><img class=" img-fluid" src="images/senad-kurtovic.jpg" alt="card image">
                                             </p>
-                                            <h4 class="card-title">Peiwand ismaiel (619856)</h4>
+                                            <h4 class="card-title">Senad Kurtovic (619856)</h4>
                                             <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                             <p><img class=" img-fluid" src="images/peiwand-ismaiel.jpg"
                                                     alt="card image">
                                             </p>
-                                            <h4 class="card-title">Senad Kurtovic (555081)</h4>
+                                            <h4 class="card-title">Peiwand Ismaiel (555081)</h4>
                                             <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
@@ -234,11 +234,8 @@
                         <div class="mainflip">
                             <div class="frontside">
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
     <br>
