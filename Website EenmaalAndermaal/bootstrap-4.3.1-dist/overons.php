@@ -40,6 +40,13 @@
         width: auto;
         position: relative;
     }
+
+    .btn, 
+    .btn-lg, 
+    .btn-success{
+        background-color: #ff814f;
+        border-color: #ff814f;
+    }
 </style>
 <?php
      include 'includes/header.php'; 
