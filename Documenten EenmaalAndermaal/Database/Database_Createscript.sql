@@ -139,7 +139,7 @@ create table Voorwerp (
 	LooptijdeindeDag		date			not null,
 	LooptijdeindeTijdstip	time			not null,
 	VeiligGesloten			bit				not null,
-	Verkoopprijs			smallmoney		null
+	Verkoopprijs			numeric(8,2)	null
 	constraint PK_Voorwerp primary key (Voorwerpnummer),
 	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00),
 	constraint CK_Conditie	CHECK (Conditie IN ('zgan', 'gebruikt', 'gebruikersporen', 'kapot')),

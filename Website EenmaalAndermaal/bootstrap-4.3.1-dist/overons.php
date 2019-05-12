@@ -40,6 +40,13 @@
         width: auto;
         position: relative;
     }
+
+    .btn, 
+    .btn-lg, 
+    .btn-success{
+        background-color: #ff814f;
+        border-color: #ff814f;
+    }
 </style>
 <?php
      include 'includes/header.php'; 
@@ -97,16 +104,16 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Senad Kurtovic -->
+                    <!-- Peiwand Ismaiel -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
                         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                             <div class="mainflip">
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <p><img class=" img-fluid" src="images/senad-kurtovic.jpg" alt="card image">
+                                            <p><img class=" img-fluid" src="images/peiwand-ismaiel.jpg" alt="card image">
                                             </p>
-                                            <h4 class="card-title">Peiwand ismaiel (619856)</h4>
+                                            <h4 class="card-title">Peiwand Ismaiel (619856)</h4>
                                             <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
@@ -114,17 +121,17 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Peiwand Ismaiel -->
+                    <!-- Seand Kurtovic -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
                         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                             <div class="mainflip">
                                 <div class="frontside">
                                     <div class="card" style="padding-top: 0px;">
                                         <div class="card-body text-center" style="padding-top: 20px;">
-                                            <p><img class=" img-fluid" src="images/peiwand-ismaiel.jpg"
+                                            <p><img class=" img-fluid" src="images/senad-kurtovic.jpg"
                                                     alt="card image">
                                             </p>
-                                            <h4 class="card-title">Senad Kurtovic (555081)</h4>
+                                            <h4 class="card-title">Seand Kurtovic (555081)</h4>
                                             <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
@@ -234,11 +241,8 @@
                         <div class="mainflip">
                             <div class="frontside">
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
     <br>
