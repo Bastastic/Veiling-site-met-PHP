@@ -77,9 +77,9 @@ create table Gebruiker (
 	Land				varchar(40)		not null,
 	GeboorteDag			date			not null,
 	Mailbox				varchar(255)	not null,
-	Wachtwoord			varchar(100)	not null, /* hashed */
+	Wachtwoord			varchar(300)	not null, /* hashed */
 	Vraag				tinyint			not null,
-	Antwoordtext		varchar(100)	not null, /* hashed */
+	Antwoordtext		varchar(300)	not null, /* hashed */
 	Verkoper			bit				not null,
 	Geactiveerd			BIT				not null,
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
