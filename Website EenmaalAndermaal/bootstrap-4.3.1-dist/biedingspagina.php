@@ -145,7 +145,7 @@
                         aria-describedby="basic-addon1" required>
                     <div class="input-group-prepend my-4">
                         <div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
-                            <input type="submit" class="btn btn-primary" style="pointer-events: none;" value="Bied" disabled>
+                            <input type="submit" class="btn btn-primary disabled" style="pointer-events: none;" value="Bied" disabled>
                         </div>
                     </div>
                 </div>
