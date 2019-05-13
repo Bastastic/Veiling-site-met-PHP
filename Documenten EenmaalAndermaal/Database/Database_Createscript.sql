@@ -80,7 +80,8 @@ create table Gebruiker (
 	Wachtwoord			varchar(100)	not null, /* hashed */
 	Vraag				tinyint			not null,
 	Antwoordtext		varchar(100)	not null, /* hashed */
-	Verkoper			bit				not null
+	Verkoper			bit				not null,
+	Geactiveerd			BIT				not null,
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
 	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
 	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
@@ -139,7 +140,7 @@ create table Voorwerp (
 	LooptijdeindeDag		date			not null,
 	LooptijdeindeTijdstip	time			not null,
 	VeiligGesloten			bit				not null,
-	Verkoopprijs			smallmoney		null
+	Verkoopprijs			numeric(8,2)	null
 	constraint PK_Voorwerp primary key (Voorwerpnummer),
 	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00),
 	constraint CK_Conditie	CHECK (Conditie IN ('zgan', 'gebruikt', 'gebruikersporen', 'kapot')),
