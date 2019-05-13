@@ -80,7 +80,8 @@ create table Gebruiker (
 	Wachtwoord			varchar(100)	not null, /* hashed */
 	Vraag				tinyint			not null,
 	Antwoordtext		varchar(100)	not null, /* hashed */
-	Verkoper			bit				not null
+	Verkoper			bit				not null,
+	Geactiveerd			BIT				not null,
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
 	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
 	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
