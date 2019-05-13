@@ -1,5 +1,4 @@
 <?php require_once ('php/connectDB.php'); ?>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
@@ -47,7 +46,7 @@
                                     <button class="btn btn-primary" type="button" data-toggle="collapse"
                                         data-target="#collapseExample" aria-expanded="false"
                                         aria-controls="collapseExample">
-                                        Categorieën <i class="fas fa-angle-down"></i>
+                                        Categorieën <i class="fa fa-angle-down"></i>
                                     </button>
                                 </div>
                             </li>
