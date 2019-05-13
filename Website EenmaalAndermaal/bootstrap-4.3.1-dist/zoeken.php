@@ -277,10 +277,17 @@
                         $titel = $value['titel'];
                         $bescrhijving = $value['beschrijving'];
                         $startprijs = $value['startprijs'];
-                        $looptijdeindedag = $value['looptijdeindedag'];
+												$looptijdeindedag = $value['looptijdeindedag'];
+												$currdate = date("d-m-Y");
                         $dag = date_create($looptijdeindedag);
                         $dag = date_format($dag, "d-m-Y");
-                        $looptijdeindetijdstip = $value['looptijdeindetijdstip'];
+												if($currdate < $dag){
+													$einddatum = "Loopt af op $dag";
+												}elseif($currdate == $dag){
+													$einddatum = "Loopt vandaag af";
+												}elseif($currdate > $dag){
+													$einddatum = "Afgelopen";
+												}	
 
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
@@ -294,7 +301,7 @@
                                             <h4>$titel</h4>
                                             <p>$bescrhijving</p>
                                             <h5>€$startprijs</h5>
-                                            <h6>Loopt af op $dag</h6>
+                                            <h6>$einddatum</h6>
                                         </div>
                                     </div>
                                 </div>

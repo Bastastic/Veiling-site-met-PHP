@@ -82,8 +82,6 @@
                         <li data-target="#demo" data-slide-to="1"></li>
                         <li data-target="#demo" data-slide-to="2"></li>
                         <li data-target="#demo" data-slide-to="3"></li>
-                        <li data-target="#demo" data-slide-to="4"></li>
-                        <li data-target="#demo" data-slide-to="5"></li>
                     </ul>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -94,12 +92,6 @@
                         </div>
                         <div class="carousel-item">
                             <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="New York">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
                         </div>
                         <div class="carousel-item">
                             <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
@@ -124,8 +116,8 @@
                     <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
                     Rating 4,5 van de 5
                 </p>
+                <p>Regio <?=$plaatsnaam;?></p>
                 <hr>
-                <h6>Regio <?=$plaatsnaam;?></h6>
                 <br>
                 <div class="row justify-content-center">
                     <div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
@@ -136,7 +128,7 @@
                         <?=$voornaam?></a>
 
                 </div>
-                <br><br>
+                <br>
                 <hr>
                 <h4>Biedingen</h4>
                 <form name="biedform" onsubmit="return validateForm()">
