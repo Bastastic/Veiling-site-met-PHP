@@ -1,5 +1,14 @@
 <?php 
 require_once ('php/connectDB.php');
+session_start();
+	print_r($_POST);
+	if(isset($_POST) & !empty($_POST)){
+		if($_POST['captcha'] == $_SESSION['code']){
+			echo "correct captcha";
+		}else{
+			echo "Invalid captcha";
+		}
+	}
 ?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
