@@ -1,17 +1,5 @@
 <?php 
 require_once ('php/connectDB.php');
-<<<<<<< HEAD
-if(isset($_POST["captcha"]))  
-if($_SESSION["captcha"]==$_POST["captcha"])  
-{  
-    //CAPTHCA is valid; proceed the message: save to database, send by e-mail …  
-    echo '<div class="alert alert-success">CAPTHCA is valid; proceed the message</div>';  
-}  
-else  
-{  
-    echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';  
-}
-=======
 session_start();
 if(isset($_SESSION['userID'])){
     $gebruikersnaam = $_SESSION['userID'];
@@ -22,17 +10,17 @@ if(isset($_SESSION['userID'])){
     $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
     $voornaam = $gebruiker['Voornaam'];
     $achternaam = $gebruiker['Achternaam'];
-}
 
-	print_r($_POST);
-	if(isset($_POST) & !empty($_POST)){
-		if($_POST['captcha'] == $_SESSION['code']){
-			echo "correct captcha";
-		}else{
-			echo "Invalid captcha";
-		}
-	}
->>>>>>> c0a1aa800582532f7805fc49ab1a65956275ac51
+
+    if (isset($_POST["captcha"])) {
+        if ($_SESSION["captcha"]==$_POST["captcha"]) {
+            //CAPTHCA is valid; proceed the message: save to database, send by e-mail …
+            echo '<div class="alert alert-success">CAPTHCA is valid; proceed the message</div>';
+        } else {
+            echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';
+        }
+    }
+}
 ?>
 <?php session_start() ?> 
 <header>
