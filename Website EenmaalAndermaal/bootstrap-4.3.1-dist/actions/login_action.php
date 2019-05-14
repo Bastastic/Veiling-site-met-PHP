@@ -5,7 +5,7 @@ session_start();
 $gebruikersnaam = $_POST['Gebruikersnaam'];
 $wachtwoord = $_POST['Wachtwoord'];
 
-$query = "SELECT *
+$query = "SELECT Gebruikersnaam, Wachtwoord
 FROM Gebruiker
 WHERE Gebruikersnaam = $gebruikersnaam";
 
@@ -14,6 +14,8 @@ $sql->execute();
 $gebruiker = $sql->fetch();
 
 if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
-    $_SESSION['userID'] = $gebruiker;
+    $_SESSION['userID'] = $gebruikersnaam;
     header('Location: ../index.php');
+}else{
+    echo "Fout wachtwoord!";
 }
