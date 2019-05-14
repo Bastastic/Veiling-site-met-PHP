@@ -17,7 +17,21 @@
 
 <?php
 
+if( isset( $_POST['iban'] )    ){
+  $iban = strtolower($_POST['iban']);
+  if( isValidIBAN( $_POST['iban'] ) == 1 ){
+    echo '<script>window.location.replace("ibangecontroleerd.php");</script>';
+  }else{
+    echo 'Onjuiste IBAN ingevuld!';
+  } 
+ }
+
+
 function isValidIBAN ($iban) {
+
+
+
+
 
   $iban = strtolower($iban);
   $Countries = array(
@@ -70,21 +84,11 @@ Registreren: <input type="text" name="iban"><br>
 
 <?php 
 
-if( isValidIBAN( $_POST["iban"] ) == 1 ){
-  // echo $_POST["iban"];
-  echo '<script>window.location.replace("biedingspagina.php");</script>';
-} 
-// else{
-//   // echo "KAN NIET LA"; 
-//   echo '<script>window.location.replace("test2.php");</script>';
-//   echo 'Voer een IBAN in!';
-// }
+
+
+
 
 ?>
-
-
- <!-- echo ( isValidIBAN( IbanChecken )  ); -->
-
 
 
 
