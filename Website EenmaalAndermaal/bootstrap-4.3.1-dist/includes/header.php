@@ -1,15 +1,17 @@
 <?php 
 require_once ('php/connectDB.php');
-session_start();
-	print_r($_POST);
-	if(isset($_POST) & !empty($_POST)){
-		if($_POST['captcha'] == $_SESSION['code']){
-			echo "correct captcha";
-		}else{
-			echo "Invalid captcha";
-		}
-	}
+if(isset($_POST["captcha"]))  
+if($_SESSION["captcha"]==$_POST["captcha"])  
+{  
+    //CAPTHCA is valid; proceed the message: save to database, send by e-mail …  
+    echo '<div class="alert alert-success">CAPTHCA is valid; proceed the message</div>';  
+}  
+else  
+{  
+    echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';  
+}
 ?>
+<?php session_start() ?> 
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">

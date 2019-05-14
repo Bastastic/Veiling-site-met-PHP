@@ -162,9 +162,10 @@
                                 placeholder="Wachtwoord" tabindex="3" required>
                         </div>
                         <!-- captcha -->
+                         
                         <div class="form-group">
-                            <img src="captcha.php" /><input type="text" name="captcha" class="form-control input-lg" 
-                                placeholder="Captcha" tabindex="3" required />
+                        <img src="captcha.php" alt="captchasss image">
+	                    <div class="col-sm-7 pull-right"><input type="text" name="captcha" size="3″ maxlength="3″ class="form-control input-lg" required></div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
