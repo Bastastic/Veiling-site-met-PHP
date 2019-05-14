@@ -1,4 +1,6 @@
-<?php require_once ('php/connectDB.php'); ?>
+<?php 
+require_once ('php/connectDB.php');
+?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
