@@ -36,6 +36,7 @@
                         <div class="form-group">
                             <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
+                                <p style="text-align: center;">lol</p>
                         </div>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
@@ -162,9 +163,10 @@
                                 placeholder="Wachtwoord" tabindex="3" required>
                         </div>
                         <!-- captcha -->
+                         
                         <div class="form-group">
-                            <img src="captcha.php" /><input type="text" name="captcha" class="form-control input-lg" 
-                                placeholder="Captcha" tabindex="3" required />
+                        <img src="captcha.php" alt="image not working">
+	                    <div class="col-sm-7 pull-right"><input type="text" name="captcha" size="3″ maxlength="3″ class="form-control input-lg" required></div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
