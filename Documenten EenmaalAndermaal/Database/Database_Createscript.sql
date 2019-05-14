@@ -113,7 +113,8 @@ create table Verkoper (
 	Bankrekening		varchar(50)		null,
 	Controle_optie		varchar(20)		not null,
 	Creditcard			varchar(20)		null
-	constraint PK_Verkoper primary key (Gebruiker)
+	constraint PK_Verkoper primary key (Gebruiker),
+	constraint CK_Controleoptie check (Controle_optie IN ('Creditcard', 'Bank', 'Post'))
 )
 go
 
