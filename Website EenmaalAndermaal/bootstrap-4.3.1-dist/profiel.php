@@ -152,7 +152,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="verkoperWorden" tabindex="-1" role="dialog" aria-labelledby="verkoperWordenLabel" aria-hidden="true">
+<div class="modal fade" id="verkoperWorden" tabindex="-1" role="dialog" aria-labelledby="verkoperWordenLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -164,47 +164,74 @@
                 <h2>Vul uw betaalgegevens in</h2>
                 <p>Minimaal 1 betaalwijze invullen</p><br>
 
-                <form action="" method="get">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="bank">Bank</label>
-                            <div class="form-group mr-2">
-                                    <select class="form-control" id="bank" placeholder="Kiew uw bank">
-                                        <option>Kiew uw bank</option>
-                                        <option>ING</option>
-                                        <option>Rabobank</option>
-                                        <option>ABN-Amro</option>
-                                        <option>ASN</option>
-                                        <option>SNS</option>
-                                        <option>DHB</option>
-                                        <option>Bunq</option>
-                                        <option>Knab</option>
-                                        <option>Triodos bank</option>
-                                    </select>
-                                </div>
-                            <label for="IBAN">IBAN</label>
-                            <input type="text" class="form-control" id="IBAN" placeholder="Vul uw IBAN in">
+                <script type="text/javascript">
+                    function validateForm()
+                    {
+                        var a=document.forms["verkoper"]["bank"].value;
+                        var b=document.forms["verkoper"]["IBAN"].value;
+                        var c=document.forms["verkoper"]["ccNummer"].value;
+                        if (((a==null || a=="") && (b==null || b=="")) || (c==null || c=="")) {
+                            alert("Vul minimaal 1 betaalwijze in.");
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                </script>
+
+                <form action="profiel.php" method="get" name="verkoper" onsubmit="return validateForm()">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="bank">Bank</label>
+                                <div class="form-group mr-2">
+                                        <select class="form-control" id="bank" name="bank" placeholder="Kiew uw bank">
+                                            <option>Kiew uw bank</option>
+                                            <option>ING</option>
+                                            <option>Rabobank</option>
+                                            <option>ABN-Amro</option>
+                                            <option>ASN</option>
+                                            <option>SNS</option>
+                                            <option>DHB</option>
+                                            <option>Bunq</option>
+                                            <option>Knab</option>
+                                            <option>Triodos bank</option>
+                                        </select>
+                                    </div>
+                                <label for="IBAN">IBAN</label>
+                                <input type="text" class="form-control" id="IBAN" name="IBAN" placeholder="Vul uw IBAN in">
+                            </div>
+                        </div>
+
+                        <div class="col-6 border-left">
+                            <label for="ccNummer">Creditcard nummer</label>
+                            <input type="text" class="form-control" id="ccNummer" name="ccNummer" placeholder="Vul uw creditcard nummer in">
                         </div>
                     </div>
 
-                    <div class="col-6 border-left">
-                        <label for="ccNummer">Creditcard nummer</label>
-                        <input type="text" class="form-control" id="ccNummer" placeholder="Vul uw creditcard nummer in">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+<?php
 
+    if (isset($_GET['bank'], $_GET['IBAN']) && isset($_GET['ccNummer'])) {
+        $banknaam = $_GET['bank'];
+        $IBAN = $_GET['IBAN'];
+        $ccNummer = $_GET['ccNummer'];
+        
+        echo "beide";
+    } else if (isset($_GET['bank'], $_GET['IBAN'])) {
+        echo "bank";
+    } else if (isset($_GET['ccNummer'])) {
+        echo "cc";
+    }
+?>
 
-    <br>
+<br>
 </body>
 <?php include 'includes/footer.php'; ?>
 </html>
