@@ -12,6 +12,14 @@ if(isset($_SESSION['userID'])){
     $achternaam = $gebruiker['Achternaam'];
 }
 
+	print_r($_POST);
+	if(isset($_POST) & !empty($_POST)){
+		if($_POST['captcha'] == $_SESSION['code']){
+			echo "correct captcha";
+		}else{
+			echo "Invalid captcha";
+		}
+	}
 ?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
@@ -68,7 +76,7 @@ if(isset($_SESSION['userID'])){
                                     <button class="btn btn-primary" type="button" data-toggle="collapse"
                                         data-target="#collapseExample" aria-expanded="false"
                                         aria-controls="collapseExample">
-                                        Categorieën <i class="fa fa-angle-down"></i>
+                                        Categorieën&nbsp;<i class="fa fa-angle-down"></i>
                                     </button>
                                 </div>
                             </li>

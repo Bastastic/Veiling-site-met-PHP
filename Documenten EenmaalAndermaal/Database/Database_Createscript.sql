@@ -98,10 +98,10 @@ create table Gebruikerstelefoon (
 go
 
 create table Rubriek (
-	Rubrieknummer		smallint		not null,
+	Rubrieknummer		int		not null,
 	Rubrieknaam			varchar(50)		not null,
-	Hoofdrubriek		smallint		null,
-	Volgnr				smallint		not null,
+	Hoofdrubriek		int		null,
+	Volgnr				int		not null,
 	constraint PK_Rubriek primary key (rubrieknummer),
 	constraint CK_Hoofdrubriek check (Hoofdrubriek <> Rubrieknummer)
 )
@@ -150,7 +150,7 @@ go
 
 create table Voorwerp_in_Rubriek (
 	Voorwerp					int				not null,
-	Rubriek_op_Laagste_Niveau	smallint		not null
+	Rubriek_op_Laagste_Niveau	int				not null
 	constraint PK_VoorwerpInRubriek primary key (Voorwerp, Rubriek_op_Laagste_Niveau)
 )
 go
