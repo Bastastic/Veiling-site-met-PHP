@@ -38,7 +38,7 @@
                     doelen zijn groen in tegenstelling tot onze grootste concutent.</p>
             </div>
             <div class="col-md-10">
-                <p>&copy EenmaalAndermaal - iConcepts 2019</p>
+                <p>&copy EenmaalAndermaal - iConcepts <?php echo date("Y"); ?></p>
             </div>
         </div>
     </div>

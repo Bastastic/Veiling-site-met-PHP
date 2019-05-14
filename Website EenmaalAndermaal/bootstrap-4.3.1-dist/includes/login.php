@@ -1,3 +1,15 @@
+<?php 
+    require_once 'php/countries.php';
+    require_once 'php/connectDB.php';
+
+    $sql = $dbh->prepare(
+        "SELECT *
+        FROM Vraag
+        ");
+    $sql->execute();
+    $vragen = $sql->fetchAll();
+
+?>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -7,7 +19,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="inlogform" action="action_page.php">
+                <form class="inlogform" action="login_action.php" method="POST">
                     <div class="logincontainer">
                         <div class="row justify-content-center">
                             <img src="images/512px-Circle-icons-profile.svg.png" alt="" width="35%"
@@ -45,14 +57,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="inlogform" action="action_page.php">
+                <form class="inlogform" action="register_action.php" method="POST">
                     <div class="logincontainer">
                         <div class="row justify-content-center">
                             <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" width="35%"
                                 height="35%" />
                         </div><br>
                         <div class="row">
-
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Voornaam" id="Voornaam" class="form-control input-lg"
@@ -69,14 +80,8 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
-                                    <input type="text" name="Adresregel1" id="Adresregel1"
-                                        class="form-control input-lg" placeholder="Adresregel 1" tabindex="1">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-4 col-md-4">
-                                <div class="form-group">
-                                    <input type="text" name="Adresregel2" id="Adresregel2"
-                                        class="form-control input-lg" placeholder="Adresregel 2" tabindex="2">
+                                    <input type="text" name="Adresregel" id="Adresregel"
+                                        class="form-control input-lg" placeholder="Adresregel" tabindex="1">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -95,9 +100,12 @@
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <select id="Land" name="Land" class="form-control">
-                                        <option selected>Kies een land...</option>
-                                        <option>...</option>
+                                    <select id="Land" name="Land" class="form-control" placeholder="Kies een land...">
+                                        <?php
+                                            foreach($countries as $key => $value){
+                                                echo "<option value='$key' title='$value'>$value</option>";
+                                            } 
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -114,9 +122,14 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <select id="Vraag" name="Vraag" class="form-control">
-                                        <option selected>Kies beveiligingsvraag...
-                                        </option>
-                                        <option>...</option>
+                                        <?php
+                                        foreach($vragen as $key => $value){
+                                            $vraagnr = $value['Vraagnummer'];
+                                            $vraag = $value['Tekst_vraag'];
+
+                                            echo "<option value='$vraagnr'>$vraag</option>";
+                                        } 
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -152,5 +165,4 @@
     </div>
 </div>
 </div>
-
 </div>

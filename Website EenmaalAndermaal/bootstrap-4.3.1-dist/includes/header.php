@@ -1,4 +1,6 @@
-<?php require_once ('php/connectDB.php'); ?>
+<?php 
+require_once ('php/connectDB.php');
+?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
@@ -46,7 +48,7 @@
                                     <button class="btn btn-primary" type="button" data-toggle="collapse"
                                         data-target="#collapseExample" aria-expanded="false"
                                         aria-controls="collapseExample">
-                                        Categorieën
+                                        Categorieën <i class="fa fa-angle-down"></i>
                                     </button>
                                 </div>
                             </li>
