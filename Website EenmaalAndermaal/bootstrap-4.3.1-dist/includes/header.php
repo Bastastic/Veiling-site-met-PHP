@@ -1,5 +1,17 @@
 <?php 
 require_once ('php/connectDB.php');
+session_start();
+if(isset($_SESSION['userID'])){
+    $gebruikersnaam = $_SESSION['userID'];
+    $sql = $dbh->prepare("SELECT Voornaam, Achternaam
+                    FROM Gebruiker
+                    WHERE Gebruikersnaam = $gebruikersnaam");
+    $sql->execute();
+    $gebruiker = $sql->fetch();
+    $voornaam = $gebruiker['Voornaam'];
+    $achternaam = $gebruiker['Achternaam'];
+}
+
 ?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
@@ -12,12 +24,20 @@ require_once ('php/connectDB.php');
                         </a>
                     </div>
                     <div class="col-5 align-self-center">
-                        <div
-                            class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
-                            <a class="btn btn-secondary ml-1" data-toggle="modal" data-target="#exampleModal"
-                                role="button">Inloggen</a>
-                            <a class="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal2"
-                                role="button">Registreren</a>
+                        <div class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
+
+                            <?php 
+                            if(isset($gebruikersnaam)){
+                                echo "<a href='../php/logout.php' class='btn btn-secondary ml-1' role='button'>Uitloggen</a>
+                                <a href='../profiel.php' class='btn btn-primary ml-1' role='button'>$voornaam $achternaam</a>";
+                            }else{
+                                echo "<a class='btn btn-secondary ml-1' data-toggle='modal' data-target='#exampleModal'
+                                role='button'>Inloggen</a>
+                                <a class='btn btn-primary ml-1' data-toggle='modal' data-target='#exampleModal2'
+                                role='button'>Registreren</a>";
+                            }
+                            ?>
+                            
                         </div>
                     </div>
                     <div class="col-1 align-self-center">
