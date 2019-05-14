@@ -1,5 +1,17 @@
 <?php 
 require_once ('php/connectDB.php');
+<<<<<<< HEAD
+if(isset($_POST["captcha"]))  
+if($_SESSION["captcha"]==$_POST["captcha"])  
+{  
+    //CAPTHCA is valid; proceed the message: save to database, send by e-mail …  
+    echo '<div class="alert alert-success">CAPTHCA is valid; proceed the message</div>';  
+}  
+else  
+{  
+    echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';  
+}
+=======
 session_start();
 if(isset($_SESSION['userID'])){
     $gebruikersnaam = $_SESSION['userID'];
@@ -20,7 +32,9 @@ if(isset($_SESSION['userID'])){
 			echo "Invalid captcha";
 		}
 	}
+>>>>>>> c0a1aa800582532f7805fc49ab1a65956275ac51
 ?>
+<?php session_start() ?> 
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
