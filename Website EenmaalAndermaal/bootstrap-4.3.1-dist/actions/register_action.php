@@ -1,5 +1,5 @@
 <?php
-    $geboortedatum = date('Y-m-d', strtotime($_POST['Geboortedatum']));
+    require '../php/connectDB.php';
 
     if ($_POST['Verkoper'] == "yes") {
         $verkoper = 1;
@@ -14,12 +14,13 @@
         $postcode = $_POST['Postcode'];
         $plaatsnaam = $_POST['Plaatsnaam'];
         $land = $_POST['Land'];
-        $geboortedatum = $geboortedatum;
+        $geboortedatum = date('Y-m-d', strtotime($_POST['Geboortedatum']));
         $emailadres = $_POST['Emailadres'];
         $vraagid = $_POST['Vraag'];
         $antwoord = $_POST['Antwoord'];
         $gebruikersnaam = $_POST['Gebruikersnaam'];
-        $wachtwoord = $_POST['Wachtwoord'];
+        $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
+
 
         $query = "INSERT INTO Gebruiker VALUES (
             :gebruikersnaam,
@@ -38,7 +39,6 @@
             :verkoper )";
 
         $sql = $dbh->prepare($query);
-
         $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
         $sql->bindValue(":voornaam", $voornaam);
         $sql->bindValue(":achternaam", $achternaam);
@@ -54,4 +54,3 @@
         $sql->bindValue(":antwoord", $antwoord);
         $sql->bindValue(":verkoper", $verkoper);
         $sql->execute();
-?>

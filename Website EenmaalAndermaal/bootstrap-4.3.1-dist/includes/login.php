@@ -116,7 +116,7 @@
                                     <select id="Land" name="Land" class="form-control" placeholder="Kies een land...">
                                         <?php
                                             foreach ($countries as $key => $value) {
-                                                echo "<option value='$key' title='$value'>$value</option>";
+                                                echo "<option value='$value' title='$value'>$value</option>";
                                             }
                                         ?>
                                     </select>
