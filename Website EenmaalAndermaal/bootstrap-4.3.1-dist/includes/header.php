@@ -1,5 +1,6 @@
 <?php 
 require_once ('php/connectDB.php');
+<<<<<<< HEAD
 if(isset($_POST["captcha"]))  
 if($_SESSION["captcha"]==$_POST["captcha"])  
 {  
@@ -10,6 +11,28 @@ else
 {  
     echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';  
 }
+=======
+session_start();
+if(isset($_SESSION['userID'])){
+    $gebruikersnaam = $_SESSION['userID'];
+    $sql = $dbh->prepare("SELECT Voornaam, Achternaam
+                    FROM Gebruiker
+                    WHERE Gebruikersnaam = $gebruikersnaam");
+    $sql->execute();
+    $gebruiker = $sql->fetch();
+    $voornaam = $gebruiker['Voornaam'];
+    $achternaam = $gebruiker['Achternaam'];
+}
+
+	print_r($_POST);
+	if(isset($_POST) & !empty($_POST)){
+		if($_POST['captcha'] == $_SESSION['code']){
+			echo "correct captcha";
+		}else{
+			echo "Invalid captcha";
+		}
+	}
+>>>>>>> c0a1aa800582532f7805fc49ab1a65956275ac51
 ?>
 <?php session_start() ?> 
 <header>
@@ -23,12 +46,20 @@ else
                         </a>
                     </div>
                     <div class="col-5 align-self-center">
-                        <div
-                            class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
-                            <a class="btn btn-secondary ml-1" data-toggle="modal" data-target="#exampleModal"
-                                role="button">Inloggen</a>
-                            <a class="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal2"
-                                role="button">Registreren</a>
+                        <div class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
+
+                            <?php 
+                            if(isset($gebruikersnaam)){
+                                echo "<a href='../php/logout.php' class='btn btn-secondary ml-1' role='button'>Uitloggen</a>
+                                <a href='../profiel.php' class='btn btn-primary ml-1' role='button'>$voornaam $achternaam</a>";
+                            }else{
+                                echo "<a class='btn btn-secondary ml-1' data-toggle='modal' data-target='#exampleModal'
+                                role='button'>Inloggen</a>
+                                <a class='btn btn-primary ml-1' data-toggle='modal' data-target='#exampleModal2'
+                                role='button'>Registreren</a>";
+                            }
+                            ?>
+                            
                         </div>
                     </div>
                     <div class="col-1 align-self-center">
@@ -59,7 +90,7 @@ else
                                     <button class="btn btn-primary" type="button" data-toggle="collapse"
                                         data-target="#collapseExample" aria-expanded="false"
                                         aria-controls="collapseExample">
-                                        Categorieën <i class="fa fa-angle-down"></i>
+                                        Categorieën&nbsp;<i class="fa fa-angle-down"></i>
                                     </button>
                                 </div>
                             </li>
