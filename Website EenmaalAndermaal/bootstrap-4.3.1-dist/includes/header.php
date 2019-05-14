@@ -48,7 +48,7 @@ require_once ('php/connectDB.php');
                                     <button class="btn btn-primary" type="button" data-toggle="collapse"
                                         data-target="#collapseExample" aria-expanded="false"
                                         aria-controls="collapseExample">
-                                        Categorieën <i class="fa fa-angle-down"></i>
+                                        Categorieën&nbsp;<i class="fa fa-angle-down"></i>
                                     </button>
                                 </div>
                             </li>

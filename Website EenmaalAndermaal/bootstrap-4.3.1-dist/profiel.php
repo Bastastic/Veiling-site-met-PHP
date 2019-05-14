@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-9">
                 <!-- dashboard tab -->
-                <div class="collapse" id="dashboard">
+                <div class="collapse show" id="dashboard">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -162,16 +162,41 @@
             </div>
             <div class="modal-body">
                 <h2>Vul uw betaalgegevens in</h2>
+                <p>Minimaal 1 betaalwijze invullen</p><br>
 
+                <form action="" method="get">
                 <div class="row">
                     <div class="col-6">
-                        test
+                        <div class="form-group">
+                            <label for="bank">Bank</label>
+                            <div class="form-group mr-2">
+                                    <select class="form-control" id="bank" placeholder="Kiew uw bank">
+                                        <option>Kiew uw bank</option>
+                                        <option>ING</option>
+                                        <option>Rabobank</option>
+                                        <option>ABN-Amro</option>
+                                        <option>ASN</option>
+                                        <option>SNS</option>
+                                        <option>DHB</option>
+                                        <option>Bunq</option>
+                                        <option>Knab</option>
+                                        <option>Triodos bank</option>
+                                    </select>
+                                </div>
+                            <label for="IBAN">IBAN</label>
+                            <input type="text" class="form-control" id="IBAN" placeholder="Vul uw IBAN in">
+                        </div>
                     </div>
 
-                    <div class="col-6">
-                        test
+                    <div class="col-6 border-left">
+                        <label for="ccNummer">Creditcard nummer</label>
+                        <input type="text" class="form-control" id="ccNummer" placeholder="Vul uw creditcard nummer in">
                     </div>
                 </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
             </div>
         </div>
     </div>
