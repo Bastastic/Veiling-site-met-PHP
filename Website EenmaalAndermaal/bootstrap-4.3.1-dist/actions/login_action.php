@@ -1,4 +1,5 @@
-<?php 
+<?php
+require '../php/connectDB.php';
 session_start();
 
 $gebruikersnaam = $_POST['Gebruikersnaam'];
@@ -12,7 +13,7 @@ $sql = $dbh->prepare($query);
 $sql->execute();
 $gebruiker = $sql->fetch();
 
-if(password_verify($wachtwoord, $gebruiker['Wachtwoord'])){
+if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
     $_SESSION['userID'] = $gebruiker;
+    header('Location: ../index.php');
 }
-?>
