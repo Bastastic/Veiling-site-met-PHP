@@ -5,12 +5,8 @@ session_start();
 $gebruikersnaam = $_POST['Gebruikersnaam'];
 $wachtwoord = $_POST['Wachtwoord'];
 
-$query = "SELECT *
-FROM Gebruiker
-WHERE Gebruikersnaam = '$gebruikersnaam'";
-
-$sql = $dbh->prepare($query);
-$sql->execute();
+$sql = $dbh->prepare("SELECT * FROM Gebruiker WHERE Gebruikersnaam=:gebruikersnaam");
+$sql->execute(['gebruikersnaam' => $gebruikersnaam]);
 $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
 
 if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {

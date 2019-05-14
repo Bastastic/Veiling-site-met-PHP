@@ -5,9 +5,9 @@ if(isset($_SESSION['userID'])){
     $gebruikersnaam = $_SESSION['userID'];
     $sql = $dbh->prepare("SELECT Voornaam, Achternaam
                     FROM Gebruiker
-                    WHERE Gebruikersnaam = $gebruikersnaam");
-    $sql->execute();
-    $gebruiker = $sql->fetch();
+                    WHERE Gebruikersnaam = :gebruikersnaam");
+    $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
+    $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
     $voornaam = $gebruiker['Voornaam'];
     $achternaam = $gebruiker['Achternaam'];
 }
