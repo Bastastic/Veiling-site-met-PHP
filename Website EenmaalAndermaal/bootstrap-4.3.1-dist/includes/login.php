@@ -165,7 +165,7 @@
                         <!-- captcha -->
                          
                         <div class="form-group">
-                        <img src="captcha.php" alt="captchasss image">
+                        <img src="captcha.php" alt="image not working">
 	                    <div class="col-sm-7 pull-right"><input type="text" name="captcha" size="3″ maxlength="3″ class="form-control input-lg" required></div>
                         </div>
                         <div class="form-group">
