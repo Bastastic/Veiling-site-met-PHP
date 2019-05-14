@@ -12,102 +12,83 @@
      include 'includes/header.php'; 
     ?>
 <body style="overflow-x:hidden">
-<div class="row">
-            
-        <div class="col-xs-12 col-sm-12 col-md-6" style="padding-top: 20px; cursor: pointer" onclick="window.location='biedingspagina.php';">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="images/test.jpg" alt="advertentie afbeelding"></p>
-                                    <h4>Voetbal westrijd</h4>
-                                    <p>This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button. This is basic card with image on top, title, description and button.</p>
-                                    <h5>€500,01 <br>Nog 5 dagen 12 miunten en 12 seconden</h5>
-                                </div>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-            </div> 
-<div class="row">
-<div class="col-xs-12 col-sm-6 col-md-6 bg-primary text-white" style="padding-top: 20px;">.bg-primary
-<div class="card-body text-center">
-        <div class="item-seller">
-          <div class="seller-main-details">
-            <span class="seller-name">Piet Jansen</span>
-            <span class="seller-age">5 jaar actief op EenmaalAndermaal</span>
-          </div>
 
-          <div class="seller-extra-details">
-            <span class="seller-location">
-              <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
-              Arnhem
-            </span>
-          </div>
 
-          <div class="seller-actions">
-            <a class="seller-profile button" href="#">Alle veilingen van Piet</a>
-            <a class="seller-message button button-blue">
-              <span class="icon">
-                <i class="fas fa-comment"></i>
-              </span>
-              <span>Stuur Piet een bericht</span>
-            </a>
-          </div>
-        <div class="item-bids">
-          <div class="item-bid-top">
-            <div class="columns">
-              <div class="column is-half">
-                <h3>Bieden</h3>
-              </div>
-              <div class="column is-half">
-                <span class="item-bid-time is-pulled-right">Sluit over <b>00:04:32</b></h2>
-                </div>
-              </div>
-            </div>
 
-            <div class="item-bid-main">
-              <div class="columns">
-                <div class="column is-9">
-                  <div class="field">
-                    <input class="input" type="text" placeholder="">
-                  </div>
-                </div>
-                <div class="column is-3">
-                  <a class="button button-blue is-pulled-right" href="#">Plaats bod</a>
-                </div>
-              </div>
+<?php
 
-            </div>
+function isValidIBAN ($iban) {
 
-            <div class="item-bid-history">
-              <div class="history-item">
-                <div class="columns">
-                  <div class="column is-half">
-                    <span class="history-item-user">Berry</span>
-                  </div>
-                  <div class="column is-half">
-                    <span class="history-item-price is-pulled-right">&euro; 36,00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="history-item">
-                <div class="columns">
-                  <div class="column is-half">
-                    <span class="history-item-user">Henk</span>
-                  </div>
-                  <div class="column is-half">
-                    <span class="history-item-price is-pulled-right">&euro; 15,00</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
+  $iban = strtolower($iban);
+  $Countries = array(
+    'al'=>28,'ad'=>24,'at'=>20,'az'=>28,'bh'=>22,'be'=>16,'ba'=>20,'br'=>29,'bg'=>22,'cr'=>21,'hr'=>21,'cy'=>28,'cz'=>24,
+    'dk'=>18,'do'=>28,'ee'=>20,'fo'=>18,'fi'=>18,'fr'=>27,'ge'=>22,'de'=>22,'gi'=>23,'gr'=>27,'gl'=>18,'gt'=>28,'hu'=>28,
+    'is'=>26,'ie'=>22,'il'=>23,'it'=>27,'jo'=>30,'kz'=>20,'kw'=>30,'lv'=>21,'lb'=>28,'li'=>21,'lt'=>20,'lu'=>20,'mk'=>19,
+    'mt'=>31,'mr'=>27,'mu'=>30,'mc'=>27,'md'=>24,'me'=>22,'nl'=>18,'no'=>15,'pk'=>24,'ps'=>29,'pl'=>28,'pt'=>25,'qa'=>29,
+    'ro'=>24,'sm'=>27,'sa'=>24,'rs'=>22,'sk'=>24,'si'=>19,'es'=>24,'se'=>24,'ch'=>21,'tn'=>24,'tr'=>26,'ae'=>23,'gb'=>22,'vg'=>24
+  );
+  $Chars = array(
+    'a'=>10,'b'=>11,'c'=>12,'d'=>13,'e'=>14,'f'=>15,'g'=>16,'h'=>17,'i'=>18,'j'=>19,'k'=>20,'l'=>21,'m'=>22,
+    'n'=>23,'o'=>24,'p'=>25,'q'=>26,'r'=>27,'s'=>28,'t'=>29,'u'=>30,'v'=>31,'w'=>32,'x'=>33,'y'=>34,'z'=>35
+  );
 
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
+  if (strlen($iban) != $Countries[ substr($iban,0,2) ]) { return false; }
+
+  $MovedChar = substr($iban, 4) . substr($iban,0,4);
+  $MovedCharArray = str_split($MovedChar);
+  $NewString = "";
+
+  foreach ($MovedCharArray as $k => $v) {
+
+    if ( !is_numeric($MovedCharArray[$k]) ) {
+      $MovedCharArray[$k] = $Chars[$MovedCharArray[$k]];
+    }
+    $NewString .= $MovedCharArray[$k];
+  }
+  if (function_exists("bcmod")) { return bcmod($NewString, '97') == 1; }
+
+  // http://au2.php.net/manual/en/function.bcmod.php#38474
+  $x = $NewString; $y = "97";
+  $take = 5; $mod = "";
+
+  do {
+    $a = (int)$mod . substr($x, 0, $take);
+    $x = substr($x, $take);
+    $mod = $a % $y;
+  }
+  while (strlen($x));
+
+  return (int)$mod == 1;
+}
+
+?>
+
+<form action="test2.php" method="post">
+Registreren: <input type="text" name="iban"><br>
+<input type="submit" placeholder="controleer">
+</form>
+
+<?php 
+
+if( isValidIBAN( $_POST["iban"] ) == 1 ){
+  // echo $_POST["iban"];
+  echo '<script>window.location.replace("biedingspagina.php");</script>';
+} 
+// else{
+//   // echo "KAN NIET LA"; 
+//   echo '<script>window.location.replace("test2.php");</script>';
+//   echo 'Voer een IBAN in!';
+// }
+
+?>
+
+
+ <!-- echo ( isValidIBAN( IbanChecken )  ); -->
+
+
+
+
+
+
+
 </body>
