@@ -18,9 +18,7 @@
     <div class="container">
         <?php
         // haal hier de gebruiker uit de sessievariabele
-            $gebruiker = "tempUser";
-
-            echo "<h1>Welkom $gebruiker</h1>"
+            echo "<h1>Welkom $voornaam $achternaam</h1>"
         ?>
 
         <br>
