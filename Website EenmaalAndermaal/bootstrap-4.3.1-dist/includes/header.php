@@ -1,3 +1,5 @@
+<meta http-equiv="refresh" content="1200;url=php/logout.php" />
+
 <?php
 require_once('php/connectDB.php');
 session_start();
