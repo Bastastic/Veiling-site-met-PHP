@@ -1,5 +1,17 @@
 <?php 
 require_once ('php/connectDB.php');
+session_start();
+if (isset($_SESSION['userID'])) {
+    $gebruikersnaam = $_SESSION['userID'];
+    $sql = $dbh->prepare("SELECT Voornaam, Achternaam
+                    FROM Gebruiker
+                    WHERE Gebruikersnaam = :gebruikersnaam");
+    $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
+    $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
+    $voornaam = $gebruiker['Voornaam'];
+    $achternaam = $gebruiker['Achternaam'];
+}
+
 if(isset($_POST["captcha"]))  
 if($_SESSION["captcha"]==$_POST["captcha"])  
 {  
