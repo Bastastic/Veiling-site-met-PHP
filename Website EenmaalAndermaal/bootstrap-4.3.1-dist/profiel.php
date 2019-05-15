@@ -44,19 +44,6 @@
                 </div>
             </div>
             <div class="col-md-9 accordion-group">
-                <!-- dashboard tab -->
-                
-
-                <!-- wachtwoord tab -->
-                
-
-                <!-- lopende veilingen tab -->
-                
-
-                <!-- uw veilingen tab -->
-                    
-
-
                 <div class="tab-content" id="faq-tab-content">
                     <div class="tab-pane show active" id="tab1" role="tabpanel" aria-labelledby="tab1">
                         <div class="accordion" id="accordion-tab-1">
@@ -180,30 +167,42 @@
                 <h2>Vul uw betaalgegevens in</h2>
                 <p>Minimaal 1 betaalwijze invullen</p><br>
 
-                <form action="profiel.php" method="post" name="verkoper">
+                <script type="text/javascript">
+                    function validateForm() {
+                        var a=document.forms["verkoper"]["IBAN"].value;
+                        var b=document.forms["verkoper"]["ccNummer"].value;
+                        if ((a==null || a=="") && (b==null || b=="")) {
+                            alert("Vul minimaal 1 betaalwijze in.");
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                </script>
+
+                <form action="" method="post" name="verkoper" onsubmit="return validateForm()">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="bank">Bank</label>
-                                    <div class="form-group mr-2">
-                                        <select class="form-control" id="bank" name="bank" placeholder="Kiew uw bank">
-                                            <option>Kiew uw bank</option>
-                                            <option>ING</option>
-                                            <option>Rabobank</option>
-                                            <option>ABN-Amro</option>
-                                            <option>ASN</option>
-                                            <option>SNS</option>
-                                            <option>DHB</option>
-                                            <option>Bunq</option>
-                                            <option>Knab</option>
-                                            <option>Triodos bank</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="bank" name="bank">
+                                        <option>Kiew uw bank</option>
+                                        <option>ING</option>
+                                        <option>Rabobank</option>
+                                        <option>ABN-Amro</option>
+                                        <option>ASN</option>
+                                        <option>SNS</option>
+                                        <option>DHB</option>
+                                        <option>Bunq</option>
+                                        <option>Knab</option>
+                                        <option>Triodos bank</option>
+                                    </select>
+                                </div>
                                 <label for="IBAN">IBAN</label>
                                 <input type="text" class="form-control" id="IBAN" name="IBAN" placeholder="Vul uw IBAN in">
                             </div>
                         </div>
-
                         <div class="col-6 border-left">
                             <label for="ccNummer">Creditcard nummer</label>
                             <input type="text" class="form-control" id="ccNummer" name="ccNummer" placeholder="Vul uw creditcard nummer in">
@@ -218,6 +217,9 @@
 </div>
 
 <?php
+    include 'php/phpcreditcard.php';
+
+
     if ((isset($_POST['IBAN']) && $_POST['IBAN'] != "") && (isset($_POST['ccNummer']) && $_POST['ccNummer'] != "")) {
         $banknaam = $_POST['bank'];
         $IBAN = $_POST['IBAN'];
@@ -225,9 +227,20 @@
         
         echo "beide";
     } else if (isset($_POST['IBAN']) && $_POST['IBAN'] != "") {
+        $banknaam = $_POST['bank'];
+        $IBAN = $_POST['IBAN'];
+
         echo "bank";
     } else if (isset($_POST['ccNummer']) && $_POST['ccNummer'] != "") {
-        echo "cc";
+        $ccNummer = $_POST['ccNummer'];
+
+        if (check_cc($ccNummer)) {
+            echo "goed";
+        } else {
+            echo "fout";
+        }
+
+    } else {
     }
 ?>
 
