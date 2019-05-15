@@ -1,14 +1,14 @@
 <?php
 
 
-if ( isset( $_POST['emailadres'] ) ){ 
+if (isset($_POST['geklikt'])) {
+    $mailadres = $_POST['emailadres'];
+    $subject = "Testmail";
+    $txt = "Hello world!";
+    $headers = "From: contact@eenmaalandermaal.nl" . "\r\n";
 
-    $mail = $_POST['emailadres'];
-    $subject = "BASSIIEE";
-    $txt = "ADRIAAN!";
-
-    mail($mail,$subject,$txt);
-
+    mail($mailadres, $subject, $txt, $headers);
+    echo 'Verstuurd';
 }
 
 ?> 

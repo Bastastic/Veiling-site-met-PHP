@@ -17,7 +17,7 @@
 
 <form action="actions/mailversturen.php" method="post">
 <input type="email" name="emailadres">
-<input type="submit" value="Registreer">
+<input type="submit" name="geklikt" value="Registreer">
 </form>
 
 </body>
