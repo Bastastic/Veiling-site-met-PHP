@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
+                            <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
                         </div>
                         <script src="https://www.google.com/recaptcha/api.js?render=6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X"></script>
