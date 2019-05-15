@@ -12,7 +12,11 @@
         $voornaam = $_POST['Voornaam'];
         $achternaam = $_POST['Achternaam'];
         $adresregel = $_POST['Adresregel'];
-        $adresregel2 = $_POST['Adresregel2'];
+        if($_POST['Adresregel2'] == ''){
+            $adresregel2 = null;
+        }else{
+            $adresregel2 = $_POST['Adresregel2'];
+        }
         $postcode = $_POST['Postcode'];
         $plaatsnaam = $_POST['Plaatsnaam'];
         $land = $_POST['Land'];
