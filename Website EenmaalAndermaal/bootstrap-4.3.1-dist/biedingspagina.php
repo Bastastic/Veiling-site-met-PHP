@@ -131,17 +131,28 @@
                 <br>
                 <hr>
                 <h4>Biedingen</h4>
-                <form name="biedform" onsubmit="return validateForm()">
+                <form name="biedform" onsubmit="return validateForm()" method="post">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
                     <input type="text" class="form-control my-4" placeholder="Minimaal €<?=$hoogstebod?>" name="bod" id="bod" aria-label=""
                         aria-describedby="basic-addon1" required>
                     <div class="input-group-prepend my-4">
                         <div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
-                            <input type="submit" class="btn btn-primary disabled" style="pointer-events: none;" value="Bied" disabled>
+                            <input name="submitted" type="submit" class="btn btn-primary" value="Bied">
                         </div>
                     </div>
                 </div>
                 </form>
+                <?php 
+                    if(isset($_POST['submitted'])){
+                        $bod = $_POST["bod"];
+                        $gebruikersnaam = $_SESSION['userID'];
+                        $datum = date('Y-m-d');
+                        $tijd = date('H:i:s');
+                        $sql = $dbh->prepare("INSERT INTO Bod (Voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES ('$voorwerpnummer', '$bod', '$gebruikersnaam',  '$datum',
+                        '$tijd')");
+                        $sql->execute();
+                    }
+                        ?>
                 <table class="table">
                     <thead>
                         <tr>
