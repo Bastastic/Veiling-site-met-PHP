@@ -1,4 +1,6 @@
-<head> <script src='https://www.google.com/recaptcha/api.js?hl=nl'></script> </head>
+<head>
+    <script src='https://www.google.com/recaptcha/api.js?hl=nl'></script>
+</head>
 <?php
     require_once 'php/countries.php';
     require_once 'php/connectDB.php';
@@ -38,7 +40,16 @@
                             <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X"></div>
+                        <script src="https://www.google.com/recaptcha/api.js?render=6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X"></script>
+                        <script>
+                            grecaptcha.ready(function () {
+                                grecaptcha.execute('6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X', {
+                                    action: 'homepage'
+                                }).then(function (token) {
+                                    // pass the token to the backend script for verification
+                                });
+                            });
+                        </script>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                         <br>
@@ -168,22 +179,22 @@
                         <div class="form-group">
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <img src="includes/captcha.php" alt="captcha image"></div>
-                                <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="text" name="captcha" size="3″ maxlength="3″ class="form-control">
-                                </div>
-                                </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" name="Verkoper" type="checkbox" value="yes"
-                                        id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Verkoper?
-                                    </label>
-                                </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <input type="text" name="captcha" size="3″ maxlength=" 3″ class="form-control">
                             </div>
-                            <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
-                                    class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                         </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" name="Verkoper" type="checkbox" value="yes"
+                                    id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Verkoper?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
+                                class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                    </div>
                 </form>
             </div>
         </div>
