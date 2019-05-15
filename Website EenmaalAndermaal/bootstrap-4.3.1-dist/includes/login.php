@@ -1,3 +1,4 @@
+<head> <script src='https://www.google.com/recaptcha/api.js?hl=nl'></script> </head>
 <?php
     require_once 'php/countries.php';
     require_once 'php/connectDB.php';
@@ -37,6 +38,7 @@
                             <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
                         </div>
+                        <div class="g-recaptcha" data-sitekey="6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X"></div>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                         <br>
