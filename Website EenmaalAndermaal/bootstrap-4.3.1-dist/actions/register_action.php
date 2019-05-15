@@ -56,3 +56,5 @@
         $sql->bindValue(":antwoord", $antwoord);
         $sql->bindValue(":verkoper", $verkoper);
         $sql->execute();
+
+    header('Location: ../index.php');
