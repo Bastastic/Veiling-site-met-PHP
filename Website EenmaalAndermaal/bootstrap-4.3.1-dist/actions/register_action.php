@@ -22,7 +22,7 @@
         $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
         $verkoper = 0;
 
-        $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achtrnaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
+        $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
                 VALUES (
                     :gebruikersnaam,
                     :voornaam, 
