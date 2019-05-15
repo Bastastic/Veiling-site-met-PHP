@@ -24,21 +24,22 @@
         $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
 
 
-        $query = "INSERT INTO Gebruiker VALUES (
-            :gebruikersnaam,
-            :voornaam, 
-            :achternaam, 
-            :adresregel, 
-            :adresregel2,
-            :postcode,
-            :plaatsnaam,
-            :land,
-            :geboortedatum,
-            :emailadres,
-            :wachtwoord,
-            :vraagid,
-            :antwoord,
-            :verkoper )";
+        $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achtrnaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
+                VALUES (
+                    :gebruikersnaam,
+                    :voornaam, 
+                    :achternaam, 
+                    :adresregel, 
+                    :adresregel2,
+                    :postcode,
+                    :plaatsnaam,
+                    :land,
+                    :geboortedatum,
+                    :emailadres,
+                    :wachtwoord,
+                    :vraagid,
+                    :antwoord,
+                    :verkoper )";
 
         $sql = $dbh->prepare($query);
         $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
