@@ -157,8 +157,6 @@ create table Vraag (
 )
 go
 
-
-
 alter table Bestand
 	add constraint FK_Bestand_Ref_Voorwerp foreign key (Voorwerp)
 			references Voorwerp (Voorwerpnummer)
