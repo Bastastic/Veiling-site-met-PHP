@@ -36,7 +36,6 @@
                         <div class="form-group">
                             <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
-                            <p style="text-align: center;">lol</p>
                         </div>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>

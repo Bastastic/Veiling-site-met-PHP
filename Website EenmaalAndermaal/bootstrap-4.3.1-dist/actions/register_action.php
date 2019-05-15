@@ -1,8 +1,10 @@
 <?php
     require '../php/connectDB.php';
 
-    if ($_POST['Verkoper'] == "yes") {
-        $verkoper = 1;
+    if (isset($_POST['Verkoper'])) {
+        if ($_POST['Verkoper'] == "yes") {
+            $verkoper = 1;
+        }
     } else {
         $verkoper = 0;
     }
