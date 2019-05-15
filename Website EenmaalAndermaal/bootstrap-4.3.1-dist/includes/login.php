@@ -37,7 +37,6 @@
                         <div class="form-group">
                             <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
-                            <p style="text-align: center;">lol</p>
                         </div>
                         <div class="g-recaptcha" data-sitekey="6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X"></div>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"

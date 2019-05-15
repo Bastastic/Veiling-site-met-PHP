@@ -12,6 +12,6 @@ $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
 if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
     $_SESSION['userID'] = $gebruikersnaam;
     header('Location: ../index.php');
-}else{
+} else {
     echo "Fout wachtwoord!";
 }
