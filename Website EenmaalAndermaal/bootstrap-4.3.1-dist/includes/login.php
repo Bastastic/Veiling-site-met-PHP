@@ -36,6 +36,7 @@
                         <div class="form-group">
                             <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
+                            <p style="text-align: center;">lol</p>
                         </div>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
@@ -162,22 +163,26 @@
                                 placeholder="Wachtwoord" tabindex="3" required>
                         </div>
                         <!-- captcha -->
+
                         <div class="form-group">
-                            <img src="captcha.php" /><input type="text" name="captcha" class="form-control input-lg" 
-                                placeholder="Captcha" tabindex="3" required />
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" name="Verkoper" type="checkbox" value="yes"
-                                    id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Verkoper?
-                                </label>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <img src="includes/captcha.php" alt="captcha image"></div>
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                <input type="text" name="captcha" size="3″ maxlength="3″ class="form-control">
+                                </div>
+                                </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="Verkoper" type="checkbox" value="yes"
+                                        id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Verkoper?
+                                    </label>
+                                </div>
                             </div>
+                            <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
+                                    class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                         </div>
-                        <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
-                                class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-                    </div>
                 </form>
             </div>
         </div>
