@@ -1,3 +1,5 @@
+<meta http-equiv="refresh" content="1200;url=php/logout.php" />
+
 <?php
 require_once('php/connectDB.php');
 session_start();
@@ -37,8 +39,8 @@ if (isset($_POST["captcha"])) {
 
                             <?php
                             if (isset($gebruikersnaam)) {
-                                echo "<a href='../php/logout.php' class='btn btn-secondary ml-1' role='button'>Uitloggen</a>
-                                <a href='../profiel.php' class='btn btn-primary ml-1' role='button'>$voornaam $achternaam</a>";
+                                echo "<a href='php/logout.php' class='btn btn-secondary ml-1' role='button'>Uitloggen</a>
+                                <a href='profiel.php' class='btn btn-primary ml-1' role='button'>$voornaam $achternaam</a>";
                             } else {
                                 echo "<a class='btn btn-secondary ml-1' data-toggle='modal' data-target='#exampleModal'
                                 role='button'>Inloggen</a>

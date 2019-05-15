@@ -40,14 +40,8 @@
         width: auto;
         position: relative;
     }
-
-    .btn, 
-    .btn-lg, 
-    .btn-success{
-        background-color: #ff814f;
-        border-color: #ff814f;
-    }
 </style>
+
 <?php
      include 'includes/header.php'; 
     ?>
@@ -59,7 +53,7 @@
             <h1 class="display-3">Over ons</h1>
             <p class="lead">Wij zijn EenmaalAndermaal een bedrijf van iConcepts, die een groen alternatief willen bieden
                 op de huidige monopoly markt in Nederland.</p>
-            <p><a class="btn btn-lg btn-success" href="contact.php" role="button">Neem contact met ons op</a></p>
+            <p><a class="btn btn-lg btn-primary" href="contact.php" role="button">Neem contact met ons op</a></p>
         </div>
     </div>
     </div> <!-- /container -->
