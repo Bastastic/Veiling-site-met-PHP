@@ -1,5 +1,5 @@
-<?php 
-require_once ('php/connectDB.php');
+<?php
+require_once('php/connectDB.php');
 session_start();
 if (isset($_SESSION['userID'])) {
     $gebruikersnaam = $_SESSION['userID'];
@@ -12,15 +12,13 @@ if (isset($_SESSION['userID'])) {
     $achternaam = $gebruiker['Achternaam'];
 }
 
-if(isset($_POST["captcha"]))  
-if($_SESSION["captcha"]==$_POST["captcha"])  
-{  
-    //CAPTHCA is valid; proceed the message: save to database, send by e-mail …  
-    echo '<div class="alert alert-success">CAPTHCA is valid; proceed the message</div>';  
-}  
-else  
-{  
-    echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';  
+if (isset($_POST["captcha"])) {
+    if ($_SESSION["captcha"]==$_POST["captcha"]) {
+        //CAPTHCA is valid; proceed the message: save to database, send by e-mail …
+        echo '<div class="alert alert-success">CAPTHCA is valid; proceed the message</div>';
+    } else {
+        echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';
+    }
 }
 ?>
 <header>
@@ -34,20 +32,21 @@ else
                         </a>
                     </div>
                     <div class="col-5 align-self-center">
-                        <div class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
+                        <div
+                            class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
 
-                            <?php 
-                            if(isset($gebruikersnaam)){
+                            <?php
+                            if (isset($gebruikersnaam)) {
                                 echo "<a href='../php/logout.php' class='btn btn-secondary ml-1' role='button'>Uitloggen</a>
                                 <a href='../profiel.php' class='btn btn-primary ml-1' role='button'>$voornaam $achternaam</a>";
-                            }else{
+                            } else {
                                 echo "<a class='btn btn-secondary ml-1' data-toggle='modal' data-target='#exampleModal'
                                 role='button'>Inloggen</a>
                                 <a class='btn btn-primary ml-1' data-toggle='modal' data-target='#exampleModal2'
                                 role='button'>Registreren</a>";
                             }
                             ?>
-                            
+
                         </div>
                     </div>
                     <div class="col-1 align-self-center">
@@ -117,5 +116,4 @@ else
 
     <?php include 'includes/login.php'; ?>
 
-    
 </header>
