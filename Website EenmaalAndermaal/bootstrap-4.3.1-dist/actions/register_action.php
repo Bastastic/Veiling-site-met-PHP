@@ -1,21 +1,15 @@
 <?php
     require '../php/connectDB.php';
 
-    if (isset($_POST['Verkoper'])) {
-        if ($_POST['Verkoper'] == "yes") {
-            $verkoper = 1;
-        }
-    } else {
-        $verkoper = 0;
-    }
-
         $voornaam = $_POST['Voornaam'];
         $achternaam = $_POST['Achternaam'];
         $adresregel = $_POST['Adresregel'];
-        if($_POST['Adresregel2'] == ''){
-            $adresregel2 = null;
-        }else{
-            $adresregel2 = $_POST['Adresregel2'];
+        if (isset($_POST['Adresregel2'])) {
+            if ($_POST['Adresregel2'] == '') {
+                $adresregel2 = null;
+            } else {
+                $adresregel2 = $_POST['Adresregel2'];
+            }
         }
         $postcode = $_POST['Postcode'];
         $plaatsnaam = $_POST['Plaatsnaam'];
@@ -26,9 +20,9 @@
         $antwoord = $_POST['Antwoord'];
         $gebruikersnaam = $_POST['Gebruikersnaam'];
         $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
+        $verkoper = 0;
 
-
-        $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achtrnaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
+        $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
                 VALUES (
                     :gebruikersnaam,
                     :voornaam, 

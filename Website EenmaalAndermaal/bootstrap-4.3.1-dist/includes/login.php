@@ -183,15 +183,6 @@
                                 <input type="text" name="captcha" size="3″ maxlength=" 3″ class="form-control">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" name="Verkoper" type="checkbox" value="yes"
-                                    id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Verkoper?
-                                </label>
-                            </div>
-                        </div>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                     </div>
