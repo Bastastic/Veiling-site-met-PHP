@@ -8,7 +8,8 @@ if (isset($_POST['geklikt'])) {
     $headers = "From: contact@eenmaalandermaal.nl" . "\r\n";
 
     mail($mailadres, $subject, $txt, $headers);
-    echo 'Verstuurd';
+    // echo 'Verstuurd';
+    header("Location: ../mailverstuurd.php");
 }
 
 ?> 
