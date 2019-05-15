@@ -22,7 +22,7 @@ function _generateRandom($length=6)
     return $random_string;  
 }  
   
-$im = @imagecreatefromjpeg("images/captcha.jpg");   
+$im = @imagecreatefromjpeg("../images/captcha.jpg");   
 $rand = _generateRandom(3);  
 $_SESSION['captcha'] = $rand;  
 ImageString($im, 5, 2, 2, $rand[0]." ".$rand[1]." ".$rand[2]." ", ImageColorAllocate ($im, 0, 0, 0));  
