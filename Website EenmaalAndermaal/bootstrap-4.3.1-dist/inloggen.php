@@ -20,7 +20,7 @@
     ?>
 <body>
 <div class="container">
-  <form class="inlogform" action="actions/login_action.php">
+  <form class="inlogform" action="actions/login_action.php" method="post">
     <div class="logincontainer">
       <div class="imgcontainer">
         <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" />
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="form-group">
-      <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg" placeholder="Wachtwoord"
+      <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg" placeholder="Wachtwoord"
           tabindex="3">
       </div>
       <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen" class="btn btn-primary btn-block btn-lg"

@@ -121,9 +121,15 @@
                 <hr>
                 <br>
                 <div class="row justify-content-center">
-                    <div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
-                        <a href="mailto:<?=$email?>" class="btn btn-secondary" role="button">Chatten</a>
-                    </div>
+                    <?php 
+                    if(isset($_SESSION['userID'])){
+                        echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Chatten</a>';
+                    }else{
+                        echo '<div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
+                        <a href="" class="btn btn-secondary disabled" role="button" disabled>Chatten</a>
+                    </div>';
+                    }
+                    ?>
                     &nbsp; &nbsp;
                     <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van
                         <?=$voornaam?></a>
@@ -138,9 +144,15 @@
                         aria-describedby="basic-addon1" required>
                         <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer?>"/>
                     <div class="input-group-prepend my-4">
-                        <div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
-                            <input name="submitted" type="submit" class="btn btn-primary" value="Bied">
-                        </div>
+                    <?php 
+                    if(isset($_SESSION['userID'])){
+                        echo '<input name="submitted" type="submit" class="btn btn-primary" value="Bied">';
+                    }else{
+                        echo '<div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
+                        <input type="submit" style="pointer-events: none" class="btn btn-primary disabled" value="Bied" disabled>
+                    </div>';
+                    }
+                    ?>
                     </div>
                 </div>
                 </form>

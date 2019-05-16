@@ -20,7 +20,7 @@
 
 <body>
   <div class="container">
-    <form class="inlogform" action="actions/regsiter_action.php">
+    <form class="inlogform" action="actions/regsiter_action.php" method="post">
       <div class="logincontainer">
         <div class="imgcontainer">
           <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" />
