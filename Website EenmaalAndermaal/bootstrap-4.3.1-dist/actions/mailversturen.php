@@ -6,8 +6,6 @@ $controlegetal = mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
 echo $controlegetal;
 
 
-
-
 if (isset($_POST['geklikt'])) {
     $mailadres = $_POST['emailadres'];
     $subject = "Verificatiecode voor uw account";
