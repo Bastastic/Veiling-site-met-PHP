@@ -33,30 +33,46 @@ LEFT (Location,40) AS Land,
 FROM Dataconversie.dbo.Users
 
 ------------Gebruikers------------
-SET IDENTITY_INSERT Tbl_Cartoons  ON
+
+SET IDENTITY_INSERT dbo.Voorwerp ON
 GO
-INSERT INTO Dataconversie.dbo.Items
-SELECT CAST (ID AS bigint) AS Voorwerpnummer,
+INSERT INTO iproject15.dbo.Voorwerp
+SELECT CAST (ID AS int) AS Voorwerpnummer,
 LEFT (Titel,50) AS Titel,
-LEFT (Beschrijving,2000), AS Beschrijving
-NULL AS Kleur,
-NULL AS Afmeting,
-NULL AS Merk,
-'zgan' AS Conditie,
-
-CAST (Year AS int) AS publication_year,
-NULL AS cover_image,
-NULL AS previous_part,
-(999.99) AS price, 
-NULL AS URL
-FROM MYIMDB.dbo.Imported_Movie
-SET IDENTITY_INSERT Tbl_Cartoons  OFF
+CAST (dbo.udf_StripHTML([Beschrijving]) AS varchar(2000)) AS Beschrijving,
+CAST (Prijs AS numeric(8,2)) AS Startprijs,
+'Creditcard' AS Betalingswijze,
+NULL AS Betalingsinstructie,
+LEFT (Locatie,50) AS Plaatsnaam,
+LEFT (Locatie,40) AS Land,
+6 AS Looptijd,
+'2019-05-15' AS LooptijdbeginDag,
+'12:34:54' AS LooptijdbeginTijdstip,
+LEFT (Verkoper,25) AS Verkoper,
+NULL AS Koper, 	
+NULL AS Verzendkosten,
+NULL AS Verzendinstructies,
+'2019-05-21' AS LooptijdeindeDag,
+'12:34:54' AS LooptijdeindeTijdstip,
+0 AS VeiligGesloten,
+NULL AS Verkoopprijs
+FROM Dataconversie.dbo.Items
+SET IDENTITY_INSERT dbo.Voorwerp OFF
 GO
 
-INSERT INTO iproject15.dbo.Genre
-SELECT DISTINCT LEFT (Genre,255) AS genre_name,
-NULL AS discription
-FROM MYIMDB.dbo.Imported_Genre
+UPDATE Voorwerp
+SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
+WHERE CHARINDEX(',', Plaatsnaam) > 0
+
+--------------Voorwerp---------------
+
+
+INSERT INTO iproject15.dbo.Bestand
+SELECT DISTINCT LEFT (IllustratieFile,200) AS Filenaam,
+CAST (ItemID AS int) AS Voorwerp 
+FROM Dataconversie.dbo.Illustraties
+
+-------Bestand---------------
 
 INSERT INTO iproject15.dbo.Movie_Genre
 SELECT DISTINCT CAST (Id AS int) AS movie_id,
