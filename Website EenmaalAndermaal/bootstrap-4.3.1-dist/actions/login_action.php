@@ -13,5 +13,5 @@ if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
     $_SESSION['userID'] = $gebruikersnaam;
     header('Location: ../index.php');
 } else {
-    echo "Fout wachtwoord!";
+    header('Location: ../inloggen.php?errc=1');
 }

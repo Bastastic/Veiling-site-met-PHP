@@ -10,14 +10,34 @@
 </head>
 
 <?php
-     include 'includes/header.php'; 
+     include 'includes/header.php';
+
+     if (isset($_GET['errc'])) {
+      if ($_GET['errc'] == '1') {
+          $msg = 'De combinatie van deze gebruikersnaam met dit wachtwoord is bij ons niet bekend. Probeer het opnieuw!';
+      }
+  }
     ?>
 <body>
-  <form class="inlogform" action="action_page.php">
+<div class="container">
+  <form class="inlogform" action="actions/login_action.php">
     <div class="logincontainer">
       <div class="imgcontainer">
         <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" />
       </div>
+      <?php 
+
+            if(isset($msg)){
+              echo '<div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                  <strong>Sorry!</strong> ' . $msg . '
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>';
+            } 
+        ?>
       <div class="col-xs-20 col-sm-20 col-md-20">
         <div class="form-group">
         <input type="text" name="Gebruikersnaam" id="Gebruikersnaam" class="form-control input-lg"
@@ -35,10 +55,11 @@
       <span class="password">Forgot <a href="#">password?</a></span>
     </div>
   </form>
+  </div>
 </body>
 
 <?php
-     include 'includes/footer.php'; 
+     include 'includes/footer.php';
     ?>
 
 </html>

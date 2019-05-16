@@ -22,7 +22,14 @@
         $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
         $verkoper = 0;
 
-        $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
+        $query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam=:gebruikersnaam";
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
+        $sql->execute();
+        $result = $sql->fetch(PDO::FETCH_ASSOC);
+
+        if(!$result){
+            $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
                 VALUES (
                     :gebruikersnaam,
                     :voornaam, 
@@ -39,21 +46,24 @@
                     :antwoord,
                     :verkoper )";
 
-        $sql = $dbh->prepare($query);
-        $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
-        $sql->bindValue(":voornaam", $voornaam);
-        $sql->bindValue(":achternaam", $achternaam);
-        $sql->bindValue(":adresregel", $adresregel);
-        $sql->bindValue(":adresregel2", $adresregel2);
-        $sql->bindValue(":postcode", $postcode);
-        $sql->bindValue(":plaatsnaam", $plaatsnaam);
-        $sql->bindValue(":land", $land);
-        $sql->bindValue(":geboortedatum", $geboortedatum);
-        $sql->bindValue(":emailadres", $emailadres);
-        $sql->bindValue(":wachtwoord", $wachtwoord);
-        $sql->bindValue(":vraagid", $vraagid);
-        $sql->bindValue(":antwoord", $antwoord);
-        $sql->bindValue(":verkoper", $verkoper);
-        $sql->execute();
+            $sql = $dbh->prepare($query);
+            $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
+            $sql->bindValue(":voornaam", $voornaam);
+            $sql->bindValue(":achternaam", $achternaam);
+            $sql->bindValue(":adresregel", $adresregel);
+            $sql->bindValue(":adresregel2", $adresregel2);
+            $sql->bindValue(":postcode", $postcode);
+            $sql->bindValue(":plaatsnaam", $plaatsnaam);
+            $sql->bindValue(":land", $land);
+            $sql->bindValue(":geboortedatum", $geboortedatum);
+            $sql->bindValue(":emailadres", $emailadres);
+            $sql->bindValue(":wachtwoord", $wachtwoord);
+            $sql->bindValue(":vraagid", $vraagid);
+            $sql->bindValue(":antwoord", $antwoord);
+            $sql->bindValue(":verkoper", $verkoper);
+            $sql->execute();
 
-    header('Location: ../index.php');
+            header('Location: ../inloggen.php');
+        }else{
+            header('Location: ../registreren.php?errc=1');
+        }
