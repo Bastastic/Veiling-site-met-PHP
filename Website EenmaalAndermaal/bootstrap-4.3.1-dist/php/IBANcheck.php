@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php include 'includes/links.php'; ?>
-    <link rel="icon" href="../../../../favicon.ico">
-    <title>Over ons</title>
-  </head>
-  <?php
-     include 'includes/header.php'; 
-    ?>
-<body style="overflow-x:hidden">
-
-
-
 <?php
-
-if( isset( $_POST['iban'] )    ){
-  $iban = strtolower($_POST['iban']);
-  if( isValidIBAN( $_POST['iban'] ) == 1 ){
-    echo '<script>window.location.replace("ibangecontroleerd.php");</script>';
-  }else{
-    echo 'Onjuiste IBAN ingevuld!';
-  } 
- }
-
-
 function isValidIBAN ($iban) {
   $iban = strtolower($iban);
   $Countries = array(
@@ -69,20 +41,4 @@ function isValidIBAN ($iban) {
 
   return (int)$mod == 1;
 }
-
 ?>
-<br>
-<br>
-
-<form action="test2.php" method="post">
-Registreren: <input type="text" name="iban"><br>
-<input type="submit" placeholder="controleer">
-</form>
-<br>
-<br>
-
-</body>
-
-<?php include 'includes/footer.php'; ?>
-
-</html>

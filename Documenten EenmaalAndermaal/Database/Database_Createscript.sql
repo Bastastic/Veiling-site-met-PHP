@@ -33,13 +33,13 @@ go
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
-	Voorwerp			int				not null,
+	Voorwerp			bigint			not null,
 	constraint PK_Bestand primary key (filenaam)
 )
 go
 
 create table Bod (
-	Voorwerp			int				not null,
+	Voorwerp			bigint				not null,
 	Bodbedrag			numeric(8,2)	not null,
 	Gebruiker			varchar(25)		not null,
 	BodDag				date			not null,
@@ -53,7 +53,7 @@ create table Bod (
 go
 
 create table Feedback (
-	Voorwerp			int				not null,
+	Voorwerp			bigint				not null,
 	Soort_Gebruiker		char(8)			not null, /* moet altijd koper of verkoper in staan */
 	Feedbacksoort		numeric(1)		not null, /* 1 tot 5 */
 	Dag					date			not null,
@@ -119,7 +119,7 @@ create table Verkoper (
 go
 
 create table Voorwerp (
-	Voorwerpnummer			int				IDENTITY(0,1),
+	Voorwerpnummer			bigint			IDENTITY(0,1),
 	Titel					varchar(50)		not null,
 	Beschrijving			varchar(2000)	not null,
 	Startprijs				numeric(8,2)	not null,
@@ -144,7 +144,7 @@ create table Voorwerp (
 go
 
 create table Voorwerp_in_Rubriek (
-	Voorwerp					int				not null,
+	Voorwerp					bigint			not null,
 	Rubriek_op_Laagste_Niveau	int				not null
 	constraint PK_VoorwerpInRubriek primary key (Voorwerp, Rubriek_op_Laagste_Niveau)
 )
