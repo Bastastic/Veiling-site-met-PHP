@@ -10,21 +10,10 @@
 </head>
 
 <style>
-    /* #demo {
-        height: 50%;
-        width: 50%;
-        float: left;
-    } */
-
     .carousel-inner img {
         width: 100%;
         height: 100%;
     }
-
-    /* .row {
-        padding-left: 2.5%;
-        padding-top: 1%;
-    } */
 
     .row h2 {
         font-family: Lobster;
@@ -43,9 +32,9 @@
     }
 </style>
 
-<?php 
-    include 'includes/header.php'; 
-    require_once 'php/connectDB.php'; 
+<?php
+    include 'includes/header.php';
+    require_once 'php/connectDB.php';
 ?>
 
 <body>
@@ -117,7 +106,7 @@
         </div>
         </div>
         <div class="row mt-5">
-            <?php 
+            <?php
                 $sql = $dbh->prepare("select top 12 voorwerpnummer, titel from Voorwerp order by Voorwerpnummer desc");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
