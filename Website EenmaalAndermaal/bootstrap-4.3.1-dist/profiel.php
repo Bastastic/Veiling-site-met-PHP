@@ -58,10 +58,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="mb-1">Verkoper worden?</p>
+                                            <p class="mb-1" >Verkoper worden?</p>
+
                                             <?php
                                             $sql = $dbh->prepare(
-                                                "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                             );
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
@@ -148,7 +149,6 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <!-- hier content schrijven -->
                                         </div>
                                     </div>
                                 </div>
@@ -314,7 +314,7 @@
                 );
             $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'banknaam' => $banknaam, 'IBAN' => $IBAN, 'ccNummer' => $ccNummer]);
 
-            $message = "Uw gegevens zijn opgestuurd, u krijgt binnen 7 dagen een mail hierover.";
+            $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
             $message = "Uw gegevens worden niet herkend";
@@ -330,7 +330,7 @@
                 );
             $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'banknaam' => $banknaam, 'IBAN' => $IBAN]);
 
-            $message = "Uw gegevens zijn opgestuurd, u krijgt binnen 7 dagen een mail hierover.";
+            $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
             $message = "Deze IBAN wordt niet herkend";
@@ -345,13 +345,12 @@
                 );
             $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'ccNummer' => $ccNummer]);
 
-            $message = "Uw gegevens zijn opgestuurd, u krijgt binnen 7 dagen een mail hierover.";
+            $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
             $message = "Dit creditcard nummer wordt niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
-    } else {
     }
 ?>
 
