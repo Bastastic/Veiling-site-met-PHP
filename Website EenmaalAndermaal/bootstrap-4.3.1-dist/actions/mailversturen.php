@@ -33,18 +33,13 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
 
     mail($emailadres, $subject, $txt, $headers);
 
-    $querycode = "INSERT INTO Verificatie
-                VALUES (:gebruikersnaam, 
-                        :controlegetal)";
-
-    $sqlcode = $dbh->prepare($querycode);
+    $query = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode) VALUES (:gebruikersnaam, :controlegetal)";
+    $sql = $dbh->prepare($query);
     $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
     $sql->bindValue(":controlegetal", $controlegetal);
-    $sqlcode->execute();
+    $sql->execute();
 
     header("Location: ../mailverstuurd.php");
 } else {
     header("Location: ../mailversturen.php");
 }
-
-?>

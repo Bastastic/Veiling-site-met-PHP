@@ -13,7 +13,7 @@ if (isset($_SESSION['userID'])) {
     $voornaam = $gebruiker['Voornaam'];
     $achternaam = $gebruiker['Achternaam'];
     if($gebruiker['Geactiveerd'] == 0){
-        if(basename($_SERVER['PHP_SELF']) != 'mailversturen.php'){
+        if(basename($_SERVER['PHP_SELF']) != 'mailversturen.php' && basename($_SERVER['PHP_SELF']) != 'mailverstuurd.php'){
             header('Location: mailversturen.php');
         }
     }
