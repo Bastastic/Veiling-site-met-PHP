@@ -64,7 +64,7 @@
             $sql->bindValue(":verkoper", $verkoper);
             $sql->execute();
 
-            header('Location: ../inloggen.php');
+            header('Location: ../mailversutren.php');
         }else{
             header('Location: ../registreren.php?errc=1');
         }
