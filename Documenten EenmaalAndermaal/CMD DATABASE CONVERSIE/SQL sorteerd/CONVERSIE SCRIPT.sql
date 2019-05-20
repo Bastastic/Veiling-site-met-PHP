@@ -32,12 +32,30 @@ LEFT (Location,40) AS Land,
 0 AS Geactiveerd
 FROM Dataconversie.dbo.Users
 
+UPDATE iproject15.dbo.Gebruiker
+SET iproject15.dbo.Gebruiker.Verkoper = 1
+FROM iproject15.dbo.Gebruiker, Dataconversie.dbo.Items
+WHERE iproject15.dbo.Gebruiker.Gebruikersnaam = Dataconversie.dbo.Items.Verkoper
+
 ------------Gebruikers------------
 
-SET IDENTITY_INSERT dbo.Voorwerp ON
+INSERT INTO iproject15.dbo.Verkoper
+SELECT DISTINCT LEFT(Username,25) AS Gebruikersnaam,
+NULL AS Bank,
+NULL AS Bankrekening,
+'Creditcard' AS Controleoptie,
+123244232 AS Creditcard
+FROM Dataconversie.dbo.Users
+
+DELETE FROM iproject15.dbo.Verkoper
+WHERE Gebruiker IN 
+(SELECT Gebruikersnaam FROM iproject15.dbo.Gebruiker
+WHERE Verkoper = 0); 
+-----------Verkoper--------------
+SET IDENTITY_INSERT iproject15.dbo.Voorwerp ON
 GO
-INSERT INTO iproject15.dbo.Voorwerp
-SELECT CAST (ID AS int) AS Voorwerpnummer,
+INSERT INTO iproject15.dbo.Voorwerp (Voorwerpnummer,Titel,Beschrijving,Startprijs,Betalingswijze,Betalingsinstructie,Plaatsnaam,Land,Looptijd,LooptijdbeginDag,LooptijdbeginTijdstip,Verkoper,Koper,Verzendkosten,Verzendinstructies,LooptijdeindeDag,LooptijdeindeTijdstip,VeiligGesloten,Verkoopprijs)
+SELECT CAST (ID AS bigint) AS Voorwerpnummer,
 LEFT (Titel,50) AS Titel,
 CAST (dbo.udf_StripHTML([Beschrijving]) AS varchar(2000)) AS Beschrijving,
 CAST (Prijs AS numeric(8,2)) AS Startprijs,
@@ -57,7 +75,7 @@ NULL AS Verzendinstructies,
 0 AS VeiligGesloten,
 NULL AS Verkoopprijs
 FROM Dataconversie.dbo.Items
-SET IDENTITY_INSERT dbo.Voorwerp OFF
+SET IDENTITY_INSERT iproject15.dbo.Voorwerp OFF
 GO
 
 UPDATE Voorwerp
@@ -66,26 +84,16 @@ WHERE CHARINDEX(',', Plaatsnaam) > 0
 
 --------------Voorwerp---------------
 
-
 INSERT INTO iproject15.dbo.Bestand
 SELECT DISTINCT LEFT (IllustratieFile,200) AS Filenaam,
-CAST (ItemID AS int) AS Voorwerp 
+CAST (ItemID AS bigint) AS Voorwerp 
 FROM Dataconversie.dbo.Illustraties
 
 -------Bestand---------------
 
-INSERT INTO iproject15.dbo.Movie_Genre
-SELECT DISTINCT CAST (Id AS int) AS movie_id,
-LEFT (Genre,255) AS genre_name
-FROM MYIMDB.dbo.Imported_Genre
+INSERT INTO iproject15.dbo.Voorwerp_in_Rubriek
+SELECT DISTINCT CAST (ID AS bigint) AS Voorwerp,
+CAST (Categorie AS int) AS Rubriek_op_Laagste_Niveau
+FROM Dataconversie.dbo.items
 
-INSERT INTO iproject15.dbo.Movie_Directors
-SELECT DISTINCT CAST (Mid AS int) AS movie_id,
-CAST (Did AS int) AS person_id
-FROM MYIMDB.dbo.Imported_Movie_Directors
-
-INSERT INTO iproject15.dbo.Movie_Cast
-SELECT DISTINCT CAST (Mid AS int) AS movie_id,
-CAST(Pid + 88801 AS int) AS person_id ,
-LEFT(Role,255) AS role
-FROM MYIMDB.dbo.Imported_Cast
+---------Voorwerp_in_Rubriek-----------

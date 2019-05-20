@@ -12,9 +12,10 @@
 </head>
 
 <?php include 'includes/header.php'; ?>
+
 <body>
     <br>
-    
+
     <div class="container">
         <?php
         // haal hier de gebruiker uit de sessievariabele
@@ -96,29 +97,39 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <form>
-                                            <div class="form-group row">
-                                                <label for="username" class="col-4 col-form-label">Wachtwoord</label> 
-                                                <div class="col-8">
-                                                <input id="oudWW" name="oudWW" placeholder="Wachtwoord" class="form-control here" required="required" type="password">
+                                                <div class="form-group row">
+                                                    <label for="username"
+                                                        class="col-4 col-form-label">Wachtwoord</label>
+                                                    <div class="col-8">
+                                                        <input id="oudWW" name="oudWW" placeholder="Wachtwoord"
+                                                            class="form-control here" required="required"
+                                                            type="password">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="username" class="col-4 col-form-label">Nieuw wachtwoord</label> 
-                                                <div class="col-8">
-                                                <input id="nieuwWW" name="nieuwWW" placeholder="Wachtwoord" class="form-control here" required="required" type="password">
+                                                <div class="form-group row">
+                                                    <label for="username" class="col-4 col-form-label">Nieuw
+                                                        wachtwoord</label>
+                                                    <div class="col-8">
+                                                        <input id="nieuwWW" name="nieuwWW" placeholder="Wachtwoord"
+                                                            class="form-control here" required="required"
+                                                            type="password">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="name" class="col-4 col-form-label">Nieuw wachtwoord herhalen</label> 
-                                                <div class="col-8">
-                                                <input id="nieuwWWher" name="nieuwWWher" placeholder="Wachtwoord" class="form-control here" type="password">
+                                                <div class="form-group row">
+                                                    <label for="name" class="col-4 col-form-label">Nieuw wachtwoord
+                                                        herhalen</label>
+                                                    <div class="col-8">
+                                                        <input id="nieuwWWher" name="nieuwWWher"
+                                                            placeholder="Wachtwoord" class="form-control here"
+                                                            type="password">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="offset-4 col-8">
-                                                <button name="submit" type="submit" class="btn btn-primary">Update Wachtwoord</button>
+                                                <div class="form-group row">
+                                                    <div class="offset-4 col-8">
+                                                        <button name="submit" type="submit"
+                                                            class="btn btn-primary">Update Wachtwoord</button>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </form>
                                         </div>
                                     </div>
@@ -157,7 +168,41 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <!-- hier content schrijven -->
+
+                                        <?php 
+                                            $query = "SELECT * 
+                                            FROM Voorwerp
+                                            WHERE Verkoper = :verkoper";
+                                            $sql = $dbh->prepare($query);
+                                            $sql->execute(['verkoper' => $gebruikersnaam]);
+                                            $veilingen = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                                            echo '<pre>';
+                                            print_r($veilingen);
+                                            echo '</pre>';
+
+                                            foreach($veilingen as $key => $value){
+
+                                            }
+                                        ?>
+
+                                            <div class="card mb-3" style="max-width: 800px;">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                                        <img src="..." class="card-img" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Card title</h5>
+                                                            <p class="card-text">This is a wider card with supporting
+                                                                text below as a natural lead-in to additional content.
+                                                                This content is a little bit longer.</p>
+                                                            <p class="card-text"><small class="text-muted">Last updated
+                                                                    3 mins ago</small></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -165,80 +210,83 @@
                         </div>
                     </div>
                 </div>
-                    
+
             </div>
         </div>
     </div>
 
-<!-- popup window voor verkoper worden -->
-<div class="modal fade" id="verkoperWorden" tabindex="-1" role="dialog" aria-labelledby="verkoperWordenLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h2>Vul uw betaalgegevens in</h2>
-                <p>Minimaal 1 betaalwijze invullen</p><br>
+    <!-- popup window voor verkoper worden -->
+    <div class="modal fade" id="verkoperWorden" tabindex="-1" role="dialog" aria-labelledby="verkoperWordenLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Vul uw betaalgegevens in</h2>
+                    <p>Minimaal 1 betaalwijze invullen</p><br>
 
-                <script type="text/javascript">
-                    function validateForm() {
-                        var a=document.forms["verkoper"]["IBAN"].value;
-                        var b=document.forms["verkoper"]["ccNummer"].value;
-                        var c=document.forms["verkoper"]["bank"].value;
-                        if ((a==null || a=="") && (b==null || b=="")) {
-                            alert("Vul minimaal 1 betaalwijze in.");
-                            return false;
-                        } else {
-                            if (!(a==null || a=="") && c=="Kiew uw bank") {
-                                alert("Selecteer alstublieft een bank.");
+                    <script type="text/javascript">
+                        function validateForm() {
+                            var a = document.forms["verkoper"]["IBAN"].value;
+                            var b = document.forms["verkoper"]["ccNummer"].value;
+                            var c = document.forms["verkoper"]["bank"].value;
+                            if ((a == null || a == "") && (b == null || b == "")) {
+                                alert("Vul minimaal 1 betaalwijze in.");
                                 return false;
                             } else {
-                                return true;
+                                if (!(a == null || a == "") && c == "Kiew uw bank") {
+                                    alert("Selecteer alstublieft een bank.");
+                                    return false;
+                                } else {
+                                    return true;
+                                }
                             }
                         }
-                    }
-                </script>
+                    </script>
 
-                <form action="" method="post" name="verkoper" onsubmit="return validateForm()">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="bank">Bank</label>
+                    <form action="" method="post" name="verkoper" onsubmit="return validateForm()">
+                        <div class="row">
+                            <div class="col-6">
                                 <div class="form-group">
-                                    <select class="form-control" id="bank" name="bank">
-                                        <option>Kiew uw bank</option>
-                                        <option>ING</option>
-                                        <option>Rabobank</option>
-                                        <option>ABN-Amro</option>
-                                        <option>ASN</option>
-                                        <option>SNS</option>
-                                        <option>DHB</option>
-                                        <option>Bunq</option>
-                                        <option>Knab</option>
-                                        <option>Triodos bank</option>
-                                    </select>
+                                    <label for="bank">Bank</label>
+                                    <div class="form-group">
+                                        <select class="form-control" id="bank" name="bank">
+                                            <option>Kiew uw bank</option>
+                                            <option>ING</option>
+                                            <option>Rabobank</option>
+                                            <option>ABN-Amro</option>
+                                            <option>ASN</option>
+                                            <option>SNS</option>
+                                            <option>DHB</option>
+                                            <option>Bunq</option>
+                                            <option>Knab</option>
+                                            <option>Triodos bank</option>
+                                        </select>
+                                    </div>
+                                    <label for="IBAN">IBAN</label>
+                                    <input type="text" class="form-control" id="IBAN" name="IBAN"
+                                        placeholder="Vul uw IBAN in">
                                 </div>
-                                <label for="IBAN">IBAN</label>
-                                <input type="text" class="form-control" id="IBAN" name="IBAN" placeholder="Vul uw IBAN in">
+                            </div>
+                            <div class="col-6 border-left">
+                                <label for="ccNummer">Creditcard nummer</label>
+                                <input type="text" class="form-control" id="ccNummer" name="ccNummer"
+                                    placeholder="Vul uw creditcard nummer in">
                             </div>
                         </div>
-                        <div class="col-6 border-left">
-                            <label for="ccNummer">Creditcard nummer</label>
-                            <input type="text" class="form-control" id="ccNummer" name="ccNummer" placeholder="Vul uw creditcard nummer in">
-                        </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<?php
+    <?php
     include 'php/phpcreditcard.php';
     include 'php/IBANcheck.php';
 
@@ -259,9 +307,7 @@
             $message = "Uw gegevens worden niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
-
-
-    } else if (isset($_POST['IBAN']) && $_POST['IBAN'] != "") {
+    } elseif (isset($_POST['IBAN']) && $_POST['IBAN'] != "") {
         $banknaam = $_POST['bank'];
         $IBAN = $_POST['IBAN'];
 
@@ -277,8 +323,7 @@
             $message = "Deze IBAN wordt niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
-
-    } else if (isset($_POST['ccNummer']) && $_POST['ccNummer'] != "") {
+    } elseif (isset($_POST['ccNummer']) && $_POST['ccNummer'] != "") {
         $ccNummer = $_POST['ccNummer'];
 
         if (check_cc($ccNummer)) {
@@ -293,11 +338,11 @@
             $message = "Dit creditcard nummer wordt niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
-
     }
 ?>
 
-<br>
+    <br>
 </body>
 <?php include 'includes/footer.php'; ?>
+
 </html>

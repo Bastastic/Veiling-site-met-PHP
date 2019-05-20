@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="css/footer.css">
 
-<footer>
+<footer class="page-footer">
     <div class="container">
         <div class="row">
             <div class="col">
