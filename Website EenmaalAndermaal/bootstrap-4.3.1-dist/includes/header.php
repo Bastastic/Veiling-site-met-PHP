@@ -12,6 +12,9 @@ if (isset($_SESSION['userID'])) {
     $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
     $voornaam = $gebruiker['Voornaam'];
     $achternaam = $gebruiker['Achternaam'];
+    if(!$gebruiker['Geactiveerd'] == 1){
+        header('Location: mailversturen.php');
+    }
 }
 
 if (isset($_POST["captcha"])) {

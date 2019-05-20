@@ -21,6 +21,7 @@
         $gebruikersnaam = $_POST['Gebruikersnaam'];
         $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
         $verkoper = 0;
+        
 
         $query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam=:gebruikersnaam";
         $sql = $dbh->prepare($query);
@@ -63,7 +64,7 @@
             $sql->bindValue(":verkoper", $verkoper);
             $sql->execute();
 
-            header('Location: ../inloggen.php');
+            header('Location: ../mailversutren.php');
         }else{
             header('Location: ../registreren.php?errc=1');
         }
