@@ -18,11 +18,11 @@
 <input type="submit" name="controleklik" value="Controleer">
 </form>
 
-<!-- <?php
+<?php
 $digits = 5;
 $controlegetal = mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
 echo $controlegetal;
-?> -->
+?> 
 
 </body>
 <?php include 'includes/footer.php' ; ?>
