@@ -1,6 +1,8 @@
 use iproject15
 go
 
+drop table Verificatie
+go
 drop table Bestand
 go
 drop table Bod
@@ -31,6 +33,7 @@ drop table Vraag
 go
 
 
+
 create table Bestand (
 	Filenaam			varchar(200)	not null,
 	Voorwerp			bigint			not null,
@@ -53,7 +56,7 @@ create table Bod (
 go
 
 create table Feedback (
-	Voorwerp			bigint				not null,
+	Voorwerp			bigint			not null,
 	Soort_Gebruiker		char(8)			not null, /* moet altijd koper of verkoper in staan */
 	Feedbacksoort		numeric(1)		not null, /* 1 tot 5 */
 	Dag					date			not null,
@@ -81,7 +84,7 @@ create table Gebruiker (
 	Vraag				tinyint			not null,
 	Antwoordtext		varchar(300)	not null, /* hashed */
 	Verkoper			bit				not null,
-	Geactiveerd			BIT				not null,
+	Geactiveerd			bit				not null,
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
 	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
 	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
@@ -114,7 +117,7 @@ create table Verkoper (
 	Controle_optie		varchar(20)		not null,
 	Creditcard			varchar(20)		null
 	constraint PK_Verkoper primary key (Gebruiker),
-	constraint CK_Controleoptie check (Controle_optie IN ('Creditcard', 'Bank', 'Post'))
+	constraint CK_Controleoptie check (Controle_optie IN ('Creditcard', 'Bank', 'Post', 'iDeal', 'In afwachting'))
 )
 go
 
@@ -154,6 +157,13 @@ create table Vraag (
 	Vraagnummer					tinyint			not null,
 	Tekst_vraag					varchar(100)	not null
 	constraint PK_Vraag primary key (Vraagnummer)
+)
+go
+
+create table Verificatie (
+	Gebruikersnaam				varchar(25)		not null,
+	Verificatiecode				smallint		null
+	constraint PK_Verificatie primary key (Gebruikersnaam)
 )
 go
 
@@ -209,4 +219,10 @@ alter table Voorwerp_in_Rubriek
 			on update no action on delete no action,
 		constraint FK_VRubriek_Ref_Rubrieknummer foreign key (Rubriek_op_Laagste_Niveau)
 			references Rubriek (Rubrieknummer)
+			on update no action on delete no action
+
+
+alter table Verificatie
+	add constraint FK_Verificatie_Ref_Gebruiker foreign key (Gebruikersnaam)
+			references Gebruiker (Gebruikersnaam)
 			on update no action on delete no action

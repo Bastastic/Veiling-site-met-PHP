@@ -19,6 +19,15 @@
 <input type="submit" name="controleklik" value="Controleer">
 </form>
 
+<?php
+
+
+
+
+?>
+
+
+
 </body>
 <?php include 'includes/footer.php' ; ?>
 

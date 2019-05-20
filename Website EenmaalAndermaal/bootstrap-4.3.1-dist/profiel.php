@@ -58,11 +58,26 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="mb-1">Verkoper worden?</p>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#verkoperWorden" role="button">
+                                            <p class="mb-1" >Verkoper worden?</p>
+
+                                            <?php
+                                            $sql = $dbh->prepare(
+                                                "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+                                            );
+                                            $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
+                                            $aantal = count($sql->fetchAll());
+
+                                            if($aantal >= 1) {
+                                                echo '<button type="button" class="btn btn-primary" disabled data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
-                                            </button>
+                                                </button>';
+                                            } else {
+                                                echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
+                                                Update account
+                                                </button>';
+                                            }                                                
+
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -275,23 +290,21 @@
     include 'php/phpcreditcard.php';
     include 'php/IBANcheck.php';
 
-
     if ((isset($_POST['IBAN']) && $_POST['IBAN'] != "") && (isset($_POST['ccNummer']) && $_POST['ccNummer'] != "")) {
         $banknaam = $_POST['bank'];
         $IBAN = $_POST['IBAN'];
         $ccNummer = $_POST['ccNummer'];
-        
-        if (isValidIBAN($IBAN) && check_cc($ccNummer)) {
+
+        if (isValidIBAN($IBAN) == true && check_cc($ccNummer) == true) {
+            $sql = $dbh->prepare(
+                "INSERT INTO Verkoper VALUES (:gebruikersnaam, :banknaam, :IBAN, 'In afwachting', :ccNummer)"
+                );
+            $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'banknaam' => $banknaam, 'IBAN' => $IBAN, 'ccNummer' => $ccNummer]);
+
             $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
-        } elseif (!(isValidIBAN($IBAN) && check_cc($ccNummer))) {
+        } else {
             $message = "Uw gegevens worden niet herkend";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        } elseif (!isValidIBAN($IBAN)) {
-            $message = "Deze IBAN wordt niet herkend";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        } elseif (!check_cc($ccNummer)) {
-            $message = "Dit creditcard nummer wordt niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
     } elseif (isset($_POST['IBAN']) && $_POST['IBAN'] != "") {
@@ -299,6 +312,11 @@
         $IBAN = $_POST['IBAN'];
 
         if (isValidIBAN($IBAN)) {
+            $sql = $dbh->prepare(
+                "INSERT INTO Verkoper VALUES (:gebruikersnaam, :banknaam, :IBAN, 'In afwachting', null)"
+                );
+            $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'banknaam' => $banknaam, 'IBAN' => $IBAN]);
+
             $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
@@ -309,13 +327,17 @@
         $ccNummer = $_POST['ccNummer'];
 
         if (check_cc($ccNummer)) {
+            $sql = $dbh->prepare(
+                "INSERT INTO Verkoper VALUES (:gebruikersnaam, null, null, 'In afwachting', :ccNummer)"
+                );
+            $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'ccNummer' => $ccNummer]);
+
             $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
             $message = "Dit creditcard nummer wordt niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
-    } else {
     }
 ?>
 
