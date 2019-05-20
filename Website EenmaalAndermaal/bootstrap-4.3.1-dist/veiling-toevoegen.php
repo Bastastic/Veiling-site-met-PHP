@@ -18,6 +18,19 @@
     .admin-line {
         border-top: 5px solid #ff814f;
     }
+
+    .hide {
+        display: none;
+    }
+
+    .image-upload {
+        height: 250px;
+        width: 250px;
+        border: 5px solid #ff814f;
+    }
+    .items{
+        padding-top:10px;
+    }
 </style>
 
 
@@ -27,7 +40,7 @@
     </div> <!-- /container -->
     <section id="team">
         <div class="container">
-            <h5 class="section-title h1">Gekozen rubriek</h5>
+            <h5 class="section-title h1">Categorie kiezen</h5>
             <div class="row-full">
                 <hr class="admin-line">
                 <div class="row">
@@ -36,21 +49,88 @@
                 </div>
             </div>
             <!-- Images -->
-            <h5 class="section-title h1">Foto's</h5>
+            <h5 class="section-title h1">Foto's uploaden</h5>
             <div class="row-full">
                 <hr class="admin-line">
+                <p>0 van 4 foto's gebruikt</p>
                 <div class="row">
+                    <form id="form1" runat="server">
+                        <input type='button' id='remove' value='remove' class='hide' />
+                        <input type='file' id="imgInp" /><br>
+                        <img class="image-upload" id="blah" src="#" alt="your image" />
+                    </form>
+                    <form>
+                        <input type='button' id='remove1' value='remove' class='hide' />
+                        <input type='file' id="imgInp1" /><br>
+                        <img class="image-upload" id="blah1" src="#" alt="your image" />
+                    </form>
                 </div>
-            </div>
-            <!-- Titel en beschrijving -->
-            <h5 class="section-title h1">Titel en beschrijving</h5>
-            <div class="row-full">
-                <hr class="admin-line">
-                <div class="row">
-                </div>
-            </div>
+                <script>
+                    $('#blah, #blah1').hide();
+                    $('#remove, #remove1').hide();
 
-        </div>
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                                $('#blah, #blah1').attr('src', e.target.result);
+                            }
+
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+
+                    $("#imgInp, #imgInp1").change(function () {
+                        if ($('#imgInp, #imgInp1').val() != "") {
+
+                            $('#remove, #remove1').show();
+                            $('#blah, #blah1').show('slow');
+                        } else {
+                            $('#remove, #remove1').hide();
+                            $('#blah, #blah1').hide('slow');
+                        }
+                        readURL(this);
+                    });
+
+
+                    $('#remove, #remove1').click(function () {
+                        $('#imgInp, #imgInp1').val('');
+                        $(this).hide();
+                        $('#blah, #blah1').hide('slow');
+                        $('#blah, #blah1').attr('src',
+                            'http://upload.wikimedia.org/wikipedia/commons/thumb/4/40/No_pub.svg/150px-No_pub.svg.png'
+                        );
+                    });
+                </script>
+
+                <div class="row">
+                </div>
+                <!-- Titel en beschrijving -->
+                <h5 class="section-title h1">Titel en beschrijving</h5>
+                <div class="row-full">
+                    <hr class="admin-line">
+                    <p><b>Titel</b> (verplicht)</p>
+                    <div class=items>
+                    <input type="text" name="titel">
+                    <textarea id="froala-editor">Advertentietekst ingevullen.</textarea>
+                    <script>new FroalaEditor('textarea#froala-editor')</script>
+                    <div>
+                        
+                    
+                </div>
+                <!-- Contactgegevens en voorkeuren -->
+                <h5 class="section-title h1">Contactgegevens en voorkeuren</h5>
+                <div class="row-full">
+                    <hr class="admin-line">
+                    <button type="button" class="btn btn-success">Veiling plaatsen</button>
+                    
+                    <div class="row">
+
+                    </div>
+                </div>
+
+            </div>
 </body>
 
 </html>

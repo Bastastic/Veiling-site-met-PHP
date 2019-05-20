@@ -315,7 +315,7 @@
                 );
             $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'banknaam' => $banknaam, 'IBAN' => $IBAN, 'ccNummer' => $ccNummer]);
 
-            $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
+            $message = "Uw gegevens zijn opgestuurd, u krijgt binnen 7 dagen een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
             $message = "Uw gegevens worden niet herkend";
@@ -331,7 +331,7 @@
                 );
             $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'banknaam' => $banknaam, 'IBAN' => $IBAN]);
 
-            $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
+            $message = "Uw gegevens zijn opgestuurd, u krijgt binnen 7 dagen een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
             $message = "Deze IBAN wordt niet herkend";
@@ -346,12 +346,13 @@
                 );
             $sql->execute(['gebruikersnaam' => $gebruikersnaam, 'ccNummer' => $ccNummer]);
 
-            $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
+            $message = "Uw gegevens zijn opgestuurd, u krijgt binnen 7 dagen een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
         } else {
             $message = "Dit creditcard nummer wordt niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
         }
+    } else {
     }
 ?>
 
