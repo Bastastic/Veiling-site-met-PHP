@@ -11,7 +11,11 @@ $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
 
 if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
     $_SESSION['userID'] = $gebruikersnaam;
-    header('Location: ../index.php');
+    if($gebruiker['Geactiveerd'] == 1){
+        header('Location: ../profiel.php');
+    }else{
+        header('Location: ../mailversturen.php');
+    }
 } else {
     header('Location: ../inloggen.php?errc=1');
 }
