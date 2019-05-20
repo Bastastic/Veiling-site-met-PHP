@@ -1,10 +1,37 @@
+
+
 <?php
+
 require '../php/connectDB.php';
+
+$emailadres = $_POST['emailadres'];
+
+
+$querygebruikersnaam = "SELECT Gebruikersnaam, Mailbox FROM Gebruiker WHERE Mailbox = :emailadres";
+$sqlgebruikersnaam = $dbh->prepare($querygebruikersnaam);
+$sqlgebruikersnaam->execute(['emailadres' => $emailadres]);
+$gebruikersnaam = $sqlgebruikersnaam->fetch(PDO::FETCH_ASSOC);
+$gebruikersnaam = $gebruikersnaam['Gebruikersnaam'];
+
+$controleadres = $mail['Mailbox'];
+
+// $querymail = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam";
+// $sqlmail = $dbh->prepare($querymail);
+// $sqlmail->execute(['gebruikersnaam' => $gebruikersnaam]);
+// $mail = $sqlmail->fetch(PDO::FETCH_ASSOC);
+ $controleadres = $mail['Mailbox'];
+
+
+// $controleadres = 'peter2@gmail.com';
+
+if(isset($_POST['geklikt']) &&  $emailadres == $controleadres ){ 
+
+
 
 
 $digits = 5;
 $controlegetal = mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
-$gebruikersnaam= "peter1";
+// $gebruikersnaam= "peter2";
 
 if (isset($_POST['geklikt'])) {
     $mailadres = $_POST['emailadres'];
@@ -24,6 +51,11 @@ if (isset($_POST['geklikt'])) {
      $sqlcode->execute(['gebruikersnaam' => $gebruikersnaam, 'controlegetal' => $controlegetal ]);
 
     header("Location: ../mailverstuurd.php");
+}
+
+
+}else{
+    header("Location: ../mailversturen.php");
 }
 
 ?> 

@@ -15,10 +15,14 @@
 
 <body>
 
+<h5> Vul ter controle nog een keer uw emailadres hieronder in.</h5>
+
+
 <form action="actions/mailversturen.php" method="post">
 <input type="email" name="emailadres">
-<input type="submit" name="geklikt" value="Registreer">
+<input type="submit" name="geklikt" value="Verzend">
 </form>
+
 
 </body>
 
