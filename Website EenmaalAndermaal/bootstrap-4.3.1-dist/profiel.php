@@ -295,21 +295,9 @@
 
             $message = "Uw gegevens zijn opgestuurd, u krijgt binnenkort een mail hierover.";
             echo "<script type='text/javascript'>alert('$message');</script>";
-<<<<<<< HEAD
         } else {
             $message = "Uw gegevens worden niet herkend";
             echo "<script type='text/javascript'>alert('$message');</script>";
-=======
-        } elseif (!(isValidIBAN($IBAN) && check_cc($ccNummer))) {
-            $message = "Uw gegevens worden niet herkend";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        } elseif (!isValidIBAN($IBAN)) {
-            $message = "Deze IBAN wordt niet herkend";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-        } elseif (!check_cc($ccNummer)) {
-            $message = "Dit creditcard nummer wordt niet herkend";
-            echo "<script type='text/javascript'>alert('$message');</script>";
->>>>>>> ea09e6ea15df5be88ce10ea07127c707d77ae902
         }
     } elseif (isset($_POST['IBAN']) && $_POST['IBAN'] != "") {
         $banknaam = $_POST['bank'];
