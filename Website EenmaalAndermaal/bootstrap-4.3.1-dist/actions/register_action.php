@@ -29,7 +29,7 @@
         $result = $sql->fetch(PDO::FETCH_ASSOC);
 
         if(!$result){
-            $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper) 
+            $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper, Geactiveerd) 
                 VALUES (
                     :gebruikersnaam,
                     :voornaam, 
@@ -44,7 +44,8 @@
                     :wachtwoord,
                     :vraagid,
                     :antwoord,
-                    :verkoper )";
+                    :verkoper,
+                    :geactiveerd )";
 
             $sql = $dbh->prepare($query);
             $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
@@ -61,6 +62,7 @@
             $sql->bindValue(":vraagid", $vraagid);
             $sql->bindValue(":antwoord", $antwoord);
             $sql->bindValue(":verkoper", $verkoper);
+            $sql->bindValue(":geactiveerd", 0);
             $sql->execute();
 
             header('Location: ../inloggen.php');

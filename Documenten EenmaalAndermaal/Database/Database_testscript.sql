@@ -22,8 +22,7 @@ insert into Vraag values
 	(2, 'Wat is je lievelingseten?'),
 	(3, 'Hoe heet jouw beste vriend/vriedin?'),
 	(4, 'wat is de naam van jouw eerste baas?'),
-	(5, 'Hoe hete jouw eerste  engels docent?')
-
+	(5, 'Hoe hete jouw eerste engels docent?')
 
 insert into Gebruiker values
 	('Peter1', 'Peter', 'Petersen', 'Pastoor van beijnenstraat 181', null, '5081 AP', 'Hilvarenbeek', 'Nederland', '1989-01-01', 'peter@gmail.com', 'plaintextLol2', 1, 'Appels', 1, 0),
