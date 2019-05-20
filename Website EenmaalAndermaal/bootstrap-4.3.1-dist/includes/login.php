@@ -101,19 +101,19 @@
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Adresregel" id="Adresregel" class="form-control input-lg"
-                                        placeholder="Adresregel" tabindex="1" required>
+                                        placeholder="Adresregel" tabindex="3" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Adresregel2" id="Adresregel2" class="form-control input-lg"
-                                        placeholder="Adresregel 2" tabindex="1">
+                                        placeholder="Adresregel 2" tabindex="4">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Postcode" id="Postcode" class="form-control input-lg"
-                                        placeholder="Postcode" tabindex="2" required>
+                                        placeholder="Postcode" tabindex="5" required>
                                 </div>
                             </div>
                         </div>
@@ -121,12 +121,12 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Plaatsnaam" id="Plaatsnaam" class="form-control input-lg"
-                                        placeholder="Plaatsnaam" tabindex="1" required>
+                                        placeholder="Plaatsnaam" tabindex="6" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <select id="Land" name="Land" class="form-control" placeholder="Kies een land...">
+                                    <select id="Land" name="Land" class="form-control" placeholder="Kies een land..." tabindex="7">
                                         <?php
                                             foreach ($countries as $key => $value) {
                                                 echo "<option value='$value' title='$value'>$value</option>";
@@ -138,16 +138,16 @@
                         </div>
                         <div class="form-group">
                             <input type="date" name="Geboortedatum" id="Geboortedatum" class="form-control input-lg"
-                                placeholder="Geboortedatum" tabindex="3" required>
+                                placeholder="Geboortedatum" tabindex="8" required>
                         </div>
                         <div class="form-group">
                             <input type="email" name="Emailadres" id="Emailadres" class="form-control input-lg"
-                                placeholder="Emailadres" tabindex="3" required>
+                                placeholder="Emailadres" tabindex="9" required>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <select id="Vraag" name="Vraag" class="form-control">
+                                    <select id="Vraag" name="Vraag" class="form-control" tabindex="10">
                                         <?php
                                         foreach ($vragen as $key => $value) {
                                             $vraagnr = $value['Vraagnummer'];
@@ -162,17 +162,17 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Antwoord" id="Antwoord" class="form-control input-lg"
-                                        placeholder="Antwoord" tabindex="2" required>
+                                        placeholder="Antwoord" tabindex="11" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="text" name="Gebruikersnaam" id="Gebruikersnaam" class="form-control input-lg"
-                                placeholder="Gebruikersnaam" tabindex="3" required>
+                                placeholder="Gebruikersnaam" tabindex="12" required>
                         </div>
                         <div class="form-group">
                             <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
-                                placeholder="Wachtwoord" tabindex="3" required>
+                                placeholder="Wachtwoord" tabindex="13" required>
                         </div>
                         <!-- captcha -->
 
@@ -180,11 +180,11 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <img src="includes/captcha.php" alt="captcha image"></div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
-                                <input type="text" name="captcha" size="3″ maxlength=" 3″ class="form-control">
+                                <input type="text" name="captcha" size="3″ maxlength=" 3″ class="form-control" tabindex="14">
                             </div>
                         </div>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
-                                class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                                class="btn btn-primary btn-block btn-lg" tabindex="15"></div>
                     </div>
                 </form>
             </div>

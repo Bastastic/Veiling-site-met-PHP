@@ -66,7 +66,7 @@
             $sql->bindValue(":geactiveerd", 0);
             $sql->execute();
 
-            header('Location: ../mailversutren.php');
+            header('Location: ../mailversturen.php');
         }else{
             header('Location: ../registreren.php?errc=1');
         }
