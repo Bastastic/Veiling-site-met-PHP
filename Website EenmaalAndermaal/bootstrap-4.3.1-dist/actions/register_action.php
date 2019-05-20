@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require '../php/connectDB.php';
 
         $voornaam = $_POST['Voornaam'];
@@ -65,7 +66,7 @@
             $sql->bindValue(":verkoper", $verkoper);
             $sql->bindValue(":geactiveerd", 0);
             $sql->execute();
-
+            $_SESSION['userID'] = gebruikersnaam;
             header('Location: ../mailversturen.php');
         }else{
             header('Location: ../registreren.php?errc=1');
