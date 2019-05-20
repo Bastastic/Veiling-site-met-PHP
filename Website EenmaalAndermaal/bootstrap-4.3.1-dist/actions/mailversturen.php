@@ -3,7 +3,7 @@
 
 $digits = 5;
 $controlegetal = mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
-echo $controlegetal;
+// echo $controlegetal;
 
 
 if (isset($_POST['geklikt'])) {
@@ -15,6 +15,10 @@ if (isset($_POST['geklikt'])) {
     $headers = "From: contact@eenmaalandermaal.nl" . "\r\n";
 
     mail($mailadres, $subject, $txt, $headers);
+
+    // $sql = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode)
+    // VALUES ('John', 'Doe', 'john@example.com')";
+
     // echo 'Verstuurd';
     header("Location: ../mailverstuurd.php");
 }
