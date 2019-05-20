@@ -90,7 +90,9 @@ SET @End = @Start + 5
 SET @Length = (@End - @Start) + 1
 END
 
+
 -- Replace any <br> tags with a newline
+
 SET @Start = CHARINDEX('<br>', @HTMLText)
 SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
@@ -126,6 +128,28 @@ SET @End = @Start + 5
 SET @Length = (@End - @Start) + 1
 END
 
+SET @Start = CHARINDEX('<STYLE', @HTMLText)
+SET @End = CHARINDEX('</STYLE>', @HTMLText, CHARINDEX('<', @HTMLText)) + 7
+SET @Length = (@End - @Start) + 1
+
+WHILE (@Start > 0 AND @End > 0 AND @Length > 0) BEGIN
+SET @HTMLText = STUFF(@HTMLText, @Start, @Length, '')
+SET @Start = CHARINDEX('<STYLE', @HTMLText)
+SET @End = CHARINDEX('</STYLE>', @HTMLText, CHARINDEX('</STYLE>', @HTMLText)) + 7
+SET @Length = (@End - @Start) + 1
+END
+
+SET @Start = CHARINDEX('<SCRIPT', @HTMLText)
+SET @End = CHARINDEX('</SCRIPT', @HTMLText, CHARINDEX('<', @HTMLText)) + 8
+SET @Length = (@End - @Start) + 1
+
+WHILE (@Start > 0 AND @End > 0 AND @Length > 0) BEGIN
+SET @HTMLText = STUFF(@HTMLText, @Start, @Length, '')
+SET @Start = CHARINDEX('<SCRIPT', @HTMLText)
+SET @End = CHARINDEX('</SCRIPT>', @HTMLText, CHARINDEX('</SCIRPT>', @HTMLText)) + 8
+SET @Length = (@End - @Start) + 1
+END
+
 -- Remove anything between <whatever> tags
 SET @Start = CHARINDEX('<', @HTMLText)
 SET @End = CHARINDEX('>', @HTMLText, CHARINDEX('<', @HTMLText))
@@ -142,5 +166,8 @@ RETURN LTRIM(RTRIM(@HTMLText))
 
 END
 
-SELECT DISTINCT dbo.udf_StripHTML([Beschrijving]) as col1
-FROM Items
+--SELECT DISTINCT dbo.udf_StripHTML([Beschrijving]) as col1
+--FROM Items
+
+--SELECT TOP(10) Beschrijving
+--FROM Items
