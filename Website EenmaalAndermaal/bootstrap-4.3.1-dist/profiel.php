@@ -66,7 +66,7 @@
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
 
-                                            if($aantal >= 1) {
+                                            if ($aantal >= 1) {
                                                 echo '<button type="button" class="btn btn-primary" disabled data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
                                                 </button>';
@@ -74,7 +74,7 @@
                                                 echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
                                                 </button>';
-                                            }                                                
+                                            }
 
                                             ?>
                                         </div>
@@ -168,7 +168,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
 
-                                        <?php 
+                                        <?php
                                             $query = "SELECT * 
                                             FROM Voorwerp
                                             WHERE Verkoper = :verkoper";
@@ -176,32 +176,46 @@
                                             $sql->execute(['verkoper' => $gebruikersnaam]);
                                             $veilingen = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-                                            echo '<pre>';
-                                            print_r($veilingen);
-                                            echo '</pre>';
+                                            foreach ($veilingen as $key => $value) {
+                                                $titel = $value['Titel'];
+                                                $beschrijving = $value['Beschrijving'];
+                                                $voorwerpnummer = $value['Voorwerpnummer'];
+                                                $datetime = date_create($value['LooptijdeindeDag'] . " " . $value['LooptijdeindeTijdstip'], timezone_open("Europe/Amsterdam"));
+                                                $datetime = date_format($datetime, "d-m-Y H:i");
 
-                                            foreach($veilingen as $key => $value){
+                                                $sql = $dbh->prepare(
+                                                    'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
+                                                    FROM Bod, Voorwerp
+                                                    WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
+                                                    AND voorwerpnummer = :voorwerpnummer
+                                                    ORDER BY bodbedrag DESC'
+                                                );
 
-                                            }
-                                        ?>
+                                                $sql->execute(['voorwerpnummer' => $value['Voorwerpnummer']]);
+                                                $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+                                                $hoogstebod = $value['Startprijs'];
+                                                if ($resultaat) {
+                                                    $hoogstebod = $resultaat[0]['bodbedrag'];
+                                                }
 
-                                            <div class="card mb-3" style="max-width: 800px;">
+                                                echo '<div class="card mb-3" style="max-width: 800px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
                                                         <img src="..." class="card-img" alt="...">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
-                                                            <h5 class="card-title">Card title</h5>
-                                                            <p class="card-text">This is a wider card with supporting
-                                                                text below as a natural lead-in to additional content.
-                                                                This content is a little bit longer.</p>
-                                                            <p class="card-text"><small class="text-muted">Last updated
-                                                                    3 mins ago</small></p>
+                                                            <h5 class="card-title">' . $titel . '</h5>
+                                                            <p class="card-text">' . $beschrijving . '</p>
+                                                            <p class="card-text">Hoogste bod: ' . $hoogstebod . '</p>
+                                                            <p class="card-text"><small class="text-muted">Loopt af op ' . $datetime . '</small></p>
+                                                            <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary stretched-link">Bekijk veiling</a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>';
+                                            }
+                                        ?>
                                         </div>
                                     </div>
                                 </div>
