@@ -5,13 +5,13 @@ Project van de propodeuse. In dit project maken we de veiling site EenmaalAnderm
 
 Dit project is gemaakt voor de Hogeschool Arnhem Nijmegen en is closed source. 
 
-#Committers
+# Committers
 - Sebastiaan Slijkhuis
 - Dani Hengeveld
 - Peiwand Ismaiel
 - Erkan Alper
 
-#Leidinggevende
+# Leidinggevende
 - Yakup Kücük
 - Maria Boes-Voet
 - Jorg Visch
