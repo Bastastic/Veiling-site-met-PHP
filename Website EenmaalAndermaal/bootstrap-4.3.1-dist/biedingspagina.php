@@ -169,7 +169,7 @@
                         <?php
                             foreach ($resultaat as $key => $value) {
                                 $datetime = date_create($value['boddag'] . " " . $value['bodtijdstip'], timezone_open("Europe/Amsterdam"));
-                                $datetime = date_format($datetime,"d/m/Y H:i");
+                                $datetime = date_format($datetime,"d-m-Y H:i");
                                 echo "
                                 <tr>
                                 <td>" . $value['gebruiker'] . "</td>
