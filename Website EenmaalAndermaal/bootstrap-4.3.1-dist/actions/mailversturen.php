@@ -11,7 +11,7 @@ if (isset($_POST['geklikt'])) {
     $subject = "Verificatiecode voor uw account";
     $txt = "Hello Gebruiker! 
             Bedankt voor het registreren bij EenmaalAndermaal
-            Hierbij ontvangt u uw controlegetal:"; echo $controlegetal;
+            Hierbij ontvangt u uw controlegetal:$controlegetal";
     $headers = "From: contact@eenmaalandermaal.nl" . "\r\n";
 
     mail($mailadres, $subject, $txt, $headers);
