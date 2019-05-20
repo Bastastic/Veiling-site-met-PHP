@@ -5,7 +5,6 @@ require '../php/connectDB.php';
 $gebruikersnaam = $_SESSION['userID'];
 $emailadres = $_POST['emailadres'];
 
-
 $query = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam";
 $sql = $dbh->prepare($query);
 $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
@@ -24,7 +23,7 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
     <body style='text-algin: center;'>
     <h1>Uw Verificatiecode</h1>
     <p>Voer deze code in na het inloggen op EenmaalAndermaal</p>
-    <h3>$controlegetal</h3>
+    <h3>" . $controlegetal . "</h3>
     </body>
     </html>
     ";
@@ -34,12 +33,14 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
 
     mail($emailadres, $subject, $txt, $headers);
 
-    $querycode = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode)
-                VALUES ( :gebruikersnaam, 
+    $querycode = "INSERT INTO Verificatie
+                VALUES (:gebruikersnaam, 
                         :controlegetal)";
 
     $sqlcode = $dbh->prepare($querycode);
-    $sqlcode->execute(['gebruikersnaam' => $gebruikersnaam, 'controlegetal' => $controlegetal]);
+    $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
+    $sql->bindValue(":controlegetal", $controlegetal);
+    $sqlcode->execute();
 
     header("Location: ../mailverstuurd.php");
 } else {
