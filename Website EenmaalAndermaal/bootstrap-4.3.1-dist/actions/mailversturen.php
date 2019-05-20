@@ -1,9 +1,9 @@
 <?php
-
+require '../php/connectDB.php';
 
 $digits = 5;
 $controlegetal = mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
-// echo $controlegetal;
+
 
 
 if (isset($_POST['geklikt'])) {
@@ -16,10 +16,13 @@ if (isset($_POST['geklikt'])) {
 
     mail($mailadres, $subject, $txt, $headers);
 
-    // $sql = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode)
-    // VALUES ('John', 'Doe', 'john@example.com')";
+     $querycode = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode)
+     VALUES ( :gebruikersnaam, :controlegetal)";
+     $sqlcode = $dbh->prepare($querycode);
+     $sqlcode->bindValue(":gebruikersnaam", $gebruikersnaam);
+     $sqlcode->bindValue(":controlegetal", $controlegetal);
+     $sqlcode->execute();
 
-    // echo 'Verstuurd';
     header("Location: ../mailverstuurd.php");
 }
 

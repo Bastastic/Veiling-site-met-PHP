@@ -21,6 +21,7 @@
         $gebruikersnaam = $_POST['Gebruikersnaam'];
         $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
         $verkoper = 0;
+        
 
         $query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam=:gebruikersnaam";
         $sql = $dbh->prepare($query);
