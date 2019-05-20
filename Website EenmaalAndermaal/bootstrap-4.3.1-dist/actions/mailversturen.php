@@ -1,9 +1,9 @@
 <?php
-
+require '../php/connectDB.php';
 
 $digits = 5;
 $controlegetal = mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
-echo $controlegetal;
+
 
 
 if (isset($_POST['geklikt'])) {
@@ -11,11 +11,18 @@ if (isset($_POST['geklikt'])) {
     $subject = "Verificatiecode voor uw account";
     $txt = "Hello Gebruiker! 
             Bedankt voor het registreren bij EenmaalAndermaal
-            Hierbij ontvangt u uw controlegetal:"; echo $controlegetal;
+            Hierbij ontvangt u uw controlegetal:$controlegetal";
     $headers = "From: contact@eenmaalandermaal.nl" . "\r\n";
 
     mail($mailadres, $subject, $txt, $headers);
-    // echo 'Verstuurd';
+
+     $querycode = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode)
+     VALUES ( :gebruikersnaam, :controlegetal)";
+     $sqlcode = $dbh->prepare($querycode);
+     $sqlcode->bindValue(":gebruikersnaam", $gebruikersnaam);
+     $sqlcode->bindValue(":controlegetal", $controlegetal);
+     $sqlcode->execute();
+
     header("Location: ../mailverstuurd.php");
 }
 
