@@ -25,26 +25,26 @@ insert into Vraag values
 	(5, 'Hoe hete jouw eerste engels docent?')
 
 insert into Gebruiker values
-	('Peter1', 'Peter', 'Petersen', 'Pastoor van beijnenstraat 181', null, '5081 AP', 'Hilvarenbeek', 'Nederland', '1989-01-01', 'peter@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 1, 'Appels', 1, 0),
-	('Peter2', 'Peter', 'Ekkel', 'Azaleastraat 116', null, '9581 CB', 'Musselkanaal', 'Nederland', '1990-01-01', 'Peter2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Alexander', 0, 0),
-	('Henk1','Henk', 'Jansen', 'Lantsheerstraat 160', null, '4356 AZ', 'Oostkappelle', 'Nederland', '1991-01-01', 'Jan2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Appeltaart', 0, 0),
-	('Henk2','Henk', 'Streefland', 'Deken Vaasstraat 8', null, '8472 AA', 'Wolvega', 'Nederland', '1992-01-01', 'henk22@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Dirk', 1, 0),
-	('Henk3', 'Henk', 'Smeltink', 'Spoorpad 172', null, '5111 BW', 'Baarle-Nassau', 'Nederland', '1993-01-01', 'Henk3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Lasanga', 1, 0),
-	('Henk4', 'Henk', 'Henkies', 'Willem van Oranjestraat 11', null, '4931 NJ', 'Geertruidenberg', 'Nederland', '1994-01-01', 'Henk4@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Brood', 1, 0),
-	('Wesley5', 'Wesley', 'Weslies', 'Fultonstraat 182', null, '2562 XC', 'Den Haag', 'Nederland', '1995-01-01', 'wesley2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Hareld', 0, 0),
-	('Harry2', 'Harry', 'Haries', 'Weesperzijde 118', null, '1097 DS', 'Amsterdam', 'Nederland', '1996-01-01', 'Harry2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 1, 'Citroen', 1, 0),
-	('Harry1','Harry', 'Hekkie', 'Buizerdstraat 84', null, '3312 TC', 'Dordrecht', 'Nederland', '1997-01-01', 'Harry3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Berend', 0, 0),
-	('Bas3', 'Bas', 'Bassie', 'Hoofdweg 181', null, '9684 CL', 'Finsterwolde', 'Nederland', '1998-01-01', 'Bas3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Martijn', 0, 0),
-	('Bas2','Bas', 'Adriaan', 'In de Molt 162', null, '6269 EK', 'Margraten', 'Nederland', '1999-01-01', 'Bas2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Appels', 0, 0),
-	('Bas1','Bas', 'Bakkie', 'Louis Couperusstraat 44', null, '1054 CJ', 'Amsterdam', 'Nederland', '1990-08-06', 'Bas1@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Rikkert', 1, 0),
-	('Dani3', 'Dani', 'Banaanie', 'Burgemeester Sustoriusstraat 156', null, '4813 PN', 'Breda', 'Nederland', '1990-08-09', 'Dani3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Greetje', 1, 0),
-	('Dani4','Dani', 'Dank', 'Count basiestraat 191', null, '3813 ZP', 'Amersfoort', 'Nederland', '1994-12-24', 'Dani4@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Gert-jan', 0, 0),
-	('Dani2','Dani', 'Spinakie', 'Galgenstraat 149', null, '1012 LT', 'Amsterdam', 'Nederland', '1995-12-28', 'Dani2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Spekkoek', 1, 0),
-	('Erkan2', 'Erkan', 'Bam', 'De nije Kamers 172', null, '9076 JD', 'Sint Annaparochie', 'Nederland', '1991-11-28', 'Erkan2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Brian', 0, 0),
-	('Erkan3','Erkan', 'Berkan', 'Europark 143', null, '7102 AM', 'Winterswijk', 'Nederland', '1999-03-01', 'Erkan3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Egbert', 1, 0),
-	('Erkan1','Erkan', 'Slaags', 'Scheldekade 125', null, '4531 EG', 'Terneuzen', 'Nederland', '1999-05-01', 'Erkan1@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Richard', 0, 0),
-	('Bazinga12','Bata', 'bat', 'Esperantolaan 106', null, '6824 LW', 'Arnhem', 'Nederland', '1999-07-01', 'Bazinga12@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Boerenkool', 0, 0),
-	('DioBrando2', 'Dio', 'Brando', 'Touwslagerwie 200', null, '5551SJ', 'Volkenswaard', 'Nederland', '1999-4-12', 'Diobrando1@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Banaan', 1, 0)
+	('Peter1', 'Peter', 'Petersen', 'Pastoor van beijnenstraat 181', null, '5081 AP', 'Hilvarenbeek', 'Nederland', '1989-01-01', 'peter@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 1, 'Appels', 1, 1),
+	('Peter2', 'Peter', 'Ekkel', 'Azaleastraat 116', null, '9581 CB', 'Musselkanaal', 'Nederland', '1990-01-01', 'Peter2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Alexander', 0, 1),
+	('Henk1','Henk', 'Jansen', 'Lantsheerstraat 160', null, '4356 AZ', 'Oostkappelle', 'Nederland', '1991-01-01', 'Jan2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Appeltaart', 0, 1),
+	('Henk2','Henk', 'Streefland', 'Deken Vaasstraat 8', null, '8472 AA', 'Wolvega', 'Nederland', '1992-01-01', 'henk22@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Dirk', 1, 1),
+	('Henk3', 'Henk', 'Smeltink', 'Spoorpad 172', null, '5111 BW', 'Baarle-Nassau', 'Nederland', '1993-01-01', 'Henk3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Lasanga', 1, 1),
+	('Henk4', 'Henk', 'Henkies', 'Willem van Oranjestraat 11', null, '4931 NJ', 'Geertruidenberg', 'Nederland', '1994-01-01', 'Henk4@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Brood', 1, 1),
+	('Wesley5', 'Wesley', 'Weslies', 'Fultonstraat 182', null, '2562 XC', 'Den Haag', 'Nederland', '1995-01-01', 'wesley2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Hareld', 0, 1),
+	('Harry2', 'Harry', 'Haries', 'Weesperzijde 118', null, '1097 DS', 'Amsterdam', 'Nederland', '1996-01-01', 'Harry2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 1, 'Citroen', 1, 1),
+	('Harry1','Harry', 'Hekkie', 'Buizerdstraat 84', null, '3312 TC', 'Dordrecht', 'Nederland', '1997-01-01', 'Harry3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Berend', 0, 1),
+	('Bas3', 'Bas', 'Bassie', 'Hoofdweg 181', null, '9684 CL', 'Finsterwolde', 'Nederland', '1998-01-01', 'Bas3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Martijn', 0, 1),
+	('Bas2','Bas', 'Adriaan', 'In de Molt 162', null, '6269 EK', 'Margraten', 'Nederland', '1999-01-01', 'Bas2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Appels', 0, 1),
+	('Bas1','Bas', 'Bakkie', 'Louis Couperusstraat 44', null, '1054 CJ', 'Amsterdam', 'Nederland', '1990-08-06', 'Bas1@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Rikkert', 1, 1),
+	('Dani3', 'Dani', 'Banaanie', 'Burgemeester Sustoriusstraat 156', null, '4813 PN', 'Breda', 'Nederland', '1990-08-09', 'Dani3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Greetje', 1, 1),
+	('Dani4','Dani', 'Dank', 'Count basiestraat 191', null, '3813 ZP', 'Amersfoort', 'Nederland', '1994-12-24', 'Dani4@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Gert-jan', 0, 1),
+	('Dani2','Dani', 'Spinakie', 'Galgenstraat 149', null, '1012 LT', 'Amsterdam', 'Nederland', '1995-12-28', 'Dani2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Spekkoek', 1, 1),
+	('Erkan2', 'Erkan', 'Bam', 'De nije Kamers 172', null, '9076 JD', 'Sint Annaparochie', 'Nederland', '1991-11-28', 'Erkan2@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Brian', 0, 1),
+	('Erkan3','Erkan', 'Berkan', 'Europark 143', null, '7102 AM', 'Winterswijk', 'Nederland', '1999-03-01', 'Erkan3@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 5, 'Egbert', 1, 1),
+	('Erkan1','Erkan', 'Slaags', 'Scheldekade 125', null, '4531 EG', 'Terneuzen', 'Nederland', '1999-05-01', 'Erkan1@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 3, 'Richard', 0, 1),
+	('Bazinga12','Bata', 'bat', 'Esperantolaan 106', null, '6824 LW', 'Arnhem', 'Nederland', '1999-07-01', 'Bazinga12@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 2, 'Boerenkool', 0, 1),
+	('DioBrando2', 'Dio', 'Brando', 'Touwslagerwie 200', null, '5551SJ', 'Volkenswaard', 'Nederland', '1999-4-12', 'Diobrando1@gmail.com', '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY', 4, 'Banaan', 1, 1)
 
 insert into Verkoper values
 	('Peter1', 'ING', 'INGB-123-414234-231', 'iDeal', null),
@@ -137,7 +137,7 @@ insert into Rubriek values
 	(59, 'Honden', 58, 59),
 	(60, 'Paarden en Pony''s', 58, 60),
 	(61, 'Katten', 58, 61),
-	(62, 'Reptielen en Amfibie�n', 58, 62),
+	(62, 'Reptielen en Amfibie&euml;n', 58, 62),
 	(63, 'Vee', 58, 63),
 	(64, 'Knaagdieren en Konijnen', 58, 64),
 	(65, 'Vissen', 58, 65),
@@ -315,7 +315,7 @@ insert into Rubriek values
 
 (220, 'Watersport en Boten', null, 220),
 	(221, 'Hengelsport', 220, 221),
-	(222, 'Roeien en Kano�n', 220, 222),
+	(222, 'Roeien en Kano&euml;n', 220, 222),
 	(223, 'Surfen, Zwemmen en Waterskien', 220, 223),
 	(224, 'Motorboten', 220, 224),
 	(225, 'Zeilboten en Toebehoren', 220, 225),
@@ -367,7 +367,7 @@ values
 	('tulpenbollen', 'Bring out your inner weeb 19', 33, 'Bank', null, 'Velp', 'Nederland', '5',  GETDATE() - 4, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', null, GETDATE()+5, CURRENT_TIMESTAMP, 0, null),
 	('Rolschaatsen', 'Bring out your inner weeb 20', 1500, 'Bank', null, 'Rheden', 'Nederland', '5',  GETDATE() - 5, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', null, GETDATE()+5, CURRENT_TIMESTAMP, 0, null),
 	('Skateboard', 'Bring out your inner weeb 21', 232, 'Bank', null, 'De steeg', 'Nederland', '5',  GETDATE() - 5, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', null, GETDATE()+5, CURRENT_TIMESTAMP, 0, null),
-	('Puur gouden AirPods�', 'Bring out your inner weeb 22', 30, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE() - 7, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', null, GETDATE()+7, CURRENT_TIMESTAMP, 0, null)
+	('Puur gouden AirPods&trade;', 'Bring out your inner weeb 22', 30, 'Bank', null, 'Arnhem', 'Nederland', '7',  GETDATE() - 7, CURRENT_TIMESTAMP, 0.95, null, 'Peter1', null, GETDATE()+7, CURRENT_TIMESTAMP, 0, null)
 
 
 insert into Bestand values

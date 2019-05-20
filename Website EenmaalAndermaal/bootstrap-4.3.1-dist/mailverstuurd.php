@@ -16,7 +16,7 @@
      Het kan een aantal minuten duren voordat u de mail ontvangt.</h5>
 <form action="actions/mailversturen.php" method="post">
 <input type="text" name="controle">     
-<input type="submit" name="controleklik" value="Controleer">
+<input type="submit" name="controleklik" value="Verifiveer">
 </form>
 
 <?php

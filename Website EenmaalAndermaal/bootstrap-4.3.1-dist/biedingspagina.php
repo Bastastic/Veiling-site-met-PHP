@@ -146,11 +146,30 @@
                     <div class="input-group-prepend my-4">
                     <?php 
                     if(isset($_SESSION['userID'])){
-                        echo '<input name="submitted" type="submit" class="btn btn-primary" value="Bied">';
+
+                        //pop up die vraagt of je dat bedrag wil bieden
+                        echo '<div class="modal fade" id="biedModal" tabindex="-1" role="dialog" aria-labelledby="biedModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        <p>Weet u zeker dat u dit bedrag wilt plaatsen</p>
+                                        <input name="submitted" type="submit" class="btn btn-primary" value="Bied">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+                        echo "<a class='btn btn-primary ml-1' data-toggle='modal' data-target='#biedModal'
+                        role='button'>Bied</a>";
                     }else{
                         echo '<div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
                         <input type="submit" style="pointer-events: none" class="btn btn-primary disabled" value="Bied" disabled>
-                    </div>';
+                        </div>';
                     }
                     ?>
                     </div>
@@ -204,6 +223,10 @@
     </script>
 
 </body>
+
+
+
+
 <?php include 'includes/footer.php'; ?>
 
 </html>
