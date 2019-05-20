@@ -162,7 +162,7 @@ go
 
 create table Verificatie (
 	Gebruikersnaam				varchar(25)		not null,
-	Verificatiecode				smallint		null
+	Verificatiecode				int				null
 	constraint PK_Verificatie primary key (Gebruikersnaam)
 )
 go
