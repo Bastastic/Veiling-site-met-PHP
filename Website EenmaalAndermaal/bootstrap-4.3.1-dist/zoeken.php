@@ -289,6 +289,20 @@
 													$einddatum = "Afgelopen";
 												}	
 
+												$sql = $dbh->prepare(
+														'SELECT bodbedrag
+														FROM Bod, Voorwerp
+														WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
+														AND voorwerpnummer = :voorwerpnummer
+														ORDER BY bodbedrag DESC'
+												);
+												$sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+												$resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+												$hoogstebod = $startprijs;
+												if($resultaat){
+														$hoogstebod = $resultaat[0]['bodbedrag'];
+												}
+
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                         <div class='image-flip' ontouchstart='this.classList.toggle('hover');'>
@@ -300,7 +314,7 @@
                                             </p>
                                             <h4>$titel</h4>
                                             <p>$bescrhijving</p>
-                                            <h5>€$startprijs</h5>
+                                            <h5>€$hoogstebod</h5>
                                             <h6>$einddatum</h6>
                                         </div>
                                     </div>
