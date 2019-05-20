@@ -5,15 +5,17 @@ require_once('php/connectDB.php');
 session_start();
 if (isset($_SESSION['userID'])) {
     $gebruikersnaam = $_SESSION['userID'];
-    $sql = $dbh->prepare("SELECT Voornaam, Achternaam
+    $sql = $dbh->prepare("SELECT Voornaam, Achternaam, Geactiveerd
                     FROM Gebruiker
                     WHERE Gebruikersnaam = :gebruikersnaam");
     $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
     $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
     $voornaam = $gebruiker['Voornaam'];
     $achternaam = $gebruiker['Achternaam'];
-    if(!$gebruiker['Geactiveerd'] == 1){
-        header('Location: mailversturen.php');
+    if($gebruiker['Geactiveerd'] == 0){
+        if(basename($_SERVER['PHP_SELF']) != 'mailversturen.php'){
+            header('Location: mailversturen.php');
+        }
     }
 }
 
