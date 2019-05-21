@@ -11,7 +11,22 @@
     <title>Profiel</title>
 </head>
 
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php'; 
+    if (isset($_GET['errc'])) {
+        $type = 'danger';
+        $titel = 'Sorry!';
+        if ($_GET['errc'] == '1') {
+            $msg = 'Error msg 1';
+        }
+    }
+    if (isset($_GET['succ'])){
+        $type = 'success';
+        $titel = 'Toppie!';
+        if ($_GET['succ'] == '1'){
+            $msg = 'U heeft uw account succesvol geactiveerd!';
+        }
+    }
+?>
 
 <body>
     <br>
@@ -21,7 +36,18 @@
         // haal hier de gebruiker uit de sessievariabele
             echo "<h1>Welkom $voornaam $achternaam</h1>"
         ?>
-
+        <?php
+            if (isset($msg)) {
+                echo '<div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="alert alert-' . $type . ' alert-dismissible fade show text-center" role="alert">
+                <strong>'. $titel .'</strong> ' . $msg . '
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            </div>';
+            }
+        ?>
         <br>
         <div class="row" id="parentTab">
             <div class="col-md-3" id="sidebar">
@@ -58,11 +84,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="mb-1" >Verkoper worden?</p>
+                                            <p class="mb-1">Verkoper worden?</p>
 
                                             <?php
                                             $sql = $dbh->prepare(
-            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+    "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                             );
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
@@ -168,7 +194,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
 
-                                        <?php
+                                            <?php
                                             $query = "SELECT * 
                                             FROM Voorwerp
                                             WHERE Verkoper = :verkoper";

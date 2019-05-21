@@ -33,13 +33,28 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
 
     mail($emailadres, $subject, $txt, $headers);
 
-    $query = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode) VALUES (:gebruikersnaam, :controlegetal)";
+    $query = "SELECT * FROM Verificatie WHERE Gebruikersnaam = '$gebruikersnaam'";
     $sql = $dbh->prepare($query);
-    $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
-    $sql->bindValue(":controlegetal", $controlegetal);
     $sql->execute();
+    $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+    
+    if($resultaat){
+        $query = "UPDATE Verificatie 
+        SET Verificatiecode = :controlegetal
+        WHERE Gebruikersnaam = :gebruikersnaam";
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
+        $sql->bindValue(":controlegetal", intval($controlegetal));
+        $sql->execute();
+    }else{
+        $query = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode) VALUES (:gebruikersnaam, :controlegetal)";
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
+        $sql->bindValue(":controlegetal", intval($controlegetal));
+        $sql->execute();
+    }
 
     header("Location: ../mailverstuurd.php");
 } else {
-    header("Location: ../mailversturen.php");
+    header("Location: ../mailversturen.php?errc=1");
 }
