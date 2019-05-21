@@ -9,43 +9,52 @@
 </head>
 
 <?php include 'includes/header.php'; ?>
+<body>
 
-<body> 
+ 
+ <script language="JavaScript" type="text/javascript">
+ var interval;
+ var minutes = 10;
+ var seconds = 10;
 
+ function countdown(element) {
+     interval = setInterval(function(timer) {
+         var el = document.getElementById(element);
+         if(seconds == 0) {
+             if(minutes == 0) {
+                 (el.innerHTML = "Veiling Gesloten!");     
 
-<script> 
+                 clearInterval(interval);
+                 return;
+             } else {
+                 minutes--;
+                 seconds = 60;
+             }
+         }
+         if(minutes > 0) {
+             var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
+         } else {
+             var minute_text = '';
+         }
+         var second_text = seconds > 1 ? '' : '';
+         el.innerHTML = minute_text + ' ' + seconds + ' seconds' + second_text + '';
+         seconds--;
+     }, 1000);
+ }
+var start = document.getElementById('start');
 
-function timer(){ 
-var deadline = new Date("Jan 5, 2020 15:37:25").getTime(); 
-var x = setInterval(function() { 
-var now = new Date().getTime(); 
-var t = deadline - now; 
-var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
-var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
-var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
-var seconds = Math.floor((t % (1000 * 60)) / 1000); 
-document.getElementById("demo").innerHTML = days + "d "  
-+ hours + "h " + minutes + "m " + seconds + "s "; 
-    if (t < 0) { 
-        clearInterval(x); 
-        document.getElementById("demo").innerHTML = "Veiling afgelopen!"; 
-    } 
-}, 1000); 
-
+start.onclick = function(timer) {
+ if (!interval) {
+     countdown('countdown');
+ }
 }
 
-</script> 
+</script>
 
-<?php
-// timer("Jan 5, 2020 15:37:25");
-// timer();
 
-function myFunction() {
-    alert("Hello World!");
-  }
-  myFunction();
-?>
 
+<div id='countdown'></div>
+<input type="button" onclick="countdown('countdown');this.disabled = true;" value="Start Veiling" />
 
 </body>
 
