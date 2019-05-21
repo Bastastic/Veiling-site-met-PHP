@@ -72,8 +72,8 @@ if (isset($_POST["captcha"])) {
             <div class="container">
                 <nav class="navbar navbar-dark navbar-expand-md">
                     <div class="collapse navbar-collapse justify-content-center mt-3" id="navbarToggler">
-                        <ul class="navbar-nav">
-                            <li>
+                        <ul class="navbar-nav w-100">
+                            <li class="w-75">
                                 <div class="form-group mr-2">
                                     <input type="text" class="form-control" id="zoek" name="zoeken"
                                         placeholder="Zoek product">
@@ -89,7 +89,7 @@ if (isset($_POST["captcha"])) {
                                 </div>
                             </li>
 
-                            <li>
+                            <!-- <li>
                                 <div class="form-group mr-2">
                                     <input type="text" class="form-control " id="postcode" placeholder="Postcode">
                                 </div>
@@ -104,7 +104,7 @@ if (isset($_POST["captcha"])) {
                                         <option>75 KM </option>
                                     </select>
                                 </div>
-                            </li>
+                            </li> -->
                             <li>
                                 <div class="col-xs-3">
                                     <button type="submit" class="btn btn-primary mr-2">Zoeken</button>
