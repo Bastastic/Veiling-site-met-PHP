@@ -53,7 +53,7 @@
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                         <br>
-                        <input type="checkbox" name="onthoudme" /> Wachtwoord Onthouden?<br>
+                        <!-- <input type="checkbox" name="onthoudme" id="onthoudme"/> Ingelogd blijven<br> -->
                         <span class="password"><a href="#">Wachtwoord vergeten?</a></span>
                     </div>
                 </form>
@@ -63,9 +63,8 @@
 </div>
 
 
+
 <!-- Register -->
-
-
 
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
