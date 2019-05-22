@@ -39,7 +39,7 @@
         Het kan een aantal minuten duren voordat u de mail ontvangt.</h5>
     <form action="actions/verifieer.php" method="post">
         <input type="text" name="code" required>
-        <input type="submit" name="controleklik" value="Verifieer">
+        <input type="submit" name="submit" value="Verifieer">
     </form>
 </body>
 <?php include 'includes/footer.php' ; ?>

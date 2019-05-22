@@ -33,22 +33,24 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
 
     mail($emailadres, $subject, $txt, $headers);
 
-    $query = "SELECT COUNT(*) FROM Verificatie WHERE Gebruikersnaam = $gebruikersnaam";
+    $query = "SELECT * FROM Verificatie WHERE Gebruikersnaam = '$gebruikersnaam'";
     $sql = $dbh->prepare($query);
     $sql->execute();
-    if(count($sql->fetchAll()) > 0){
+    $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+    
+    if($resultaat){
         $query = "UPDATE Verificatie 
         SET Verificatiecode = :controlegetal
         WHERE Gebruikersnaam = :gebruikersnaam";
         $sql = $dbh->prepare($query);
         $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
-        $sql->bindValue(":controlegetal", $controlegetal);
+        $sql->bindValue(":controlegetal", intval($controlegetal));
         $sql->execute();
     }else{
         $query = "INSERT INTO Verificatie (Gebruikersnaam, Verificatiecode) VALUES (:gebruikersnaam, :controlegetal)";
         $sql = $dbh->prepare($query);
         $sql->bindValue(":gebruikersnaam", $gebruikersnaam);
-        $sql->bindValue(":controlegetal", $controlegetal);
+        $sql->bindValue(":controlegetal", intval($controlegetal));
         $sql->execute();
     }
 

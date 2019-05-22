@@ -144,28 +144,34 @@
                         aria-describedby="basic-addon1" required>
                         <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer?>"/>
                     <div class="input-group-prepend my-4">
+                    <script>
+                    function getdata() {
+                        var bod = document.getElementById('bodInput').value;
+                        return false;
+                    } 
+                    </script>
                     <?php 
                     if(isset($_SESSION['userID'])){
-
+                        $bod = 1.00;
                         //pop up die vraagt of je dat bedrag wil bieden
-                        echo '<div class="modal fade" id="biedModal" tabindex="-1" role="dialog" aria-labelledby="biedModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                        <p>Weet u zeker dat u dit bedrag wilt plaatsen</p>
-                                        <input name="submitted" type="submit" class="btn btn-primary" value="Bied">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>';
-                        echo "<a class='btn btn-primary ml-1' data-toggle='modal' data-target='#biedModal'
-                        role='button'>Bied</a>";
+                        echo "<input class='btn btn-primary' data-toggle='modal' data-target='#biedModal'
+                        type='submit' value='Bied'>";
+                        // echo "<div class='modal fade' id='biedModal' tabindex='-1' role='dialog' aria-labelledby='biedModalLabel'
+                        //         aria-hidden='true'>
+                        //         <div class='modal-dialog' role='document'>
+                        //             <div class='modal-content'>
+                        //                 <div class='modal-header'>
+                        //                     <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                        //                         <span aria-hidden='true'>&times;</span>
+                        //                     </button>
+                        //                 </div>
+                        //                 <div class='modal-body'>
+                        //                 <p>Weet u zeker dat u <strong>€$bod</strong> wilt bieden?</p>
+                        //                 <input name='submitted' type='submit' class='btn btn-primary' value='Bied'>
+                        //                 </div>
+                        //             </div>
+                        //         </div>
+                        //     </div>";
                     }else{
                         echo '<div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
                         <input type="submit" style="pointer-events: none" class="btn btn-primary disabled" value="Bied" disabled>
@@ -218,6 +224,14 @@
             if (isNaN(bod) || bod <= <?=$hoogstebod?>) {
                 alert("Je moet meer bieden!");
                 return false;
+            } else {
+                var bod = document.getElementById('bod').value;
+
+                if(confirm("Weet u zeker dat u €" + bod + " wilt bieden")) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         } 
     </script>
