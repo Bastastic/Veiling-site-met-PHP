@@ -1,8 +1,8 @@
 <br>
-    <div class="container">
+<div class="container">
     <div id="accordion">
         <?php
-        $sql = $dbh->prepare("select * from Rubriek");
+        $sql = $dbh->prepare("SELECT * from Rubriek order by Rubrieknummer");
         $sql->execute();
         $resultaat = $sql->fetchAll(PDO::FETCH_NUM);
 
@@ -16,10 +16,9 @@
                     $hoofdrubriek = $resultaat[$i][2];
                     $volgnr = $resultaat[$i][3];
 
-                    if ($hoofdrubriek == null) {
+                    if ($hoofdrubriek == -1) {
                         if ($first == true) {
                             $first = false;
-                            $idnaam = $rubrieknummer;
                             echo "<div class='row'>";
                             echo "
                             <div class='col-md-4 col-sm-6 col-xs-12'>
@@ -38,7 +37,6 @@
                             if ($kolommen % 3 == 0) {
                                 echo "</div><div class='row'>";
                             }
-                            $idnaam = $rubrieknummer;
                             echo "
                             </div>
                             </ul>
@@ -62,8 +60,7 @@
                         echo "
                             <li>
                             <input class='form-check-input ml-2' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer'>
-                                <label class='form-check-label ml-4' for='catRadio$rubrieknummer'>
-                                    $rubrieknaam
+                                <label class='form-check-label ml-4' for='catRadio$rubrieknummer'>" . str_repeat("&nbsp;&nbsp;", $volgnr) . "$rubrieknaam
                                 </label>
                             </li>
                         ";
