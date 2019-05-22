@@ -30,8 +30,6 @@
         font-family: Lobster;
         padding-left: 1%;
     }
-    
-
 </style>
 
 <?php
@@ -41,7 +39,7 @@
 
 <body>
 
-<?php
+    <?php
 
 $sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdEindeDag, Gebruiker.Gebruikersnaam 
 FROM Voorwerp
@@ -69,17 +67,17 @@ if ($aantalfoto > 4){
 }
 ?>
 
-    
-    <div class="container">
-    <div class="segment">
-        <div class="row align-items-start">
-            <div class="col-lg-7">
 
-                <div id="demo" class="carousel slide mt-3" data-ride="carousel">
-                    <ul class="carousel-indicators">
-                    
-                     <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
-                        <?php 
+    <div class="container">
+        <div class="segment">
+            <div class="row align-items-start">
+                <div class="col-lg-7">
+
+                    <div id="demo" class="carousel slide mt-3" data-ride="carousel">
+                        <ul class="carousel-indicators">
+
+                            <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
+                            <?php 
                           for( $x=0; $x < $aantalfoto; $x++ ){
                            echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
                           }
@@ -87,10 +85,10 @@ if ($aantalfoto > 4){
                         ?>
 
 
-                    </ul>
-                    <div class="carousel-inner">
-                       
-                       <?php
+                        </ul>
+                        <div class="carousel-inner">
+
+                            <?php
 
                         for( $s=1; $s < $aantalfoto; $s++ ){
 
@@ -108,31 +106,31 @@ if ($aantalfoto > 4){
                     }
                     }
 
-                        ?> 
+                        ?>
 
 
+                        </div>
+
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
                     </div>
-
-                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
                 </div>
-            </div>
-<?php    echo    "<div class='col-lg-5 mt-2'>
+                <?php    echo    "<div class='col-lg-5 mt-2'>
                 <h2>$titel</h2>
                 <h6>$gebruikersnaam</h6>
                 <h4>Omschrijving:</h4>
                 <small> $beschrijving
                 </small>
             </div>" ?>
-        </div>
-        <div class="col-lg-7 d-flex justify-content-center">
-<?php    echo    "  <h4 id='$voorwerpnummer'></h4>
-        </div>
-        <script>
+            </div>
+            <div class="col-lg-7 d-flex justify-content-center">
+                <?php    echo    "  <h4 id='$voorwerpnummer'></h4>
+                     </div>
+                                <script>
 										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag').getTime();
 
 										var x = setInterval(function() {
@@ -155,9 +153,9 @@ if ($aantalfoto > 4){
 											}
 										}, 1000);
 								  </script>" ?>
-        </div>
-        <div class="row mt-5">
-            <?php
+                    </div>
+            <div class="row mt-5">
+                <?php
             // veiling gesloten in Voorwerp is standaard 0, dit betekent dus dat de veiling nog open is. Bij het aflopen van de veiling wordt de waarde naar 1 gezet.
                 $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0 order by Voorwerp.voorwerpnummer desc");
                 $sql->execute();
@@ -176,8 +174,8 @@ if ($aantalfoto > 4){
                 </div>";
                 }
             ?>
+            </div>
         </div>
-    </div>
 </body>
 
 <?php include 'includes/footer.php'; ?>

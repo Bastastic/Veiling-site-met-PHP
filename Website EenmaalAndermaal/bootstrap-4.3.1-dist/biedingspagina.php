@@ -33,6 +33,9 @@
 <body>
 
     <?php
+
+
+
     if(isset($_GET['voorwerpnummer'])){
         $voorwerpnummer = $_GET['voorwerpnummer'];
 
@@ -72,6 +75,21 @@
         if($resultaat){
             $hoogstebod = $resultaat[0]['bodbedrag'];
         }
+
+
+        $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
+from Bestand
+where Voorwerp = $voorwerpnummer ");
+$tellenVanFoto->execute();
+$aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
+
+$aantalfoto = $aantalfoto['count'];
+if ($aantalfoto > 4){
+    $aantalfoto = 4;
+}
+
+
+
     }else{
         echo '<script>window.location.replace("zoeken.php");</script>';
         die();
@@ -83,13 +101,50 @@
             <div class="col-xs-12 col-sm-12 col-md-7">
                 <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
                     <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+
+                    <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
+                    <?php 
+                          for( $x=0; $x < $aantalfoto; $x++ ){
+                           echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                          }
+
+                        ?>
+
+
+                        <!-- <li data-target="#demo" data-slide-to="0" class="active"></li>
                         <li data-target="#demo" data-slide-to="1"></li>
                         <li data-target="#demo" data-slide-to="2"></li>
-                        <li data-target="#demo" data-slide-to="3"></li>
+                        <li data-target="#demo" data-slide-to="3"></li> -->
                     </ul>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
+
+                    <?php
+
+                    if($aantalfoto == 1){
+                        echo "<img src='http://iproject15.icasites.nl/pics/dt_".$aantalfoto."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>";
+                        }else{
+
+                        for( $s=1; $s < $aantalfoto; $s++ ){
+                        
+
+                            if( $s == 1){
+                        echo   "<div class='carousel-item active' style='cursor: pointer'
+                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                                <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
+                                </div>"; 
+                        }
+                        else {
+                        echo  "<div class='carousel-item' style='cursor: pointer'
+                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                        <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
+                        </div>"; 
+                        }
+                        }
+                    }
+                        ?>
+
+
+                        <!-- <div class="carousel-item active">
                             <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Los Angeles">
                         </div>
                         <div class="carousel-item">
@@ -100,7 +155,7 @@
                         </div>
                         <div class="carousel-item">
                             <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div>
+                        </div> -->
                     </div>
                     <a class="carousel-control-prev" href="#demo" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
