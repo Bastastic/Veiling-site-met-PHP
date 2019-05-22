@@ -10,12 +10,12 @@
     <title>Over ons</title>
 </head>
 <?php
-     require 'php/connectDB.php'; 
+     require 'php/connectDB.php';
     ?>
 
 
 <?php
-     include 'includes/header.php'; 
+     include 'includes/header.php';
     ?>
 
 <body style="overflow-x:hidden">
@@ -230,7 +230,7 @@
 
             <div class="row">
                 <?php
-                if(isset($_GET['cat']) && isset($_GET['zoeken'])){
+                if (isset($_GET['cat']) && isset($_GET['zoeken'])) {
                     $trefwoord = strval($_GET['zoeken']);
                     $cat = $_GET['cat'];
                     $sql = $dbh->prepare(
@@ -238,62 +238,64 @@
                         FROM Voorwerp, Voorwerp_in_Rubriek 
                         WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
                         AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat
-                        AND titel LIKE CONCAT('%', :trefwoord, '%')");  
+                        AND titel LIKE CONCAT('%', :trefwoord, '%')"
+                    );
                     $sql->execute(['cat' => $cat, 'trefwoord' => $trefwoord]);
                     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     $aantal = $sql->rowCount();
-                    if($aantal < 1){
-                     echo '<p class="ml-4">Geen producten gevonden</p>';   
+                    if ($aantal < 1) {
+                        echo '<p class="ml-4">Geen producten gevonden</p>';
                     }
-                    }
-                    elseif(isset($_GET['cat'])){
+                } elseif (isset($_GET['cat'])) {
                         $cat = $_GET['cat'];
 
                         $sql = $dbh->prepare(
                             "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                             FROM Voorwerp, Voorwerp_in_Rubriek 
                             WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                            AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat");  
+                            AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat"
+                        );
                         $sql->execute(['cat' => $cat]);
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-                    }
-                    elseif (isset($_GET['zoeken'])){
+                    } elseif (isset($_GET['zoeken'])) {
                         $trefwoord = strval($_GET['zoeken']);
                         $sql = $dbh->prepare(
                             "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                             FROM Voorwerp 
-                            WHERE titel LIKE CONCAT('%', :trefwoord, '%')");
+                            WHERE titel LIKE CONCAT('%', :trefwoord, '%')"
+                        );
                         $sql->execute(['trefwoord' => $trefwoord]);
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-                    }else{
+                    } else {
                         $sql = $dbh->prepare(
                             "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
-                            FROM Voorwerp");
+                            FROM Voorwerp"
+                        );
                         $sql->execute();
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     }
                     foreach ($result as $key => $value) {
-												$afgelopen = 'Veiling afgelopen!'; 
+                        $afgelopen = 'Veiling afgelopen!';
                         $voorwerpnummer = $value['voorwerpnummer'];
                         $titel = $value['titel'];
                         $bescrhijving = $value['beschrijving'];
                         $startprijs = $value['startprijs'];
-												$looptijdeindedag = $value['looptijdeindedag'];
-												$looptijdeindetijdstip = $value['looptijdeindetijdstip'];
+                        $looptijdeindedag = $value['looptijdeindedag'];
+                        $looptijdeindetijdstip = $value['looptijdeindetijdstip'];
 
-												$sql = $dbh->prepare(
-														'SELECT bodbedrag
+                        $sql = $dbh->prepare(
+                                                    'SELECT bodbedrag
 														FROM Bod, Voorwerp
 														WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
 														AND voorwerpnummer = :voorwerpnummer
 														ORDER BY bodbedrag DESC'
-												);
-												$sql->execute(['voorwerpnummer' => $voorwerpnummer]);
-												$resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-												$hoogstebod = $startprijs;
-												if($resultaat){
-														$hoogstebod = $resultaat[0]['bodbedrag'];
-												}
+                                                );
+                        $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+                        $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+                        $hoogstebod = $startprijs;
+                        if ($resultaat) {
+                            $hoogstebod = $resultaat[0]['bodbedrag'];
+                        }
 
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
