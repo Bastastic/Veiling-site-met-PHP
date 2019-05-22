@@ -54,7 +54,7 @@
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                         <br>
                         <!-- <input type="checkbox" name="onthoudme" id="onthoudme"/> Ingelogd blijven<br> -->
-                        <span class="password"><a href="#">Wachtwoord vergeten?</a></span>
+                        <span class="password"><a href="../wachtwoordvergeten.php">Wachtwoord vergeten?</a></span>
                     </div>
                 </form>
             </div>
