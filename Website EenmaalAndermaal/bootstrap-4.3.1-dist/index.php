@@ -95,12 +95,14 @@ if ($aantalfoto > 4){
                         for( $s=1; $s < $aantalfoto; $s++ ){
 
                             if( $s == 1){
-                        echo   "<div class='carousel-item active'>
+                        echo   "<div class='carousel-item active' style='cursor: pointer'
+                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                                 <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
                                 </div>"; 
                         }
                     else {
-                        echo  "<div class='carousel-item'>
+                        echo  "<div class='carousel-item' style='cursor: pointer'
+                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                         <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
                         </div>"; 
                     }
