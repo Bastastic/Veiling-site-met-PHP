@@ -279,16 +279,7 @@
                         $bescrhijving = $value['beschrijving'];
                         $startprijs = $value['startprijs'];
 												$looptijdeindedag = $value['looptijdeindedag'];
-												$currdate = date("d-m-Y");
-                        $dag = date_create($looptijdeindedag);
-                        $dag = date_format($dag, "d-m-Y");
-												if($currdate < $dag){
-													$einddatum = "Loopt af op $dag";
-												}elseif($currdate == $dag){
-													$einddatum = "Loopt vandaag af";
-												}elseif($currdate > $dag){
-													$einddatum = "Afgelopen";
-												}	
+												$looptijdeindetijdstip = $value['looptijdeindetijdstip'];
 
 												$sql = $dbh->prepare(
 														'SELECT bodbedrag
@@ -316,7 +307,6 @@
                                             <h4>$titel</h4>
                                             <p>$bescrhijving</p>
                                             <h5>€$hoogstebod</h5>
-																						<h6>$einddatum</h6>
 																						<p id='$voorwerpnummer'></p>
                                         </div>
                                     </div>
@@ -325,7 +315,7 @@
                         </div>
 										</div>
 										<script>
-										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag').getTime();
+										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag $looptijdeindetijdstip').getTime();
 
 										var x = setInterval(function() {
 
