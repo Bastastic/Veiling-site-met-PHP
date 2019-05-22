@@ -29,27 +29,46 @@
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <form>
+                                            <form enctype="multipart/form-data" action="uploadfoto.php" method="POST">
                                             <div class="form-group mx-5">
                                                 <h4 class="card-title">Titel van Veiling:</h4>
                                                 <input type="text" class="form-control" name="titelV" placeholder="Titel">
+                                            </div>
+                                            <h4 class="card-title">Foto bestand:</h4>
+                                            <div class="form-row justify-content-center mx-5">
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
+                                                </div>
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
+                                                </div>
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
+                                                </div>
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
+                                                </div>
                                             </div>
                                             <div class="form-group mx-5">
                                                 <h4 class="card-title">Beschrijving van veiling:</h4>
                                                 <textarea class="form-control" name="Beschrijving" rows="3" placeholder="Beschrijving..."></textarea>
                                             </div>
                                             <div class="form-row justify-content-center mx-5">
-                                                <div class="form-group col-xs-12 col-sm-12 col-md-3">
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Startprijs:</h4>
                                                     <input type="text" class="form-control" name="Startprijs" placeholder="Prijs">
                                                 </div>
-                                                <div class="form-group col-xs-12 col-sm-12 col-md-3">
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Looptijd (in dagen):</h4>
                                                     <input type="number" class="form-control"  name="Looptijd" min="1" max="14"">
                                                 </div>
                                             </div>
                                             <div class="form-row justify-content-center mx-5">
-                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-8">
                                                     <h4 class="card-title">Categorie:</h4>
                                                     <select class="custom-select" name="Categorie">
                                                         <option selected>Choose...</option>
@@ -57,6 +76,14 @@
                                                         <option value="2">twee</option>
                                                         <option value="3">Drie</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-row justify-content-center mx-5">
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-8">
+                                                <br>
+                                                <br>
+                                                <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
+                                                tabindex="7">
                                                 </div>
                                             </div>
                                             </form>
