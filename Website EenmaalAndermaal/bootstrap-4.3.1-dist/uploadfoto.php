@@ -48,4 +48,59 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+
+
+$titel = $_POST['Titel'];
+$startprijs = $_POST['Startprijs'];
+$beschijving = $_POST['Beschijving'];
+$looptijd = $_POST['Looptijd'];
+$LooptijdBegin = date("Y-m-d");
+$tijd = date("H:i:s");
+$LooptijdEind = $startdag + $looptijd;
+$betalingswijze = $_POST['betalingswijze'];
+$betalingsinstructie = NULL;
+$plaatsnaam = $_POST['plaatsnaam'];
+$land = $_POST['land'];
+$verzendkosten = $_POST['verzendkosten'];
+$veilinggesloten = "0";
+$verkoopprijs = NULL;
+
+$query = "INSERT INTO Voorwerp (Titel, Beschijving, Startprijs, Betalingswijze, Betalingsinstructie, Plaatsnaam, Land, Looptijd, LooptijdbeginDag, looptijdbeginTijdstip, Verzendkosten, Verzendinstructies, Verkoper, Koper, looptijdeindeDag, looptijdeindeTijdstip, Veiliggesloten, Vekoopprijs) 
+            VALUES (
+                :Titel, 
+                :Beschijving, 
+                :Startprijs, 
+                :Betalingswijze, 
+                :Betalingsinstructie, 
+                :Plaatsnaam, 
+                :Land, 
+                :Looptijd, 
+                :LooptijdbeginDag, 
+                :looptijdbeginTijdstip, 
+                :Verzendkosten, 
+                :Verzendinstructies, 
+                :Verkoper, 
+                :Koper, 
+                :looptijdeindeDag, 
+                :looptijdeindeTijdstip, 
+                :Veiliggesloten, 
+                :Vekoopprijs )";
+
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":Beschijving", $);
+        $sql->bindValue(":Startprijs", $);
+        $sql->bindValue(":Betalingwijze", $);
+        $sql->bindValue(":Betalingsinstructie", $);
+        $sql->bindValue(":Plaatsnaam", $);
+        $sql->bindValue(":Land", $);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":titel", $);
+        $sql->bindValue(":titel", $);
+
 ?>
