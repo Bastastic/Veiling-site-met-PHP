@@ -51,7 +51,7 @@
       <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen" class="btn btn-primary btn-block btn-lg"
           tabindex="7"></div>
       <br>
-      <input type="checkbox" checked="checked" name="onthoudme" /> onthouden
+      <!-- <input type="checkbox" checked="checked" name="onthoudme" /> onthouden -->
       <span class="password">Forgot <a href="#">password?</a></span>
     </div>
   </form>
