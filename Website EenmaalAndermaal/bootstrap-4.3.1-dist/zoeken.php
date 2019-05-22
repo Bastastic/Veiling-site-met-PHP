@@ -32,7 +32,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -113,20 +113,59 @@
 
 	</aside> <!-- col.// -->
 	<aside class="col-sm-6">
+<?php
+	if(isset($_GET['cat'])) {
+		echo '
+		<div class="card">
+			<article class="card-group-item">
+				<header class="card-header"><h6 class="title">Subcategorie&euml;n</h6></header>
+				<div class="filter-content">
+					<div class="list-group list-group-flush">';
+							function Rubrieken($parent, $margin){
+								global $dbh;
+								$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
+								$q->execute();
+								$q_fetchAll = $q->fetchAll();
+								for($i = 0; $i < count($q_fetchAll); $i++){
+									echo '
+									<label> '
+										. $margin . '<input type="radio" class="filled-in" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
+											<span>' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+										</label>';
+								}
+							}
+							Rubrieken($_GET['cat'], '&nbsp;&nbsp;');
+		echo '</div>
+				</div>
+			</article>';
+	} else {
+		echo '
+		<div class="card">
+			<article class="card-group-item">
+				<header class="card-header"><h6 class="title">Subcategorie&euml;n</h6></header>
+				<div class="filter-content">
+					<div class="list-group list-group-flush">';
+							function Rubrieken($parent = -1, $margin = ''){
+								global $dbh;
+								$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
+								$q->execute();
+								$q_fetchAll = $q->fetchAll();
+								for($i = 0; $i < count($q_fetchAll); $i++){
+									echo '
+									<label>
+									<input type="radio" class="filled-in" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
+											<span>' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+										</label>';
+								}
+							}
+							Rubrieken();
+		echo '</div>
+				</div>
+			</article>';
+	}
+?>
 
 
-<div class="card">
-	<article class="card-group-item">
-		<header class="card-header"><h6 class="title">Similar category </h6></header>
-		<div class="filter-content">
-			<div class="list-group list-group-flush">
-			  <a href="#" class="list-group-item">Cras justo odio <span class="float-right badge badge-light round">142</span> </a>
-			  <a href="#" class="list-group-item">Dapibus ac facilisis  <span class="float-right badge badge-light round">3</span>  </a>
-			  <a href="#" class="list-group-item">Morbi leo risus <span class="float-right badge badge-light round">32</span>  </a>
-			  <a href="#" class="list-group-item">Another item <span class="float-right badge badge-light round">12</span>  </a>
-			</div>  <!-- list-group .// -->
-		</div>
-	</article> <!-- card-group-item.// -->
 	<article class="card-group-item">
 		<header class="card-header"><h6 class="title">Color check</h6></header>
 		<div class="filter-content">
@@ -237,10 +276,16 @@
                         "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                         FROM Voorwerp, Voorwerp_in_Rubriek 
                         WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                        AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat
+                        AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+																SELECT Rubrieknummer 
+																FROM Rubriek
+																WHERE Hoofdrubriek = :cat)
+														OR
+														Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub
+														)
                         AND titel LIKE CONCAT('%', :trefwoord, '%')"
                     );
-                    $sql->execute(['cat' => $cat, 'trefwoord' => $trefwoord]);
+                    $sql->execute(['cat' => $cat,  'catSub' => $cat, 'trefwoord' => $trefwoord]);
                     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     $aantal = $sql->rowCount();
                     if ($aantal < 1) {
@@ -253,9 +298,15 @@
                             "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                             FROM Voorwerp, Voorwerp_in_Rubriek 
                             WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                            AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat"
+                            AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+																SELECT Rubrieknummer 
+																FROM Rubriek
+																WHERE Hoofdrubriek = :cat)
+														OR
+														Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub
+														)"
                         );
-                        $sql->execute(['cat' => $cat]);
+                        $sql->execute(['cat' => $cat, 'catSub' => $cat]);
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     } elseif (isset($_GET['zoeken'])) {
                         $trefwoord = strval($_GET['zoeken']);
