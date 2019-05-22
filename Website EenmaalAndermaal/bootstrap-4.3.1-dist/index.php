@@ -50,7 +50,6 @@
                         <li data-target="#demo" data-slide-to="2"></li>
                         <li data-target="#demo" data-slide-to="3"></li>
                         <li data-target="#demo" data-slide-to="4"></li>
-                        <li data-target="#demo" data-slide-to="5"></li>
                     </ul>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -61,9 +60,6 @@
                         </div>
                         <div class="carousel-item">
                             <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="New York">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
                         </div>
                         <div class="carousel-item">
                             <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
@@ -107,16 +103,19 @@
         </div>
         <div class="row mt-5">
             <?php
-                $sql = $dbh->prepare("select top 12 voorwerpnummer, titel from Voorwerp order by Voorwerpnummer desc");
+                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp order by Voorwerp.voorwerpnummer desc");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($result as $key => $value) {
-                    $value = $value['titel'];
-                    echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+                    $titel = $value['titel'];
+                    $foto = $value['Filenaam'];
+                    $voorwerpnummer = $value['voorwerpnummer'];
+                    echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
+                    onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                     <div id='ad'>
-                        <img src='images/placeholder.png' alt='Responsive image'>
-                        <p>$value</p>
+                        <img style='height:150px' src='http://iproject15.icasites.nl/pics/$foto' alt='Responsive image'>
+                        <p>$titel</p>
                     </div>
                 </div>";
                 }
