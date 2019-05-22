@@ -84,39 +84,28 @@ $aantalfoto = $aantalfoto['count'];
 
                         ?>
 
-                        <!-- <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
-                        <li data-target="#demo" data-slide-to="3"></li>
-                        <li data-target="#demo" data-slide-to="4"></li> -->
+
                     </ul>
                     <div class="carousel-inner">
                        
                        <?php
 
-                        for( $x=1; $x <= $aantalfoto; $x++ ){
+                        for( $s=1; $s < $aantalfoto; $s++ ){
+
+                            if( $s == 1){
                         echo   "<div class='carousel-item active'>
-                                <img src='http://iproject15.icasites.nl/pics/dt_ $x  _  $voorwerpnummer  .jpg' alt='Los Angeles'>
+                                <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
                                 </div>"; 
                         }
+                    else {
+                        echo  "<div class='carousel-item'>
+                        <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
+                        </div>"; 
+                    }
+                    }
 
-                        ?>
+                        ?> 
 
-                        
-
-
-                        <!-- <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="New York">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div> -->
 
                     </div>
 
