@@ -41,7 +41,7 @@
         }
 
         if (isset($_POST['submit'])) {
-            if (isset($_POST['email'])) {
+            if ($_POST['email'] != "") {
                 $emailadres = $_POST['email'];
 
                 $query = "SELECT Mailbox
@@ -85,10 +85,10 @@
                 <p>U vind uw nieuwe wachtwoord in uw mailbox.</p>
                 <a href="inloggen.php" class="btn btn-primary">Inloggen</a>';
                 } else {
-                    header('Location: wachtwoordvergeten.php?errc=1');
+                    echo '<script>window.location.replace("wachtwoordvergeten.php?errc=1");</script>';
                 }
             } else {
-                header('Location: wachtwoordvergeten.php?errc=2');
+                echo '<script>window.location.replace("wachtwoordvergeten.php?errc=2");</script>';
             }
         } else {
             echo '<h1>Wachtwoord vergeten?</h1>
