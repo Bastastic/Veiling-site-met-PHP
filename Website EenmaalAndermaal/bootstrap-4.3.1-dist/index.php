@@ -64,7 +64,6 @@ $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
 $aantalfoto = $aantalfoto['count'];
-
 if ($aantalfoto > 4){
     $aantalfoto = 4;
 }
