@@ -273,6 +273,7 @@
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     }
                     foreach ($result as $key => $value) {
+												$afgelopen = 'Veiling afgelopen!'; 
                         $voorwerpnummer = $value['voorwerpnummer'];
                         $titel = $value['titel'];
                         $bescrhijving = $value['beschrijving'];
@@ -315,13 +316,37 @@
                                             <h4>$titel</h4>
                                             <p>$bescrhijving</p>
                                             <h5>€$hoogstebod</h5>
-                                            <h6>$einddatum</h6>
+																						<h6>$einddatum</h6>
+																						<p id='$voorwerpnummer'></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>";
+										</div>
+										<script>
+										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag').getTime();
+
+										var x = setInterval(function() {
+
+											var now = new Date().getTime();
+
+											var distance = countDownDate$voorwerpnummer - now;
+
+											var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+											var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+											var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+											var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+											document.getElementById('$voorwerpnummer').innerHTML = days + 'd ' + hours + 'h '
+											+ minutes + 'm ' + seconds + 's ';
+
+											if (distance < 0) {
+												clearInterval(x);
+												document.getElementById('$voorwerpnummer').innerHTML = '$afgelopen';
+											}
+										}, 1000);
+								  </script>";
                     }
                 ?>
             </div>

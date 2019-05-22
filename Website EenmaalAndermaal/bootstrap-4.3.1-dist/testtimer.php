@@ -11,50 +11,60 @@
 <?php include 'includes/header.php'; ?>
 <body>
 
- 
- <script language="JavaScript" type="text/javascript">
- var interval;
- var minutes = 10;
- var seconds = 10;
 
- function countdown(element) {
-     interval = setInterval(function(timer) {
-         var el = document.getElementById(element);
-         if(seconds == 0) {
-             if(minutes == 0) {
-                 (el.innerHTML = "Veiling Gesloten!");     
+<script>
+var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
 
-                 clearInterval(interval);
-                 return;
-             } else {
-                 minutes--;
-                 seconds = 60;
-             }
-         }
-         if(minutes > 0) {
-             var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
-         } else {
-             var minute_text = '';
-         }
-         var second_text = seconds > 1 ? '' : '';
-         el.innerHTML = minute_text + ' ' + seconds + ' seconds' + second_text + '';
-         seconds--;
-     }, 1000);
- }
-var start = document.getElementById('start');
+var x = setInterval(function() {
 
-start.onclick = function(timer) {
- if (!interval) {
-     countdown('countdown');
- }
-}
+  var now = new Date().getTime();
 
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "Veiling gesloten!";
+  }
+}, 1000);
 </script>
 
+<p id="demo"></p>
 
 
-<div id='countdown'></div>
-<input type="button" onclick="countdown('countdown');this.disabled = true;" value="Start Veiling" />
+<script>
+var countDownDate1 = new Date("Jan 5, 2031 15:37:25").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate1 - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("demo1").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo1").innerHTML = "Veiling gesloten!";
+  }
+}, 1000);
+</script>
+
+<p id="demo1"></p>
+
 
 </body>
 

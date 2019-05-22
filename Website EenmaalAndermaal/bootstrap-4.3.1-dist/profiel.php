@@ -13,14 +13,16 @@
 
 <?php include 'includes/header.php'; 
     if (isset($_GET['errc'])) {
+        $type = 'danger';
+        $titel = 'Sorry!';
         if ($_GET['errc'] == '1') {
-            $type = 'danger';
             $msg = 'Error msg 1';
         }
     }
     if (isset($_GET['succ'])){
+        $type = 'success';
+        $titel = 'Toppie!';
         if ($_GET['succ'] == '1'){
-            $type = 'success';
             $msg = 'U heeft uw account succesvol geactiveerd!';
         }
     }
@@ -38,7 +40,7 @@
             if (isset($msg)) {
                 echo '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="alert alert-' . $type . ' alert-dismissible fade show text-center" role="alert">
-                <strong>Sorry!</strong> ' . $msg . '
+                <strong>'. $titel .'</strong> ' . $msg . '
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
@@ -13,22 +14,23 @@
      include 'includes/header.php';
 
      if (isset($_GET['errc'])) {
-      if ($_GET['errc'] == '1') {
-          $msg = 'De combinatie van deze gebruikersnaam met dit wachtwoord is bij ons niet bekend. Probeer het opnieuw!';
-      }
-  }
+         if ($_GET['errc'] == '1') {
+             $msg = 'De combinatie van deze gebruikersnaam met dit wachtwoord is bij ons niet bekend. Probeer het opnieuw!';
+         }
+     }
     ?>
-<body>
-<div class="container">
-  <form class="inlogform" action="actions/login_action.php" method="post">
-    <div class="logincontainer">
-      <div class="imgcontainer">
-        <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" />
-      </div>
-      <?php 
 
-            if(isset($msg)){
-              echo '<div class="col-xs-12 col-sm-12 col-md-12">
+<body>
+  <div class="container">
+    <form class="inlogform" action="actions/login_action.php" method="post">
+      <div class="logincontainer">
+        <div class="imgcontainer">
+          <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" />
+        </div>
+        <?php
+
+            if (isset($msg)) {
+                echo '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
                   <strong>Sorry!</strong> ' . $msg . '
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -36,25 +38,25 @@
                   </button>
                 </div>
               </div>';
-            } 
+            }
         ?>
-      <div class="col-xs-20 col-sm-20 col-md-20">
-        <div class="form-group">
-        <input type="text" name="Gebruikersnaam" id="Gebruikersnaam" class="form-control input-lg"
-            placeholder="Gebruikersnaam" tabindex="3">
+        <div class="col-xs-20 col-sm-20 col-md-20">
+          <div class="form-group">
+            <input type="text" name="Gebruikersnaam" id="Gebruikersnaam" class="form-control input-lg"
+              placeholder="Gebruikersnaam" tabindex="3">
+          </div>
         </div>
+        <div class="form-group">
+          <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
+            placeholder="Wachtwoord" tabindex="3">
+        </div>
+        <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen" class="btn btn-primary btn-block btn-lg"
+            tabindex="7">
+        </div>
+        <br>
+        <span class="password"><a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a></span>
       </div>
-      <div class="form-group">
-      <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg" placeholder="Wachtwoord"
-          tabindex="3">
-      </div>
-      <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen" class="btn btn-primary btn-block btn-lg"
-          tabindex="7"></div>
-      <br>
-      <input type="checkbox" checked="checked" name="onthoudme" /> onthouden
-      <span class="password">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
+    </form>
   </div>
 </body>
 
