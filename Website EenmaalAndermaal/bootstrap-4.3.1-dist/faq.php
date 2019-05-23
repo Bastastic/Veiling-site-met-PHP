@@ -23,10 +23,6 @@
                         aria-selected="true">
                         <i class="mdi mdi-help-circle"></i> Veel gestelde vragen
                     </a>
-                    <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2"
-                        aria-selected="false">
-                        <i class="mdi mdi-account"></i> Profiel
-                    </a>
                     <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3"
                         aria-selected="false">
                         <i class="mdi mdi-account-settings"></i> Account
@@ -39,10 +35,6 @@
                         aria-selected="false">
                         <i class="mdi mdi-coin"></i> Transacties
                     </a>
-                    <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab6"
-                        aria-selected="false">
-                        <i class="mdi mdi-help"></i> Algemene hulp
-                    </a>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -54,21 +46,14 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-1-content-1" aria-expanded="false"
-                                            aria-controls="accordion-tab-1-content-1">Just once I'd like to eat dinner
-                                            with a celebrity?</button>
+                                            aria-controls="accordion-tab-1-content-1">Ik wil bieden maar ik kan niet op bieden drukken, hoe kan dat?</button>
                                     </h5>
                                 </div>
                                 <div class="collapse show" id="accordion-tab-1-content-1"
                                     aria-labelledby="accordion-tab-1-heading-1" data-parent="#accordion-tab-1">
                                     <div class="card-body">
-                                        <p>Yes, if you make it look like an electrical fire. When you do things right,
-                                            people won't be sure you've done anything at all. I was having the most
-                                            wonderful dream. Except you were there, and you were there, and you were
-                                            there! No argument here. Goodbye, cruel world. Goodbye, cruel lamp. Goodbye,
-                                            cruel velvet drapes, lined with what would appear to be some sort of cruel
-                                            muslin and the cute little pom-pom curtain pull cords. Cruel though they may
-                                            be.</p>
-                                        <p><strong>Example: </strong>Shut up and get to the point!</p>
+                                        <p> Om te kunnen bieden moet U ingelogd zijn. Mocht u nog geen account hebben om mee in te kunnen 
+                                        loggen dan zal U een account moeten maken. Dit kan door rechtsboven op registreren te drukken.</p>
                                     </div>
                                 </div>
                             </div>
@@ -77,18 +62,15 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-1-content-2" aria-expanded="false"
-                                            aria-controls="accordion-tab-1-content-2">Bender, I didn't know you liked
-                                            cooking?</button>
+                                            aria-controls="accordion-tab-1-content-2">Ik heb geregistreerd maar ik kan niks doen? Ik zie wel dat ik ingelogd ben.</button>
                                     </h5>
                                 </div>
                                 <div class="collapse" id="accordion-tab-1-content-2"
                                     aria-labelledby="accordion-tab-1-heading-2" data-parent="#accordion-tab-1">
                                     <div class="card-body">
-                                        <p>That's so cute. Can we have Bender Burgers again? Is the Space Pope
-                                            reptilian!? I wish! It's a nickel. Bender! Ship! Stop bickering or I'm going
-                                            to come back there and change your opinions manually!</p>
-                                        <p><strong>Example: </strong>Okay, I like a challenge. Is that a cooking show?
-                                            No argument here.</p>
+                                        <p>Na het registreren zult U nog een verificatieproces moeten doorlopen om als account op actief te worden gezet.
+                                        U zult opnieuw uw emailadres op moeten geven waarna u een mail krijgt met een verificatiecode. Hiermee kunt U uw account
+                                        activeren.</p>
                                     </div>
                                 </div>
                             </div>
@@ -97,107 +79,13 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-1-content-3" aria-expanded="false"
-                                            aria-controls="accordion-tab-1-content-3">My fellow Earthicans?</button>
+                                            aria-controls="accordion-tab-1-content-3">Hoe kan ik een vieling starten.</button>
                                     </h5>
                                 </div>
                                 <div class="collapse" id="accordion-tab-1-content-3"
                                     aria-labelledby="accordion-tab-1-heading-3" data-parent="#accordion-tab-1">
                                     <div class="card-body">
-                                        <p>As I have explained in my book 'Earth in the Balance', and the much more
-                                            popular 'Harry Potter and the Balance of Earth', we need to defend our
-                                            planet against pollution. Also dark wizards. Fry, you can't just sit here in
-                                            the dark listening to classical music.</p>
-                                        <p><strong>Example: </strong>Actually, that's still true. Well, let's just dump
-                                            it in the sewer and say we delivered it.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-1-heading-4">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-1-content-4" aria-expanded="false"
-                                            aria-controls="accordion-tab-1-content-4">Who am I making this out
-                                            to?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-1-content-4"
-                                    aria-labelledby="accordion-tab-1-heading-4" data-parent="#accordion-tab-1">
-                                    <div class="card-body">
-                                        <p>Morbo can't understand his teleprompter because he forgot how you say that
-                                            letter that's shaped like a man wearing a hat. Also Zoidberg. Can we have
-                                            Bender Burgers again? Goodbye, cruel world. Goodbye, cruel lamp. Goodbye,
-                                            cruel velvet drapes, lined with what would appear to be some sort of cruel
-                                            muslin and the cute little pom-pom curtain pull cords.</p>
-                                        <p><strong>Example: </strong>Cruel though they may be...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab2">
-                        <div class="accordion" id="accordion-tab-2">
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-2-heading-2">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-2-content-2" aria-expanded="false"
-                                            aria-controls="accordion-tab-2-content-2">This opera's as lousy as it is
-                                            brilliant?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-2-content-2"
-                                    aria-labelledby="accordion-tab-2-heading-2" data-parent="#accordion-tab-2">
-                                    <div class="card-body">
-                                        <p>Your lyrics lack subtlety. You can't just have your characters announce how
-                                            they feel. That makes me feel angry! It's okay, Bender. I like cooking too.
-                                            Interesting. No, wait, the other thing: tedious.</p>
-                                        <p><strong>Example: </strong>Of all the friends I've had… you're the first. But
-                                            I know you in the future. I cleaned your poop. Then we'll go with that data
-                                            file!</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-2-heading-3">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-2-content-3" aria-expanded="false"
-                                            aria-controls="accordion-tab-2-content-3">Who are you, my
-                                            warranty?!</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-2-content-3"
-                                    aria-labelledby="accordion-tab-2-heading-3" data-parent="#accordion-tab-2">
-                                    <div class="card-body">
-                                        <p>Oh, I think we should just stay friends. I'll tell them you went down prying
-                                            the wedding ring off his cold, dead finger. Aww, it's true. I've been hiding
-                                            it for so long. Say it in Russian! Then throw her in the laundry room, which
-                                            will hereafter be referred to as "the brig".</p>
-                                        <p><strong>Example: </strong> We're rescuing ya. Robot 1-X, save my friends! And
-                                            Zoidberg! <em>Then we'll go with that data file!</em> Okay, I like a
-                                            challenge.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-2-heading-4">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-2-content-4" aria-expanded="false"
-                                            aria-controls="accordion-tab-2-content-4">I haven't felt much of anything
-                                            since my guinea pig died?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-2-content-4"
-                                    aria-labelledby="accordion-tab-2-heading-4" data-parent="#accordion-tab-2">
-                                    <div class="card-body">
-                                        <p>And I'm his friend Jesus. Oh right. I forgot about the battle. OK, if
-                                            everyone's finished being stupid. We'll need to have a look inside you with
-                                            this camera. I'm just glad my fat, ugly mama isn't alive to see this day.
-                                        </p>
-                                        <p><strong>Example: </strong> Isn't it true that you have been paid for your
-                                            testimony? Quite possible.</p>
+                                        <p>Als u bent ingelogd kunt een veiling plaatsen mits u een verkoper bent.</p>
                                     </div>
                                 </div>
                             </div>
@@ -437,92 +325,6 @@
                                             sitting down with your children, and hitting them? Hey, tell me something.
                                             You've got all this money. How come you always dress like you're doing your
                                             laundry?</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab6" role="tabpanel" aria-labelledby="tab6">
-                        <div class="accordion" id="accordion-tab-6">
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-6-heading-1">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-6-content-1" aria-expanded="false"
-                                            aria-controls="accordion-tab-6-content-1">Doomsday device?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse show" id="accordion-tab-6-content-1"
-                                    aria-labelledby="accordion-tab-6-heading-1" data-parent="#accordion-tab-6">
-                                    <div class="card-body">
-                                        <p>Ah, now the ball's in Farnsworth's court! We'll need to have a look inside
-                                            you with this camera. Stop it, stop it. It's fine. I will 'destroy' you!
-                                            Bender! Ship! Stop bickering or I'm going to come back there and change your
-                                            opinions manually!</p>
-                                        <p><strong>Example: </strong>So I really am important? How I feel when I'm drunk
-                                            is correct?</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-6-heading-2">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-6-content-2" aria-expanded="false"
-                                            aria-controls="accordion-tab-6-content-2">And so we say goodbye to our
-                                            beloved pet, Nibbler?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-6-content-2"
-                                    aria-labelledby="accordion-tab-6-heading-2" data-parent="#accordion-tab-6">
-                                    <div class="card-body">
-                                        <p>Nibbler, who's gone to a place where I, too, hope one day to go. The toilet.
-                                            But existing is basically all I do! I suppose I could part with 'one' and
-                                            still be feared. I just told you! You've killed me!</p>
-                                        <p><strong>Example: </strong>What's with you kids? Every other day it's food,
-                                            food, food.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-6-heading-3">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-6-content-3" aria-expanded="false"
-                                            aria-controls="accordion-tab-6-content-3">Tell her you just want to
-                                            talk?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-6-content-3"
-                                    aria-labelledby="accordion-tab-6-heading-3" data-parent="#accordion-tab-6">
-                                    <div class="card-body">
-                                        <p>It has nothing to do with mating. Soon enough. There, now he's trapped in a
-                                            book I wrote: a crummy world of plot holes and spelling errors! Daylight and
-                                            everything. Hey! I'm a porno-dealing monster, what do I care what you think?
-                                        </p>
-                                        <p><strong>Example: </strong>Is that a cooking show? It doesn't look so shiny to
-                                            me. And why did 'I' have to take a cab?</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-6-heading-4">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-6-content-4" aria-expanded="false"
-                                            aria-controls="accordion-tab-6-content-4">Good man. Nixon's pro-war and
-                                            pro-family?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-6-content-4"
-                                    aria-labelledby="accordion-tab-6-heading-4" data-parent="#accordion-tab-6">
-                                    <div class="card-body">
-                                        <p>I don't 'need' to drink. I can quit anytime I want! THE BIG BRAIN AM WINNING
-                                            AGAIN! I AM THE GREETEST! NOW I AM LEAVING EARTH, FOR NO RAISEN! There's one
-                                            way and only one way to determine if an animal is intelligent. Dissect its
-                                            brain!</p>
-                                        <p><strong>Example: </strong>Guess again. Yeah, I do that with my stupidness.
-                                            And when we woke up, we had these bodies.</p>
                                     </div>
                                 </div>
                             </div>
