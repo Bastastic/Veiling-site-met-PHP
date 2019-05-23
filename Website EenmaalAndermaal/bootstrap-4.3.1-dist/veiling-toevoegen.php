@@ -13,7 +13,11 @@
     <title>Veiling toevoegen</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php include ('includes/header.php')?>
+    <?php include ('includes/header.php');
+        if(!isset($_SESSION['userID'])){
+            echo '<script>window.location.replace("inloggen.php");</script>';
+        }
+    ?>
 </head>
 
 <body>

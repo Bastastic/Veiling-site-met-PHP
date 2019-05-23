@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php include 'includes/links.php'; ?>
+    <?php 
+        include 'includes/links.php'; 
+        if(!isset($_SESSION['userID'])){
+            echo '<script>window.location.replace("inloggen.php");</script>';
+        }
+    ?>
     <link rel="stylesheet" href="css/faq.css" />
 
     <title>Profiel</title>
@@ -26,10 +31,6 @@
         if ($_GET['succ'] == '1'){
             $msg = 'U heeft uw account succesvol geactiveerd!';
         }
-    }
-
-    if(!isset($_SESSION['userID'])){
-        echo '<script>window.location.replace("inloggen.php");</script>';
     }
 ?>
 

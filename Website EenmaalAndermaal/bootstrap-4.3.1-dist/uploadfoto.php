@@ -1,6 +1,11 @@
 <?php
 require 'php/connectDB.php';
 session_start();
+
+if(!isset($_SESSION['userID'])){
+    header('Location: inloggen.php');
+}
+
 $verkoper = $_SESSION['userID'];
 
 $query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam = :Gebruikersnaam"; 

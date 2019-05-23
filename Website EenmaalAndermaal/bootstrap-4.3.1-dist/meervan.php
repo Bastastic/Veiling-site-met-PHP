@@ -35,6 +35,7 @@
                     if ($aantal < 1) {
                         echo '<p class="ml-4">Geen producten gevonden</p>';
                     }
+
                     foreach ($result as $key => $value) {
                         $afgelopen = 'Veiling afgelopen!';
                         $voorwerpnummer = $value['voorwerpnummer'];
@@ -59,6 +60,12 @@
                             $hoogstebod = $resultaat[0]['bodbedrag'];
                         }
 
+                        $query = "SELECT TOP 1 Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
+                        $sql = $dbh->prepare($query);
+                        $sql->execute();
+                        $fotos = $sql->fetch(PDO::FETCH_ASSOC);
+                        $foto = $fotos['Filenaam'];
+
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\"		>
                         <div class='image-flip' ontouchstart='this.classList.toggle('hover');'>
@@ -66,7 +73,7 @@
                                 <div class='frontside'>
                                     <div class='card'>
                                         <div class='card-body text-center'>
-                                            <p><img class=' img-fluid' src='http://iproject15.icasites.nl/pics/dt_1_".$voorwerpnummer.".jpg' alt='advertentie afbeelding'>
+                                            <p><img class=' img-fluid' src='http://iproject15.icasites.nl/$foto' alt='advertentie afbeelding'>
                                             </p>
                                             <h4>$titel</h4>
                                             <p> $bescrhijving...</p>
