@@ -1,85 +1,63 @@
 <br>
 <div class="container">
-    <div id="accordion">
-        <?php
-        $sql = $dbh->prepare("SELECT * from Rubriek order by Rubrieknummer");
-        $sql->execute();
-        $resultaat = $sql->fetchAll(PDO::FETCH_NUM);
+    <?php
+    $sqlHoofd = $dbh->prepare("SELECT * FROM Rubriek WHERE HoofdRubriek = -1 ORDER BY HoofdRubriek");
+    $sqlHoofd->execute();
+    $resultaatHoofd = $sqlHoofd->fetchAll(PDO::FETCH_NUM);
+    $first = true;
+        if ($resultaatHoofd) {
+            $kolommen = 0;
+            for ($i = 0; $i < count($resultaatHoofd); $i++) {
+                $rubrieknummer = $resultaatHoofd[$i][0];
+                $rubrieknaam = $resultaatHoofd[$i][1];
+                $hoofdrubriek = $resultaatHoofd[$i][2];
 
-            if ($resultaat) {
-                $first = true;
-                $kolommen = 0;
-
-                for ($i = 0; $i < count($resultaat); $i++){
-                    $rubrieknummer = $resultaat[$i][0];
-                    $rubrieknaam = $resultaat[$i][1];
-                    $hoofdrubriek = $resultaat[$i][2];
-                    $volgnr = $resultaat[$i][3];
-
-                    if ($hoofdrubriek == -1) {
-                        if ($first == true) {
-                            $first = false;
-                            echo "<div class='row'>";
-                            echo "
-                            <div class='col-md-4 col-sm-6 col-xs-12'>
-                                    <div class='card rounded-0'>
-                                        <button type='button' id='h$rubrieknummer' class='bg-white border-primary rounded-0 card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <input class='form-check-input' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer' >
-                                            <label class='form-check-label' for='catRadio$rubrieknummer'>
-                                                $rubrieknaam
-                                            </label>
-                                        </button>
-                                        <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
-                                        <div class='card-body'>
-                                        <ul class='list-unstyled'>
-                            ";
-                        } else {
-                            if ($kolommen % 3 == 0) {
-                                echo "</div><div class='row'>";
-                            }
-                            echo "
-                            </div>
-                            </ul>
-
-                            </div>
-                            </div>
-                            </div>
-                            <div class='col-md-4 col-sm-6 col-xs-12'>
-                                    <div class='card rounded-0'>
-                                        <button type='button' id='h$rubrieknummer' class='bg-white border-primary rounded-0 card-header btn btn-link' data-toggle='collapse' data-target='#c$rubrieknummer' aria-expanded='true' aria-controls='c$rubrieknummer'>
-                                            <input class='form-check-input' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer'>
-                                            <label class='form-check-label' for='catRadio$rubrieknummer'>
-                                                $rubrieknaam
-                                            </label>                                        </button>
-                                        <div id='c$rubrieknummer' class='collapse hide' aria-labelledby='h$rubrieknummer' data-parent='#accordion'>
-                                        <div class='card-body'>
-                                        <ul class='list-unstyled'>
-                            ";
-                        }
-                    } else {
-                        echo "
-                            <li>
-                            <input class='form-check-input ml-2' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer'>
-                                <label class='form-check-label ml-4' for='catRadio$rubrieknummer'>" . str_repeat("&nbsp;&nbsp;", $volgnr) . "$rubrieknaam
-                                </label>
-                            </li>
-                        ";
-                    }
+                if ($kolommen % 3 == 0 && $first == true) {
+                    $first = false;
+                    $kolommen++;
+                    echo "<div class='row'>";
+                } else if ($kolommen % 3 == 0){
+                    $kolommen++;
+                    echo "</div><div class='row'>";
                 }
-            }
-            else {
-                echo "<p>We hebben niets gevonden wat lijkt op je zoekcriteria :(</p>";
-            }
-        ?>
 
-    </div>
-    </div>
-    </div>
-    </div>
-    </ul>
+                echo "
+                <div class='col-md-4 col-sm-6 col-xs-12'>
+                    <div class='card rounded-0 bg-white border-primary card-header'>
+                        <input class='form-check-input ml-1' type='radio' name='cat' id='catRadio$rubrieknummer' value='$rubrieknummer' >
+                        <label class='form-check-label ml-4' for='catRadio$rubrieknummer'>
+                            $rubrieknaam
+                        </label>
+                    </div>
+                </div>
+                ";
 
+                // $sqlSub = $dbh->prepare("SELECT * FROM Rubriek WHERE HoofdRubriek = $rubrieknummer ORDER BY Rubrieknummer");
+                // $sqlSub->execute();
+                // $resultaatSub = $sqlSub->fetchAll(PDO::FETCH_NUM);
+
+                // if ($resultaatSub) {
+                //     for ($j = 0; $j < count($resultaatSub); $j++) {
+                //         $rubrieknummerSub = $resultaatSub[$i][0];
+                //         $rubrieknaamSub = $resultaatSub[$i][1];
+                //         $volgnr = $resultaatSub[$i][3];
+
+                //         echo "
+                //             <li>
+                //                 <input class='form-check-input ml-2' type='radio' name='cat' id='catRadio$rubrieknummerSub' value='$rubrieknummerSub'>
+                //                 <label class='form-check-label ml-2' for='catRadio$rubrieknummerSub'>"
+                //                     . str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;", $volgnr) . "$rubrieknaamSub
+                //                 </label>
+                //             </li>
+                //         ";
+                //     }
+                // }
+            }
+        }
+    ?>
     </div>
     </div>
     </div>
-    </div>
+    
+</div>
 <br>

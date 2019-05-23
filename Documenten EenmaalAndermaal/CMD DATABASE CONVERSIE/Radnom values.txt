@@ -1,0 +1,9 @@
+-- (laten zitten) voornaam, achternaam, Begindatum?, verloop tijd, 
+
+Conversie van Valuta en land
+
+Bij beschrijving conditie weergeven
+
+-- (laten zitten) Randomise straat + plaatsnaam.
+
+THUIS DOEN 

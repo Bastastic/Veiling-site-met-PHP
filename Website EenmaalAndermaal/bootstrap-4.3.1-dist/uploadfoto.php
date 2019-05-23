@@ -2,9 +2,9 @@
 require 'php/connectDB.php';
 session_start();
 
-if (!file_exists("pics/$advertentie")) {
-    mkdir("pics/$advertentie", 0777, true);
-}
+//if (!file_exists("pics/$advertentie")) {
+  //  mkdir("pics/$advertentie", 0777, true);
+//}
 
 $target_dir = "pics";
 $target_file = $target_dir . "/" . $advertentie . "/" . basename($_FILES["fileToUpload"]["name"]);
