@@ -16,15 +16,15 @@ FROM Dataconversie.dbo.Categorieen
 
 INSERT INTO iproject15.dbo.Gebruiker
 SELECT DISTINCT LEFT(Username,25) AS Gebruikersnaam,
-'Voornaam ' + Username AS Voornaam,
-'Achternaam ' + Username AS Achternaam,
-Username + 11 AS Adresregel1,
+LEFT(Username,29) + 'V' AS Voornaam,
+LEFT(Username,29) + 'A' AS Achternaam,
+LEFT(Username,38) + '11' AS Adresregel1,
 NULL AS Adresregel2,
 LEFT (Postalcode,7) AS Postcode,
 'Plek' AS Plaatsnaam,
 LEFT (Location,40) AS Land,
 '1999-05-19' AS Geboortedag,
-Username + '@gmail.com' AS Mailbox,
+LEFT(Username,240) + '@gmail.com' AS Mailbox,
 '$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY' AS Wachtwoord,
 1 AS Vraag,
 'soep met aardappelen' AS Antwoordtext,
@@ -59,7 +59,7 @@ INSERT INTO iproject15.dbo.Voorwerp (Voorwerpnummer,Titel,Beschrijving,Startprij
 SELECT CAST (ID AS bigint) AS Voorwerpnummer,
 LEFT (Titel,50) AS Titel,
 CAST (dbo.udf_StripHTML([Beschrijving]) + Conditie  AS varchar(2000)) AS Beschrijving,
-CAST (Prijs AS numeric(8,2)) AS Startprijs,
+CAST (dbo.udf_OmzetValuta([Prijs]) AS numeric(8,2)) AS Startprijs,
 'Creditcard' AS Betalingswijze,
 NULL AS Betalingsinstructie,
 LEFT (Locatie,50) AS Plaatsnaam,
@@ -71,11 +71,11 @@ LEFT (Verkoper,25) AS Verkoper,
 NULL AS Koper, 	
 NULL AS Verzendkosten,
 NULL AS Verzendinstructies,
-'2019-05-21' AS LooptijdeindeDag,
+Convert(date, getdate()) + 7 AS LooptijdeindeDag,
 '12:34:54' AS LooptijdeindeTijdstip,
 0 AS VeiligGesloten,
 NULL AS Verkoopprijs
-FROM iproject15.dbo.Items
+FROM Dataconversie.dbo.Items
 SET IDENTITY_INSERT iproject15.dbo.Voorwerp OFF
 GO
 

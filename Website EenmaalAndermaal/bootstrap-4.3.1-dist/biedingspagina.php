@@ -101,13 +101,19 @@ where Voorwerp = $voorwerpnummer ");
                     <ul class="carousel-indicators">
 
                     <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
-                    <?php
-                          for ($x=0; $x < $aantalfoto; $x++) {
-                              echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                    <?php 
+
+                        
+                          for( $x=0; $x < $aantalfoto; $x++ ){
+                        
+                              if($x == 0){
+                                echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                              }else{
+                                echo "<li data-target='#demo' data-slide-to='$x'>";
+                              }
                           }
 
                         ?>
-
                     </ul>
                     <div class="carousel-inner">
 
@@ -115,10 +121,13 @@ where Voorwerp = $voorwerpnummer ");
 
                     if ($aantalfoto == 1) {
                         echo "<img src='http://iproject15.icasites.nl/pics/dt_".$aantalfoto."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>";
-                    } else {
-                        for ($s=1; $s < $aantalfoto; $s++) {
-                            if ($s == 1) {
-                                echo   "<div class='carousel-item active' style='cursor: pointer'
+                        }else{
+
+                        for( $s=1; $s <= $aantalfoto; $s++ ){
+                        
+
+                            if( $s == 1){
+                        echo   "<div class='carousel-item active' style='cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                                 <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
                                 </div>";
