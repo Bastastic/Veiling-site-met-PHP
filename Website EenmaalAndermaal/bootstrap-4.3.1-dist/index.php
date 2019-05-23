@@ -41,7 +41,7 @@
 
     <?php
 
-$sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdEindeDag, Gebruiker.Gebruikersnaam 
+$sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdeindeDag, Voorwerp.LooptijdeindeTijdstip, Gebruiker.Gebruikersnaam 
 FROM Voorwerp
 INNER JOIN Gebruiker
 ON Voorwerp.Verkoper = Gebruiker.Gebruikersnaam
@@ -52,8 +52,10 @@ $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
 $voorwerpnummer = $resultaat['Voorwerpnummer'];
 $titel = $resultaat['Titel'];
 $beschrijving = $resultaat['Beschrijving'];
+$beschrijving = substr($beschrijving,0, 200);
 $gebruikersnaam = $resultaat['Gebruikersnaam'];
-$looptijdeindedag = $resultaat['LooptijdEindeDag'];
+$eindedag = $resultaat['LooptijdeindeDag'];
+$eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
 
 $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
 from Bestand
@@ -123,7 +125,7 @@ if ($aantalfoto > 4){
                 <h2>$titel</h2>
                 <h6>$gebruikersnaam</h6>
                 <h4>Omschrijving:</h4>
-                <small> $beschrijving
+                <small> $beschrijving...
                 </small>
             </div>" ?>
             </div>
@@ -131,7 +133,7 @@ if ($aantalfoto > 4){
                 <?php    echo    "  <h4 id='$voorwerpnummer'></h4>
                      </div>
                                 <script>
-										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag').getTime();
+										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
 
 										var x = setInterval(function() {
 

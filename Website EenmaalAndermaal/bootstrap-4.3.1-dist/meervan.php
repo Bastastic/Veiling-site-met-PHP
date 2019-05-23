@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include 'includes/links.php'; ?>
     <link rel="icon" href="../../../../favicon.ico">
-    <title>Over ons</title>
+    <title>Zoeken</title>
 </head>
 
 <?php

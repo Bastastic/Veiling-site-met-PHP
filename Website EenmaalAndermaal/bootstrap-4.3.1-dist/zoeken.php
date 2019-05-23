@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include 'includes/links.php'; ?>
     <link rel="icon" href="../../../../favicon.ico">
-    <title>Over ons</title>
+    <title>Zoeken</title>
 </head>
 <?php
      require 'php/connectDB.php';
@@ -276,11 +276,17 @@
                         "SELECT TOP(50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                         FROM Voorwerp, Voorwerp_in_Rubriek 
                         WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                        AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+                        AND 
+												(Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
 																SELECT Rubrieknummer 
 																FROM Rubriek
 																WHERE Hoofdrubriek = :cat)
-														OR
+												OR
+												(Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+														SELECT Rubrieknummer 
+														FROM Rubriek
+														WHERE Hoofdrubriek = :cat)
+												OR
 														Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub
 														)
                         AND titel LIKE CONCAT('%', :trefwoord, '%')"
@@ -295,7 +301,7 @@
                         $cat = $_GET['cat'];
 
                         $sql = $dbh->prepare(
-                            "SELECT TOP (50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT TOP (50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                             FROM Voorwerp, Voorwerp_in_Rubriek 
                             WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
                             AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
@@ -311,7 +317,7 @@
                     } elseif (isset($_GET['zoeken'])) {
                         $trefwoord = strval($_GET['zoeken']);
                         $sql = $dbh->prepare(
-                            "SELECT TOP (50) voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT TOP (50) voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                             FROM Voorwerp 
                             WHERE titel LIKE CONCAT('%', :trefwoord, '%')"
                         );
@@ -319,7 +325,7 @@
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     } else {
                         $sql = $dbh->prepare(
-                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                             FROM Voorwerp"
                         );
                         $sql->execute();
@@ -329,10 +335,11 @@
                         $afgelopen = 'Veiling afgelopen!';
                         $voorwerpnummer = $value['voorwerpnummer'];
                         $titel = $value['titel'];
-                        $bescrhijving = $value['beschrijving'];
+												$bescrhijving = $value['beschrijving'];
+												$bescrhijving = substr($bescrhijving,0, 200);
                         $startprijs = $value['startprijs'];
-                        $looptijdeindedag = $value['looptijdeindedag'];
-                        $looptijdeindetijdstip = $value['looptijdeindetijdstip'];
+                        $eindedag = $value['LooptijdeindeDag'];
+        								$eindetijdstip = $value['LooptijdeindeTijdstip'];
 
                         $sql = $dbh->prepare(
                                                     'SELECT bodbedrag
@@ -355,10 +362,10 @@
                                 <div class='frontside'>
                                     <div class='card'>
                                         <div class='card-body text-center'>
-                                            <p><img class=' img-fluid' src='images/test.jpg' alt='advertentie afbeelding'>
+                                            <p><img class=' img-fluid' src='http://iproject15.icasites.nl/pics/dt_1_".$voorwerpnummer.".jpg' alt='advertentie afbeelding'>
                                             </p>
                                             <h4>$titel</h4>
-                                            <p>$bescrhijving</p>
+                                            <p> $bescrhijving...</p>
                                             <h5>€$hoogstebod</h5>
 																						<p id='$voorwerpnummer'></p>
                                         </div>
@@ -368,7 +375,7 @@
                         </div>
 										</div>
 										<script>
-										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag $looptijdeindetijdstip').getTime();
+										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
 
 										var x = setInterval(function() {
 
