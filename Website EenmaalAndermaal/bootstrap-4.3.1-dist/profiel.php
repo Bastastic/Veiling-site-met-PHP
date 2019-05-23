@@ -22,7 +22,7 @@
     }
     if (isset($_GET['succ'])){
         $type = 'success';
-        $titel = 'Toppie!';
+        $titel = 'Okidoki!';
         if ($_GET['succ'] == '1'){
             $msg = 'U heeft uw account succesvol geactiveerd!';
         }
