@@ -1,5 +1,5 @@
 <head>
-    <script src='https://www.google.com/recaptcha/api.js?hl=nl'></script>
+    <!-- <script src='https://www.google.com/recaptcha/api.js?hl=nl'></script> -->
 </head>
 <?php
     require_once 'php/countries.php';
@@ -40,7 +40,7 @@
                             <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
                                 placeholder="Wachtwoord" tabindex="3">
                         </div>
-                        <script src="https://www.google.com/recaptcha/api.js?render=6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X"></script>
+                        <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X"></script>
                         <script>
                             grecaptcha.ready(function () {
                                 grecaptcha.execute('6LcKnaMUAAAAACZ2li7h7w3VL1TcTySnnIRg_K6X', {
@@ -49,7 +49,7 @@
                                     // pass the token to the backend script for verification
                                 });
                             });
-                        </script>
+                        </script> -->
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Inloggen"
                                 class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
                         <br>
