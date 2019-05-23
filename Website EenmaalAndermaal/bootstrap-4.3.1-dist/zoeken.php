@@ -262,7 +262,7 @@
 										<div class='frontside'>
 											<div class='card'>
 												<div class='card-body text-center'>
-												<p><img class=' img-fluid' src='images/test.jpg' alt='advertentie afbeelding'>
+												<p><img class=' img-fluid' src='http://iproject15.icasites.nl/pics/dt_1_".$voorwerpnummer.".jpg' alt='advertentie afbeelding'>
 												</p>
 												<h4>$titel</h4>
 												<p>$bescrhijving</p>
