@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <?php include 'includes/links.php'; ?>
   <link rel="stylesheet" href="css/login.css" />
-  <title>Inloggen</title>
+  <title>Terugknop</title>
 </head>
 <?php include 'includes/header.php'; ?>
 

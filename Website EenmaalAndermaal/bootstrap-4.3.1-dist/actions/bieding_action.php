@@ -3,6 +3,7 @@
     session_start();
     if(isset($_SESSION['userID'])){
         $bod = $_POST["bod"];
+        $hoogstebod = $_POST["hoogstebod"];
         $voorwerpnummer = $_POST['voorwerpnummer'];
         $gebruikersnaam = $_SESSION['userID'];
         $datum = date('Y-m-d');

@@ -5,27 +5,27 @@ CAST (Parent AS int) AS Hoofdrubriek ,
 CAST (ID AS int) AS Volgnr
 FROM Dataconversie.dbo.Categorieen
 
-UPDATE iproject15.dbo.Rubriek
-SET Hoofdrubriek = null
-WHERE Hoofdrubriek = -1
+--UPDATE iproject15.dbo.Rubriek
+--SET Hoofdrubriek = null
+--WHERE Hoofdrubriek = -1
 
-DELETE FROM iproject15.dbo.Rubriek
-WHERE Rubrieknummer = -1
+--DELETE FROM iproject15.dbo.Rubriek
+--WHERE Rubrieknummer = -1
 
 ---------------Rubriek--------------------------
 
 INSERT INTO iproject15.dbo.Gebruiker
 SELECT DISTINCT LEFT(Username,25) AS Gebruikersnaam,
-'Voornaam' AS Voornaam,
-'Achternaam' AS Achternaam,
-'straat 11' AS Adresregel1,
+LEFT(Username,29) + 'V' AS Voornaam,
+LEFT(Username,29) + 'A' AS Achternaam,
+LEFT(Username,38) + '11' AS Adresregel1,
 NULL AS Adresregel2,
 LEFT (Postalcode,7) AS Postcode,
 'Plek' AS Plaatsnaam,
 LEFT (Location,40) AS Land,
 '1999-05-19' AS Geboortedag,
-'Test@gmail.com' AS Mailbox,
-'Wachtwoord123' AS Wachtwoord,
+LEFT(Username,240) + '@gmail.com' AS Mailbox,
+'$argon2i$v=19$m=1024,t=2,p=2$bGIycFJVMTlhMk9jQW1WNA$Arv8yrHb5WW7xWinhBLeQZE17i0pxflvtRg2OECnpBY' AS Wachtwoord,
 1 AS Vraag,
 'soep met aardappelen' AS Antwoordtext,
 0 AS Verkoper,
@@ -36,6 +36,7 @@ UPDATE iproject15.dbo.Gebruiker
 SET iproject15.dbo.Gebruiker.Verkoper = 1
 FROM iproject15.dbo.Gebruiker, Dataconversie.dbo.Items
 WHERE iproject15.dbo.Gebruiker.Gebruikersnaam = Dataconversie.dbo.Items.Verkoper
+
 
 ------------Gebruikers------------
 
@@ -57,8 +58,8 @@ GO
 INSERT INTO iproject15.dbo.Voorwerp (Voorwerpnummer,Titel,Beschrijving,Startprijs,Betalingswijze,Betalingsinstructie,Plaatsnaam,Land,Looptijd,LooptijdbeginDag,LooptijdbeginTijdstip,Verkoper,Koper,Verzendkosten,Verzendinstructies,LooptijdeindeDag,LooptijdeindeTijdstip,VeiligGesloten,Verkoopprijs)
 SELECT CAST (ID AS bigint) AS Voorwerpnummer,
 LEFT (Titel,50) AS Titel,
-CAST (dbo.udf_StripHTML([Beschrijving]) AS varchar(2000)) AS Beschrijving,
-CAST (Prijs AS numeric(8,2)) AS Startprijs,
+CAST (dbo.udf_StripHTML([Beschrijving]) + Conditie  AS varchar(2000)) AS Beschrijving,
+CAST (dbo.udf_OmzetValuta([Prijs]) AS numeric(8,2)) AS Startprijs,
 'Creditcard' AS Betalingswijze,
 NULL AS Betalingsinstructie,
 LEFT (Locatie,50) AS Plaatsnaam,
@@ -70,7 +71,7 @@ LEFT (Verkoper,25) AS Verkoper,
 NULL AS Koper, 	
 NULL AS Verzendkosten,
 NULL AS Verzendinstructies,
-'2019-05-21' AS LooptijdeindeDag,
+Convert(date, getdate()) + 7 AS LooptijdeindeDag,
 '12:34:54' AS LooptijdeindeTijdstip,
 0 AS VeiligGesloten,
 NULL AS Verkoopprijs
@@ -82,18 +83,24 @@ UPDATE Voorwerp
 SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
 WHERE CHARINDEX(',', Plaatsnaam) > 0
 
+UPDATE Voorwerp
+SET Land = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
+WHERE CHARINDEX(',', Plaatsnaam) > 0
+
 --------------Voorwerp---------------
 
 INSERT INTO iproject15.dbo.Bestand
 SELECT DISTINCT LEFT (IllustratieFile,200) AS Filenaam,
 CAST (ItemID AS bigint) AS Voorwerp 
-FROM Dataconversie.dbo.Illustraties
+FROM iproject15.dbo.Illustraties
 
 -------Bestand---------------
 
-INSERT INTO iproject15.dbo.Voorwerp_in_Rubriek
+INSERT INTO [iproject15].[dbo].[Voorwerp_in_Rubriek]
 SELECT DISTINCT CAST (ID AS bigint) AS Voorwerp,
 CAST (Categorie AS int) AS Rubriek_op_Laagste_Niveau
-FROM Dataconversie.dbo.items
+FROM iproject15.dbo.items
 
 ---------Voorwerp_in_Rubriek-----------
+
+-- dingen random maken? ID toevoegen bij Email. 
