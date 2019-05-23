@@ -32,22 +32,10 @@
                                             <form enctype="multipart/form-data" action="uploadfoto.php" method="POST">
                                             <div class="form-group mx-5">
                                                 <h4 class="card-title">Titel van Veiling:</h4>
-                                                <input type="text" class="form-control" name="titelV" placeholder="Titel">
+                                                <input type="text" class="form-control" name="Titel" placeholder="Titel">
                                             </div>
                                             <h4 class="card-title">Foto bestand:</h4>
                                             <div class="form-row justify-content-center mx-5">
-                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
-                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
-                                                </div>
-                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
-                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
-                                                </div>
-                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
-                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
-                                                </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-6">
                                                     <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                                                     <input name="fileToUpload" id="fileToUpload" type="file" />
@@ -66,15 +54,34 @@
                                                     <h4 class="card-title">Looptijd (in dagen):</h4>
                                                     <input type="number" class="form-control"  name="Looptijd" min="1" max="14"">
                                                 </div>
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-4">
+                                                    <h4 class="card-title">Verzendkosten (in euros):</h4>
+                                                    <input type="number" class="form-control"  name="Verzondkosten" min="1" max="14"">
+                                                </div>
+                                                
                                             </div>
                                             <div class="form-row justify-content-center mx-5">
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-8">
                                                     <h4 class="card-title">Categorie:</h4>
                                                     <select class="custom-select" name="Categorie">
-                                                        <option selected>Choose...</option>
-                                                        <option value="1">Een</option>
+                                                        <!-- Moet nog worden geimplementeert -->
+                                                        <option selected>Choose...</option> 
+                                                        <option value="1">Games</option>
                                                         <option value="2">twee</option>
                                                         <option value="3">Drie</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-row justify-content-center mx-5">
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-8">
+                                                    <h4 class="card-title">Kies Betaalmethode:</h4>
+                                                    <select class="custom-select" name="betalingwijze">
+                                                        <option selected>Choose...</option>
+                                                        <option value="1">Post</option>
+                                                        <option value="2">Creditcard</option>
+                                                        <option value="3">Bank</option>
+                                                        <option value="4">iDeal</option>
+                                                        <option value="3">Nog in afwachting</option>
                                                     </select>
                                                 </div>
                                             </div>

@@ -81,7 +81,7 @@
 
                     mail($emailadres, $subject, $txt, $headers);
 
-                    echo '<h1>Wachtwoord geresest!</h1>
+                    echo '<h1>Wachtwoord gereset!</h1>
                 <p>U vind uw nieuwe wachtwoord in uw mailbox.</p>
                 <a href="inloggen.php" class="btn btn-primary">Inloggen</a>';
                 } else {

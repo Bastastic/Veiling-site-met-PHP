@@ -58,6 +58,11 @@ where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
+$query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
+$sql = $dbh->prepare($query);
+$sql->execute();
+$fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
+
 $aantalfoto = $aantalfoto['count'];
 if ($aantalfoto > 4){
     $aantalfoto = 4;
@@ -85,23 +90,15 @@ if ($aantalfoto > 4){
                         </ul>
                         <div class="carousel-inner">
 
-                            <?php
+                        <?php
 
-                        for( $s=1; $s < $aantalfoto; $s++ ){
-
-                            if( $s == 1){
-                        echo   "<div class='carousel-item active' style='cursor: pointer'
+                        foreach ($fotos as $key => $value) {
+                            $foto = $value['Filenaam'];
+                            echo   "<div class='carousel-item active' style='cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                                </div>"; 
+                                <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                </div>";
                         }
-                    else {
-                        echo  "<div class='carousel-item' style='cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                        <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                        </div>"; 
-                    }
-                    }
 
                         ?>
 
@@ -154,18 +151,19 @@ if ($aantalfoto > 4){
             <div class="row mt-5">
                 <?php
             // veiling gesloten in Voorwerp is standaard 0, dit betekent dus dat de veiling nog open is. Bij het aflopen van de veiling wordt de waarde naar 1 gezet.
-                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0 order by Voorwerp.voorwerpnummer desc");
+                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
+                    $titel = substr($titel, 0, 25);
                     $foto = $value['Filenaam'];
                     $voorwerpnummer = $value['voorwerpnummer'];
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
                     onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                     <div id='ad'>
-                        <img style='height:150px' src='http://iproject15.icasites.nl/pics/$foto' alt='Responsive image'>
+                        <img style='height:150px' src='/$foto' alt='Responsive image'>
                         <p>$titel</p>
                     </div>
                 </div>";

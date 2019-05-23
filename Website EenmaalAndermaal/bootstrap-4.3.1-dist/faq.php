@@ -29,11 +29,7 @@
                     </a>
                     <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
                         aria-selected="false">
-                        <i class="mdi mdi-heart"></i> Favorieten
-                    </a>
-                    <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab5"
-                        aria-selected="false">
-                        <i class="mdi mdi-coin"></i> Transacties
+                        <i class="mdi mdi-heart"></i> Verkoper
                     </a>
                 </div>
             </div>
@@ -98,18 +94,14 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-3-content-1" aria-expanded="false"
-                                            aria-controls="accordion-tab-3-content-1">Michelle, I don't regret this, but
-                                            I both rue and lament it?</button>
+                                            aria-controls="accordion-tab-3-content-1">Kan ik zonder een account meebieden?</button>
                                     </h5>
                                 </div>
                                 <div class="collapse show" id="accordion-tab-3-content-1"
                                     aria-labelledby="accordion-tab-3-heading-1" data-parent="#accordion-tab-3">
                                     <div class="card-body">
-                                        <p>Look, last night was a mistake. We'll need to have a look inside you with
-                                            this camera. Good news, everyone! There's a report on TV with some very bad
-                                            news! You know, I was God once. You lived before you met me?!</p>
-                                        <p><strong>Example: </strong>I'm Santa Claus! Pansy. That's a popular name
-                                            today. Little "e", big "B"?</p>
+                                        <p>Nee, zonder account is het niet mogelijk om mee te bieden op een voorwerp. Het is wel mogelijk om alles te 
+                                        van de vieling te zien maar niet om mee toe doen bij het bieden. Hiervoor moet er echt een account voor gemaakt zijn.</p>
                                     </div>
                                 </div>
                             </div>
@@ -118,18 +110,14 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-3-content-3" aria-expanded="false"
-                                            aria-controls="accordion-tab-3-content-3">Is that a cooking show?</button>
+                                            aria-controls="accordion-tab-3-content-3">Ik ben mijn wachtwoord vergeten, wat moet ik doen ?</button>
                                     </h5>
                                 </div>
                                 <div class="collapse" id="accordion-tab-3-content-3"
                                     aria-labelledby="accordion-tab-3-heading-3" data-parent="#accordion-tab-3">
                                     <div class="card-body">
-                                        <p>OK, this has gotta stop. I'm going to remind Fry of his humanity the way only
-                                            a woman can. You seem malnourished. Are you suffering from intestinal
-                                            parasites? Check it out, y'all. Everyone who was invited is here. I am
-                                            Singing Wind, Chief of the Martians.</p>
-                                        <p><strong>Example: </strong>Man, I'm sore all over. I feel like I just went ten
-                                            rounds with mighty Thor.</p>
+                                        <p>Als U uw wachtwoord vergeten bent kunt U drukken op het vergeten wachtwoord knop. Hierna kunt u de stappen volgen voor het 
+                                        wijzigen van uw wachtwoord.</p>
                                     </div>
                                 </div>
                             </div>
@@ -138,16 +126,14 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-3-content-4" aria-expanded="false"
-                                            aria-controls="accordion-tab-3-content-4">You are the last hope of the
-                                            universe?</button>
+                                            aria-controls="accordion-tab-3-content-4">Waar kan ik mijn gegevens inzien?</button>
                                     </h5>
                                 </div>
                                 <div class="collapse" id="accordion-tab-3-content-4"
                                     aria-labelledby="accordion-tab-3-heading-4" data-parent="#accordion-tab-3">
                                     <div class="card-body">
-                                        <p>I don't want to be rescued. I videotape every customer that comes in here, so
-                                            that I may blackmail them later. Ah, computer dating. It's like pimping, but
-                                            you rarely have to use the phrase "upside your head."</p>
+                                        <p>Rechtsbovenin naast het uitloggen knop (deze is te zien als u ingelogd bent) staat uw gebruikersnaam,
+                                         als hierop wordt gedrukt gaat men naar de profielpagina. Hier zijn alle ingevulgde gegevens van de registratie te zien.  </p>
                                         <p><strong>Example: </strong>Tell them I hate them.</p>
                                     </div>
                                 </div>
@@ -161,18 +147,13 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-4-content-1" aria-expanded="false"
-                                            aria-controls="accordion-tab-4-content-1">You, minion. Lift my arm?</button>
+                                            aria-controls="accordion-tab-4-content-1">Hoe kan ik een verkoper worden?</button>
                                     </h5>
                                 </div>
                                 <div class="collapse show" id="accordion-tab-4-content-1"
                                     aria-labelledby="accordion-tab-4-heading-1" data-parent="#accordion-tab-4">
                                     <div class="card-body">
-                                        <p>AFTER HIM! A true inspiration for the children. What are you hacking off? Is
-                                            it my torso?! 'It is!' My precious torso! I saw you with those two "ladies
-                                            of the evening" at Elzars. Explain that. She also liked to shut up! Why not
-                                            indeed!</p>
-                                        <p><strong>Example: </strong>I feel like I was mauled by Jesus. Hello, little
-                                            man. I will destroy you!</p>
+                                        <p>Dit kan door het aan te vinken bij het registreren of bij de profielpagina.</p>
                                     </div>
                                 </div>
                             </div>
@@ -181,18 +162,13 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-4-content-2" aria-expanded="false"
-                                            aria-controls="accordion-tab-4-content-2">No, I'm Santa Claus?</button>
+                                            aria-controls="accordion-tab-4-content-2">Is er een max voor het bieden van veilingen?</button>
                                     </h5>
                                 </div>
                                 <div class="collapse" id="accordion-tab-4-content-2"
                                     aria-labelledby="accordion-tab-4-heading-2" data-parent="#accordion-tab-4">
                                     <div class="card-body">
-                                        <p>I meant 'physically'. Look, perhaps you could let me work for a little food?
-                                            I could clean the floors or paint a fence, or service you sexually? When the
-                                            lights go out, it's nobody's business what goes on between two consenting
-                                            adults.</p>
-                                        <p><strong>Example: </strong>Nay, I respect and admire Harold Zoid too much to
-                                            beat him to death with his own Oscar.</p>
+                                        <p>Nee zeker niet! U kunt zoveel veilingen plaatsten als gewenst!</p>
                                     </div>
                                 </div>
                             </div>
@@ -201,132 +177,17 @@
                                     <h5>
                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                             data-target="#accordion-tab-4-content-3" aria-expanded="false"
-                                            aria-controls="accordion-tab-4-content-3">Belligerent and numerous?</button>
+                                            aria-controls="accordion-tab-4-content-3">Kan ik als ik verkoper ben ook bieden?</button>
                                     </h5>
                                 </div>
                                 <div class="collapse" id="accordion-tab-4-content-3"
                                     aria-labelledby="accordion-tab-4-heading-3" data-parent="#accordion-tab-4">
                                     <div class="card-body">
-                                        <p>Hey, what kinda party is this? There's no booze and only one hooker. I'm just
-                                            glad my fat, ugly mama isn't alive to see this day. Wow! A superpowers drug
-                                            you can just rub onto your skin? You'd think it would be something you'd
-                                            have to freebase. Well, let's just dump it in the sewer and say we delivered
-                                            it. You guys realize you live in a sewer, right? </p>
-                                        <p><strong>Example: </strong>Oh Leela! You're the only person I could turn to;
-                                            you're the only person who ever loved me.</p>
+                                        <p>Ja zeker, dit is mogelijk. Het enige verschil tussen een geregistreerde gebruiker die geen verkoper is en een verkoper 
+                                        is dat de verkoper ook veilingen kan plaatsen. Een geregistreerde gebruiker kan dit niet. </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-4-heading-4">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-4-content-4" aria-expanded="false"
-                                            aria-controls="accordion-tab-4-content-4">Take me to your leader?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-4-content-4"
-                                    aria-labelledby="accordion-tab-4-heading-4" data-parent="#accordion-tab-4">
-                                    <div class="card-body">
-                                        <p>PUNY HUMAN NUMBER ONE, PUNY HUMAN NUMBER TWO, and Morbo's good friend,
-                                            Richard Nixon. Interesting. No, wait, the other thing: tedious. All I want
-                                            is to be a monkey of moderate intelligence who wears a suit… that's why I'm
-                                            transferring to business school! Morbo can't understand his teleprompter
-                                            because he forgot how you say that letter that's shaped like a man wearing a
-                                            hat.</p>
-                                        <p><strong>Example: </strong>If rubbin' frozen dirt in your crotch is wrong, hey
-                                            I don't wanna be right.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
-                        <div class="accordion" id="accordion-tab-5">
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-5-heading-1">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-5-content-1" aria-expanded="false"
-                                            aria-controls="accordion-tab-5-content-1">Say what?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse show" id="accordion-tab-5-content-1"
-                                    aria-labelledby="accordion-tab-5-heading-1" data-parent="#accordion-tab-5">
-                                    <div class="card-body">
-                                        <p>That could be 'my' beautiful soul sitting naked on a couch. If I could just
-                                            learn to play this stupid thing. Oh, I don't have time for this. I have to
-                                            go and buy a single piece of fruit with a coupon and then return it, making
-                                            people wait behind me while I complain. I'm just glad my fat, ugly mama
-                                            isn't alive to see this day. For one beautiful night I knew what it was like
-                                            to be a grandmother. Subjugated, yet honored. But existing is basically all
-                                            I do! I never loved you.</p>
-                                        <p><strong>Example: </strong>A sexy mistake. And I'd do it again!</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-5-heading-2">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-5-content-2" aria-expanded="false"
-                                            aria-controls="accordion-tab-5-content-2">Who's brave enough to fly into
-                                            something we all keep calling a death sphere?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-5-content-2"
-                                    aria-labelledby="accordion-tab-5-heading-2" data-parent="#accordion-tab-5">
-                                    <div class="card-body">
-                                        <p>Maybe I love you so much I love you no matter who you are pretending to be.
-                                            Ah, the 'Breakfast Club' soundtrack! I can't wait til I'm old enough to feel
-                                            ways about stuff! Now Fry, it's been a few years since medical school, so
-                                            remind me.</p>
-                                        <p><strong>Example: </strong>Disemboweling in your species: fatal or non-fatal?
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-5-heading-3">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-5-content-3" aria-expanded="false"
-                                            aria-controls="accordion-tab-5-content-3">You mean while I'm sleeping in
-                                            it?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-5-content-3"
-                                    aria-labelledby="accordion-tab-5-heading-3" data-parent="#accordion-tab-5">
-                                    <div class="card-body">
-                                        <p>We can't compete with Mom! Her company is big and evil! Ours is small and
-                                            neutral! Look, everyone wants to be like Germany, but do we really have the
-                                            pure strength of 'will'? I just told you! You've killed me!</p>
-                                        <p><strong>Example: </strong>But, like most politicians, he promised more than
-                                            he could deliver.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="accordion-tab-5-heading-4">
-                                    <h5>
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#accordion-tab-5-content-4" aria-expanded="false"
-                                            aria-controls="accordion-tab-5-content-4">And until then, I can never
-                                            die?</button>
-                                    </h5>
-                                </div>
-                                <div class="collapse" id="accordion-tab-5-content-4"
-                                    aria-labelledby="accordion-tab-5-heading-4" data-parent="#accordion-tab-5">
-                                    <div class="card-body">
-                                        <p>I don't know what you did, Fry, but once again, you screwed up! Now all the
-                                            planets are gonna start cracking wise about our mamas. Well, let's just dump
-                                            it in the sewer and say we delivered it.</p>
-                                        <p><strong>Example: </strong>Have you ever tried just turning off the TV,
-                                            sitting down with your children, and hitting them? Hey, tell me something.
-                                            You've got all this money. How come you always dress like you're doing your
-                                            laundry?</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
