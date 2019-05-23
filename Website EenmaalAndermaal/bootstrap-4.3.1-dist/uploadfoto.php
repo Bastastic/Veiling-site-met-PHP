@@ -133,7 +133,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
                 :Voorwerp )";
 
         $sql = $dbh->prepare($query);
-        $sql->bindValue(":Filenaam", 'upload/dt_1_' . $voorwerpnummer . '.jpg');
+        $sql->bindValue(":Filenaam", 'upload/dt_1_' . $voorwerpnummer . '.' . $imageFileType);
         $sql->bindValue(":Voorwerp", $voorwerpnummer);
         $sql->execute();
 
