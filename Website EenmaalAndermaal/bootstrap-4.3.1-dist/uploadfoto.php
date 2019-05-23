@@ -84,7 +84,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //     mkdir("pics/$voorwerpnummer", 0777, true);
         // }
         
-        $target_dir = "pics/";
+        $target_dir = "upload";
         $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.jpg';
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -133,7 +133,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
                 :Voorwerp )";
 
         $sql = $dbh->prepare($query);
-        $sql->bindValue(":Filenaam", 'dt_1_'.$voorwerpnummer . '.jpg');
+        $sql->bindValue(":Filenaam", 'upload/dt_1_' . $voorwerpnummer . '.jpg');
         $sql->bindValue(":Voorwerp", $voorwerpnummer);
         $sql->execute();
 

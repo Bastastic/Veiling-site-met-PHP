@@ -58,6 +58,11 @@ where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
+$query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
+$sql = $dbh->prepare($query);
+$fotos = $sql->execute(['voorwerpnummer', $voorwerpnummer]);
+$fotos = $fotos->fetchAll(PDO::FETCH_ASSOC);
+
 $aantalfoto = $aantalfoto['count'];
 if ($aantalfoto > 4){
     $aantalfoto = 4;
@@ -66,6 +71,7 @@ if ($aantalfoto > 4){
 
 
     <div class="container">
+        <?php print_r($fotos); ?>
         <div class="segment">
             <div class="row align-items-start">
                 <div class="col-lg-7">
@@ -85,23 +91,15 @@ if ($aantalfoto > 4){
                         </ul>
                         <div class="carousel-inner">
 
-                            <?php
+                        <?php
 
-                        for( $s=1; $s < $aantalfoto; $s++ ){
-
-                            if( $s == 1){
-                        echo   "<div class='carousel-item active' style='cursor: pointer'
+                        foreach ($fotos as $key => $value) {
+                            $foto = $value['Filenaam'];
+                            echo   "<div class='carousel-item active' style='cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                                </div>"; 
+                                <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                </div>";
                         }
-                    else {
-                        echo  "<div class='carousel-item' style='cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                        <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                        </div>"; 
-                    }
-                    }
 
                         ?>
 
