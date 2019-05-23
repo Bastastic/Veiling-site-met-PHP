@@ -100,8 +100,8 @@ where Voorwerp = $voorwerpnummer ");
                 <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
                     <ul class="carousel-indicators">
 
-                    <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
-                    <?php 
+                        <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
+                        <?php 
 
                         
                           for( $x=0; $x < $aantalfoto; $x++ ){
@@ -117,7 +117,7 @@ where Voorwerp = $voorwerpnummer ");
                     </ul>
                     <div class="carousel-inner">
 
-                    <?php
+                        <?php
 
                     if ($aantalfoto == 1) {
                         echo "<img src='http://iproject15.icasites.nl/pics/dt_".$aantalfoto."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>";
@@ -175,7 +175,7 @@ where Voorwerp = $voorwerpnummer ");
                     ?>
                     &nbsp; &nbsp;
                     <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van
-                        <?=$voornaam?></a>
+                        <?=$verkoper?></a>
 
                 </div>
                 <br>
@@ -212,20 +212,20 @@ where Voorwerp = $voorwerpnummer ");
                     }
                 }
                     ?>
-                    </div>
-                </div>
-                </form>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Gebruiker</th>
-                            <th>Bod</th>
-                            <th>Datum & Tijd</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            </div>
+        </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Gebruiker</th>
+                    <th>Bod</th>
+                    <th>Datum & Tijd</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                        <?php
+                <?php
                             foreach ($resultaat as $key => $value) {
                                 $datetime = date_create($value['boddag'] . " " . $value['bodtijdstip'], timezone_open("Europe/Amsterdam"));
                                 $datetime = date_format($datetime, "d-m-Y H:i");
@@ -238,10 +238,10 @@ where Voorwerp = $voorwerpnummer ");
                                 ";
                             }
                             ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            </tbody>
+        </table>
+    </div>
+    </div>
     </div>
     </div>
 
@@ -251,9 +251,9 @@ where Voorwerp = $voorwerpnummer ");
         });
 
         bod.addEventListener("input", function (e) {
-            if(this.value <= <?=$hoogstebod?>){
+            if (this.value <= < ? = $hoogstebod ? > ) {
                 biedknop.disabled = true;
-            }else{
+            } else {
                 biedknop.disabled = false;
             }
         });
@@ -263,13 +263,13 @@ where Voorwerp = $voorwerpnummer ");
 
             bod = document.getElementById("bod").value;
 
-            if (isNaN(bod) || bod <= <?=$hoogstebod?>) {
+            if (isNaN(bod) || bod <= < ? = $hoogstebod ? > ) {
                 alert("Je moet meer bieden!");
                 return false;
             } else {
                 var bod = document.getElementById('bod').value;
 
-                if(confirm("Weet u zeker dat u €" + bod + " wilt bieden")) {
+                if (confirm("Weet u zeker dat u €" + bod + " wilt bieden")) {
                     return true;
                 } else {
                     return false;
@@ -279,7 +279,7 @@ where Voorwerp = $voorwerpnummer ");
 
         var countDownDate = new Date('<?=$eindedag?> <?=$eindetijdstip?>').getTime();
 
-        var x = setInterval(function() {
+        var x = setInterval(function () {
 
             var now = new Date().getTime();
 
@@ -290,16 +290,14 @@ where Voorwerp = $voorwerpnummer ");
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('timer').innerHTML = days + 'd ' + hours + 'h '
-            + minutes + 'm ' + seconds + 's ';
+            document.getElementById('timer').innerHTML = days + 'd ' + hours + 'h ' +
+                minutes + 'm ' + seconds + 's ';
 
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById('timer').innerHTML = '<?=$afgelopen?>';
             }
         }, 1000);
-
-
     </script>
 
 </body>

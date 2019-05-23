@@ -2,12 +2,12 @@
 <html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php include 'includes/links.php'; ?>
-    <link rel="icon" href="../../../../favicon.ico">
-    <title>Zoeken</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<?php include 'includes/links.php'; ?>
+	<link rel="icon" href="../../../../favicon.ico">
+	<title>Zoeken</title>
 </head>
 <?php
      require 'php/connectDB.php';
@@ -19,101 +19,102 @@
     ?>
 
 <body style="overflow-x:hidden">
-    <section id="team" class="pb-5">
+	<section id="team" class="pb-5">
 
 
 
-        <div class="container">
-            <br>
-            <h2>Zoekresultaten</h2>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
-  Filters
-</button>
+		<div class="container">
+			<br>
+			<h2>Zoekresultaten</h2>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+				Filters
+			</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <div class="container">
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="container">
 
-<div class="row">
-	<aside class="col-sm-6">
-
-
-
-<div class="card">
-	<article class="card-group-item">
-		<header class="card-header">
-			<h6 class="title">Brands </h6>
-		</header>
-		<div class="filter-content">
-			<div class="card-body">
-			<form>
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				    Mersedes Benz
-				  </span>
-				</label> <!-- form-check.// -->
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				    Nissan Altima
-				  </span>
-				</label>  <!-- form-check.// -->
-				<label class="form-check">
-				  <input class="form-check-input" type="checkbox" value="">
-				  <span class="form-check-label">
-				    Another Brand
-				  </span>
-				</label>  <!-- form-check.// -->
-			</form>
-
-			</div> <!-- card-body.// -->
-		</div>
-	</article> <!-- card-group-item.// -->
-	
-	<article class="card-group-item">
-		<header class="card-header">
-			<h6 class="title">Choose type </h6>
-		</header>
-		<div class="filter-content">
-			<div class="card-body">
-			<label class="form-check">
-			  <input class="form-check-input" type="radio" name="exampleRadio" value="">
-			  <span class="form-check-label">
-			    First hand items
-			  </span>
-			</label>
-			<label class="form-check">
-			  <input class="form-check-input" type="radio" name="exampleRadio" value="">
-			  <span class="form-check-label">
-			    Brand new items
-			  </span>
-			</label>
-			<label class="form-check">
-			  <input class="form-check-input" type="radio" name="exampleRadio" value="">
-			  <span class="form-check-label">
-			    Some other option
-			  </span>
-			</label>
-			</div> <!-- card-body.// -->
-		</div>
-	</article> <!-- card-group-item.// -->
-</div> <!-- card.// -->
+								<div class="row">
+									<aside class="col-sm-6">
 
 
 
+										<div class="card">
+											<article class="card-group-item">
+												<header class="card-header">
+													<h6 class="title">Brands </h6>
+												</header>
+												<div class="filter-content">
+													<div class="card-body">
+														<form>
+															<label class="form-check">
+																<input class="form-check-input" type="checkbox" value="">
+																<span class="form-check-label">
+																	Mersedes Benz
+																</span>
+															</label> <!-- form-check.// -->
+															<label class="form-check">
+																<input class="form-check-input" type="checkbox" value="">
+																<span class="form-check-label">
+																	Nissan Altima
+																</span>
+															</label> <!-- form-check.// -->
+															<label class="form-check">
+																<input class="form-check-input" type="checkbox" value="">
+																<span class="form-check-label">
+																	Another Brand
+																</span>
+															</label> <!-- form-check.// -->
+														</form>
 
-	</aside> <!-- col.// -->
-	<aside class="col-sm-6">
-<?php
+													</div> <!-- card-body.// -->
+												</div>
+											</article> <!-- card-group-item.// -->
+
+											<article class="card-group-item">
+												<header class="card-header">
+													<h6 class="title">Choose type </h6>
+												</header>
+												<div class="filter-content">
+													<div class="card-body">
+														<label class="form-check">
+															<input class="form-check-input" type="radio" name="exampleRadio" value="">
+															<span class="form-check-label">
+																First hand items
+															</span>
+														</label>
+														<label class="form-check">
+															<input class="form-check-input" type="radio" name="exampleRadio" value="">
+															<span class="form-check-label">
+																Brand new items
+															</span>
+														</label>
+														<label class="form-check">
+															<input class="form-check-input" type="radio" name="exampleRadio" value="">
+															<span class="form-check-label">
+																Some other option
+															</span>
+														</label>
+													</div> <!-- card-body.// -->
+												</div>
+											</article> <!-- card-group-item.// -->
+										</div> <!-- card.// -->
+
+
+
+
+									</aside> <!-- col.// -->
+									<aside class="col-sm-6">
+										<?php
 	if(isset($_GET['cat'])) {
 		echo '
 		<div class="card">
@@ -166,109 +167,109 @@
 ?>
 
 
-	<article class="card-group-item">
-		<header class="card-header"><h6 class="title">Color check</h6></header>
-		<div class="filter-content">
-			<div class="card-body">
-				<label class="btn btn-danger">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Red</span>
-				</label>
-				<label class="btn btn-success">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Green</span>
-				</label>
-				<label class="btn btn-primary">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Blue</span>
-				</label>
-			</div> <!-- card-body.// -->
-		</div>
-	</article> <!-- card-group-item.// -->
-</div> <!-- card.// -->
+										<article class="card-group-item">
+											<header class="card-header">
+												<h6 class="title">Color check</h6>
+											</header>
+											<div class="filter-content">
+												<div class="card-body">
+													<label class="btn btn-danger">
+														<input class="" type="checkbox" name="myradio" value="">
+														<span class="form-check-label">Red</span>
+													</label>
+													<label class="btn btn-success">
+														<input class="" type="checkbox" name="myradio" value="">
+														<span class="form-check-label">Green</span>
+													</label>
+													<label class="btn btn-primary">
+														<input class="" type="checkbox" name="myradio" value="">
+														<span class="form-check-label">Blue</span>
+													</label>
+												</div> <!-- card-body.// -->
+											</div>
+										</article> <!-- card-group-item.// -->
+								</div> <!-- card.// -->
 
 
 
-	</aside> <!-- col.// -->
-	<aside class="col-sm-6">
+								</aside> <!-- col.// -->
+								<aside class="col-sm-6">
 
 
 
 
-<div class="card">
-	<article class="card-group-item">
-		<header class="card-header">
-			<h6 class="title">Range input </h6>
-		</header>
-		<div class="filter-content">
-			<div class="card-body">
-			<div class="form-row">
-			<div class="form-group col-md-6">
-			  <label>Min</label>
-			  <input type="number" class="form-control" id="inputEmail4" placeholder="$0">
+									<div class="card">
+										<article class="card-group-item">
+											<header class="card-header">
+												<h6 class="title">Range input </h6>
+											</header>
+											<div class="filter-content">
+												<div class="card-body">
+													<div class="form-row">
+														<div class="form-group col-md-6">
+															<label>Min</label>
+															<input type="number" class="form-control" id="inputEmail4" placeholder="$0">
+														</div>
+														<div class="form-group col-md-6 text-right">
+															<label>Max</label>
+															<input type="number" class="form-control" placeholder="$1,0000">
+														</div>
+													</div>
+												</div> <!-- card-body.// -->
+											</div>
+										</article> <!-- card-group-item.// -->
+										<article class="card-group-item">
+											<header class="card-header">
+												<h6 class="title">Selection </h6>
+											</header>
+											<div class="filter-content">
+												<div class="card-body">
+													<div class="custom-control custom-checkbox">
+														<span class="float-right badge badge-light round">52</span>
+														<input type="checkbox" class="custom-control-input" id="Check1">
+														<label class="custom-control-label" for="Check1">Samsung</label>
+													</div> <!-- form-check.// -->
+
+													<div class="custom-control custom-checkbox">
+														<span class="float-right badge badge-light round">132</span>
+														<input type="checkbox" class="custom-control-input" id="Check2">
+														<label class="custom-control-label" for="Check2">Black berry</label>
+													</div> <!-- form-check.// -->
+
+													<div class="custom-control custom-checkbox">
+														<span class="float-right badge badge-light round">17</span>
+														<input type="checkbox" class="custom-control-input" id="Check3">
+														<label class="custom-control-label" for="Check3">Samsung</label>
+													</div> <!-- form-check.// -->
+
+													<div class="custom-control custom-checkbox">
+														<span class="float-right badge badge-light round">7</span>
+														<input type="checkbox" class="custom-control-input" id="Check4">
+														<label class="custom-control-label" for="Check4">Other Brand</label>
+													</div> <!-- form-check.// -->
+												</div> <!-- card-body.// -->
+											</div>
+										</article> <!-- card-group-item.// -->
+									</div> <!-- card.// -->
+
+
+
+								</aside> <!-- col.// -->
+							</div> <!-- row.// -->
+
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
+						<button type="button" class="btn btn-primary">Opslaan</button>
+					</div>
+				</div>
 			</div>
-			<div class="form-group col-md-6 text-right">
-			  <label>Max</label>
-			  <input type="number" class="form-control" placeholder="$1,0000">
-			</div>
-			</div>
-			</div> <!-- card-body.// -->
 		</div>
-	</article> <!-- card-group-item.// -->
-	<article class="card-group-item">
-		<header class="card-header">
-			<h6 class="title">Selection </h6>
-		</header>
-		<div class="filter-content">
-			<div class="card-body">
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">52</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check1">
-				  	<label class="custom-control-label" for="Check1">Samsung</label>
-				</div> <!-- form-check.// -->
 
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">132</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check2">
-				 	<label class="custom-control-label" for="Check2">Black berry</label>
-				</div> <!-- form-check.// -->
-
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">17</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check3">
-				  	<label class="custom-control-label" for="Check3">Samsung</label>
-				</div> <!-- form-check.// -->
-
-				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">7</span>
-				  	<input type="checkbox" class="custom-control-input" id="Check4">
-				  	<label class="custom-control-label" for="Check4">Other Brand</label>
-				</div> <!-- form-check.// -->
-			</div> <!-- card-body.// -->
-		</div>
-	</article> <!-- card-group-item.// -->
-</div> <!-- card.// -->
-
-
-
-	</aside> <!-- col.// -->
-</div> <!-- row.// -->
-
-</div> 
-      
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuleren</button>
-        <button type="button" class="btn btn-primary">Opslaan</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-            <div class="row">
-                <?php
+		<div class="row">
+			<?php
                 if (isset($_GET['cat']) && isset($_GET['zoeken'])) {
                     $trefwoord = strval($_GET['zoeken']);
                     $cat = $_GET['cat'];
@@ -399,15 +400,15 @@
 								  </script>";
                     }
                 ?>
-            </div>
-						<br>
-						<br>
-						<nav aria-label="Page navigation example">
-							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
-									<a class="page-link" href="#" tabindex="-1">Previous</a>
-								</li>
-										<?php
+		</div>
+		<br>
+		<br>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1">Previous</a>
+				</li>
+				<?php
 
 										$sql = $dbh->prepare("SELECT COUNT (Voorwerpnummer) AS Aantal FROM Voorwerp");
 										$sql->execute();
@@ -421,12 +422,12 @@
 											} 
 										}
 										?>
-									<a class="page-link" href="#">Next</a>
-								</li>
-							</ul>
-						</nav>
-        </div>
-    </section>
+				<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+		</div>
+	</section>
 </body>
 <?php include 'includes/footer.php'; ?>
 

@@ -93,7 +93,7 @@
 
                                             <?php
                                             $sql = $dbh->prepare(
-    "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+                                            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                             );
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
