@@ -83,11 +83,16 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //  if (!file_exists("pics/$voorwerpnummer")) {
         //     mkdir("pics/$voorwerpnummer", 0777, true);
         // }
+<<<<<<< HEAD
         $imageFileTypeSoon = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $target_dir = "upload";
         $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.' . $imageFileTypeSoon;
-        $uploadOk = 1;
+=======
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $target_dir = "upload";
+        $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.' . $imageFileType ;
+>>>>>>> parent of 755806f... Merge branch 'master' of https://github.com/sebastiaanslk/I-Project
+        $uploadOk = 1;
         // Check if image file is a actual image or fake image
         // if(isset($_POST["submit"])) {
         //     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -99,7 +104,11 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //         $uploadOk = 0;
         //     }
         // }
+<<<<<<< HEAD
         // // Check if file already exists
+=======
+        // Check if file already exists
+>>>>>>> parent of 755806f... Merge branch 'master' of https://github.com/sebastiaanslk/I-Project
         // if (file_exists($target_file)) {
         //     echo "Sorry, file already exists.";
         //     $uploadOk = 0;
@@ -110,11 +119,11 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //     $uploadOk = 0;
         // }
         // Allow certain file formats
-        // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        // && $imageFileType != "gif" ) {
-        //     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        //     $uploadOk = 0;
-        // }
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+         && $imageFileType != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
