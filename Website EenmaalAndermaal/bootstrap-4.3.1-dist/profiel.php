@@ -311,7 +311,7 @@
                                                             <p class="card-text">' . $beschrijving . '</p>
                                                             <p class="card-text mt-3">Hoogste bod: ' . $hoogstebod . '</p>
                                                             <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Bekijk veiling</a>
-                                                            <a href="veilingeindigen.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Veiling afronden</a>
+                                                            <a href="actions/veilingeindigen.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Veiling afronden</a>
                                                         </div>
                                                     </div>
                                                 </div>
