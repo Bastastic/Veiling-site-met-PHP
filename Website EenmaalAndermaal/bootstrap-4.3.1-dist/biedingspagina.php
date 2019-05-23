@@ -104,17 +104,17 @@ if ($aantalfoto > 4){
 
                     <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
                     <?php 
+
+                        
                           for( $x=0; $x < $aantalfoto; $x++ ){
-                           echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                              if($x == 0){
+                                echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                              }else{
+                                echo "<li data-target='#demo' data-slide-to='$x'>";
+                              }
                           }
 
                         ?>
-
-
-                        <!-- <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
-                        <li data-target="#demo" data-slide-to="3"></li> -->
                     </ul>
                     <div class="carousel-inner">
 
@@ -124,7 +124,7 @@ if ($aantalfoto > 4){
                         echo "<img src='http://iproject15.icasites.nl/pics/dt_".$aantalfoto."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>";
                         }else{
 
-                        for( $s=1; $s < $aantalfoto; $s++ ){
+                        for( $s=1; $s <= $aantalfoto; $s++ ){
                         
 
                             if( $s == 1){
