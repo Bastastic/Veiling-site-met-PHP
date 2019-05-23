@@ -80,12 +80,12 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
          $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
          $voorwerpnummer = $resultaat['Voorwerpnummer'];
 
-         if (!file_exists("pics/$voorwerpnummer")) {
-            mkdir("pics/$voorwerpnummer", 0777, true);
-        }
+        //  if (!file_exists("pics/$voorwerpnummer")) {
+        //     mkdir("pics/$voorwerpnummer", 0777, true);
+        // }
         
         $target_dir = "pics/";
-        $target_file = $target_dir . "/" .  $voorwerpnummer . "/" . basename($_FILES["fileToUpload"]["name"]);
+        $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.jpg';
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         // Check if image file is a actual image or fake image
@@ -133,7 +133,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
                 :Voorwerp )";
 
         $sql = $dbh->prepare($query);
-        $sql->bindValue(":Filenaam", $target_file);
+        $sql->bindValue(":Filenaam", 'dt_1_'.$voorwerpnummer . '.jpg');
         $sql->bindValue(":Voorwerp", $voorwerpnummer);
         $sql->execute();
 
