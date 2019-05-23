@@ -160,6 +160,7 @@ if ($aantalfoto > 4){
 
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
+                    $titel = substr($titel, 0, 25);
                     $foto = $value['Filenaam'];
                     $voorwerpnummer = $value['voorwerpnummer'];
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
