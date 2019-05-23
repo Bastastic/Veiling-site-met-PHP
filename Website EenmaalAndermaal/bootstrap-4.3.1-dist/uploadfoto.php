@@ -84,9 +84,15 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //     mkdir("pics/$voorwerpnummer", 0777, true);
         // }
 <<<<<<< HEAD
+<<<<<<< HEAD
         $imageFileTypeSoon = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $target_dir = "upload";
         $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.' . $imageFileTypeSoon;
+=======
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $target_dir = "upload";
+        $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.' . $imageFileType ;
+>>>>>>> parent of 755806f... Merge branch 'master' of https://github.com/sebastiaanslk/I-Project
 =======
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $target_dir = "upload";
@@ -105,8 +111,11 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //     }
         // }
 <<<<<<< HEAD
+<<<<<<< HEAD
         // // Check if file already exists
 =======
+=======
+>>>>>>> parent of 755806f... Merge branch 'master' of https://github.com/sebastiaanslk/I-Project
         // Check if file already exists
 >>>>>>> parent of 755806f... Merge branch 'master' of https://github.com/sebastiaanslk/I-Project
         // if (file_exists($target_file)) {
@@ -114,10 +123,17 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //     $uploadOk = 0;
         // }
         // Check file size
+<<<<<<< HEAD
         // if ($_FILES["fileToUpload"]["size"] > 500000) {
         //     echo "Sorry, your file is too large.";
         //     $uploadOk = 0;
         // }
+=======
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+>>>>>>> parent of 755806f... Merge branch 'master' of https://github.com/sebastiaanslk/I-Project
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
          && $imageFileType != "gif" ) {
