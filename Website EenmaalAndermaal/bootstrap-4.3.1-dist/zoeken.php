@@ -301,32 +301,6 @@
                     }
                 ?>
             </div>
-						<br>
-						<br>
-						<nav aria-label="Page navigation example">
-							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
-									<a class="page-link" href="#" tabindex="-1">Previous</a>
-								</li>
-										<?php
-
-										$sql = $dbh->prepare("SELECT COUNT (Voorwerpnummer) AS Aantal FROM Voorwerp WHERE");
-										$sql->execute();
-										$result = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-										foreach ($result as $key => $value) {
-												$Aantal = $value['Aantal'];
-												$AantalPaginas = $Aantal / 30;
-												for ($x = 0; $x <= $AantalPaginas; $x++) {
-													echo "<li class='page-item'><a class='page-link' href='#'>". $x ."</a></li>";
-											} 
-										}
-										?>
-									<a class="page-link" href="#">Next</a>
-								</li>
-							</ul>
-						</nav>
-        </div>
     </section>
 </body>
 <?php include 'includes/footer.php'; ?>
