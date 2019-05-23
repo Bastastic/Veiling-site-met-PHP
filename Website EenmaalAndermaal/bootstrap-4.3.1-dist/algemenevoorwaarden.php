@@ -15,6 +15,6 @@
         pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
     </div>
 </body>
-<?php include 'includes/footer.php' ; ?>
+<?php include 'includes/footer.html' ; ?>
 
 </html>
