@@ -68,6 +68,6 @@ var x = setInterval(function() {
 
 </body>
 
-<?php include 'includes/footer.html' ; ?>
+<?php include 'includes/footer.php' ; ?>
 
 </html>

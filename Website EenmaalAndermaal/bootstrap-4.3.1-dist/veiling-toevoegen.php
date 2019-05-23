@@ -107,6 +107,6 @@
 </section>                
 </body>
 <footer>
-<?php include('includes/footer.html'); ?>
+<?php include('includes/footer.php'); ?>
 </footer>
 </html>

@@ -73,6 +73,6 @@
   </div>
   <!-- sitemap einde -->
 </body>
-<?php include 'includes/footer.html'; ?>
+<?php include 'includes/footer.php'; ?>
 
 </html>
