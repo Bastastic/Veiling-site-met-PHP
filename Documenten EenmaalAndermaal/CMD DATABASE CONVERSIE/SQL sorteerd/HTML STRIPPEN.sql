@@ -98,7 +98,7 @@ SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
 
 WHILE (@Start > 0 AND @End > 0 AND @Length > 0) BEGIN
-SET @HTMLText = STUFF(@HTMLText, @Start, @Length, CHAR(13) + CHAR(10))
+SET @HTMLText = STUFF(@HTMLText, @Start, @Length, 'CHAR(13) + CHAR(10')
 SET @Start = CHARINDEX('<br>', @HTMLText)
 SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
@@ -171,3 +171,11 @@ END
 
 --SELECT TOP(10) Beschrijving
 --FROM Items
+
+--UPDATE iproject15.dbo.Items
+--SET iproject15.dbo.Items.Beschrijving = dbo.udf_StripHTML([Beschrijving])
+--FROM iproject15.dbo.Items
+
+SELECT voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
+													FROM Voorwerp
+													WHERE voorwerpnummer BETWEEN 20 AND 20 + 30
