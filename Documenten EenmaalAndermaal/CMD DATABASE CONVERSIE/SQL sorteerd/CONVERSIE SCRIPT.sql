@@ -3,7 +3,7 @@ SELECT DISTINCT CAST(ID AS int) AS Rubrieknummer,
 LEFT(name,100) AS Rubrieknaam,
 CAST (Parent AS int) AS Hoofdrubriek ,
 CAST (ID AS int) AS Volgnr
-FROM Dataconversie.dbo.Categorieen
+FROM iproject15.dbo.Categorieen
 
 --UPDATE iproject15.dbo.Rubriek
 --SET Hoofdrubriek = null
@@ -30,12 +30,12 @@ LEFT(Username,240) + '@gmail.com' AS Mailbox,
 'soep met aardappelen' AS Antwoordtext,
 0 AS Verkoper,
 0 AS Geactiveerd
-FROM Dataconversie.dbo.Users
+FROM iproject15.dbo.Users
 
 UPDATE iproject15.dbo.Gebruiker
 SET iproject15.dbo.Gebruiker.Verkoper = 1
-FROM iproject15.dbo.Gebruiker, Dataconversie.dbo.Items
-WHERE iproject15.dbo.Gebruiker.Gebruikersnaam = Dataconversie.dbo.Items.Verkoper
+FROM iproject15.dbo.Gebruiker, iproject15.dbo.Items
+WHERE iproject15.dbo.Gebruiker.Gebruikersnaam = iproject15.dbo.Items.Verkoper
 
 
 ------------Gebruikers------------
@@ -46,7 +46,7 @@ NULL AS Bank,
 NULL AS Bankrekening,
 'Creditcard' AS Controleoptie,
 123244232 AS Creditcard
-FROM Dataconversie.dbo.Users
+FROM iproject15.dbo.Users
 
 DELETE FROM iproject15.dbo.Verkoper
 WHERE Gebruiker IN 
@@ -75,7 +75,7 @@ Convert(date, getdate()) + 7 AS LooptijdeindeDag,
 '12:34:54' AS LooptijdeindeTijdstip,
 0 AS VeiligGesloten,
 NULL AS Verkoopprijs
-FROM Dataconversie.dbo.Items
+FROM iproject15.dbo.Items
 SET IDENTITY_INSERT iproject15.dbo.Voorwerp OFF
 GO
 
@@ -90,7 +90,7 @@ WHERE CHARINDEX(',', Plaatsnaam) > 0
 --------------Voorwerp---------------
 
 INSERT INTO iproject15.dbo.Bestand
-SELECT DISTINCT LEFT (IllustratieFile,200) AS Filenaam,
+SELECT DISTINCT 'pics/' + LEFT (IllustratieFile,200) AS Filenaam,
 CAST (ItemID AS bigint) AS Voorwerp 
 FROM iproject15.dbo.Illustraties
 
