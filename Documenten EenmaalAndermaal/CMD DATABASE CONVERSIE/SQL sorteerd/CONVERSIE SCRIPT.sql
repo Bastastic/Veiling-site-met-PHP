@@ -59,7 +59,7 @@ INSERT INTO iproject15.dbo.Voorwerp (Voorwerpnummer,Titel,Beschrijving,Startprij
 SELECT CAST (ID AS bigint) AS Voorwerpnummer,
 LEFT (Titel,50) AS Titel,
 CAST (dbo.udf_StripHTML([Beschrijving]) + Conditie  AS varchar(2000)) AS Beschrijving,
-CAST (dbo.udf_OmzetValuta([Prijs]) AS numeric(8,2)) AS Startprijs,
+CAST (dbo.udf_OmzetValuta([prijs],[Valuta]) AS numeric(8,2)) AS Startprijs,
 'Creditcard' AS Betalingswijze,
 NULL AS Betalingsinstructie,
 LEFT (Locatie,50) AS Plaatsnaam,
@@ -71,7 +71,7 @@ LEFT (Verkoper,25) AS Verkoper,
 NULL AS Koper, 	
 NULL AS Verzendkosten,
 NULL AS Verzendinstructies,
-Convert(date, getdate()) + 7 AS LooptijdeindeDag,
+Convert(date, getdate() + 7) AS LooptijdeindeDag,
 '12:34:54' AS LooptijdeindeTijdstip,
 0 AS VeiligGesloten,
 NULL AS Verkoopprijs
@@ -92,15 +92,22 @@ WHERE CHARINDEX(',', Plaatsnaam) > 0
 INSERT INTO iproject15.dbo.Bestand
 SELECT DISTINCT LEFT (IllustratieFile,200) AS Filenaam,
 CAST (ItemID AS bigint) AS Voorwerp 
-FROM iproject15.dbo.Illustraties
+FROM Dataconversie.dbo.Illustraties
 
 -------Bestand---------------
 
 INSERT INTO [iproject15].[dbo].[Voorwerp_in_Rubriek]
 SELECT DISTINCT CAST (ID AS bigint) AS Voorwerp,
 CAST (Categorie AS int) AS Rubriek_op_Laagste_Niveau
-FROM iproject15.dbo.items
+FROM Dataconversie.dbo.items
 
 ---------Voorwerp_in_Rubriek-----------
-
+--INSERT INTO iproject15.dbo.Bod
+--SELECT DISTINCT ID AS Voorwerp,
+--CAST (dbo.udf_OmzetValuta([prijs],[Valuta]) AS numeric(8,2)) AS Bodbedrag,
+--LEFT(Verkoper,25) AS Gebruiker,
+--Convert(date, getdate()) AS BodDag,
+--Convert(time, getdate()) AS BodTijdstip
+--FROM Dataconversie.dbo.Items
+--------- Biedingen ---------------
 -- dingen random maken? ID toevoegen bij Email. 

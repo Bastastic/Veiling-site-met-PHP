@@ -409,7 +409,7 @@
 								</li>
 										<?php
 
-										$sql = $dbh->prepare("SELECT COUNT (Voorwerpnummer) AS Aantal FROM Voorwerp");
+										$sql = $dbh->prepare("SELECT COUNT (Voorwerpnummer) AS Aantal FROM Voorwerp WHERE");
 										$sql->execute();
 										$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
