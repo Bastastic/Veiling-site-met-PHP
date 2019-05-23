@@ -71,7 +71,6 @@ if ($aantalfoto > 4){
 
 
     <div class="container">
-        <?php print_r($fotos); ?>
         <div class="segment">
             <div class="row align-items-start">
                 <div class="col-lg-7">
@@ -164,7 +163,7 @@ if ($aantalfoto > 4){
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
                     onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                     <div id='ad'>
-                        <img style='height:150px' src='http://iproject15.icasites.nl/pics/$foto' alt='Responsive image'>
+                        <img style='height:150px' src='/$foto' alt='Responsive image'>
                         <p>$titel</p>
                     </div>
                 </div>";
