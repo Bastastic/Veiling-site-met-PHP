@@ -299,12 +299,8 @@ where Voorwerp = $voorwerpnummer ");
             }
         }, 1000);
     </script>
-
 </body>
 
-
-
-
-<?php include 'includes/footer.html'; ?>
+<?php include 'includes/footer.php'; ?>
 
 </html>
