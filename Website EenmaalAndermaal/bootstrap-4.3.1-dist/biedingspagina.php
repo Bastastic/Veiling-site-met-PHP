@@ -79,8 +79,8 @@
 
 
         $tellenVanFotos = $dbh->prepare("select COUNT(*) as count
-from Bestand
-where Voorwerp = $voorwerpnummer ");
+                                        from Bestand
+                                        where Voorwerp = $voorwerpnummer ");
         $tellenVanFotos->execute();
         $aantalfoto = $tellenVanFotos->fetch(PDO::FETCH_ASSOC);
 
