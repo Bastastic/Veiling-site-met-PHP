@@ -38,7 +38,7 @@
 
 $sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdeindeDag, Voorwerp.LooptijdeindeTijdstip, Gebruiker.Gebruikersnaam 
 FROM Voorwerp
-INNER JOIN Gebruiker
+LEFT JOIN Gebruiker
 ON Voorwerp.Verkoper = Gebruiker.Gebruikersnaam
 ORDER BY LooptijdbeginDag DESC, LooptijdbeginTijdstip DESC");
 $sql->execute();
@@ -58,9 +58,9 @@ where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
-$query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
+$query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
 $sql = $dbh->prepare($query);
-$sql->execute();
+$sql->execute(['voorwerpnummer' => $voorwerpnummer]);
 $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $aantalfoto = $aantalfoto['count'];
@@ -163,7 +163,7 @@ if ($aantalfoto > 4){
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
                     onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                     <div id='ad'>
-                        <img style='height:150px' src='/$foto' alt='Responsive image'>
+                        <img style='height:150px' src='http://iproject15.icasites.nl/$foto' alt='Responsive image'>
                         <p>$titel</p>
                     </div>
                 </div>";

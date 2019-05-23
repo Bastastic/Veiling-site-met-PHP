@@ -79,10 +79,6 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
          $sql->execute();
          $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
          $voorwerpnummer = $resultaat['Voorwerpnummer'];
-
-        //  if (!file_exists("pics/$voorwerpnummer")) {
-        //     mkdir("pics/$voorwerpnummer", 0777, true);
-        // }
         
         $target_dir = "upload";
         $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.jpg';
