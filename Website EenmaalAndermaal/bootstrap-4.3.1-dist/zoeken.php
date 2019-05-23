@@ -273,7 +273,7 @@
                     $trefwoord = strval($_GET['zoeken']);
                     $cat = $_GET['cat'];
                     $sql = $dbh->prepare(
-                        "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                        "SELECT TOP(50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                         FROM Voorwerp, Voorwerp_in_Rubriek 
                         WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
                         AND 
@@ -301,7 +301,7 @@
                         $cat = $_GET['cat'];
 
                         $sql = $dbh->prepare(
-                            "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT TOP (50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                             FROM Voorwerp, Voorwerp_in_Rubriek 
                             WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
                             AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
@@ -317,7 +317,7 @@
                     } elseif (isset($_GET['zoeken'])) {
                         $trefwoord = strval($_GET['zoeken']);
                         $sql = $dbh->prepare(
-                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT TOP (50) voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                             FROM Voorwerp 
                             WHERE titel LIKE CONCAT('%', :trefwoord, '%')"
                         );
@@ -355,7 +355,7 @@
                         }
 
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\"		>
                         <div class='image-flip' ontouchstart='this.classList.toggle('hover');'>
                             <div class='mainflip'>
                                 <div class='frontside'>
@@ -399,6 +399,31 @@
                     }
                 ?>
             </div>
+						<br>
+						<br>
+						<nav aria-label="Page navigation example">
+							<ul class="pagination justify-content-center">
+								<li class="page-item disabled">
+									<a class="page-link" href="#" tabindex="-1">Previous</a>
+								</li>
+										<?php
+
+										$sql = $dbh->prepare("SELECT COUNT (Voorwerpnummer) AS Aantal FROM Voorwerp");
+										$sql->execute();
+										$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+										foreach ($result as $key => $value) {
+												$Aantal = $value['Aantal'];
+												$AantalPaginas = $Aantal / 30;
+												for ($x = 0; $x <= $AantalPaginas; $x++) {
+													echo "<li class='page-item'><a class='page-link' href='#'>". $x ."</a></li>";
+											} 
+										}
+										?>
+									<a class="page-link" href="#">Next</a>
+								</li>
+							</ul>
+						</nav>
         </div>
     </section>
 </body>
