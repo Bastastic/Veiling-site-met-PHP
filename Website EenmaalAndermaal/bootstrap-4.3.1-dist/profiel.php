@@ -229,10 +229,16 @@
                                                     $hoogstebod = $resultaat[0]['bodbedrag'];
                                                 }
 
+                                                $query = "SELECT TOP 1 Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
+                                                $sql = $dbh->prepare($query);
+                                                $sql->execute();
+                                                $fotos = $sql->fetch(PDO::FETCH_ASSOC);
+                                                $foto = $fotos['Filenaam'];
+
                                                 echo '<div class="card mb-3" style="max-width: 800px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
-                                                        <img src="..." class="card-img" alt="...">
+                                                        <img src="http://iproject15.icasites.nl/' . $foto . '" class="card-img" alt="...">
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
