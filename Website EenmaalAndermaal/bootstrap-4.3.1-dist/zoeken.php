@@ -180,6 +180,7 @@
 									Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub)
 									AND titel LIKE CONCAT('%', :trefwoord, '%')
 									AND Startprijs > :prijsMin AND Startprijs < :prijsMax
+									AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
 							");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -203,6 +204,7 @@
 							OR
 							Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub)
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
+							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
 							");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -217,6 +219,7 @@
 								on Bod.Voorwerp=Voorwerp.voorwerpnummer 
 							WHERE titel LIKE CONCAT('%', :trefwoord, '%')
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
+							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
 							");
 					$sql->execute(['trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -228,8 +231,9 @@
 							on Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
 							left outer join Bod
 							on Bod.Voorwerp=Voorwerp.voorwerpnummer 
-							AND Startprijs > :prijsMin AND Startprijs < :prijsMax"
-					);
+							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
+							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+					");
 					$sql->execute(['prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 				}

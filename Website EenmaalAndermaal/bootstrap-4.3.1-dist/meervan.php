@@ -27,7 +27,9 @@
                     $sql = $dbh->prepare(
                         "SELECT voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                         FROM Voorwerp
-                        WHERE Voorwerp.verkoper = :verkoper"
+                        WHERE cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+                        AND Verkoper LIKE :verkoper
+                        ORDER BY LooptijdeindeDag DESC, LooptijdeindeTijdstip DESC"
                     );
                     $sql->execute(['verkoper' => $verkoper]);
                     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -78,7 +80,7 @@
                                             <h4>$titel</h4>
                                             <p> $bescrhijving...</p>
                                             <h5>€$hoogstebod</h5>
-										    <p id='$voorwerpnummer'></p>
+										    <p>Nog: <span id='$voorwerpnummer'></span> </p>
                                         </div>
                                     </div>
                                 </div>

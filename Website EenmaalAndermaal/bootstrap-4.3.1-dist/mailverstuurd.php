@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php include 'includes/links.php'; 
-        if(!isset($_SESSION['userID'])){
-            echo '<script>window.location.replace("inloggen.php");</script>';
-        }
-    ?>
+    <?php include 'includes/links.php'; ?>
     <title>Code Invoeren</title>
 </head>
 
-<?php include 'includes/header.php'; 
+<?php include 'includes/header.php';
+
+    if(!isset($_SESSION['userID'])){
+        echo '<script>window.location.replace("inloggen.php");</script>';
+    }
+
     if (isset($_GET['errc'])) {
         $type = 'danger';
         if ($_GET['errc'] == '1') {

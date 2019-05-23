@@ -7,9 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php 
         include 'includes/links.php'; 
-        if(!isset($_SESSION['userID'])){
-            echo '<script>window.location.replace("inloggen.php");</script>';
-        }
     ?>
     <link rel="stylesheet" href="css/faq.css" />
 
@@ -17,7 +14,12 @@
 </head>
 
 <?php 
-    include 'includes/header.php'; 
+    include 'includes/header.php';
+    
+    if(!isset($_SESSION['userID'])){
+        echo '<script>window.location.replace("inloggen.php");</script>';
+    }
+
     if (isset($_GET['errc'])) {
         $type = 'danger';
         $titel = 'Sorry!';
@@ -72,7 +74,7 @@
                     </a>
                     <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
                         aria-selected="false">
-                        <i class="mdi mdi-heart"></i> Uw veilingen
+                        <i class="mdi mdi-heart"></i> Veiling historie
                     </a>
                 </div>
             </div>
@@ -181,6 +183,65 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
+
+                                        <?php
+                                            $query = "SELECT * 
+                                            FROM Voorwerp
+                                            WHERE Verkoper = :verkoper
+                                            AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+                                            ORDER BY LooptijdeindeDag DESC, LooptijdeindeTijdstip DESC
+                                            ";
+                                            $sql = $dbh->prepare($query);
+                                            $sql->execute(['verkoper' => $gebruikersnaam]);
+                                            $veilingen = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                                            foreach ($veilingen as $key => $value) {
+                                                $titel = $value['Titel'];
+                                                $beschrijving = $value['Beschrijving'];
+                                                $voorwerpnummer = $value['Voorwerpnummer'];
+                                                $datetime = date_create($value['LooptijdeindeDag'] . " " . $value['LooptijdeindeTijdstip'], timezone_open("Europe/Amsterdam"));
+                                                $datetime = date_format($datetime, "d-m-Y H:i");
+
+                                                $sql = $dbh->prepare(
+                                                    'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
+                                                    FROM Bod, Voorwerp
+                                                    WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
+                                                    AND voorwerpnummer = :voorwerpnummer
+                                                    ORDER BY bodbedrag DESC'
+                                                );
+
+                                                $sql->execute(['voorwerpnummer' => $value['Voorwerpnummer']]);
+                                                $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+                                                $hoogstebod = $value['Startprijs'];
+                                                if ($resultaat) {
+                                                    $hoogstebod = $resultaat[0]['bodbedrag'];
+                                                }
+
+                                                $query = "SELECT TOP 1 Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
+                                                $sql = $dbh->prepare($query);
+                                                $sql->execute();
+                                                $fotos = $sql->fetch(PDO::FETCH_ASSOC);
+                                                $foto = $fotos['Filenaam'];
+
+                                                echo '<div class="card mb-3" style="max-width: 800px;">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                                        <img src="http://iproject15.icasites.nl/' . $foto . '" class="card-img" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">' . $titel . '</h5>
+                                                            <p class="card-text">' . $beschrijving . '</p>
+                                                            <p class="card-text">Hoogste bod: ' . $hoogstebod . '</p>
+                                                            <p class="card-text"><small class="text-muted">Loopt af op ' . $datetime . '</small></p>
+                                                            <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary stretched-link">Bekijk veiling</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>';
+                                            }
+                                        ?>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +254,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h4>Uw veilingen</h4>
+                                            <h4>Veiling historie</h4>
                                             <hr>
                                         </div>
                                     </div>
@@ -203,7 +264,10 @@
                                             <?php
                                             $query = "SELECT * 
                                             FROM Voorwerp
-                                            WHERE Verkoper = :verkoper";
+                                            WHERE Verkoper = :verkoper
+                                            AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) <= GETDATE()
+                                            ORDER BY LooptijdeindeDag DESC, LooptijdeindeTijdstip DESC
+                                            ";
                                             $sql = $dbh->prepare($query);
                                             $sql->execute(['verkoper' => $gebruikersnaam]);
                                             $veilingen = $sql->fetchAll(PDO::FETCH_ASSOC);
