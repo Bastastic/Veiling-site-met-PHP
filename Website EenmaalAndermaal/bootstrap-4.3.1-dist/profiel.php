@@ -309,9 +309,9 @@
                                                         <div class="card-body">
                                                             <h5 class="card-title">' . $titel . '</h5>
                                                             <p class="card-text">' . $beschrijving . '</p>
-                                                            <p class="card-text">Hoogste bod: ' . $hoogstebod . '</p>
-                                                            <p class="card-text"><small class="text-muted">Loopt af op ' . $datetime . '</small></p>
-                                                            <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary stretched-link">Bekijk veiling</a>
+                                                            <p class="card-text mt-3">Hoogste bod: ' . $hoogstebod . '</p>
+                                                            <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Bekijk veiling</a>
+                                                            <a href="veilingeindigen.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Veiling afronden</a>
                                                         </div>
                                                     </div>
                                                 </div>
