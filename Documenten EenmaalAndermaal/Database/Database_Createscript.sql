@@ -31,6 +31,8 @@ drop table Voorwerp_in_Rubriek
 go
 drop table Vraag
 go
+drop table Verificatie
+GO
 
 
 
