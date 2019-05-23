@@ -10,12 +10,12 @@
     <title>Over ons</title>
 </head>
 <?php
-     require 'php/connectDB.php'; 
+     require 'php/connectDB.php';
     ?>
 
 
 <?php
-     include 'includes/header.php'; 
+     include 'includes/header.php';
     ?>
 
 <body style="overflow-x:hidden">
@@ -32,7 +32,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -113,20 +113,59 @@
 
 	</aside> <!-- col.// -->
 	<aside class="col-sm-6">
+<?php
+	if(isset($_GET['cat'])) {
+		echo '
+		<div class="card">
+			<article class="card-group-item">
+				<header class="card-header"><h6 class="title">Subcategorie&euml;n</h6></header>
+				<div class="filter-content">
+					<div class="list-group list-group-flush">';
+							function Rubrieken($parent, $margin){
+								global $dbh;
+								$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
+								$q->execute();
+								$q_fetchAll = $q->fetchAll();
+								for($i = 0; $i < count($q_fetchAll); $i++){
+									echo '
+									<label> '
+										. $margin . '<input type="radio" class="filled-in" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
+											<span>' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+										</label>';
+								}
+							}
+							Rubrieken($_GET['cat'], '&nbsp;&nbsp;');
+		echo '</div>
+				</div>
+			</article>';
+	} else {
+		echo '
+		<div class="card">
+			<article class="card-group-item">
+				<header class="card-header"><h6 class="title">Subcategorie&euml;n</h6></header>
+				<div class="filter-content">
+					<div class="list-group list-group-flush">';
+							function Rubrieken($parent = -1, $margin = ''){
+								global $dbh;
+								$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
+								$q->execute();
+								$q_fetchAll = $q->fetchAll();
+								for($i = 0; $i < count($q_fetchAll); $i++){
+									echo '
+									<label>
+									<input type="radio" class="filled-in" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
+											<span>' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+										</label>';
+								}
+							}
+							Rubrieken();
+		echo '</div>
+				</div>
+			</article>';
+	}
+?>
 
 
-<div class="card">
-	<article class="card-group-item">
-		<header class="card-header"><h6 class="title">Similar category </h6></header>
-		<div class="filter-content">
-			<div class="list-group list-group-flush">
-			  <a href="#" class="list-group-item">Cras justo odio <span class="float-right badge badge-light round">142</span> </a>
-			  <a href="#" class="list-group-item">Dapibus ac facilisis  <span class="float-right badge badge-light round">3</span>  </a>
-			  <a href="#" class="list-group-item">Morbi leo risus <span class="float-right badge badge-light round">32</span>  </a>
-			  <a href="#" class="list-group-item">Another item <span class="float-right badge badge-light round">12</span>  </a>
-			</div>  <!-- list-group .// -->
-		</div>
-	</article> <!-- card-group-item.// -->
 	<article class="card-group-item">
 		<header class="card-header"><h6 class="title">Color check</h6></header>
 		<div class="filter-content">
@@ -230,79 +269,84 @@
 
             <div class="row">
                 <?php
-                if(isset($_GET['cat']) && isset($_GET['zoeken'])){
+                if (isset($_GET['cat']) && isset($_GET['zoeken'])) {
                     $trefwoord = strval($_GET['zoeken']);
                     $cat = $_GET['cat'];
                     $sql = $dbh->prepare(
                         "SELECT TOP(50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                         FROM Voorwerp, Voorwerp_in_Rubriek 
                         WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                        AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat
-                        AND titel LIKE CONCAT('%', :trefwoord, '%')");  
-                    $sql->execute(['cat' => $cat, 'trefwoord' => $trefwoord]);
+                        AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+																SELECT Rubrieknummer 
+																FROM Rubriek
+																WHERE Hoofdrubriek = :cat)
+														OR
+														Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub
+														)
+                        AND titel LIKE CONCAT('%', :trefwoord, '%')"
+                    );
+                    $sql->execute(['cat' => $cat,  'catSub' => $cat, 'trefwoord' => $trefwoord]);
                     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     $aantal = $sql->rowCount();
-                    if($aantal < 1){
-                     echo '<p class="ml-4">Geen producten gevonden</p>';   
+                    if ($aantal < 1) {
+                        echo '<p class="ml-4">Geen producten gevonden</p>';
                     }
-                    }
-                    elseif(isset($_GET['cat'])){
+                } elseif (isset($_GET['cat'])) {
                         $cat = $_GET['cat'];
 
                         $sql = $dbh->prepare(
                             "SELECT TOP (50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                             FROM Voorwerp, Voorwerp_in_Rubriek 
                             WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                            AND Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau =:cat");  
-                        $sql->execute(['cat' => $cat]);
+                            AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+																SELECT Rubrieknummer 
+																FROM Rubriek
+																WHERE Hoofdrubriek = :cat)
+														OR
+														Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub
+														)"
+                        );
+                        $sql->execute(['cat' => $cat, 'catSub' => $cat]);
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-                    }
-                    elseif (isset($_GET['zoeken'])){
+                    } elseif (isset($_GET['zoeken'])) {
                         $trefwoord = strval($_GET['zoeken']);
                         $sql = $dbh->prepare(
                             "SELECT TOP (50) voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                             FROM Voorwerp 
-                            WHERE titel LIKE CONCAT('%', :trefwoord, '%')");
+                            WHERE titel LIKE CONCAT('%', :trefwoord, '%')"
+                        );
                         $sql->execute(['trefwoord' => $trefwoord]);
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-                    }else{
+                    } else {
                         $sql = $dbh->prepare(
-                            "SELECT (50) voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
-                            FROM Voorwerp");
+                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            FROM Voorwerp"
+                        );
                         $sql->execute();
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     }
                     foreach ($result as $key => $value) {
-												$afgelopen = 'Veiling afgelopen!'; 
+                        $afgelopen = 'Veiling afgelopen!';
                         $voorwerpnummer = $value['voorwerpnummer'];
                         $titel = $value['titel'];
                         $bescrhijving = $value['beschrijving'];
                         $startprijs = $value['startprijs'];
-												$looptijdeindedag = $value['looptijdeindedag'];
-												$currdate = date("d-m-Y");
-                        $dag = date_create($looptijdeindedag);
-                        $dag = date_format($dag, "d-m-Y");
-												if($currdate < $dag){
-													$einddatum = "Loopt af op $dag";
-												}elseif($currdate == $dag){
-													$einddatum = "Loopt vandaag af";
-												}elseif($currdate > $dag){
-													$einddatum = "Afgelopen";
-												}	
+                        $looptijdeindedag = $value['looptijdeindedag'];
+                        $looptijdeindetijdstip = $value['looptijdeindetijdstip'];
 
-												$sql = $dbh->prepare(
-														'SELECT TOP(50) bodbedrag
+                        $sql = $dbh->prepare(
+                                                    'SELECT bodbedrag
 														FROM Bod, Voorwerp
 														WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
 														AND voorwerpnummer = :voorwerpnummer
 														ORDER BY bodbedrag DESC'
-												);
-												$sql->execute(['voorwerpnummer' => $voorwerpnummer]);
-												$resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-												$hoogstebod = $startprijs;
-												if($resultaat){
-														$hoogstebod = $resultaat[0]['bodbedrag'];
-												}
+                                                );
+                        $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+                        $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+                        $hoogstebod = $startprijs;
+                        if ($resultaat) {
+                            $hoogstebod = $resultaat[0]['bodbedrag'];
+                        }
 
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\"		>
@@ -316,7 +360,6 @@
                                             <h4>$titel</h4>
                                             <p>$bescrhijving</p>
                                             <h5>€$hoogstebod</h5>
-																						<h6>$einddatum</h6>
 																						<p id='$voorwerpnummer'></p>
                                         </div>
                                     </div>
@@ -325,7 +368,7 @@
                         </div>
 										</div>
 										<script>
-										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag').getTime();
+										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag $looptijdeindetijdstip').getTime();
 
 										var x = setInterval(function() {
 
