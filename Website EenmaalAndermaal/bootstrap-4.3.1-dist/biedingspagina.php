@@ -36,7 +36,7 @@
 
 
 
-    if(isset($_GET['voorwerpnummer'])){
+    if (isset($_GET['voorwerpnummer'])) {
         $voorwerpnummer = $_GET['voorwerpnummer'];
 
         $sql = $dbh->prepare(
@@ -49,7 +49,7 @@
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
         $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
 
-        $afgelopen = 'Veiling afgelopen!'; 
+        $afgelopen = 'Veiling afgelopen!';
 
         $titel = $resultaat['titel'];
         $beschrijving = $resultaat['beschrijving'];
@@ -72,7 +72,7 @@
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
         $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
         $hoogstebod = $startprijs;
-        if($resultaat){
+        if ($resultaat) {
             $hoogstebod = $resultaat[0]['bodbedrag'];
         }
 
@@ -80,17 +80,14 @@
         $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
 from Bestand
 where Voorwerp = $voorwerpnummer ");
-$tellenVanFoto->execute();
-$aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
+        $tellenVanFoto->execute();
+        $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
-$aantalfoto = $aantalfoto['count'];
-if ($aantalfoto > 4){
-    $aantalfoto = 4;
-}
-
-
-
-    }else{
+        $aantalfoto = $aantalfoto['count'];
+        if ($aantalfoto > 4) {
+            $aantalfoto = 4;
+        }
+    } else {
         echo '<script>window.location.replace("zoeken.php");</script>';
         die();
     }
@@ -103,9 +100,9 @@ if ($aantalfoto > 4){
                     <ul class="carousel-indicators">
 
                     <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
-                    <?php 
-                          for( $x=0; $x < $aantalfoto; $x++ ){
-                           echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                    <?php
+                          for ($x=0; $x < $aantalfoto; $x++) {
+                              echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
                           }
 
                         ?>
@@ -120,25 +117,21 @@ if ($aantalfoto > 4){
 
                     <?php
 
-                    if($aantalfoto == 1){
+                    if ($aantalfoto == 1) {
                         echo "<img src='http://iproject15.icasites.nl/pics/dt_".$aantalfoto."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>";
-                        }else{
-
-                        for( $s=1; $s < $aantalfoto; $s++ ){
-                        
-
-                            if( $s == 1){
-                        echo   "<div class='carousel-item active' style='cursor: pointer'
+                    } else {
+                        for ($s=1; $s < $aantalfoto; $s++) {
+                            if ($s == 1) {
+                                echo   "<div class='carousel-item active' style='cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                                 <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                                </div>"; 
-                        }
-                        else {
-                        echo  "<div class='carousel-item' style='cursor: pointer'
+                                </div>";
+                            } else {
+                                echo  "<div class='carousel-item' style='cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                         <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                        </div>"; 
-                        }
+                        </div>";
+                            }
                         }
                     }
                         ?>
@@ -180,10 +173,10 @@ if ($aantalfoto > 4){
                 <hr>
                 <br>
                 <div class="row justify-content-center">
-                    <?php 
-                    if(isset($_SESSION['userID'])){
+                    <?php
+                    if (isset($_SESSION['userID'])) {
                         echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Chatten</a>';
-                    }else{
+                    } else {
                         echo '<div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
                         <a href="" class="btn btn-secondary disabled" role="button" disabled>Chatten</a>
                     </div>';
@@ -214,11 +207,11 @@ if ($aantalfoto > 4){
                         return false;
                     } 
                     </script>
-                    <?php 
-                    if(isset($_SESSION['userID'])){
+                    <?php
+                    if (isset($_SESSION['userID'])) {
                         echo "<input class='btn btn-primary' data-toggle='modal' id='biedknop' data-target='#biedModal'
                         type='submit' value='Bied'>";
-                    }else{
+                    } else {
                         echo '<div class="tooltip-wrapper" data-placement="top" data-content="Hiervoor moet je ingelogd zijn">
                         <input type="submit" style="pointer-events: none" class="btn btn-primary disabled" id="biedknop" value="Bied" disabled>
                         </div>';
@@ -240,7 +233,7 @@ if ($aantalfoto > 4){
                         <?php
                             foreach ($resultaat as $key => $value) {
                                 $datetime = date_create($value['boddag'] . " " . $value['bodtijdstip'], timezone_open("Europe/Amsterdam"));
-                                $datetime = date_format($datetime,"d-m-Y H:i");
+                                $datetime = date_format($datetime, "d-m-Y H:i");
                                 echo "
                                 <tr>
                                 <td>" . $value['gebruiker'] . "</td>
@@ -307,7 +300,7 @@ if ($aantalfoto > 4){
 
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById('timer').innerHTML = '$afgelopen';
+                document.getElementById('timer').innerHTML = '<?=$afgelopen?>';
             }
         }, 1000);
 
