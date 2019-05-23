@@ -42,6 +42,6 @@
         <input type="submit" name="submit" value="Verifieer">
     </form>
 </body>
-<?php include 'includes/footer.php' ; ?>
+<?php include 'includes/footer.html' ; ?>
 
 </html>

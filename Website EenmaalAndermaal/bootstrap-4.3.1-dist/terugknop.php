@@ -15,7 +15,7 @@
   <button type="button" class="btn btn-primary" onclick="goBack()"><i class="fa fa-reply"></i></button>
 </body>
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer.html'; ?>
 
 </html>
 

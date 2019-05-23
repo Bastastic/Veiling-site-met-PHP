@@ -55,6 +55,6 @@ mssql_query($query);
 
 </body>
 <footer>
-    <?php include 'includes/footer.php'; ?>
+    <?php include 'includes/footer.html'; ?>
 </footer>
 </html>

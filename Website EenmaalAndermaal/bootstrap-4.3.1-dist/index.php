@@ -176,6 +176,6 @@ if ($aantalfoto > 4){
         </div>
 </body>
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer.html'; ?>
 
 </html>
