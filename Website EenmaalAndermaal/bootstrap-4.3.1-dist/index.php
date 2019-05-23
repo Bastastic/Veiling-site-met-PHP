@@ -52,6 +52,7 @@ $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
 $voorwerpnummer = $resultaat['Voorwerpnummer'];
 $titel = $resultaat['Titel'];
 $beschrijving = $resultaat['Beschrijving'];
+$beschrijving = substr($beschrijving,0, 200);
 $gebruikersnaam = $resultaat['Gebruikersnaam'];
 $eindedag = $resultaat['LooptijdeindeDag'];
 $eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
@@ -124,7 +125,7 @@ if ($aantalfoto > 4){
                 <h2>$titel</h2>
                 <h6>$gebruikersnaam</h6>
                 <h4>Omschrijving:</h4>
-                <small> $beschrijving
+                <small> $beschrijving...
                 </small>
             </div>" ?>
             </div>
