@@ -238,6 +238,7 @@
 						$voorwerpnummer = $value['voorwerp'];
 						$titel = $value['titel'];
 						$bescrhijving = $value['beschrijving'];
+						$bescrhijving = substr($bescrhijving, 0 , 200);
 						$startprijs = $value['startprijs'];
 						$looptijdeindedag = $value['looptijdeindedag'];
 						$looptijdeindetijdstip = $value['looptijdeindetijdstip'];
