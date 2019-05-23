@@ -104,6 +104,7 @@ where Voorwerp = $voorwerpnummer ");
 
                         
                           for( $x=0; $x < $aantalfoto; $x++ ){
+                        
                               if($x == 0){
                                 echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
                               }else{
@@ -139,19 +140,6 @@ where Voorwerp = $voorwerpnummer ");
                     }
                         ?>
 
-
-                        <!-- <div class="carousel-item active">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Los Angeles">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="New York">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div> -->
                     </div>
                     <a class="carousel-control-prev" href="#demo" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
