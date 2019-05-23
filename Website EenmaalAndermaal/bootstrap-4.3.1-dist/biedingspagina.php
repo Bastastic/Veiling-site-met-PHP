@@ -40,7 +40,7 @@
         $voorwerpnummer = $_GET['voorwerpnummer'];
 
         $sql = $dbh->prepare(
-            'SELECT titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam, Mailbox
+            'SELECT titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip, Veiliggesloten, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam, Mailbox
             FROM Gebruiker
             INNER JOIN Voorwerp
             ON Gebruiker.gebruikersnaam = Voorwerp.verkoper
@@ -56,6 +56,7 @@
         $eindedag = $resultaat['LooptijdeindeDag'];
         $eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
         $email = $resultaat['Mailbox'];
+        $veilinggesloten = $resultaat['Veiliggesloten'];
         $verkoper = $resultaat['gebruikersnaam'];
         $voornaam = $resultaat['voornaam'];
         $achternaam = $resultaat['achternaam'];
@@ -77,11 +78,11 @@
         }
 
 
-        $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
+        $tellenVanFotos = $dbh->prepare("select COUNT(*) as count
 from Bestand
 where Voorwerp = $voorwerpnummer ");
-        $tellenVanFoto->execute();
-        $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
+        $tellenVanFotos->execute();
+        $aantalfoto = $tellenVanFotos->fetch(PDO::FETCH_ASSOC);
 
         $aantalfoto = $aantalfoto['count'];
         if ($aantalfoto > 4) {
@@ -99,30 +100,34 @@ where Voorwerp = $voorwerpnummer ");
                 <div id="demo" class="carousel slide mx-auto" data-ride="carousel">
                     <ul class="carousel-indicators">
 
-                    <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
-                    <?php
-                          for ($x=0; $x < $aantalfoto; $x++) {
-                              echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                        <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
+                        <?php 
+
+                        
+                          for( $x=0; $x < $aantalfoto; $x++ ){
+                        
+                              if($x == 0){
+                                echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                              }else{
+                                echo "<li data-target='#demo' data-slide-to='$x'>";
+                              }
                           }
 
                         ?>
-
-
-                        <!-- <li data-target="#demo" data-slide-to="0" class="active"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
-                        <li data-target="#demo" data-slide-to="3"></li> -->
                     </ul>
                     <div class="carousel-inner">
 
-                    <?php
+                        <?php
 
                     if ($aantalfoto == 1) {
                         echo "<img src='http://iproject15.icasites.nl/pics/dt_".$aantalfoto."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>";
-                    } else {
-                        for ($s=1; $s < $aantalfoto; $s++) {
-                            if ($s == 1) {
-                                echo   "<div class='carousel-item active' style='cursor: pointer'
+                        }else{
+
+                        for( $s=1; $s <= $aantalfoto; $s++ ){
+                        
+
+                            if( $s == 1){
+                        echo   "<div class='carousel-item active' style='cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                                 <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
                                 </div>";
@@ -136,19 +141,6 @@ where Voorwerp = $voorwerpnummer ");
                     }
                         ?>
 
-
-                        <!-- <div class="carousel-item active">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Los Angeles">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="New York">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://www.w3schools.com/bootstrap4/ny.jpg" alt="Chicago">
-                        </div> -->
                     </div>
                     <a class="carousel-control-prev" href="#demo" data-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
@@ -157,10 +149,9 @@ where Voorwerp = $voorwerpnummer ");
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
-                <div class="form-group my-3">
+                <div class="my-3">
                     <h2><?=$titel;?></h2>
                     <p><?=$beschrijving;?></p>
-
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5">
@@ -175,16 +166,16 @@ where Voorwerp = $voorwerpnummer ");
                 <div class="row justify-content-center">
                     <?php
                     if (isset($_SESSION['userID'])) {
-                        echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Chatten</a>';
+                        echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Contact opnemen</a>';
                     } else {
                         echo '<div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
-                        <a href="" class="btn btn-secondary disabled" role="button" disabled>Chatten</a>
+                        <a href="" class="btn btn-secondary disabled" role="button" disabled>Contact opnemen</a>
                     </div>';
                     }
                     ?>
                     &nbsp; &nbsp;
                     <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van
-                        <?=$voornaam?></a>
+                        <?=$verkoper?></a>
 
                 </div>
                 <br>
@@ -194,20 +185,23 @@ where Voorwerp = $voorwerpnummer ");
                 <br>
                 <hr>
                 <h4>Biedingen</h4>
-                <form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
+
+                <?php
+                if($veilinggesloten == '0'){
+                    echo '<form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
-                    <input type="number" class="form-control my-4" placeholder="Minimaal €<?=$hoogstebod?>" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="<?=$hoogstebod?>" step="0.01" required>
-                        <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer?>"/>
-                        <input type="hidden" name="hoogstebod" value="<?=$hoogstebod?>">
+                    <input type="number" class="form-control my-4" placeholder="Minimaal € ' . $hoogstebod . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . $hoogstebod . '" step="0.01" required>
+                        <input type="hidden" name="voorwerpnummer" value="' . $voorwerpnummer . '"/>
+                        <input type="hidden" name="hoogstebod" value="' . $hoogstebod . '">
                     <div class="input-group-prepend my-4">
                     <script>
                     function getdata() {
-                        var bod = document.getElementById('bod').value;
+                        var bod = document.getElementById("bod").value;
                         return false;
                     } 
-                    </script>
-                    <?php
+                    </script>';
+                    
                     if (isset($_SESSION['userID'])) {
                         echo "<input class='btn btn-primary' data-toggle='modal' id='biedknop' data-target='#biedModal'
                         type='submit' value='Bied'>";
@@ -216,21 +210,22 @@ where Voorwerp = $voorwerpnummer ");
                         <input type="submit" style="pointer-events: none" class="btn btn-primary disabled" id="biedknop" value="Bied" disabled>
                         </div>';
                     }
+                }
                     ?>
-                    </div>
-                </div>
-                </form>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Gebruiker</th>
-                            <th>Bod</th>
-                            <th>Datum & Tijd</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            </div>
+        </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Gebruiker</th>
+                    <th>Bod</th>
+                    <th>Datum & Tijd</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                        <?php
+                <?php
                             foreach ($resultaat as $key => $value) {
                                 $datetime = date_create($value['boddag'] . " " . $value['bodtijdstip'], timezone_open("Europe/Amsterdam"));
                                 $datetime = date_format($datetime, "d-m-Y H:i");
@@ -243,10 +238,10 @@ where Voorwerp = $voorwerpnummer ");
                                 ";
                             }
                             ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            </tbody>
+        </table>
+    </div>
+    </div>
     </div>
     </div>
 
@@ -256,9 +251,9 @@ where Voorwerp = $voorwerpnummer ");
         });
 
         bod.addEventListener("input", function (e) {
-            if(this.value <= <?=$hoogstebod?>){
+            if (this.value <= < ? = $hoogstebod ? > ) {
                 biedknop.disabled = true;
-            }else{
+            } else {
                 biedknop.disabled = false;
             }
         });
@@ -268,13 +263,13 @@ where Voorwerp = $voorwerpnummer ");
 
             bod = document.getElementById("bod").value;
 
-            if (isNaN(bod) || bod <= <?=$hoogstebod?>) {
+            if (isNaN(bod) || bod <= < ? = $hoogstebod ? > ) {
                 alert("Je moet meer bieden!");
                 return false;
             } else {
                 var bod = document.getElementById('bod').value;
 
-                if(confirm("Weet u zeker dat u €" + bod + " wilt bieden")) {
+                if (confirm("Weet u zeker dat u €" + bod + " wilt bieden")) {
                     return true;
                 } else {
                     return false;
@@ -284,7 +279,7 @@ where Voorwerp = $voorwerpnummer ");
 
         var countDownDate = new Date('<?=$eindedag?> <?=$eindetijdstip?>').getTime();
 
-        var x = setInterval(function() {
+        var x = setInterval(function () {
 
             var now = new Date().getTime();
 
@@ -295,16 +290,14 @@ where Voorwerp = $voorwerpnummer ");
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('timer').innerHTML = days + 'd ' + hours + 'h '
-            + minutes + 'm ' + seconds + 's ';
+            document.getElementById('timer').innerHTML = days + 'd ' + hours + 'h ' +
+                minutes + 'm ' + seconds + 's ';
 
             if (distance < 0) {
                 clearInterval(x);
                 document.getElementById('timer').innerHTML = '<?=$afgelopen?>';
             }
         }, 1000);
-
-
     </script>
 
 </body>
@@ -312,6 +305,6 @@ where Voorwerp = $voorwerpnummer ");
 
 
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer.html'; ?>
 
 </html>

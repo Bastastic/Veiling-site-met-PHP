@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include 'includes/links.php'; ?>
     <link rel="icon" href="../../../../favicon.ico">
-    <title>Zoeken</title>
+    <title>Meervan</title>
 </head>
 
 <?php
@@ -19,54 +19,91 @@
     <section id="team" class="pb-5">
         <div class="container">
             <br>
-            <h2>Veilingen van <?=strval($_GET['verkoper'])?></h2>
+            <h2>Veilingen van <?=$_GET['verkoper']?></h2>
             <div class="row">
                 <?php
-                if(isset($_GET['verkoper'])){
-                    $trefwoord = strval($_GET['verkoper']);
+                if (isset($_GET['verkoper'])) {
+                    $verkoper = $_GET['verkoper'];
                     $sql = $dbh->prepare(
-                        "SELECT voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip, verkoper 
-                        FROM Voorwerp, Voorwerp_in_Rubriek 
-                        WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                        AND verkoper LIKE CONCAT('%', :verkoper, '%')");
-                    $sql->execute(['verkoper' => $trefwoord]);      
+                        "SELECT voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
+                        FROM Voorwerp
+                        WHERE Voorwerp.verkoper = :verkoper"
+                    );
+                    $sql->execute(['verkoper' => $verkoper]);
                     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     $aantal = $sql->rowCount();
-                    if($aantal < 1){
-                     echo '<p class="ml-4">Geen producten gevonden</p>';   
+                    if ($aantal < 1) {
+                        echo '<p class="ml-4">Geen producten gevonden</p>';
                     }
                     foreach ($result as $key => $value) {
+                        $afgelopen = 'Veiling afgelopen!';
                         $voorwerpnummer = $value['voorwerpnummer'];
                         $titel = $value['titel'];
                         $bescrhijving = $value['beschrijving'];
+                        $bescrhijving = substr($bescrhijving, 0, 200);
                         $startprijs = $value['startprijs'];
-                        $looptijdeindedag = $value['looptijdeindedag'];
-                        $dag = date_create($looptijdeindedag);
-                        $dag = date_format($dag, "d-m-Y");
-                        $looptijdeindetijdstip = $value['looptijdeindetijdstip'];
+                        $eindedag = $value['LooptijdeindeDag'];
+                        $eindetijdstip = $value['LooptijdeindeTijdstip'];
+
+                        $sql = $dbh->prepare(
+                            'SELECT bodbedrag
+														FROM Bod, Voorwerp
+														WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
+														AND voorwerpnummer = :voorwerpnummer
+														ORDER BY bodbedrag DESC'
+                                                );
+                        $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+                        $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+                        $hoogstebod = $startprijs;
+                        if ($resultaat) {
+                            $hoogstebod = $resultaat[0]['bodbedrag'];
+                        }
 
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\"		>
                         <div class='image-flip' ontouchstart='this.classList.toggle('hover');'>
                             <div class='mainflip'>
                                 <div class='frontside'>
                                     <div class='card'>
                                         <div class='card-body text-center'>
-                                            <p><img class=' img-fluid' src='images/test.jpg' alt='advertentie afbeelding'>
+                                            <p><img class=' img-fluid' src='http://iproject15.icasites.nl/pics/dt_1_".$voorwerpnummer.".jpg' alt='advertentie afbeelding'>
                                             </p>
                                             <h4>$titel</h4>
-                                            <p>$bescrhijving</p>
-                                            <h5>€$startprijs</h5>
-                                            <h6>Loopt af op $dag</h6>
+                                            <p> $bescrhijving...</p>
+                                            <h5>€$hoogstebod</h5>
+										    <p id='$voorwerpnummer'></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>";
+										</div>
+										<script>
+										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
+
+										var x = setInterval(function() {
+
+											var now = new Date().getTime();
+
+											var distance = countDownDate$voorwerpnummer - now;
+
+											var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+											var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+											var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+											var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+											document.getElementById('$voorwerpnummer').innerHTML = days + 'd ' + hours + 'h '
+											+ minutes + 'm ' + seconds + 's ';
+
+											if (distance < 0) {
+												clearInterval(x);
+												document.getElementById('$voorwerpnummer').innerHTML = '$afgelopen';
+											}
+										}, 1000);
+								  </script>";
                     }
-                    }
-                    ?>
+                }
+                ?>
             </div>
         </div>
     </section>

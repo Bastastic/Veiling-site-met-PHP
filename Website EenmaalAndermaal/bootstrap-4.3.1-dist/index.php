@@ -15,10 +15,6 @@
         height: 100%;
     }
 
-    .row h2 {
-        font-family: Lobster;
-    }
-
     #ad img {
         width: 100%;
         height: 100%;
@@ -27,7 +23,6 @@
     #ad {
         color: white;
         background-color: #ff814f;
-        font-family: Lobster;
         padding-left: 1%;
     }
 </style>
@@ -41,7 +36,7 @@
 
     <?php
 
-$sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdEindeDag, Gebruiker.Gebruikersnaam 
+$sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdeindeDag, Voorwerp.LooptijdeindeTijdstip, Gebruiker.Gebruikersnaam 
 FROM Voorwerp
 INNER JOIN Gebruiker
 ON Voorwerp.Verkoper = Gebruiker.Gebruikersnaam
@@ -52,14 +47,21 @@ $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
 $voorwerpnummer = $resultaat['Voorwerpnummer'];
 $titel = $resultaat['Titel'];
 $beschrijving = $resultaat['Beschrijving'];
+$beschrijving = substr($beschrijving,0, 200);
 $gebruikersnaam = $resultaat['Gebruikersnaam'];
-$looptijdeindedag = $resultaat['LooptijdEindeDag'];
+$eindedag = $resultaat['LooptijdeindeDag'];
+$eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
 
 $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
 from Bestand
 where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
+
+$query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
+$sql = $dbh->prepare($query);
+$fotos = $sql->execute(['voorwerpnummer', $voorwerpnummer]);
+$fotos = $fotos->fetchAll(PDO::FETCH_ASSOC);
 
 $aantalfoto = $aantalfoto['count'];
 if ($aantalfoto > 4){
@@ -69,6 +71,7 @@ if ($aantalfoto > 4){
 
 
     <div class="container">
+        <?php print_r($fotos); ?>
         <div class="segment">
             <div class="row align-items-start">
                 <div class="col-lg-7">
@@ -88,23 +91,15 @@ if ($aantalfoto > 4){
                         </ul>
                         <div class="carousel-inner">
 
-                            <?php
+                        <?php
 
-                        for( $s=1; $s < $aantalfoto; $s++ ){
-
-                            if( $s == 1){
-                        echo   "<div class='carousel-item active' style='cursor: pointer'
+                        foreach ($fotos as $key => $value) {
+                            $foto = $value['Filenaam'];
+                            echo   "<div class='carousel-item active' style='cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                                </div>"; 
+                                <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                </div>";
                         }
-                    else {
-                        echo  "<div class='carousel-item' style='cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                        <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                        </div>"; 
-                    }
-                    }
 
                         ?>
 
@@ -123,15 +118,15 @@ if ($aantalfoto > 4){
                 <h2>$titel</h2>
                 <h6>$gebruikersnaam</h6>
                 <h4>Omschrijving:</h4>
-                <small> $beschrijving
+                <small> $beschrijving...
                 </small>
             </div>" ?>
             </div>
             <div class="col-lg-7 d-flex justify-content-center">
-                <?php    echo    "  <h4 id='$voorwerpnummer'></h4>
+                <?php    echo    "<h4>Nog&nbsp</h4>  <h4 id='$voorwerpnummer'></h4>
                      </div>
                                 <script>
-										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag').getTime();
+										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
 
 										var x = setInterval(function() {
 
@@ -157,12 +152,13 @@ if ($aantalfoto > 4){
             <div class="row mt-5">
                 <?php
             // veiling gesloten in Voorwerp is standaard 0, dit betekent dus dat de veiling nog open is. Bij het aflopen van de veiling wordt de waarde naar 1 gezet.
-                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0 order by Voorwerp.voorwerpnummer desc");
+                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
+                    $titel = substr($titel, 0, 25);
                     $foto = $value['Filenaam'];
                     $voorwerpnummer = $value['voorwerpnummer'];
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
