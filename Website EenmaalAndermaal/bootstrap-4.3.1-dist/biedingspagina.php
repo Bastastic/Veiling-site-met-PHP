@@ -77,11 +77,11 @@
         }
 
 
-        $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
+        $tellenVanFotos = $dbh->prepare("select COUNT(*) as count
 from Bestand
 where Voorwerp = $voorwerpnummer ");
-        $tellenVanFoto->execute();
-        $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
+        $tellenVanFotos->execute();
+        $aantalfoto = $tellenVanFotos->fetch(PDO::FETCH_ASSOC);
 
         $aantalfoto = $aantalfoto['count'];
         if ($aantalfoto > 4) {

@@ -295,7 +295,7 @@
                         $cat = $_GET['cat'];
 
                         $sql = $dbh->prepare(
-                            "SELECT TOP (50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT TOP (50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                             FROM Voorwerp, Voorwerp_in_Rubriek 
                             WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
                             AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
@@ -311,7 +311,7 @@
                     } elseif (isset($_GET['zoeken'])) {
                         $trefwoord = strval($_GET['zoeken']);
                         $sql = $dbh->prepare(
-                            "SELECT TOP (50) voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT TOP (50) voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                             FROM Voorwerp 
                             WHERE titel LIKE CONCAT('%', :trefwoord, '%')"
                         );
@@ -319,7 +319,7 @@
                         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                     } else {
                         $sql = $dbh->prepare(
-                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
+                            "SELECT voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                             FROM Voorwerp"
                         );
                         $sql->execute();
@@ -331,8 +331,8 @@
                         $titel = $value['titel'];
                         $bescrhijving = $value['beschrijving'];
                         $startprijs = $value['startprijs'];
-                        $looptijdeindedag = $value['looptijdeindedag'];
-                        $looptijdeindetijdstip = $value['looptijdeindetijdstip'];
+                        $eindedag = $value['LooptijdeindeDag'];
+        								$eindetijdstip = $value['LooptijdeindeTijdstip'];
 
                         $sql = $dbh->prepare(
                                                     'SELECT bodbedrag
@@ -368,7 +368,7 @@
                         </div>
 										</div>
 										<script>
-										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag $looptijdeindetijdstip').getTime();
+										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
 
 										var x = setInterval(function() {
 

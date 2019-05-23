@@ -41,7 +41,7 @@
 
     <?php
 
-$sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdEindeDag, Gebruiker.Gebruikersnaam 
+$sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdeindeDag, Voorwerp.LooptijdeindeTijdstip, Gebruiker.Gebruikersnaam 
 FROM Voorwerp
 INNER JOIN Gebruiker
 ON Voorwerp.Verkoper = Gebruiker.Gebruikersnaam
@@ -53,7 +53,8 @@ $voorwerpnummer = $resultaat['Voorwerpnummer'];
 $titel = $resultaat['Titel'];
 $beschrijving = $resultaat['Beschrijving'];
 $gebruikersnaam = $resultaat['Gebruikersnaam'];
-$looptijdeindedag = $resultaat['LooptijdEindeDag'];
+$eindedag = $resultaat['LooptijdeindeDag'];
+$eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
 
 $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
 from Bestand
@@ -131,7 +132,7 @@ if ($aantalfoto > 4){
                 <?php    echo    "  <h4 id='$voorwerpnummer'></h4>
                      </div>
                                 <script>
-										var countDownDate$voorwerpnummer = new Date('$looptijdeindedag').getTime();
+										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
 
 										var x = setInterval(function() {
 
