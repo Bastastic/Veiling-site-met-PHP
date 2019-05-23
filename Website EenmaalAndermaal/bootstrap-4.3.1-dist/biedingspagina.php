@@ -40,7 +40,7 @@
         $voorwerpnummer = $_GET['voorwerpnummer'];
 
         $sql = $dbh->prepare(
-            'SELECT titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam, Mailbox
+            'SELECT titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip, Veiliggesloten, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam, Mailbox
             FROM Gebruiker
             INNER JOIN Voorwerp
             ON Gebruiker.gebruikersnaam = Voorwerp.verkoper
@@ -56,6 +56,7 @@
         $eindedag = $resultaat['LooptijdeindeDag'];
         $eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
         $email = $resultaat['Mailbox'];
+        $veilinggesloten = $resultaat['Veiliggesloten'];
         $verkoper = $resultaat['gebruikersnaam'];
         $voornaam = $resultaat['voornaam'];
         $achternaam = $resultaat['achternaam'];
@@ -148,10 +149,9 @@ where Voorwerp = $voorwerpnummer ");
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
-                <div class="form-group my-3">
+                <div class="my-3">
                     <h2><?=$titel;?></h2>
                     <p><?=$beschrijving;?></p>
-
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5">
@@ -166,10 +166,10 @@ where Voorwerp = $voorwerpnummer ");
                 <div class="row justify-content-center">
                     <?php
                     if (isset($_SESSION['userID'])) {
-                        echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Chatten</a>';
+                        echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Contact opnemen</a>';
                     } else {
                         echo '<div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
-                        <a href="" class="btn btn-secondary disabled" role="button" disabled>Chatten</a>
+                        <a href="" class="btn btn-secondary disabled" role="button" disabled>Contact opnemen</a>
                     </div>';
                     }
                     ?>
@@ -185,20 +185,23 @@ where Voorwerp = $voorwerpnummer ");
                 <br>
                 <hr>
                 <h4>Biedingen</h4>
-                <form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
+
+                <?php
+                if($veilinggesloten == '0'){
+                    echo '<form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
-                    <input type="number" class="form-control my-4" placeholder="Minimaal €<?=$hoogstebod?>" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="<?=$hoogstebod?>" step="0.01" required>
-                        <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer?>"/>
-                        <input type="hidden" name="hoogstebod" value="<?=$hoogstebod?>">
+                    <input type="number" class="form-control my-4" placeholder="Minimaal € ' . $hoogstebod . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . $hoogstebod . '" step="0.01" required>
+                        <input type="hidden" name="voorwerpnummer" value="' . $voorwerpnummer . '"/>
+                        <input type="hidden" name="hoogstebod" value="' . $hoogstebod . '">
                     <div class="input-group-prepend my-4">
                     <script>
                     function getdata() {
-                        var bod = document.getElementById('bod').value;
+                        var bod = document.getElementById("bod").value;
                         return false;
                     } 
-                    </script>
-                    <?php
+                    </script>';
+                    
                     if (isset($_SESSION['userID'])) {
                         echo "<input class='btn btn-primary' data-toggle='modal' id='biedknop' data-target='#biedModal'
                         type='submit' value='Bied'>";
@@ -207,6 +210,7 @@ where Voorwerp = $voorwerpnummer ");
                         <input type="submit" style="pointer-events: none" class="btn btn-primary disabled" id="biedknop" value="Bied" disabled>
                         </div>';
                     }
+                }
                     ?>
                     </div>
                 </div>

@@ -15,10 +15,6 @@
         height: 100%;
     }
 
-    .row h2 {
-        font-family: Lobster;
-    }
-
     #ad img {
         width: 100%;
         height: 100%;
@@ -27,7 +23,6 @@
     #ad {
         color: white;
         background-color: #ff814f;
-        font-family: Lobster;
         padding-left: 1%;
     }
 </style>
@@ -130,7 +125,7 @@ if ($aantalfoto > 4){
             </div>" ?>
             </div>
             <div class="col-lg-7 d-flex justify-content-center">
-                <?php    echo    "  <h4 id='$voorwerpnummer'></h4>
+                <?php    echo    "<h4>Nog&nbsp</h4>  <h4 id='$voorwerpnummer'></h4>
                      </div>
                                 <script>
 										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();

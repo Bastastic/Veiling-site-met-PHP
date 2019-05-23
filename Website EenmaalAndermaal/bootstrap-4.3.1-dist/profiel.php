@@ -11,7 +11,8 @@
     <title>Profiel</title>
 </head>
 
-<?php include 'includes/header.php'; 
+<?php 
+    include 'includes/header.php'; 
     if (isset($_GET['errc'])) {
         $type = 'danger';
         $titel = 'Sorry!';
@@ -26,6 +27,10 @@
             $msg = 'U heeft uw account succesvol geactiveerd!';
         }
     }
+
+    if(!isset($_SESSION['userID'])){
+        echo '<script>window.location.replace("inloggen.php");</script>';
+    }
 ?>
 
 <body>
@@ -34,7 +39,7 @@
     <div class="container">
         <?php
         // haal hier de gebruiker uit de sessievariabele
-            echo "<h1>Welkom $voornaam $achternaam</h1>"
+            echo "<h1>Welkom $voornaam $achternaam</h1>";
         ?>
         <?php
             if (isset($msg)) {
