@@ -21,7 +21,7 @@
 ?>
 
 <body>
-    <h4> Bedankt voor de registratie!</h4>
+    
     <?php
             if (isset($msg)) {
                 echo '<div class="col-xs-12 col-sm-12 col-md-12">
@@ -34,13 +34,28 @@
             </div>';
             }
         ?>
-    <h5> Er is een mail gestuurd met een code ter verificatie van uw account. De ontvangen code kunt u hieronder
+    <!-- <h5> Er is een mail gestuurd met een code ter verificatie van uw account. De ontvangen code kunt u hieronder
         invullen. <br>
         Het kan een aantal minuten duren voordat u de mail ontvangt.</h5>
     <form action="actions/verifieer.php" method="post">
         <input type="text" name="code" required>
         <input type="submit" name="submit" value="Verifieer">
-    </form>
+    </form> -->
+
+    <div class="container text-center">
+    <h1> Bedankt voor de registratie!</h1>
+            <h4>Er is een mail gestuurd met een code ter verificatie van uw account. De ontvangen code kunt u hieronder
+                invullen. <br>
+                Het kan een aantal minuten duren voordat u de mail ontvangt.</h4>
+            <form action="actions/verifieer.php" method="post" class="w-25 mx-auto">
+                <div class="form-group">
+                    <input type="text" name="code" class="form-control" required><br>
+                    <input type="submit" name="submit" value="Verifieer" class="btn btn-primary w-50">
+                </div>
+            </form>
+        </div>
+
+
 </body>
 <?php include 'includes/footer.php' ; ?>
 

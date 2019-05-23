@@ -12,11 +12,24 @@
 <?php include 'includes/header.php'; ?>
 
 <body>
-    <h5> Vul ter controle nog een keer uw emailadres hieronder in.</h5>
+    <!-- <h5> Vul ter controle nog een keer uw emailadres hieronder in.</h5>
     <form action="actions/mailversturen.php" method="post">
         <input type="email" name="emailadres">
         <input type="submit" name="geklikt" value="Verzend">
-    </form>
+    </form> -->
+
+        <div class="container text-center">
+           <h1>Vul ter controle nog een keer uw emailadres hieronder in.</h1>
+            <form action="actions/mailversturen.php" method="post" class="w-25 mx-auto">
+                <div class="form-group">
+                    <input type="email" name="emailadres" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="geklikt" value="Verzenden" class="btn btn-primary w-50">
+                </div>
+            </form>
+        </div>
+
 </body>
 
 <?php include 'includes/footer.php'; ?>
