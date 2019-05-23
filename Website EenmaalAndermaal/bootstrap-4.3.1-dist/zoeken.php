@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include 'includes/links.php'; ?>
     <link rel="icon" href="../../../../favicon.ico">
-    <title>Over ons</title>
+    <title>Zoeken</title>
 </head>
 <?php
      require 'php/connectDB.php';
@@ -276,11 +276,17 @@
                         "SELECT TOP(50) voorwerp, voorwerpnummer, titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip 
                         FROM Voorwerp, Voorwerp_in_Rubriek 
                         WHERE Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-                        AND (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+                        AND 
+												(Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
 																SELECT Rubrieknummer 
 																FROM Rubriek
 																WHERE Hoofdrubriek = :cat)
-														OR
+												OR
+												(Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+														SELECT Rubrieknummer 
+														FROM Rubriek
+														WHERE Hoofdrubriek = :cat)
+												OR
 														Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub
 														)
                         AND titel LIKE CONCAT('%', :trefwoord, '%')"
