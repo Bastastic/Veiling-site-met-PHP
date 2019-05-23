@@ -84,8 +84,8 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //     mkdir("pics/$voorwerpnummer", 0777, true);
         // }
         
-        $target_dir = "upload";
-        $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.jpg';
+        $target_dir = "upload/";
+        $target_file = $target_dir . 'dt_1_'.$voorwerpnummer . '.jpg';
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $uploadOk = 1;
         // Check if image file is a actual image or fake image
