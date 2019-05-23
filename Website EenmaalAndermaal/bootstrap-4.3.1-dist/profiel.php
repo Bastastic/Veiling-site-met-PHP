@@ -99,11 +99,11 @@
                                             $aantal = count($sql->fetchAll());
 
                                             if ($aantal >= 1) {
-                                                echo '<button type="button" class="btn btn-primary" disabled data-toggle="modal" data-target="#verkoperWorden" role="button">
+                                                echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
                                                 </button>';
                                             } else {
-                                                echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
+                                                echo '<button type="button" class="btn btn-primary" disabled data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
                                                 </button>';
                                             }
