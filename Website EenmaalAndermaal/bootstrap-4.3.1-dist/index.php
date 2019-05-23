@@ -58,10 +58,10 @@ where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
-$query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
+$query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
 $sql = $dbh->prepare($query);
-$fotos = $sql->execute(['voorwerpnummer', $voorwerpnummer]);
-$fotos = $fotos->fetchAll(PDO::FETCH_ASSOC);
+$sql->execute();
+$fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 $aantalfoto = $aantalfoto['count'];
 if ($aantalfoto > 4){
