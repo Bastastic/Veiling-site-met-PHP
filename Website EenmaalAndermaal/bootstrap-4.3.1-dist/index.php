@@ -154,12 +154,13 @@ if ($aantalfoto > 4){
             <div class="row mt-5">
                 <?php
             // veiling gesloten in Voorwerp is standaard 0, dit betekent dus dat de veiling nog open is. Bij het aflopen van de veiling wordt de waarde naar 1 gezet.
-                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0 order by Voorwerp.voorwerpnummer desc");
+                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
+                    $titel = substr($titel, 0, 25);
                     $foto = $value['Filenaam'];
                     $voorwerpnummer = $value['voorwerpnummer'];
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
