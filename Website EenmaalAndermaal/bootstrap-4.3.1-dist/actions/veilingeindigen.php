@@ -18,7 +18,7 @@
         header('Location: ../profiel.php');
     }
 
-    $query = "UPDATE Voorwerp SET Veiliggesloten = '1' WHERE Voorwerpnummer = :voorwerpnummer";
+    $query = "UPDATE Voorwerp SET Veiliggesloten = '1' WHERE voorwerpnummer = :voorwerpnummer";
     $sql = $dbh->prepare($query);
     $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
 
@@ -59,6 +59,5 @@
 
     mail($emailadres, $subject, $txt, $headers);
 
-
-
+    header('Location: ../profiel.php');
 ?>
