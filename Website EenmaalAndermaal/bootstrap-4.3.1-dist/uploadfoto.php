@@ -83,22 +83,21 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //  if (!file_exists("pics/$voorwerpnummer")) {
         //     mkdir("pics/$voorwerpnummer", 0777, true);
         // }
-        
-        $target_dir = "upload";
-        $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.jpg';
-        $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $target_dir = "upload";
+        $target_file = $target_dir . "/" . 'dt_1_'.$voorwerpnummer . '.' . $imageFileType ;
+        $uploadOk = 1;
         // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-        }
+        // if(isset($_POST["submit"])) {
+        //     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        //     if($check !== false) {
+        //         echo "File is an image - " . $check["mime"] . ".";
+        //         $uploadOk = 1;
+        //     } else {
+        //         echo "File is not an image.";
+        //         $uploadOk = 0;
+        //     }
+        // }
         // Check if file already exists
         // if (file_exists($target_file)) {
         //     echo "Sorry, file already exists.";
