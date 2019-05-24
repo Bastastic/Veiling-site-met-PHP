@@ -10,6 +10,8 @@ Dit project is gemaakt voor de Hogeschool Arnhem Nijmegen en is closed source.
 - Dani Hengeveld
 - Peiwand Ismaiel
 - Erkan Alper
+- Senad Kurtovic
+- Wesley Smeltink
 
 # Leidinggevende
 - Yakup Kücük
