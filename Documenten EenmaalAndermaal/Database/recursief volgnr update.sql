@@ -53,15 +53,6 @@ BEGIN
     END;
 END;
 
-exec updateVolgnr;
-
 update Rubriek set volgnr = 0 
 
-
-SELECT * FROM Rubriek order by Hoofdrubriek, volgnr Asc
-
-SELECT * FROM Rubriek WHERE HoofdRubriek = 260 ORDER BY Rubrieknummer
-
-SELECT * FROM Voorwerp_in_Rubriek WHERE Rubriek_op_Laagste_Niveau = 264
-
-SELECT * FROM Voorwerp WHERE Voorwerpnummer = 111490489556
+exec updateVolgnr;
