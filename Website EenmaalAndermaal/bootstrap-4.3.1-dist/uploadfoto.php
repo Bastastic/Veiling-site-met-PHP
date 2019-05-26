@@ -260,13 +260,14 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
     }
 
     if($file1 == 0 && $file2 == 0 && $file3 == 0 && $file4 == 0){
+    copy('upload/standaard.png', 'upload/dt_1_' . $voorwerpnummer . '.png' );
     $query = "INSERT INTO Bestand (Filenaam, Voorwerp) 
             VALUES (
                 :Filenaam, 
                 :Voorwerp )";
 
         $sql = $dbh->prepare($query);
-        $sql->bindValue(":Filenaam", 'upload/standaard.png');
+        $sql->bindValue(":Filenaam", 'upload/dt_1_' . $voorwerpnummer . '.png');
         $sql->bindValue(":Voorwerp", $voorwerpnummer);
         $sql->execute();
         echo 'Geen afbeelding toegevoegt, voegt standaard afbeelding toe.';
