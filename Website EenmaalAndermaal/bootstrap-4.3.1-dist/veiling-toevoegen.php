@@ -41,8 +41,13 @@
                                             <h4 class="card-title">Foto bestand:</h4>
                                             <div class="form-row justify-content-center mx-5">
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-6">
-                                                    <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-                                                    <input name="fileToUpload" id="fileToUpload" type="file" />
+                                                    <input name="fileToUpload1" id="fileToUpload" type="file" value=""/>
+                                                    <input name="fileToUpload2" id="fileToUpload" type="file" value="" />
+                                                </div>
+                                                <br>
+                                                <div class="form-group col-xs-12 col-sm-12 col-md-6">
+                                                    <input name="fileToUpload3" id="fileToUpload" type="file" value=""/>
+                                                    <input name="fileToUpload4" id="fileToUpload" type="file" value="" />
                                                 </div>
                                             </div>
                                             <div class="form-group mx-5">
@@ -52,15 +57,15 @@
                                             <div class="form-row justify-content-center mx-5">
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Startprijs:</h4>
-                                                    <input type="text" class="form-control" name="Startprijs" placeholder="Prijs">
+                                                    <input type="text" class="form-control" name="Startprijs" min="1" placeholder="Prijs">
                                                 </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Looptijd (in dagen):</h4>
-                                                    <input type="number" class="form-control"  name="Looptijd" min="1" max="14"">
+                                                    <input type="number" class="form-control"  name="Looptijd" min="1" max="60">
                                                 </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Verzendkosten (in euros):</h4>
-                                                    <input type="number" class="form-control"  name="Verzondkosten" min="1" max="14"">
+                                                    <input type="number" class="form-control"  name="Verzondkosten">
                                                 </div>
                                                 
                                             </div>

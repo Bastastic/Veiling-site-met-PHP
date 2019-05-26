@@ -85,50 +85,53 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
          $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
          $voorwerpnummer = $resultaat['Voorwerpnummer'];
 
-        //  if (!file_exists("pics/$voorwerpnummer")) {
-        //     mkdir("pics/$voorwerpnummer", 0777, true);
-        // }
-        
+
+    // Compress image
+    function compressImage($source, $quality) {
+
+    $info = getimagesize($source);
+  
+    if ($info['mime'] == 'image/jpeg') 
+      $image = imagecreatefromjpeg($source);
+  
+    elseif ($info['mime'] == 'image/gif') 
+      $image = imagecreatefromgif($source);
+    
+    elseif ($info['mime'] == 'image/jpg') 
+      $image = imagecreatefromgif($source);
+  
+    elseif ($info['mime'] == 'image/png') 
+      $image = imagecreatefrompng($source);
+  
+    imagejpeg($image, $quality);
+  
+  }
+  $file1 = 0;
+  $file2 = 0;
+  $file3 = 0;
+  $file4 = 0;
+
+    if($_FILES['fileToUpload1']['size'] != 0){
+        $file1 = 1;
         $target_dir = "upload/";
-        $temp = explode(".", $_FILES["fileToUpload"]["name"]);
+        $temp = explode(".", $_FILES["fileToUpload1"]["name"]);
         $extention =  end($temp);
-        $target_file = $target_dir . 'dt_1_'.$voorwerpnummer . $extention;
+        $target_file = $target_dir . 'dt_1_'.$voorwerpnummer . "." . $extention;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $uploadOk = 1;
-        // Check if image file is a actual image or fake image
-        // if(isset($_POST["submit"])) {
-        //     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        //     if($check !== false) {
-        //         echo "File is an image - " . $check["mime"] . ".";
-        //         $uploadOk = 1;
-        //     } else {
-        //         echo "File is not an image.";
-        //         $uploadOk = 0;
-        //     }
-        // }
-        // Check if file already exists
-        // if (file_exists($target_file)) {
-        //     echo "Sorry, file already exists.";
-        //     $uploadOk = 0;
-        // }
-        // Check file size
-        // if ($_FILES["fileToUpload"]["size"] > 500000) {
-        //     echo "Sorry, your file is too large.";
-        //     $uploadOk = 0;
-        // }
-        // Allow certain file formats
-        // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        // && $imageFileType != "gif" ) {
-        //     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        //     $uploadOk = 0;
-        // }
-        // Check if $uploadOk is set to 0 by an error
+        compressImage($target_file, 30);
+        if($extention != "jpg" && $extention != "png" && $extention != "jpeg"
+        && $extention != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
-        // if everything is ok, try to upload file
+
         } else {
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            if (move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["fileToUpload1"]["name"]). " has been uploaded.";
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -143,5 +146,131 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         $sql->bindValue(":Filenaam", 'upload/dt_1_' . $voorwerpnummer . '.' . $extention);
         $sql->bindValue(":Voorwerp", $voorwerpnummer);
         $sql->execute();
+    }
+
+    if($_FILES['fileToUpload2']['size'] != 0){
+        $file2 = 1;
+        $target_dir = "upload/";
+        $temp = explode(".", $_FILES["fileToUpload2"]["name"]);
+        $extention =  end($temp);
+        $target_file = $target_dir . 'dt_2_'.$voorwerpnummer . "." . $extention;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $uploadOk = 1;
+        compressImage($target_file, 30);
+        if($extention != "jpg" && $extention != "png" && $extention != "jpeg"
+        && $extention != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+
+        } else {
+            if (move_uploaded_file($_FILES["fileToUpload2"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["fileToUpload2"]["name"]). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+        $query = "INSERT INTO Bestand (Filenaam, Voorwerp) 
+            VALUES (
+                :Filenaam, 
+                :Voorwerp )";
+
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":Filenaam", 'upload/dt_2_' . $voorwerpnummer . '.' . $extention);
+        $sql->bindValue(":Voorwerp", $voorwerpnummer);
+        $sql->execute();
+    }
+
+    if($_FILES['fileToUpload3']['size'] != 0){
+        $file3 = 1;
+        $target_dir = "upload/";
+        $temp = explode(".", $_FILES["fileToUpload3"]["name"]);
+        $extention =  end($temp);
+        $target_file = $target_dir . 'dt_3_'.$voorwerpnummer . "." . $extention;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $uploadOk = 1;
+        compressImage($target_file, 30);
+        if($extention != "jpg" && $extention != "png" && $extention != "jpeg"
+        && $extention != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+
+        } else {
+            if (move_uploaded_file($_FILES["fileToUpload3"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["fileToUpload3"]["name"]). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+        $query = "INSERT INTO Bestand (Filenaam, Voorwerp) 
+            VALUES (
+                :Filenaam, 
+                :Voorwerp )";
+
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":Filenaam", 'upload/dt_3_' . $voorwerpnummer . '.' . $extention);
+        $sql->bindValue(":Voorwerp", $voorwerpnummer);
+        $sql->execute();
+    }
+
+    if($_FILES['fileToUpload4']['size'] != 0){
+        $file4 = 1;
+        $target_dir = "upload/";
+        $temp = explode(".", $_FILES["fileToUpload4"]["name"]);
+        $extention =  end($temp);
+        $target_file = $target_dir . 'dt_4_'.$voorwerpnummer . "." . $extention;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $uploadOk = 1;
+        compressImage($target_file, 30);
+        if($extention != "jpg" && $extention != "png" && $extention != "jpeg"
+        && $extention != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+
+        } else {
+            if (move_uploaded_file($_FILES["fileToUpload4"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["fileToUpload4"]["name"]). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+        $query = "INSERT INTO Bestand (Filenaam, Voorwerp) 
+            VALUES (
+                :Filenaam, 
+                :Voorwerp )";
+
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":Filenaam", 'upload/dt_4_' . $voorwerpnummer . '.' . $extention);
+        $sql->bindValue(":Voorwerp", $voorwerpnummer);
+        $sql->execute();
+    }
+
+    if($file1 == 0 && $file2 == 0 && $file3 == 0 && $file4 == 0){
+    $query = "INSERT INTO Bestand (Filenaam, Voorwerp) 
+            VALUES (
+                :Filenaam, 
+                :Voorwerp )";
+
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":Filenaam", 'upload/standaard.png');
+        $sql->bindValue(":Voorwerp", $voorwerpnummer);
+        $sql->execute();
+        echo 'Geen afbeelding toegevoegt, voegt standaard afbeelding toe.';
+
+}
 
 ?>
