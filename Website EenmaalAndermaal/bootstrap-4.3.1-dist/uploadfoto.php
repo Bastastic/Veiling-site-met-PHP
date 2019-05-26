@@ -90,7 +90,9 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         // }
         
         $target_dir = "upload/";
-        $target_file = $target_dir . 'dt_1_'.$voorwerpnummer . '.jpg';
+        $temp = explode(".", $_FILES["fileToUpload"]["name"]);
+        $extention =  end($temp);
+        $target_file = $target_dir . 'dt_1_'.$voorwerpnummer . $extention;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $uploadOk = 1;
         // Check if image file is a actual image or fake image
@@ -115,11 +117,11 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         //     $uploadOk = 0;
         // }
         // Allow certain file formats
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-        }
+        // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        // && $imageFileType != "gif" ) {
+        //     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        //     $uploadOk = 0;
+        // }
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
@@ -138,7 +140,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
                 :Voorwerp )";
 
         $sql = $dbh->prepare($query);
-        $sql->bindValue(":Filenaam", 'upload/dt_1_' . $voorwerpnummer . '.' . $imageFileType);
+        $sql->bindValue(":Filenaam", 'upload/dt_1_' . $voorwerpnummer . '.' . $extention);
         $sql->bindValue(":Voorwerp", $voorwerpnummer);
         $sql->execute();
 
