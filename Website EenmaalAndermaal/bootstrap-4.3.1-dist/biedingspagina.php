@@ -157,8 +157,6 @@
             <div class="col-xs-12 col-sm-12 col-md-5">
                 <p>
                     <h4><?=$voornaam . " " . $achternaam;?></h4>
-                    <h6>Bijna 69 jaar actief op EenmaalAndermaal</h6>
-                    Rating 4,5 van de 5
                 </p>
                 <p>Regio <?=$plaatsnaam;?></p>
                 <hr>
@@ -251,7 +249,7 @@
         });
 
         bod.addEventListener("input", function (e) {
-            if (this.value <= < ? = $hoogstebod ? > ) {
+            if (this.value <= <?=$hoogstebod?> ) {
                 biedknop.disabled = true;
             } else {
                 biedknop.disabled = false;
@@ -263,7 +261,7 @@
 
             bod = document.getElementById("bod").value;
 
-            if (isNaN(bod) || bod <= < ? = $hoogstebod ? > ) {
+            if (isNaN(bod) || bod <= <?=$hoogstebod?> ) {
                 alert("Je moet meer bieden!");
                 return false;
             } else {
@@ -293,9 +291,9 @@
             document.getElementById('timer').innerHTML = days + 'd ' + hours + 'h ' +
                 minutes + 'm ' + seconds + 's ';
 
-            if (distance < 0) {
+            if (distance <= 0) {
                 clearInterval(x);
-                document.getElementById('timer').innerHTML = '<?=$afgelopen?>';
+                document.getElementById('timer').innerHTML = 'Veiling is afgelopen!';
             }
         }, 1000);
     </script>

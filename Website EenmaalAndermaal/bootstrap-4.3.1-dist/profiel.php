@@ -283,6 +283,7 @@
                                                 $voorwerpnummer = $value['Voorwerpnummer'];
                                                 $datetime = date_create($value['LooptijdeindeDag'] . " " . $value['LooptijdeindeTijdstip'], timezone_open("Europe/Amsterdam"));
                                                 $datetime = date_format($datetime, "d-m-Y H:i");
+                                                $gesloten = $value['VeiligGesloten'];
 
                                                 $sql = $dbh->prepare(
                                                     'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
@@ -305,6 +306,8 @@
                                                 $fotos = $sql->fetch(PDO::FETCH_ASSOC);
                                                 $foto = $fotos['Filenaam'];
 
+
+                                                if($gesloten == 0){
                                                 echo '<div class="card mb-3" style="max-width: 800px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
@@ -321,6 +324,24 @@
                                                     </div>
                                                 </div>
                                             </div>';
+                                                }else{
+                                                    echo '<div class="card mb-3" style="max-width: 800px;">
+                                                <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                                        <img src="http://iproject15.icasites.nl/' . $foto . '" class="card-img" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">' . $titel . '</h5>
+                                                            <p class="card-text">' . $beschrijving . '</p>
+                                                            <p class="card-text mt-3">Hoogste bod: ' . $hoogstebod . '</p>
+                                                            <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Bekijk veiling</a>
+                                                            <a class="btn btn-primary mt-2 disabled" disabled>Gesloten</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>';
+                                                }
                                             }
                                         ?>
                                         </div>

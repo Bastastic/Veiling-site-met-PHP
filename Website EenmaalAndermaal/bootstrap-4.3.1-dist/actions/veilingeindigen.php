@@ -1,5 +1,5 @@
 <?php
-    require_once 'php/connectDB.php';
+    require_once '../php/connectDB.php';
     session_start();
 
     $voorwerpnummer = $_GET['voorwerpnummer'];
@@ -22,14 +22,14 @@
     $sql = $dbh->prepare($query);
     $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
 
-    $query = "SELECT Gebruiker.Mailbox,  Gebruiker.Voornaam, Gebruiker.Achternaam,  MAX(Bod.Bodbedrag) as hoogstebod, Voorwerp.Titel, Voorwerp.Verkoper
+    $query = "SELECT Gebruiker.Mailbox, Gebruiker.Voornaam, Gebruiker.Achternaam,  MAX(Bod.Bodbedrag) as hoogstebod, Voorwerp.Titel, Voorwerp.Verkoper
     from Gebruiker
     inner join Bod
     on Gebruiker.gebruikersnaam = Bod.Gebruiker
     inner Join Voorwerp
     on Voorwerp.voorwerpnummer = Bod.Voorwerp
     where Bod.Voorwerp = :voorwerpnummer
-    GROUP BY Gebruiker.Mailbox, Gebruiker.Gebruikersnaam, Voorwerp.Titel, Voorwerp.Verkoper";
+    GROUP BY Gebruiker.Mailbox, Gebruiker.Voornaam, Gebruiker.Achternaam, Voorwerp.Titel, Voorwerp.Verkoper";
     $sql = $dbh->prepare($query);
     $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
     $hoogstebod = $sql->fetch(PDO::FETCH_ASSOC);
