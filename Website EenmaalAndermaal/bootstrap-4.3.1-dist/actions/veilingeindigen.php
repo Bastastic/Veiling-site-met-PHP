@@ -66,8 +66,6 @@
         $result = $query->fetch(PDO::FETCH_ASSOC);
         $eigenaaremailadres = $result['Mailbox'];
 
-
-
         $eigenaarsubject = "Uw product is verkocht!";
         $eigenaartxt = "
         <html>
