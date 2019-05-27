@@ -95,7 +95,7 @@
 
                                             <?php
                                             $sql = $dbh->prepare(
-            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+                                                "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                             );
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
@@ -112,7 +112,6 @@
                                                 Maak veiling
                                                 </a>';
                                             } else {
-                                                
                                                 echo '<p class="mb-1">Verkoper worden?</p>
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
