@@ -122,12 +122,6 @@
                                             ?>
                                         </div>
                                     </div>
-                                    <div>
-                                    <p class="mt-1">Veiling toevoegen</p>
-                                    <a type="button" class="mt-1 btn btn-primary" href="veiling-toevoegen.php" role="button">
-                                            Veiling toevoegen
-                                    </a>    
-                                    </div>
                                 </div>
                             </div>
                         </div>
