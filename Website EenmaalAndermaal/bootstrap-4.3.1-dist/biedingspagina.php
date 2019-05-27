@@ -128,14 +128,12 @@
                             $foto = $value['Filenaam'];
                          
                          if( $a == 0){
-                            echo   "<div class='carousel-item active' style='cursor: pointer'
-                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                            echo   "<div class='carousel-item active' style='cursor: pointer'>
                                     <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
                                     </div>";
                              $a++;       
                          }else{
-                            echo   "<div class='carousel-item' style='cursor: pointer'
-                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                            echo   "<div class='carousel-item' style='cursor: pointer'>
                                     <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
                                     </div>";
                          }

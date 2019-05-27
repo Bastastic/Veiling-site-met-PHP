@@ -2,8 +2,18 @@
 require 'php/connectDB.php';
 session_start();
 
+
 if(!isset($_SESSION['userID'])){
-    header('Location: inloggen.php');
+    echo '<script>window.location.replace("inloggen.php");</script>';
+}else{
+    $query = 'SELECT Gebruikersnaam FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam AND Verkoper = 1';
+    $sql = $dbh->prepare($query);
+    $sql->execute(['gebruikersnaam' => $_SESSION['userID']]);
+    $resultaat = $sql->fetch();
+
+    if(!$resultaat){
+        echo '<script>window.location.replace("profiel.php");</script>';
+    }
 }
 
 $verkoper = $_SESSION['userID'];
