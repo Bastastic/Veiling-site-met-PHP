@@ -18,6 +18,7 @@
 
         <?php
 
+        //Kijkt of er messages in de URL zijn gezet die weergegeven moeten worden
         if (isset($_GET['errc'])) {
             $type = 'danger';
             $titel = 'Sorry!';
@@ -29,6 +30,7 @@
             }
         }
 
+        //Geeft messages weer indiend die er zijn
         if (isset($msg)) {
             echo '<div class="col-xs-12 col-sm-12 col-md-12">
             <div class="alert alert-' . $type . ' alert-dismissible fade show text-center" role="alert">
@@ -44,6 +46,7 @@
             if ($_POST['email'] != "") {
                 $emailadres = $_POST['email'];
 
+                //Vraagt gebruiker op met meegegeven emailadres
                 $query = "SELECT Mailbox
                 FROM Gebruiker
                 WHERE Mailbox = :emailadres";
@@ -51,6 +54,7 @@
                 $sql->execute(['emailadres' => $emailadres]);
                 $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+                //Als er resultaat is nieuw wachtwoord genereren. Gebruiker record updaten met nieuwe wachtwoord. Mail versturen.
                 if ($resultaat) {
                     $nieuwwachtwoord = generateRandomString();
                     $nieuwwachtwoordhash = password_hash($nieuwwachtwoord, PASSWORD_ARGON2I);
@@ -81,16 +85,20 @@
 
                     mail($emailadres, $subject, $txt, $headers);
 
+                    //Success message en knop naar inlogpagina
                     echo '<h1>Wachtwoord gereset!</h1>
                 <p>U vind uw nieuwe wachtwoord in uw mailbox.</p>
                 <a href="inloggen.php" class="btn btn-primary">Inloggen</a>';
                 } else {
+                    //Geen resultaat? Dan redirect naar zichzelf met error code 1. Emailadres niet bekend.
                     echo '<script>window.location.replace("wachtwoordvergeten.php?errc=1");</script>';
                 }
             } else {
+                //Geen emailadres ingevuld. Redirect naar zichzelf met error code 2. Geen email ingevuld.
                 echo '<script>window.location.replace("wachtwoordvergeten.php?errc=2");</script>';
             }
         } else {
+            //Beginpunt. Form voor invullen email als deze pagina zonder POST/GET info wordt geladen.
             echo '<h1>Wachtwoord vergeten?</h1>
             <p>Voer uw email in om uw wachtwoord te resetten!</p>
             <form action="" method="post" class="w-25 mx-auto">
@@ -103,6 +111,7 @@
             </form>';
         }
 
+        //Genereert een random string met een bepaalde lengte (standaard 10)
         function generateRandomString($length = 10)
         {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
