@@ -58,10 +58,19 @@ where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
+echo "<pre>" . 
+       print_r($aantalfoto)
+    //    $aantalfoto
+      . " </pre>";
+
 $query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
 $sql = $dbh->prepare($query);
 $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
 $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
+echo "<pre>" . 
+       print_r($fotos)
+    //    $aantalfoto
+      . " </pre>";
 
 $aantalfoto = $aantalfoto['count'];
 if ($aantalfoto > 4){
@@ -81,7 +90,12 @@ if ($aantalfoto > 4){
                             <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
                             <?php 
                           for( $x=0; $x < $aantalfoto; $x++ ){
-                           echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                              
+                            if($x == 0){
+                                echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                            }else{
+                                echo "<li data-target='#demo' data-slide-to='$x'>";
+                            }
                           }
 
                         ?>
@@ -91,13 +105,24 @@ if ($aantalfoto > 4){
                         <div class="carousel-inner">
 
                         <?php
-
+                        $a = 0;
                         foreach ($fotos as $key => $value) {
                             $foto = $value['Filenaam'];
+                         
+                         if( $a == 0){
                             echo   "<div class='carousel-item active' style='cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
-                                </div>";
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    </div>";
+                             $a++;       
+                         }else{
+                            echo   "<div class='carousel-item' style='cursor: pointer'
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    </div>";
+
+                         }
+                            
                         }
 
                         ?>

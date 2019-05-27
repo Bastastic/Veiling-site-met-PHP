@@ -111,7 +111,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
   $file3 = 0;
   $file4 = 0;
 
-    if($_FILES['fileToUpload1']['size'] != 0){
+    if($_FILES["fileToUpload1"]["error"] == 0){
         $file1 = 1;
         $target_dir = "upload/";
         $temp = explode(".", $_FILES["fileToUpload1"]["name"]);
@@ -148,7 +148,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         $sql->execute();
     }
 
-    if($_FILES['fileToUpload2']['size'] != 0){
+    if($_FILES["fileToUpload2"]["error"] == 0){
         $file2 = 1;
         $target_dir = "upload/";
         $temp = explode(".", $_FILES["fileToUpload2"]["name"]);
@@ -185,7 +185,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         $sql->execute();
     }
 
-    if($_FILES['fileToUpload3']['size'] != 0){
+    if($_FILES["fileToUpload3"]["error"] == 0){
         $file3 = 1;
         $target_dir = "upload/";
         $temp = explode(".", $_FILES["fileToUpload3"]["name"]);
@@ -222,7 +222,7 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         $sql->execute();
     }
 
-    if($_FILES['fileToUpload4']['size'] != 0){
+    if($_FILES["fileToUpload4"]["error"] == 0){
         $file4 = 1;
         $target_dir = "upload/";
         $temp = explode(".", $_FILES["fileToUpload4"]["name"]);
