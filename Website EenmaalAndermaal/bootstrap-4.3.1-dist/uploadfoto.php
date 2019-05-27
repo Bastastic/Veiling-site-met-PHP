@@ -2,8 +2,18 @@
 require 'php/connectDB.php';
 session_start();
 
+
 if(!isset($_SESSION['userID'])){
-    header('Location: inloggen.php');
+    echo '<script>window.location.replace("inloggen.php");</script>';
+}else{
+    $query = 'SELECT Gebruikersnaam FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam AND Verkoper = 1';
+    $sql = $dbh->prepare($query);
+    $sql->execute(['gebruikersnaam' => $_SESSION['userID']]);
+    $resultaat = $sql->fetch();
+
+    if(!$resultaat){
+        echo '<script>window.location.replace("profiel.php");</script>';
+    }
 }
 
 $verkoper = $_SESSION['userID'];
@@ -16,6 +26,7 @@ $query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam = :Gebruikersnaam";
          $land = $resultaten['Land'];
          $plaatsnaam = $resultaten['Plaatsnaam'];
 
+$catogorie = $_POST['cat'];
 $titel = $_POST['Titel'];
 $startprijs = $_POST['Startprijs'];
 $beschrijving = $_POST['Beschrijving'];
@@ -84,8 +95,17 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
          $sql->execute();
          $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
          $voorwerpnummer = $resultaat['Voorwerpnummer'];
-
-
+  
+         $query = "INSERT INTO Voorwerp_in_Rubriek (Voorwerp, Rubriek_op_Laagste_Niveau) 
+         VALUES (
+             :Voorwerp, 
+             :Rubriek_op_Laagste_Niveau )";
+         
+         $sql = $dbh->prepare($query);
+         $sql->bindValue(":Voorwerp", $voorwerpnummer);
+         $sql->bindValue(":Rubriek_op_Laagste_Niveau", $catogorie);
+         $sql->execute();
+       
     // Compress image
     function compressImage($source, $quality) {
 
@@ -105,7 +125,8 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
   
     imagejpeg($image, $quality);
   
-  }
+    }
+
   $file1 = 0;
   $file2 = 0;
   $file3 = 0;
@@ -273,5 +294,8 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         echo 'Geen afbeelding toegevoegt, voegt standaard afbeelding toe.';
 
 }
+header('Location: ../profiel.php');
+
+
 
 ?>

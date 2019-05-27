@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php 
-        include 'includes/links.php'; 
+    <?php
+        include 'includes/links.php';
     ?>
     <link rel="stylesheet" href="css/faq.css" />
 
     <title>Profiel</title>
 </head>
 
-<?php 
+<?php
     include 'includes/header.php';
     
-    if(!isset($_SESSION['userID'])){
+    if (!isset($_SESSION['userID'])) {
         echo '<script>window.location.replace("inloggen.php");</script>';
     }
 
@@ -27,10 +27,10 @@
             $msg = 'Error msg 1';
         }
     }
-    if (isset($_GET['succ'])){
+    if (isset($_GET['succ'])) {
         $type = 'success';
         $titel = 'Okidoki!';
-        if ($_GET['succ'] == '1'){
+        if ($_GET['succ'] == '1') {
             $msg = 'U heeft uw account succesvol geactiveerd!';
         }
     }
@@ -92,26 +92,37 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="mb-1">Verkoper worden?</p>
 
                                             <?php
                                             $sql = $dbh->prepare(
-                                            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+                                                "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                             );
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
 
+                                            //kijkt of de gebruiker zijn gegevens al heeft opgegeven
                                             $verkoper = $dbh->prepare(
-                                                "SELECT * FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+                                                "SELECT * FROM Verkoper inner join Gebruiker on Verkoper.Gebruiker = Gebruiker.Gebruikersnaam WHERE Verkoper.Gebruiker = :gebruikersnaam"
                                                 );
-                                                $verkoper->execute(['gebruikersnaam' => $gebruikersnaam]);
-                                                $bestaatVerkoper = count($verkoper->fetchAll());
-                                            if ($bestaatVerkoper >= 1) {
-                                                echo '<button type="button" class="btn btn-primary" disabled data-toggle="modal" data-target="#verkoperWorden" role="button">
-                                                Update account
-                                                </button>';
+                                            $verkoper->execute(['gebruikersnaam' => $gebruikersnaam]);
+                                            $result = $verkoper->fetch(PDO::FETCH_ASSOC);
+                                            $geactiveerd = $result['Verkoper'];
+
+                                            if ($result) {
+                                                if ($geactiveerd == 1) {
+                                                    echo '<p class="mb-1"><strong>Wilt u een voorwerp veilen?</strong></p>
+                                                    <a href="cat.php" class="btn btn-primary" role="button">
+                                                    Maak veiling
+                                                    </a>';
+                                                } else {
+                                                    echo '<p class="mb-1"><strong>Wilt u een voorwerp veilen?</strong></p>
+                                                    <p>
+                                                    Uw gegevens moeten gecontrolleerd worden voordat u een veiling kunt maken, dit zal binnen een paar dagen gebeuren.
+                                                    </p>';
+                                                }
                                             } else {
-                                                echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
+                                                echo '<p class="mb-1"><strong>Verkoper worden?</strong></p>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
                                                 </button>';
                                             }
@@ -281,23 +292,28 @@
                                                 $titel = $value['Titel'];
                                                 $beschrijving = $value['Beschrijving'];
                                                 $voorwerpnummer = $value['Voorwerpnummer'];
+                                                $hoogstebod = $value['Startprijs'];
                                                 $datetime = date_create($value['LooptijdeindeDag'] . " " . $value['LooptijdeindeTijdstip'], timezone_open("Europe/Amsterdam"));
                                                 $datetime = date_format($datetime, "d-m-Y H:i");
                                                 $gesloten = $value['VeiligGesloten'];
 
                                                 $sql = $dbh->prepare(
-                                                    'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
-                                                    FROM Bod, Voorwerp
-                                                    WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
-                                                    AND voorwerpnummer = :voorwerpnummer
+                                                    'SELECT TOP 1 voorwerp, bodbedrag, gebruiker, voornaam, achternaam, mailbox, boddag, bodtijdstip
+                                                    FROM Bod
+                                                    INNER JOIN Gebruiker
+                                                    ON Bod.gebruiker = Gebruiker.gebruikersnaam
+                                                    WHERE voorwerp = :voorwerpnummer
+                                                    GROUP BY Bod.gebruiker, Gebruiker.voornaam, Gebruiker.achternaam, Gebruiker.mailbox, BodDag, BodTijdstip, Bod.voorwerp, bodbedrag
                                                     ORDER BY bodbedrag DESC'
                                                 );
 
-                                                $sql->execute(['voorwerpnummer' => $value['Voorwerpnummer']]);
-                                                $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-                                                $hoogstebod = $value['Startprijs'];
+                                                $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+                                                $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
                                                 if ($resultaat) {
-                                                    $hoogstebod = $resultaat[0]['bodbedrag'];
+                                                    $hoogstebod = $resultaat['bodbedrag'];
+                                                    $voornaambieder = $resultaat['voornaam'];
+                                                    $achternaambieder = $resultaat['achternaam'];
+                                                    $mailboxbieder = $resultaat['mailbox'];
                                                 }
 
                                                 $query = "SELECT TOP 1 Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
@@ -307,8 +323,8 @@
                                                 $foto = $fotos['Filenaam'];
 
 
-                                                if($gesloten == 0){
-                                                echo '<div class="card mb-3" style="max-width: 800px;">
+                                                if ($gesloten == 0) {
+                                                    echo '<div class="card mb-3" style="max-width: 800px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
                                                         <img src="http://iproject15.icasites.nl/' . $foto . '" class="card-img" alt="...">
@@ -324,7 +340,7 @@
                                                     </div>
                                                 </div>
                                             </div>';
-                                                }else{
+                                                } else {
                                                     echo '<div class="card mb-3" style="max-width: 800px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
@@ -337,6 +353,8 @@
                                                             <p class="card-text mt-3">Hoogste bod: ' . $hoogstebod . '</p>
                                                             <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Bekijk veiling</a>
                                                             <a class="btn btn-primary mt-2 disabled" disabled>Gesloten</a>
+                                                            <p class="mt-2">Gewonnen door: ' . $voornaambieder . ' ' . $achternaambieder . '</p>
+                                                            <h4><a href="mailto:'.$mailboxbieder.'">' . $mailboxbieder . '</a></h4>
                                                         </div>
                                                     </div>
                                                 </div>
