@@ -35,10 +35,10 @@
     <?php
 
 
-
     if (isset($_GET['voorwerpnummer'])) {
         $voorwerpnummer = $_GET['voorwerpnummer'];
 
+        //Selecteert alle gegevens van veiling en verkoper
         $sql = $dbh->prepare(
             'SELECT titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip, Veiliggesloten, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam, Mailbox
             FROM Gebruiker
@@ -70,6 +70,7 @@
         $plaatsnaam = $resultaat['plaatsnaam'];
         $startprijs = $resultaat['startprijs'];
 
+        //Selecteert bedrag, bieder, boddatum en tijd.
         $sql = $dbh->prepare(
             'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
             FROM Bod, Voorwerp
@@ -79,27 +80,31 @@
         );
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
         $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+        //Hoogstebod is startprijs behalve als er geboden is dan is hoogstebod het hoogstebod
         $hoogstebod = $startprijs;
         if ($resultaat) {
             $hoogstebod = $resultaat[0]['bodbedrag'];
         }
 
-
+        //Telt aantal foto's
         $tellenVanFotos = $dbh->prepare("select COUNT(*) as count
                                         from Bestand
                                         where Voorwerp = $voorwerpnummer ");
         $tellenVanFotos->execute();
         $aantalfoto = $tellenVanFotos->fetch(PDO::FETCH_ASSOC);
 
+        //Limit aantal foto's (extra beveilinging)
         $aantalfoto = $aantalfoto['count'];
         if ($aantalfoto > 4) {
             $aantalfoto = 4;
         }
     } else {
+        //Geen voorwerpnummer? Terug naar zoekpagina
         echo '<script>window.location.replace("zoeken.php");</script>';
         die();
     }
 
+    //Haalt alle foto's op uit de database
     $query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
     $sql = $dbh->prepare($query);
     $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
@@ -129,6 +134,7 @@
                     <div class="carousel-inner">     
 
                         <?php
+                        //Geeft foto's weer. De eerste als active, de rest niet.
                         $a = 0;
                         foreach ($fotos as $key => $value) {
                             $foto = $value['Filenaam'];
@@ -155,6 +161,7 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
+                <!-- Geeft titel en beschrijving weer -->
                 <div class="my-3">
                     <h2><?=$titel;?></h2>
                     <p><?=$beschrijving;?></p>
@@ -162,13 +169,16 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5">
                 <p>
+                    <!-- Laat voornaam achternaam verkoper zien -->
                     <h4><?=$voornaam . " " . $achternaam;?></h4>
                 </p>
+                <!-- Laat plaats van verkoper zien -->
                 <p>Regio <?=$plaatsnaam;?></p>
                 <hr>
                 <br>
                 <div class="row justify-content-center">
                     <?php
+                    //Ingelogd dan contact opnemen knop ander disabled
                     if (isset($_SESSION['userID'])) {
                         echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Contact opnemen</a>';
                     } else {
@@ -191,6 +201,7 @@
                 <h4>Biedingen</h4>
 
                 <?php
+                //Geeft biedform weer als veiling nog niet afgelopen is
                 if ($veilinggesloten == '0' && !$isaf) {
                     echo '<form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
@@ -206,6 +217,7 @@
                     } 
                     </script>';
                     
+                    //Biedknop weergeven als gebruiker is ingelogd anders disabled
                     if (isset($_SESSION['userID'])) {
                         echo "<input class='btn btn-primary' data-toggle='modal' id='biedknop' data-target='#biedModal'
                         type='submit' value='Bied'>";
@@ -228,7 +240,7 @@
                 </tr>
             </thead>
             <tbody>
-
+                <!-- Weergeven alle biedingen in tabelvorm -->
                 <?php
                             foreach ($resultaat as $key => $value) {
                                 $datetime = date_create($value['boddag'] . " " . $value['bodtijdstip'], timezone_open("Europe/Amsterdam"));
@@ -254,6 +266,7 @@
             trigger: "hover"
         });
 
+        //Biedknop disabled als input niet genoeg is
         bod.addEventListener("input", function (e) {
             if (this.value <= <?=$hoogstebod?> ) {
                 biedknop.disabled = true;
@@ -262,6 +275,7 @@
             }
         });
 
+        //Controleert input
         function validateForm() {
             var bod, melding;
 
@@ -281,6 +295,7 @@
             }
         }
 
+        //Timer
         var countDownDate = new Date('<?=$eindedag?> <?=$eindetijdstip?>').getTime();
 
         var x = setInterval(function () {

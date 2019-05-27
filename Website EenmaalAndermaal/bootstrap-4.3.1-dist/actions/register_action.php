@@ -30,6 +30,8 @@
     $sql->execute();
     $result = $sql->fetch(PDO::FETCH_ASSOC);
 
+    // Nadat alle velden zijn ingevuld moet dit in de database worden geinstert. Dat gebeurd hieronder.
+    // daarna zal je gaan naar mailversturen.php
     if (!$result) {
         $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper, Geactiveerd) 
             VALUES (

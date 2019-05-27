@@ -1,6 +1,7 @@
 <?php
     require_once '../php/connectDB.php';
     session_start();
+    // hier wordt gechekt of de gebruiker is ingelogd om te kunnen bieden. Als gebruiker ingelogd is wordt het bod in de Database toegevoegd. 
     if(isset($_SESSION['userID'])){
         $bod = $_POST["bod"];
         $hoogstebod = $_POST["hoogstebod"];

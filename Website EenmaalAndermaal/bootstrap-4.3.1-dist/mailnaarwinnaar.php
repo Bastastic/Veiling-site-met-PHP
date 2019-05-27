@@ -2,14 +2,7 @@
 session_start();
 require '../php/connectDB.php';
 
-// $gebruikersnaam = $_SESSION['userID'];
-// $emailadres = $_POST['emailadres'];
 
-// $query = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam";
-// $sql = $dbh->prepare($query);
-// $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
-// $mailbox = $sql->fetch(PDO::FETCH_ASSOC);
-// $mailbox = $mailbox['Mailbox'];
 
     $query = "select Gebruiker.Mailbox,  Gebruiker.Gebruikersnaam,  MAX(Bod.Bodbedrag) as hoogstebod
     from Gebruiker
@@ -33,7 +26,8 @@ require '../php/connectDB.php';
     $titel = $infoo['titel'];
 
 
-
+// hier wordt de mail gemaakt die opgestuurd wordt aan het einde van een veiling naar de winnaar.
+// alles wordt uit de database gehaald.
     $subject = "U bent de winnaar!";
     $txt = "
     <html>
