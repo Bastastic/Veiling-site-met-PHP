@@ -14,7 +14,7 @@ DELETE Voorwerp
 DELETE Voorwerp_in_Rubriek
 DELETE Vraag
 
-----verwijderen van database (van ons)-------
+----leegmaken van database-------
 
 insert into Vraag values
 	(1, 'Wat is je lievelingsfruit?'),
@@ -34,6 +34,7 @@ FROM iproject15.dbo.Categorieen
 
 ---------------Rubriek--------------------------
 
+-- Maken van unieke data, doormiddel van gebruiker van unieke gebruikersnamen. 
 INSERT INTO iproject15.dbo.Gebruiker
 SELECT DISTINCT LEFT(Username,25) AS Gebruikersnaam,
 LEFT(Username,29) + 'V' AS Voornaam,
@@ -52,6 +53,7 @@ LEFT(Username,240) + '@gmail.com' AS Mailbox,
 0 AS Geactiveerd
 FROM iproject15.dbo.Users
 
+-- Checkt of de gebruiker veilingen heeft, als dat zo is, wordt verkoper = 1
 UPDATE iproject15.dbo.Gebruiker
 SET iproject15.dbo.Gebruiker.Verkoper = 1
 FROM iproject15.dbo.Gebruiker, iproject15.dbo.Items
@@ -68,10 +70,6 @@ NULL AS Bankrekening,
 123244232 AS Creditcard
 FROM iproject15.dbo.Users
 
---DELETE FROM iproject15.dbo.Verkoper
---WHERE Gebruiker IN 
---(SELECT Gebruikersnaam FROM iproject15.dbo.Gebruiker
---WHERE Verkoper = 0); 
 -----------Verkoper--------------
 SET IDENTITY_INSERT iproject15.dbo.Voorwerp ON
 GO
@@ -99,16 +97,14 @@ FROM iproject15.dbo.Items
 SET IDENTITY_INSERT iproject15.dbo.Voorwerp OFF
 GO
 
+-- bij de plaatsnaam, wordt de land ervoor wegehaald. anders staat het land ervoor erbij
 UPDATE Voorwerp
 SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
 WHERE CHARINDEX(',', Plaatsnaam) > 0
 
-UPDATE Voorwerp
-SET Land = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
-WHERE CHARINDEX(',', Plaatsnaam) > 0
-
 --------------Voorwerp---------------
 
+-- Alle foto's van de veilingen van de dataconversie staan in het mapje 'pics/'.
 INSERT INTO iproject15.dbo.Bestand
 SELECT DISTINCT 'pics/' + LEFT (IllustratieFile,200) AS Filenaam,
 CAST (ItemID AS bigint) AS Voorwerp 
@@ -123,6 +119,5 @@ FROM iproject15.dbo.items
 
 ---------Voorwerp_in_Rubriek-----------
 
--- dingen random maken? ID toevoegen bij Email.
 
 
