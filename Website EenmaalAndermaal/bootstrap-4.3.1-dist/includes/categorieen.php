@@ -1,26 +1,28 @@
 <br>
 <div class="container">
     <?php
+    // query om de hoofdcategorieën op te halen
     $sqlHoofd = $dbh->prepare("SELECT * FROM Rubriek WHERE HoofdRubriek = -1 ORDER BY HoofdRubriek");
     $sqlHoofd->execute();
     $resultaatHoofd = $sqlHoofd->fetchAll(PDO::FETCH_NUM);
     $first = true;
-        if ($resultaatHoofd) {
-            $kolommen = 0;
-            for ($i = 0; $i < count($resultaatHoofd); $i++) {
+        if ($resultaatHoofd) { //checkt of er resultaten zijn
+            $kolommen = 0; // houdt bij hoeveel kolommen in een rij gezet zijn
+            for ($i = 0; $i < count($resultaatHoofd); $i++) { //loopt elk resultaat af
                 $rubrieknummer = $resultaatHoofd[$i][0];
                 $rubrieknaam = $resultaatHoofd[$i][1];
                 $hoofdrubriek = $resultaatHoofd[$i][2];
 
-                if ($kolommen % 3 == 0 && $first == true) {
+                if ($kolommen % 3 == 0 && $first == true) { // maakt een row aan in het begin
                     $first = false;
                     $kolommen++;
                     echo "<div class='row'>";
-                } else if ($kolommen % 3 == 0){
+                } else if ($kolommen % 3 == 0){ // sluit de vorige row en start een nieuwe als er 3 kolommen gemaakt zijn
                     $kolommen++;
                     echo "</div><div class='row'>";
                 }
 
+                // maakt de klikbare categorieën om mee te kunnen zoeken
                 echo "
                 <div class='col-md-4 col-sm-6 col-xs-12'>
                     <div class='card rounded-0 bg-white border-primary card-header'>
@@ -34,6 +36,8 @@
             }
         }
     ?>
+
+    <!-- sluit de overgebleven divs -->
     </div>
     </div>
     </div>
