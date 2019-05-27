@@ -281,23 +281,28 @@
                                                 $titel = $value['Titel'];
                                                 $beschrijving = $value['Beschrijving'];
                                                 $voorwerpnummer = $value['Voorwerpnummer'];
+                                                $hoogstebod = $value['Startprijs'];
                                                 $datetime = date_create($value['LooptijdeindeDag'] . " " . $value['LooptijdeindeTijdstip'], timezone_open("Europe/Amsterdam"));
                                                 $datetime = date_format($datetime, "d-m-Y H:i");
                                                 $gesloten = $value['VeiligGesloten'];
 
                                                 $sql = $dbh->prepare(
-                                                    'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
-                                                    FROM Bod, Voorwerp
-                                                    WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
-                                                    AND voorwerpnummer = :voorwerpnummer
+                                                    'SELECT TOP 1 voorwerp, bodbedrag, gebruiker, voornaam, achternaam, mailbox, boddag, bodtijdstip
+                                                    FROM Bod
+                                                    INNER JOIN Gebruiker
+                                                    ON Bod.gebruiker = Gebruiker.gebruikersnaam
+                                                    WHERE voorwerp = :voorwerpnummer
+                                                    GROUP BY Bod.gebruiker, Gebruiker.voornaam, Gebruiker.achternaam, Gebruiker.mailbox, BodDag, BodTijdstip, Bod.voorwerp, bodbedrag
                                                     ORDER BY bodbedrag DESC'
                                                 );
 
-                                                $sql->execute(['voorwerpnummer' => $value['Voorwerpnummer']]);
-                                                $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-                                                $hoogstebod = $value['Startprijs'];
+                                                $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+                                                $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
                                                 if ($resultaat) {
-                                                    $hoogstebod = $resultaat[0]['bodbedrag'];
+                                                    $hoogstebod = $resultaat['bodbedrag'];
+                                                    $voornaambieder = $resultaat['voornaam'];
+                                                    $achternaambieder = $resultaat['achternaam'];
+                                                    $mailboxbieder = $resultaat['mailbox'];
                                                 }
 
                                                 $query = "SELECT TOP 1 Filenaam FROM Bestand WHERE Voorwerp = $voorwerpnummer";
@@ -337,6 +342,8 @@
                                                             <p class="card-text mt-3">Hoogste bod: ' . $hoogstebod . '</p>
                                                             <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary mt-2">Bekijk veiling</a>
                                                             <a class="btn btn-primary mt-2 disabled" disabled>Gesloten</a>
+                                                            <p class="mt-2">Gewonnen door: ' . $voornaambieder . ' ' . $achternaambieder . '</p>
+                                                            <h4><a href="mailto:'.$mailboxbieder.'">' . $mailboxbieder . '</a></h4>
                                                         </div>
                                                     </div>
                                                 </div>
