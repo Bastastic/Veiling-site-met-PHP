@@ -58,8 +58,8 @@ GO
 INSERT INTO iproject15.dbo.Voorwerp (Voorwerpnummer,Titel,Beschrijving,Startprijs,Betalingswijze,Betalingsinstructie,Plaatsnaam,Land,Looptijd,LooptijdbeginDag,LooptijdbeginTijdstip,Verkoper,Koper,Verzendkosten,Verzendinstructies,LooptijdeindeDag,LooptijdeindeTijdstip,VeiligGesloten,Verkoopprijs)
 SELECT CAST (ID AS bigint) AS Voorwerpnummer,
 LEFT (Titel,50) AS Titel,
-CAST (dbo.udf_StripHTML([Beschrijving]) + Conditie  AS varchar(2000)) AS Beschrijving,
-CAST (dbo.udf_OmzetValuta([Prijs]) AS numeric(8,2)) AS Startprijs,
+CAST (dbo.udf_StripHTML([Beschrijving]) + Conditie AS varchar(2000)) AS Beschrijving,
+CAST (dbo.udf_OmzetValuta([Prijs], [Valuta]) AS numeric(8,2)) AS Startprijs,
 'Creditcard' AS Betalingswijze,
 NULL AS Betalingsinstructie,
 LEFT (Locatie,50) AS Plaatsnaam,
@@ -71,7 +71,7 @@ LEFT (Verkoper,25) AS Verkoper,
 NULL AS Koper, 	
 NULL AS Verzendkosten,
 NULL AS Verzendinstructies,
-Convert(date, getdate()) + 7 AS LooptijdeindeDag,
+Convert(date, getdate() + 7) AS LooptijdeindeDag,
 '12:34:54' AS LooptijdeindeTijdstip,
 0 AS VeiligGesloten,
 NULL AS Verkoopprijs
@@ -104,4 +104,5 @@ FROM iproject15.dbo.items
 ---------Voorwerp_in_Rubriek-----------
 
 -- dingen random maken? ID toevoegen bij Email.
+
 
