@@ -28,6 +28,8 @@
 <body>
     
     <?php
+
+    // als je geen code hebt ingevuld zal er een error komen en anders zal je doorgeleid worden naar een andere pagina
             if (isset($msg)) {
                 echo '<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="alert alert-' . $type . ' alert-dismissible fade show text-center" role="alert">
@@ -39,13 +41,7 @@
             </div>';
             }
         ?>
-    <!-- <h5> Er is een mail gestuurd met een code ter verificatie van uw account. De ontvangen code kunt u hieronder
-        invullen. <br>
-        Het kan een aantal minuten duren voordat u de mail ontvangt.</h5>
-    <form action="actions/verifieer.php" method="post">
-        <input type="text" name="code" required>
-        <input type="submit" name="submit" value="Verifieer">
-    </form> -->
+
 
     <div class="container text-center">
     <h1> Bedankt voor de registratie!</h1>
