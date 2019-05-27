@@ -79,7 +79,6 @@
                                                         <option value="2">Creditcard</option>
                                                         <option value="3">Bank</option>
                                                         <option value="4">iDeal</option>
-                                                        <option value="3">Nog in afwachting</option>
                                                     </select>
                                                 </div>
                                             </div>
