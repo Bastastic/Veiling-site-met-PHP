@@ -27,7 +27,7 @@
 				Filters
 			</button>
 
-			<!-- Modal -->
+			<!-- Modal scherm met filters -->
 			<form action="zoeken.php" method="get">
 				<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
 					aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,6 +44,7 @@
 										<aside class="col-sm-12">
 											<div class="card">
 												<article class="card-group-item">
+													<!-- prijs range filter -->
 													<header class="card-header">
 														<h6 class="title">Range input </h6>
 													</header>
@@ -66,10 +67,12 @@
 															</div>
 														</div> 
 													</div>
-												</article> <!-- card-group-item.// -->
-											</div> <!-- card.// -->
+												</article> 
+											</div> 
 
+											<!-- categorie filter -->
 											<?php
+											// kijkt of er gezocht wordt op een categorie
 											if(isset($_GET['cat'])) {
 												echo '
 												<div class="card">
@@ -78,20 +81,21 @@
 														<div class="filter-content">
 															<div class="list-group list-group-flush">';
 															//schrijft de subcategorieën op
-																	function Rubrieken($parent) {
-																		global $dbh;
-																		$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
-																		$q->execute();
-																		$q_fetchAll = $q->fetchAll();
-																		for($i = 0; $i < count($q_fetchAll); $i++){
-																			echo '
-																			<label>
-																				<input type="radio" name="cat" class="form-check-input ml-3" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
-																				<span class="ml-5">' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
-																			</label>';
-																		}
-																	}
-																	Rubrieken($_GET['cat']);
+															function Rubrieken($parent) {
+																global $dbh;
+																// haalt alle subrubrieken op van de categorie waar op gezocht is
+																$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
+																$q->execute();
+																$q_fetchAll = $q->fetchAll();
+																for($i = 0; $i < count($q_fetchAll); $i++){
+																	echo '
+																	<label>
+																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
+																		<span class="ml-5">' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+																	</label>';
+																}
+															}
+															Rubrieken($_GET['cat']);
 												echo '</div>
 														</div>
 													</article>';
@@ -102,6 +106,7 @@
 														<header class="card-header"><h6 class="title">Subcategorie&euml;n</h6></header>
 														<div class="filter-content">
 															<div class="list-group list-group-flush">';
+															// haalt alle hoofdrubrieken op
 															function Rubrieken($parent = -1){
 																global $dbh;
 																$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
@@ -120,13 +125,14 @@
 														</div>
 													</article>';
 											}
+											// voegt de zoekopdracht toe aan het filteren
 											echo "
 											<input type='hidden' name='zoeken' value='" . $_GET['zoeken'] . "'/>
 											";
 										?>
-									</div> <!-- card.// -->
-									</aside> <!-- col.// -->
-								</div> <!-- row.// -->
+									</div>
+									</aside>
+								</div>
 							</div>
 
 						</div>
@@ -140,6 +146,8 @@
 		</div>
 		<div class="row">
 			<?php
+				// kijkt of de filters prijsMin en prijsMax een waarde mee krijgen
+				// als dit zo is krijgen ze die waarde, anders krijgen ze min/max geld waarde mee
 				if (isset($_GET['prijsMin'])) {
 					$prijsMin = $_GET['prijsMin'];
 				} else {
@@ -152,43 +160,41 @@
 					$prijsMax = 999999.99;
 				}
 											
-				// zorgt dat prijsmin en prijsmax altijd een waarde hebben
-                if (isset($_GET['cat']) && isset($_GET['zoeken'])) {
-				$trefwoord = strval($_GET['zoeken']);
-				$cat = $_GET['cat'];
-				
-				// checkt of er op het product geboden is
-				$bodCheck = $dbh->prepare("SELECT * FROM Bod ");
-				$bodCheck->execute();
-				$bodCheck_fetchAll = $bodCheck->fetchAll();
-				// for($i = 0; $i < count($bodCheck_fetchAll); $i++){
-				// 	echo "$bodCheck_fetchAll[$i]['voorwerp']";
-				// }
+				// kijkt op welke dingen gezocht is
+                if (isset($_GET['cat']) && isset($_GET['zoeken'])) { //categorie en trefwoord
+					$trefwoord = strval($_GET['zoeken']);
+					$cat = $_GET['cat'];
+					
+					// checkt of er op het product geboden is
+					$bodCheck = $dbh->prepare("SELECT * FROM Bod");
+					$bodCheck->execute();
+					$bodCheck_fetchAll = $bodCheck->fetchAll();
 
 					$sql = $dbh->prepare(
 							"SELECT distinct top(50) Voorwerp_in_Rubriek.voorwerp, Rubriek_op_Laagste_Niveau, 
-									titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip
-									FROM Voorwerp inner join Voorwerp_in_Rubriek
-										on Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
-									left outer join Bod
-										on Bod.Voorwerp=Voorwerp.voorwerpnummer 
-									WHERE (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
-											SELECT Rubrieknummer 
-											FROM Rubriek
-											WHERE Hoofdrubriek = :cat)
-									OR
-									Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub)
-									AND titel LIKE CONCAT('%', :trefwoord, '%')
-									AND Startprijs > :prijsMin AND Startprijs < :prijsMax
-									AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
-							");
+								titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip
+							FROM Voorwerp inner join Voorwerp_in_Rubriek
+								on Voorwerp.voorwerpnummer=Voorwerp_in_Rubriek.Voorwerp 
+							left outer join Bod
+								on Bod.Voorwerp=Voorwerp.voorwerpnummer 
+							WHERE (Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau in (
+									SELECT Rubrieknummer 
+									FROM Rubriek
+									WHERE Hoofdrubriek = :cat)
+							OR
+							Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub)
+							AND titel LIKE CONCAT('%', :trefwoord, '%')
+							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
+							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+					");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 					$aantal = $sql->rowCount();
 					if ($aantal < 1) {
 							echo '<p class="ml-4">Geen producten gevonden</p>';
 					}
-                } elseif (isset($_GET['cat'])) {
+
+                } elseif (isset($_GET['cat'])) { // enkel categorie
 					$cat = $_GET['cat'];
 					$sql = $dbh->prepare(
 							"SELECT distinct top(50) Voorwerp_in_Rubriek.voorwerp, Rubriek_op_Laagste_Niveau, 
@@ -208,7 +214,8 @@
 							");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
-				} elseif (isset($_GET['zoeken'])) {
+
+				} elseif (isset($_GET['zoeken'])) { // enkel trefwoord
 					$trefwoord = strval($_GET['zoeken']);
 					$sql = $dbh->prepare(
 							"SELECT distinct top(50) Voorwerp_in_Rubriek.voorwerp, Rubriek_op_Laagste_Niveau, 
@@ -223,7 +230,8 @@
 							");
 					$sql->execute(['trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
-				} else {
+
+				} else { // wordt enkel gebruikt als in de url de filters weggehaald worden
 					$sql = $dbh->prepare(
 							"SELECT distinct top(50) Voorwerp_in_Rubriek.voorwerp, Rubriek_op_Laagste_Niveau, 
 							titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip
@@ -237,7 +245,9 @@
 					$sql->execute(['prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 				}
-				foreach ($result as $key => $value) {
+
+				// elk resultaat uit de query wordt weergeven 
+				foreach ($result as $key => $value) { 
 						$afgelopen = 'Veiling afgelopen!';
 						$voorwerpnummer = $value['voorwerp'];
 						$titel = $value['titel'];
@@ -247,6 +257,7 @@
 						$looptijdeindedag = $value['looptijdeindedag'];
 						$looptijdeindetijdstip = $value['looptijdeindetijdstip'];
 
+						// haalt het hoogste bod op van het huidige voorwerp
 						$sql = $dbh->prepare(
 								'SELECT bodbedrag
 								FROM Bod, Voorwerp
@@ -260,6 +271,7 @@
 								$hoogstebod = $resultaat[0]['bodbedrag'];
 						}
 
+						// maakt zoekresultaten zichtbaar en maakt de timer
 						echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
 						onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
 							<div class='image-flip' ontouchstart='this.classList.toggle('hover');'>
@@ -279,6 +291,7 @@
 								</div>
 							</div>
 						</div>
+						
 						<script>
 						var countDownDate$voorwerpnummer = new Date('$looptijdeindedag $looptijdeindetijdstip').getTime();
 
