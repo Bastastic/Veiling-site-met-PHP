@@ -11,6 +11,8 @@ $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
 $mailbox = $sql->fetch(PDO::FETCH_ASSOC);
 $mailbox = $mailbox['Mailbox'];
 
+// Na het drukken op de knop zal de mail gestuurd worden naar de mail van de gebruiker. Dit wordt eerst uit de database gehaald met $mailbox
+
 if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
     $digits = 5;
     $controlegetal = mt_rand(pow(10, $digits-1), pow(10, $digits)-1);
