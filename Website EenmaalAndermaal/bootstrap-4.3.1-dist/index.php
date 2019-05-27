@@ -36,6 +36,7 @@
 
     <?php
 
+//Haalt laatst toegevoegde voorwerp uit de database
 $sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdeindeDag, Voorwerp.LooptijdeindeTijdstip, Gebruiker.Gebruikersnaam 
 FROM Voorwerp
 LEFT JOIN Gebruiker
@@ -53,18 +54,20 @@ $gebruikersnaam = $resultaat['Gebruikersnaam'];
 $eindedag = $resultaat['LooptijdeindeDag'];
 $eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
 
+//Bepaalt het aantal foto's voor product
 $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
 from Bestand
 where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
+//Haalt alle foto's van uitgelichte voorwerp op.
 $query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
 $sql = $dbh->prepare($query);
 $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
 $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-
+//Telt aantal foto's
 $aantalfoto = $aantalfoto['count'];
 if ($aantalfoto > 4) {
     $aantalfoto = 4;
@@ -98,15 +101,18 @@ if ($aantalfoto > 4) {
 
                         <?php
                         $a = 0;
+                        //Zet alle foto's in carousel
                         foreach ($fotos as $key => $value) {
                             $foto = $value['Filenaam'];
-                         
+                            
+                            //Eerste foto is active
                             if ($a == 0) {
                                 echo   "<div class='carousel-item active' style='cursor: pointer'
                             onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
                                     <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
                                     </div>";
                                 $a++;
+                            //De volgende foto's allemaal niet active
                             } else {
                                 echo   "<div class='carousel-item' style='cursor: pointer'
                             onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
@@ -128,6 +134,7 @@ if ($aantalfoto > 4) {
                         </a>
                     </div>
                 </div>
+                <!-- Details van de uitglichte veiling -->
                 <?php    echo    "<div class='col-lg-5 mt-2'>
                 <h2>$titel</h2>
                 <h6>$gebruikersnaam</h6>
@@ -136,6 +143,7 @@ if ($aantalfoto > 4) {
                 </small>
             </div>" ?>
             </div>
+            <!-- Countdown timer -->
             <div class="col-lg-7 d-flex justify-content-center">
                 <?php    echo    "<h4>Nog&nbsp</h4>  <h4 id='$voorwerpnummer'></h4>
                      </div>
@@ -170,6 +178,7 @@ if ($aantalfoto > 4) {
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+                //Geeft de 12 random veilingen weer
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
                     $titel = substr($titel, 0, 25);
