@@ -182,6 +182,9 @@
                                 <input type="text" name="captcha" size="3″ maxlength=" 3″ class="form-control" tabindex="14" required>
                             </div>
                         </div> 
+                        <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
+                                class="btn btn-primary btn-block btn-lg" tabindex="15">
+                        </div>
                     </div>
                 </form>
             </div>
