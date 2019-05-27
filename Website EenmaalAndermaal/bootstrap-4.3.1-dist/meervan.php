@@ -22,6 +22,7 @@
             <h2>Veilingen van <?=$_GET['verkoper']?></h2>
             <div class="row">
                 <?php
+                // hier worden alle veilingen van een bepaalde verkoper gehaald. Als er geen zijn komt er niks.
                 if (isset($_GET['verkoper'])) {
                     $verkoper = $_GET['verkoper'];
                     $sql = $dbh->prepare(
@@ -37,7 +38,7 @@
                     if ($aantal < 1) {
                         echo '<p class="ml-4">Geen producten gevonden</p>';
                     }
-
+                    // hiermee worden er meerdere gehaald als er meerdere zijn.
                     foreach ($result as $key => $value) {
                         $afgelopen = 'Veiling afgelopen!';
                         $voorwerpnummer = $value['voorwerpnummer'];
@@ -68,6 +69,7 @@
                         $fotos = $sql->fetch(PDO::FETCH_ASSOC);
                         $foto = $fotos['Filenaam'];
 
+                        // hier worden alle veilingen laten zien van de betreffende verkoper
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
                         onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\"		>
                         <div class='image-flip' ontouchstart='this.classList.toggle('hover');'>

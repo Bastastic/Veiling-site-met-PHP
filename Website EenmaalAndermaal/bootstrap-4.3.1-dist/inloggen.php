@@ -12,7 +12,7 @@
 
 <?php
      include 'includes/header.php';
-
+//als de wachtwoord niet correct is dan zal er een error komen
      if (isset($_GET['errc'])) {
          if ($_GET['errc'] == '1') {
              $msg = 'De combinatie van deze gebruikersnaam met dit wachtwoord is bij ons niet bekend. Probeer het opnieuw!';
@@ -28,6 +28,7 @@
           <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" />
         </div>
         <?php
+
 
             if (isset($msg)) {
                 echo '<div class="col-xs-12 col-sm-12 col-md-12">
