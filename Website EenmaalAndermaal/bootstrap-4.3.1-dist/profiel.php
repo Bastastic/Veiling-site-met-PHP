@@ -92,7 +92,6 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p class="mb-1">Verkoper worden?</p>
 
                                             <?php
                                             $sql = $dbh->prepare(
@@ -101,17 +100,21 @@
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
 
+                                            //kijkt of de gebruiker zijn gegevens al heeft opgegeven
                                             $verkoper = $dbh->prepare(
                                                 "SELECT * FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                                 );
                                                 $verkoper->execute(['gebruikersnaam' => $gebruikersnaam]);
                                                 $bestaatVerkoper = count($verkoper->fetchAll());
                                             if ($bestaatVerkoper >= 1) {
-                                                echo '<button type="button" class="btn btn-primary" disabled data-toggle="modal" data-target="#verkoperWorden" role="button">
-                                                Update account
-                                                </button>';
+                                                echo '<p class="mb-1">Wilt u een voorwerp veilen?</p>
+                                                <a href="veiling-toevoegen.php" class="btn btn-primary" role="button">
+                                                Maak veiling
+                                                </a>';
                                             } else {
-                                                echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
+                                                
+                                                echo '<p class="mb-1">Verkoper worden?</p>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
                                                 </button>';
                                             }
