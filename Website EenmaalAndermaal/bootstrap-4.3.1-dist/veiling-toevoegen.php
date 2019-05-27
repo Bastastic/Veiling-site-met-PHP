@@ -16,6 +16,15 @@
     <?php include ('includes/header.php');
         if(!isset($_SESSION['userID'])){
             echo '<script>window.location.replace("inloggen.php");</script>';
+        }else{
+            $query = 'SELECT Gebruikersnaam FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam AND Verkoper = 1';
+            $sql = $dbh->prepare($query);
+            $sql->execute(['gebruikersnaam' => $_SESSION['userID']]);
+            $resultaat = $sql->fetch();
+        
+            if(!$resultaat){
+                echo '<script>window.location.replace("profiel.php");</script>';
+            }
         }
     ?>
 </head>
