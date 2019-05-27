@@ -13,20 +13,14 @@ if (isset($_SESSION['userID'])) {
     $voornaam = $gebruiker['Voornaam'];
     $achternaam = $gebruiker['Achternaam'];
     if($gebruiker['Geactiveerd'] == 0){
+        // hier controleren we of de gebruiker Geactiveerd is, als dit het geval is zal je alles kunnen doen. anders kom je steeds terug op de pagina 
+        // om een mail te versturen naar je zelf met een code. 
         if(basename($_SERVER['PHP_SELF']) != 'mailversturen.php' && basename($_SERVER['PHP_SELF']) != 'mailverstuurd.php'){
             header('Location: mailversturen.php');
         }
     }
 }
 
-if (isset($_POST["captcha"])) {
-    if ($_SESSION["captcha"]==$_POST["captcha"]) {
-        //CAPTHCA is valid; proceed the message: save to database, send by e-mail …
-        echo '<div class="alert alert-success">CAPTHCA is valid; proceed the message</div>';
-    } else {
-        echo '<div class="alert alert-danger">CAPTHCA is not valid; ignore submission</div>';
-    }
-}
 ?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">
@@ -42,6 +36,7 @@ if (isset($_POST["captcha"])) {
                         <div
                             class="row float-right justify-content-between justify-content-end flex-lg-row flex-md-row flex-column flex-column">
 
+                         <!-- Hier controleert die of de gebruikersnaam bekend is. In dit geval zal die een uitlog knop laten zien + de voor - en achternaam -->
                             <?php
                             if (isset($gebruikersnaam)) {
                                 echo "<a href='php/logout.php' class='btn btn-secondary ml-1' role='button'>Uitloggen</a>
@@ -88,23 +83,6 @@ if (isset($_POST["captcha"])) {
                                     </button>
                                 </div>
                             </li>
-
-                            <!-- <li>
-                                <div class="form-group mr-2">
-                                    <input type="text" class="form-control " id="postcode" placeholder="Postcode">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-group mr-2">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Afstand</option>
-                                        <option>10 KM</option>
-                                        <option>25 KM</option>
-                                        <option>50 KM</option>
-                                        <option>75 KM </option>
-                                    </select>
-                                </div>
-                            </li> -->
                             <li>
                                 <div class="col-xs-3">
                                     <button type="submit" class="btn btn-primary mr-2">Zoeken</button>
