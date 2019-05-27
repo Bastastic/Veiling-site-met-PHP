@@ -92,6 +92,11 @@
         echo '<script>window.location.replace("zoeken.php");</script>';
         die();
     }
+
+    $query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
+    $sql = $dbh->prepare($query);
+    $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+    $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
     <div class="container my-3">
@@ -115,30 +120,27 @@
 
                         ?>
                     </ul>
-                    <div class="carousel-inner">
+                    <div class="carousel-inner">     
 
                         <?php
-
-                    if ($aantalfoto == 1) {
-                        echo "<img src='http://iproject15.icasites.nl/pics/dt_".$aantalfoto."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>";
-                        }else{
-
-                        for( $s=1; $s <= $aantalfoto; $s++ ){
-                        
-
-                            if( $s == 1){
-                        echo   "<div class='carousel-item active' style='cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                                </div>";
-                            } else {
-                                echo  "<div class='carousel-item' style='cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                        <img src='http://iproject15.icasites.nl/pics/dt_".$s."_".$voorwerpnummer.".jpg' alt='Slider afbeelding'>
-                        </div>";
-                            }
+                        $a = 0;
+                        foreach ($fotos as $key => $value) {
+                            $foto = $value['Filenaam'];
+                         
+                         if( $a == 0){
+                            echo   "<div class='carousel-item active' style='cursor: pointer'
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    </div>";
+                             $a++;       
+                         }else{
+                            echo   "<div class='carousel-item' style='cursor: pointer'
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    </div>";
+                         }
                         }
-                    }
+
                         ?>
 
                     </div>
