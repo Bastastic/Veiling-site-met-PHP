@@ -11,6 +11,8 @@
     $sql = $dbh->prepare($query);
     $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
     $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+    $titel = $resultaat['Titel'];
+
 
     if(!isset($_SESSION['userID'])){
         header('Location: ../inloggen.php');
@@ -34,30 +36,86 @@
     $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
     $hoogstebod = $sql->fetch(PDO::FETCH_ASSOC);
 
-    $titel = $hoogstebod['Titel'];
     $verkoper = $hoogstebod['Verkoper'];
-    $emailadres = $hoogstebod['Mailbox'];
+    $winnaaremailadres = $hoogstebod['Mailbox'];
     $winnaarvoornaam = $hoogstebod['Voornaam'];
     $winnaarachternaam = $hoogstebod['Achternaam'];
 
-    $subject = "U heeft gewonnen!";
-    $txt = "
-    <html>
-    <head>
-    <title>Veiling gewonnen!</title>
-    </head>
-    <body style='text-algin: center;'>
-    <h1>U heeft de veiling van " . $verkoper . " gewonnen!</h1>
-    <p>Gefeliciteerd " . $winnaarvoornaam . " " . $winnaarachternaam . ".<br> U heeft de volgende veiling gewonnen:</p>
-    <h3>" . $titel . "</h3>
-    </body>
-    </html>
-    ";
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
-    mail($emailadres, $subject, $txt, $headers);
+    // $bestaatBod = count($hoogstebod->fetchAll());
+    if ($hoogstebod) {
+        $winnaarsubject = "U heeft gewonnen!";
+        $winnaartxt = "
+        <html>
+        <head>
+        <title>Veiling gewonnen!</title>
+        </head>
+        <body style='text-algin: center;'>
+        <h1>U heeft de veiling van " . $verkoper . " gewonnen!</h1>
+        <p>Gefeliciteerd " . $winnaarvoornaam . " " . $winnaarachternaam . ".<br> U heeft de volgende veiling gewonnen:</p>
+        <h3>" . $titel . "</h3>
+        </body>
+        </html>
+        ";
+
+        $query = $dbh->prepare("SELECT Mailbox 
+                                from Voorwerp inner join Gebruiker 
+                                on Voorwerp.Verkoper = Gebruiker.Gebruikersnaam 
+                                where Voorwerpnummer = :voorwerpnummer");
+        $query->execute(['voorwerpnummer' => $voorwerpnummer]);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        $eigenaaremailadres = $result['Mailbox'];
+
+        $eigenaarsubject = "Uw product is verkocht!";
+        $eigenaartxt = "
+        <html>
+        <head>
+        <title>Veiling gewonnen!</title>
+        </head>
+        <body style='text-algin: center;'>
+        <h1>Uw veiling, " . $titel . ", is verkocht!</h1>
+        <p>Uw veiling is gekocht door: " . $winnaarvoornaam . " " . $winnaarachternaam . ".<br> $winnaaremailadres</p>
+        </body>
+        </html>
+        ";
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
+
+        mail($winnaaremailadres, $winnaarsubject, $winnaartxt, $headers);
+        mail($eigenaaremailadres, $eigenaarsubject, $eigenaartxt, $headers);
+    } else {
+        
+        $query = $dbh->prepare("SELECT Mailbox 
+                                from Voorwerp inner join Gebruiker 
+                                on Voorwerp.Verkoper = Gebruiker.Gebruikersnaam 
+                                where Voorwerpnummer = :voorwerpnummer");
+        $query->execute(['voorwerpnummer' => $voorwerpnummer]);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        $eigenaaremailadres = $result['Mailbox'];
+
+
+
+        $eigenaarsubject = "Uw product helaas niet is verkocht";
+        $eigenaartxt = "
+        <html>
+        <head>
+        <title>Veiling gewonnen!</title>
+        </head>
+        <body style='text-algin: center;'>
+        <h1>Uw veiling, " . $titel . ", is niet verkocht</h1>
+        <p>Er was helaas geen bod gemaakt.</p>
+        </body>
+        </html>
+        ";
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
+
+        mail($eigenaaremailadres, $eigenaarsubject, $eigenaartxt, $headers);
+    }
 
     header('Location: ../profiel.php');
 ?>

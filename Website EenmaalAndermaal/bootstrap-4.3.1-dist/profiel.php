@@ -95,25 +95,33 @@
 
                                             <?php
                                             $sql = $dbh->prepare(
-            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+                                                "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                             );
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
 
                                             //kijkt of de gebruiker zijn gegevens al heeft opgegeven
                                             $verkoper = $dbh->prepare(
-                                                "SELECT * FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+                                                "SELECT * FROM Verkoper inner join Gebruiker on Verkoper.Gebruiker = Gebruiker.Gebruikersnaam WHERE Verkoper.Gebruiker = :gebruikersnaam"
                                                 );
-                                                $verkoper->execute(['gebruikersnaam' => $gebruikersnaam]);
-                                                $bestaatVerkoper = count($verkoper->fetchAll());
-                                            if ($bestaatVerkoper >= 1) {
-                                                echo '<p class="mb-1">Wilt u een voorwerp veilen?</p>
-                                                <a href="veiling-toevoegen.php" class="btn btn-primary" role="button">
-                                                Maak veiling
-                                                </a>';
+                                            $verkoper->execute(['gebruikersnaam' => $gebruikersnaam]);
+                                            $result = $verkoper->fetch(PDO::FETCH_ASSOC);
+                                            $geactiveerd = $result['Verkoper'];
+
+                                            if ($result) {
+                                                if ($geactiveerd == 1) {
+                                                    echo '<p class="mb-1"><strong>Wilt u een voorwerp veilen?</strong></p>
+                                                    <a href="cat.php" class="btn btn-primary" role="button">
+                                                    Maak veiling
+                                                    </a>';
+                                                } else {
+                                                    echo '<p class="mb-1"><strong>Wilt u een voorwerp veilen?</strong></p>
+                                                    <p>
+                                                    Uw gegevens moeten gecontrolleerd worden voordat u een veiling kunt maken, dit zal binnen een paar dagen gebeuren.
+                                                    </p>';
+                                                }
                                             } else {
-                                                
-                                                echo '<p class="mb-1">Verkoper worden?</p>
+                                                echo '<p class="mb-1"><strong>Verkoper worden?</strong></p>
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#verkoperWorden" role="button">
                                                 Update account
                                                 </button>';
