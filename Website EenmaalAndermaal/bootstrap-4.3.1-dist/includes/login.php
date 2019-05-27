@@ -175,13 +175,13 @@
                         </div>
                         <!-- captcha -->
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <img src="includes/captcha.php" alt="captcha image"></div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <input type="text" name="captcha" size="3″ maxlength=" 3″ class="form-control" tabindex="14" required>
                             </div>
-                        </div> 
+                        </div>  -->
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
                                 class="btn btn-primary btn-block btn-lg" tabindex="15">
                         </div>
