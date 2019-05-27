@@ -49,6 +49,13 @@
         $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
         $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
 
+        $sqlaf = $dbh->prepare('SELECT * 
+        FROM Voorwerp
+        WHERE Voorwerpnummer = :voorwerpnummer
+        AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) <= GETDATE()');
+        $sqlaf->execute(['voorwerpnummer' => $voorwerpnummer]);
+        $isaf = $sqlaf->fetch();
+
         $afgelopen = 'Veiling afgelopen!';
 
         $titel = $resultaat['titel'];
@@ -106,15 +113,14 @@
                     <ul class="carousel-indicators">
 
                         <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
-                        <?php 
+                        <?php
 
                         
-                          for( $x=0; $x < $aantalfoto; $x++ ){
-                        
-                              if($x == 0){
-                                echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
-                              }else{
-                                echo "<li data-target='#demo' data-slide-to='$x'>";
+                          for ($x=0; $x < $aantalfoto; $x++) {
+                              if ($x == 0) {
+                                  echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                              } else {
+                                  echo "<li data-target='#demo' data-slide-to='$x'>";
                               }
                           }
 
@@ -127,16 +133,16 @@
                         foreach ($fotos as $key => $value) {
                             $foto = $value['Filenaam'];
                          
-                         if( $a == 0){
-                            echo   "<div class='carousel-item active' style='cursor: pointer'>
+                            if ($a == 0) {
+                                echo   "<div class='carousel-item active' style='cursor: pointer'>
                                     <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
                                     </div>";
-                             $a++;       
-                         }else{
-                            echo   "<div class='carousel-item' style='cursor: pointer'>
+                                $a++;
+                            } else {
+                                echo   "<div class='carousel-item' style='cursor: pointer'>
                                     <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
                                     </div>";
-                         }
+                            }
                         }
 
                         ?>
@@ -185,7 +191,7 @@
                 <h4>Biedingen</h4>
 
                 <?php
-                if($veilinggesloten == '0'){
+                if ($veilinggesloten == '0' && !$isaf) {
                     echo '<form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
                     <input type="number" class="form-control my-4" placeholder="Minimaal € ' . $hoogstebod . '" name="bod" id="bod" aria-label=""
