@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php 
-        include 'includes/links.php'; 
+    <?php
+        include 'includes/links.php';
     ?>
     <link rel="stylesheet" href="css/faq.css" />
 
     <title>Profiel</title>
 </head>
 
-<?php 
+<?php
     include 'includes/header.php';
     
-    if(!isset($_SESSION['userID'])){
+    if (!isset($_SESSION['userID'])) {
         echo '<script>window.location.replace("inloggen.php");</script>';
     }
 
@@ -27,10 +27,10 @@
             $msg = 'Error msg 1';
         }
     }
-    if (isset($_GET['succ'])){
+    if (isset($_GET['succ'])) {
         $type = 'success';
         $titel = 'Okidoki!';
-        if ($_GET['succ'] == '1'){
+        if ($_GET['succ'] == '1') {
             $msg = 'U heeft uw account succesvol geactiveerd!';
         }
     }
@@ -96,7 +96,7 @@
 
                                             <?php
                                             $sql = $dbh->prepare(
-                                            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
+            "SELECT COUNT(*) AS 'count' FROM Verkoper WHERE Gebruiker = :gebruikersnaam"
                                             );
                                             $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $aantal = count($sql->fetchAll());
@@ -318,8 +318,8 @@
                                                 $foto = $fotos['Filenaam'];
 
 
-                                                if($gesloten == 0){
-                                                echo '<div class="card mb-3" style="max-width: 800px;">
+                                                if ($gesloten == 0) {
+                                                    echo '<div class="card mb-3" style="max-width: 800px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
                                                         <img src="http://iproject15.icasites.nl/' . $foto . '" class="card-img" alt="...">
@@ -335,7 +335,7 @@
                                                     </div>
                                                 </div>
                                             </div>';
-                                                }else{
+                                                } else {
                                                     echo '<div class="card mb-3" style="max-width: 800px;">
                                                 <div class="row no-gutters">
                                                     <div class="col-md-4">
