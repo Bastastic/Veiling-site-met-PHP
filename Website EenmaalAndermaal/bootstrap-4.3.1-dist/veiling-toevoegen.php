@@ -98,6 +98,8 @@
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-8">
                                                 <br>
                                                 <br>
+                                                <?php $cat = $_POST['cat'];?> 
+                                                <input type="hidden" name="cat" value="<?=$cat;?>">
                                                 <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
                                                 tabindex="7">
                                                 </div>
