@@ -31,27 +31,6 @@
                     </div>
                 </div>
                 ";
-
-                // $sqlSub = $dbh->prepare("SELECT * FROM Rubriek WHERE HoofdRubriek = $rubrieknummer ORDER BY Rubrieknummer");
-                // $sqlSub->execute();
-                // $resultaatSub = $sqlSub->fetchAll(PDO::FETCH_NUM);
-
-                // if ($resultaatSub) {
-                //     for ($j = 0; $j < count($resultaatSub); $j++) {
-                //         $rubrieknummerSub = $resultaatSub[$i][0];
-                //         $rubrieknaamSub = $resultaatSub[$i][1];
-                //         $volgnr = $resultaatSub[$i][3];
-
-                //         echo "
-                //             <li>
-                //                 <input class='form-check-input ml-2' type='radio' name='cat' id='catRadio$rubrieknummerSub' value='$rubrieknummerSub'>
-                //                 <label class='form-check-label ml-2' for='catRadio$rubrieknummerSub'>"
-                //                     . str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;", $volgnr) . "$rubrieknaamSub
-                //                 </label>
-                //             </li>
-                //         ";
-                //     }
-                // }
             }
         }
     ?>

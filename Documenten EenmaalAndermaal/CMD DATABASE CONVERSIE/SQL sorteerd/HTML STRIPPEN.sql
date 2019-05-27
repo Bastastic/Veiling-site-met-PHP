@@ -29,8 +29,7 @@ DECLARE @Start  int
 DECLARE @End    int
 DECLARE @Length int
 
--- Replace the HTML entity &amp; with the '&' character (this needs to be done first, as
--- '&' might be double encoded as '&amp;amp;')
+-- vervang HTML tag &amp; met de  '&' Karakter 
 SET @Start = CHARINDEX('&amp;', @HTMLText)
 SET @End = @Start + 4
 SET @Length = (@End - @Start) + 1
@@ -42,7 +41,7 @@ SET @End = @Start + 4
 SET @Length = (@End - @Start) + 1
 END
 
--- Replace the HTML entity &lt; with the '<' character
+-- Vervang HTML tag: &lt; met de '<' Karakter
 SET @Start = CHARINDEX('&lt;', @HTMLText)
 SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
@@ -54,7 +53,7 @@ SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
 END
 
--- Replace the HTML entity &gt; with the '>' character
+-- vervang de HTML tag &gt; met de '>' karakter
 SET @Start = CHARINDEX('&gt;', @HTMLText)
 SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
@@ -66,7 +65,7 @@ SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
 END
 
--- Replace the HTML entity &amp; with the '&' character
+-- Vervang HTML tag &amp; met de '&' character
 SET @Start = CHARINDEX('&amp;amp;', @HTMLText)
 SET @End = @Start + 4
 SET @Length = (@End - @Start) + 1
@@ -78,7 +77,7 @@ SET @End = @Start + 4
 SET @Length = (@End - @Start) + 1
 END
 
--- Replace the HTML entity &nbsp; with the ' ' character
+-- vervang de tag &nbsp; met de ' ' character
 SET @Start = CHARINDEX('&nbsp;', @HTMLText)
 SET @End = @Start + 5
 SET @Length = (@End - @Start) + 1
@@ -91,43 +90,44 @@ SET @Length = (@End - @Start) + 1
 END
 
 
--- Replace any <br> tags with a newline
+-- vervang elke <br> tag met een ' ' karakter
 
 SET @Start = CHARINDEX('<br>', @HTMLText)
 SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
 
 WHILE (@Start > 0 AND @End > 0 AND @Length > 0) BEGIN
-SET @HTMLText = STUFF(@HTMLText, @Start, @Length, 'CHAR(13) + CHAR(10')
+SET @HTMLText = STUFF(@HTMLText, @Start, @Length, ' ')
 SET @Start = CHARINDEX('<br>', @HTMLText)
 SET @End = @Start + 3
 SET @Length = (@End - @Start) + 1
 END
 
--- Replace any <br/> tags with a newline
+-- vervang <br/> tag met een ' ' karakter
 SET @Start = CHARINDEX('<br/>', @HTMLText)
 SET @End = @Start + 4
 SET @Length = (@End - @Start) + 1
 
 WHILE (@Start > 0 AND @End > 0 AND @Length > 0) BEGIN
-SET @HTMLText = STUFF(@HTMLText, @Start, @Length, 'CHAR(13) + CHAR(10)')
+SET @HTMLText = STUFF(@HTMLText, @Start, @Length, ' ')
 SET @Start = CHARINDEX('<br/>', @HTMLText)
 SET @End = @Start + 4
 SET @Length = (@End - @Start) + 1
 END
 
--- Replace any <br /> tags with a newline
+-- vervang <br /> tag met een ' ' karakter
 SET @Start = CHARINDEX('<br />', @HTMLText)
 SET @End = @Start + 5
 SET @Length = (@End - @Start) + 1
 
 WHILE (@Start > 0 AND @End > 0 AND @Length > 0) BEGIN
-SET @HTMLText = STUFF(@HTMLText, @Start, @Length, 'CHAR(13) + CHAR(10)')
+SET @HTMLText = STUFF(@HTMLText, @Start, @Length, ' ')
 SET @Start = CHARINDEX('<br />', @HTMLText)
 SET @End = @Start + 5
 SET @Length = (@End - @Start) + 1
 END
 
+-- vervang <STYLE or </STYLE> met ''
 SET @Start = CHARINDEX('<STYLE', @HTMLText)
 SET @End = CHARINDEX('</STYLE>', @HTMLText, CHARINDEX('<', @HTMLText)) + 7
 SET @Length = (@End - @Start) + 1
@@ -139,6 +139,7 @@ SET @End = CHARINDEX('</STYLE>', @HTMLText, CHARINDEX('</STYLE>', @HTMLText)) + 
 SET @Length = (@End - @Start) + 1
 END
 
+-- vervang <SCRIPT or </SCRIPT met ''
 SET @Start = CHARINDEX('<SCRIPT', @HTMLText)
 SET @End = CHARINDEX('</SCRIPT', @HTMLText, CHARINDEX('<', @HTMLText)) + 8
 SET @Length = (@End - @Start) + 1
@@ -150,7 +151,7 @@ SET @End = CHARINDEX('</SCRIPT>', @HTMLText, CHARINDEX('</SCIRPT>', @HTMLText)) 
 SET @Length = (@End - @Start) + 1
 END
 
--- Remove anything between <whatever> tags
+-- Alles wat tussen '<>' tags staat, weghalen
 SET @Start = CHARINDEX('<', @HTMLText)
 SET @End = CHARINDEX('>', @HTMLText, CHARINDEX('<', @HTMLText))
 SET @Length = (@End - @Start) + 1
@@ -166,16 +167,12 @@ RETURN LTRIM(RTRIM(@HTMLText))
 
 END
 
---SELECT DISTINCT dbo.udf_StripHTML([Beschrijving]) as col1
---FROM Items
+-- Strippen van de bescrhijving met functie. we voegde het tabel 'items' toe aan bestaande database, en  
+UPDATE iproject15.dbo.Items
+SET iproject15.dbo.Items.Beschrijving = dbo.udf_StripHTML([Beschrijving])
+FROM iproject15.dbo.Items
 
---SELECT TOP(10) Beschrijving
---FROM Items
+-- Select statement om te testen of het strippen heeft gewerkt
+SELECT top(10) Beschrijving
+FROM iproject15.dbo.Items
 
---UPDATE iproject15.dbo.Items
---SET iproject15.dbo.Items.Beschrijving = dbo.udf_StripHTML([Beschrijving])
---FROM iproject15.dbo.Items
-
-SELECT voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
-													FROM Voorwerp
-													WHERE voorwerpnummer BETWEEN 20 AND 20 + 30
