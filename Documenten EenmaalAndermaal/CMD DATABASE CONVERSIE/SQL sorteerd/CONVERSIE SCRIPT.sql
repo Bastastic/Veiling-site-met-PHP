@@ -1,16 +1,36 @@
+DELETE Verificatie
+DELETE Bestand
+DELETE Bod
+DELETE Feedback
+DELETE Gebruikerstelefoon
+DELETE Voorwerp_in_Rubriek
+DELETE Voorwerp
+DELETE Verkoper
+DELETE Gebruiker
+DELETE Gebruikerstelefoon
+DELETE Rubriek
+DELETE Verkoper
+DELETE Voorwerp
+DELETE Voorwerp_in_Rubriek
+DELETE Vraag
+
+----verwijderen van database (van ons)-------
+
+insert into Vraag values
+	(1, 'Wat is je lievelingsfruit?'),
+	(2, 'Wat is je lievelingseten?'),
+	(3, 'Hoe heet jouw beste vriend/vriedin?'),
+	(4, 'wat is de naam van jouw eerste baas?'),
+	(5, 'Hoe hete jouw eerste engels docent?')
+
+---- Testvragen ------
+
 INSERT INTO iproject15.dbo.Rubriek
 SELECT DISTINCT CAST(ID AS int) AS Rubrieknummer,
 LEFT(name,100) AS Rubrieknaam,
 CAST (Parent AS int) AS Hoofdrubriek ,
 CAST (ID AS int) AS Volgnr
 FROM iproject15.dbo.Categorieen
-
---UPDATE iproject15.dbo.Rubriek
---SET Hoofdrubriek = null
---WHERE Hoofdrubriek = -1
-
---DELETE FROM iproject15.dbo.Rubriek
---WHERE Rubrieknummer = -1
 
 ---------------Rubriek--------------------------
 
@@ -48,10 +68,10 @@ NULL AS Bankrekening,
 123244232 AS Creditcard
 FROM iproject15.dbo.Users
 
-DELETE FROM iproject15.dbo.Verkoper
-WHERE Gebruiker IN 
-(SELECT Gebruikersnaam FROM iproject15.dbo.Gebruiker
-WHERE Verkoper = 0); 
+--DELETE FROM iproject15.dbo.Verkoper
+--WHERE Gebruiker IN 
+--(SELECT Gebruikersnaam FROM iproject15.dbo.Gebruiker
+--WHERE Verkoper = 0); 
 -----------Verkoper--------------
 SET IDENTITY_INSERT iproject15.dbo.Voorwerp ON
 GO

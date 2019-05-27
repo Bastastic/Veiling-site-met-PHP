@@ -36,10 +36,12 @@
 
     <?php
 
+//Haalt laatst toegevoegde voorwerp uit de database
 $sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdeindeDag, Voorwerp.LooptijdeindeTijdstip, Gebruiker.Gebruikersnaam 
 FROM Voorwerp
 LEFT JOIN Gebruiker
 ON Voorwerp.Verkoper = Gebruiker.Gebruikersnaam
+WHERE cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
 ORDER BY LooptijdbeginDag DESC, LooptijdbeginTijdstip DESC");
 $sql->execute();
 $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
@@ -47,25 +49,27 @@ $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
 $voorwerpnummer = $resultaat['Voorwerpnummer'];
 $titel = $resultaat['Titel'];
 $beschrijving = $resultaat['Beschrijving'];
-$beschrijving = substr($beschrijving,0, 200);
+$beschrijving = substr($beschrijving, 0, 200);
 $gebruikersnaam = $resultaat['Gebruikersnaam'];
 $eindedag = $resultaat['LooptijdeindeDag'];
 $eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
 
+//Bepaalt het aantal foto's voor product
 $tellenVanFoto = $dbh->prepare("select COUNT(*) as count
 from Bestand
 where Voorwerp = $voorwerpnummer ");
 $tellenVanFoto->execute();
 $aantalfoto = $tellenVanFoto->fetch(PDO::FETCH_ASSOC);
 
+//Haalt alle foto's van uitgelichte voorwerp op.
 $query = "SELECT Filenaam FROM Bestand WHERE Voorwerp = :voorwerpnummer";
 $sql = $dbh->prepare($query);
 $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
 $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-
+//Telt aantal foto's
 $aantalfoto = $aantalfoto['count'];
-if ($aantalfoto > 4){
+if ($aantalfoto > 4) {
     $aantalfoto = 4;
 }
 ?>
@@ -80,14 +84,13 @@ if ($aantalfoto > 4){
                         <ul class="carousel-indicators">
 
                             <!-- hieronder een forloop om ervoor te zorgen dat de aantal sliders worden bepaald -->
-                            <?php 
-                          for( $x=0; $x < $aantalfoto; $x++ ){
-                              
-                            if($x == 0){
-                                echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
-                            }else{
-                                echo "<li data-target='#demo' data-slide-to='$x'>";
-                            }
+                            <?php
+                          for ($x=0; $x < $aantalfoto; $x++) {
+                              if ($x == 0) {
+                                  echo "<li data-target='#demo' data-slide-to='$x' class='active'></li>";
+                              } else {
+                                  echo "<li data-target='#demo' data-slide-to='$x'>";
+                              }
                           }
 
                         ?>
@@ -98,23 +101,24 @@ if ($aantalfoto > 4){
 
                         <?php
                         $a = 0;
+                        //Zet alle foto's in carousel
                         foreach ($fotos as $key => $value) {
                             $foto = $value['Filenaam'];
-                         
-                         if( $a == 0){
-                            echo   "<div class='carousel-item active' style='cursor: pointer'
-                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
-                                    </div>";
-                             $a++;       
-                         }else{
-                            echo   "<div class='carousel-item' style='cursor: pointer'
-                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
-                                    </div>";
-
-                         }
                             
+                            //Eerste foto is active
+                            if ($a == 0) {
+                                echo   "<div class='carousel-item active' style='cursor: pointer'
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    </div>";
+                                $a++;
+                            //De volgende foto's allemaal niet active
+                            } else {
+                                echo   "<div class='carousel-item' style='cursor: pointer'
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    </div>";
+                            }
                         }
 
                         ?>
@@ -130,6 +134,7 @@ if ($aantalfoto > 4){
                         </a>
                     </div>
                 </div>
+                <!-- Details van de uitglichte veiling -->
                 <?php    echo    "<div class='col-lg-5 mt-2'>
                 <h2>$titel</h2>
                 <h6>$gebruikersnaam</h6>
@@ -138,6 +143,7 @@ if ($aantalfoto > 4){
                 </small>
             </div>" ?>
             </div>
+            <!-- Countdown timer -->
             <div class="col-lg-7 d-flex justify-content-center">
                 <?php    echo    "<h4>Nog&nbsp</h4>  <h4 id='$voorwerpnummer'></h4>
                      </div>
@@ -168,10 +174,11 @@ if ($aantalfoto > 4){
             <div class="row mt-5">
                 <?php
             // veiling gesloten in Voorwerp is standaard 0, dit betekent dus dat de veiling nog open is. Bij het aflopen van de veiling wordt de waarde naar 1 gezet.
-                $sql = $dbh->prepare("select top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0");
+                $sql = $dbh->prepare("SELECT top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0 AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+                //Geeft de 12 random veilingen weer
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
                     $titel = substr($titel, 0, 25);
