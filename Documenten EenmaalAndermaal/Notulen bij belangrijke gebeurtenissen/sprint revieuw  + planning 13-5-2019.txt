@@ -1,0 +1,12 @@
+- Elke product, voorbeeld code ontwerp + ontwerp tekening. 
+- Onderbouwing van het systeem
+- Use cases als uitgangspunt (trello userstories), trello vinkjes bijgehouden
+- Definition of done
+
+------------------------------------------------------------------
+
+- Sprint doel 2: volledige veiling op de website uitvoeren. 
+- Nieuwe use case voor BIM en ISM (ISM technische voorspellingen, BIM Bedrijfsmatige voorspellingen)
+- SQL CMD (hebben we al)
+
+------------------------------------------------------------------

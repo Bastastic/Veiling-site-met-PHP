@@ -1,0 +1,15 @@
+Sprint reviueuw 27-05-2019:
+
+- * bij adresregel 2
+- Email link naar veiling doen
+- Grafiek van hoeveel gebruikers er per dag bijkomen (lijndiagram)
+- Veilegheids analyse (tools) bij finaciele transacties (ism)
+- Tijdsinstelling morgen 12:00 uur
+- taken goed indelen 
+- (popup voor biedden)
+- Bij index pagina, niet de top 12 maar random 12.
+- Omleiding bij verkoper worden (peiwand)
+- Als andere gebruiker een veiling eindigen van een ander persoon
+
+
+

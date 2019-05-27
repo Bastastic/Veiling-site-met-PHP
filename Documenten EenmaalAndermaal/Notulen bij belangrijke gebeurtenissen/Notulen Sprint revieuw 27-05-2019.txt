@@ -1,0 +1,18 @@
+Sprint revieuw 27-05-2019
+
+Goed ging:
+- Samenwerking, 
+- code schrijven ging veel beter
+- Scrum board werd beter gebruikt 
+- Ontwerpdocument maakten voor alle userstories (psuedo code)
+
+Slecht:
+- Planning slecht
+- User stories onderschatten (tijdsindeling)
+- Beter het gebruik van Github inzien (merges)
+- Focus lag eruit (doordat alles tegenzat)
+
+Volgende keer (sprint): 
+- Verdeling van tijd bijhouden (taakverdeling met urenverdeling)
+- Userstories opdelen in nog kleinere taken
+- Beter overleg over dingen pullen en pushen via GitHub.  

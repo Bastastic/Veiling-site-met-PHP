@@ -1,0 +1,39 @@
+- Voorbereiden retrospective
+- Notulist: Wesley smeltink
+- Scrum master: Erkan
+-------------------------------------------------------------------------------------------
+Bas											   
+- Goeie samenwerking vergeleken andere groepen, goed afgesteld op elkaar		   
+- geen ontwerp, code ontwerp, te weinig ontwerpen!					   
+- definition of done scherper krijgen, Testcases, ontwerp. 				   
+											   
+Wesley											   
+- samenwerking ging goed, hulp nodig werd altijd gevraagd
+- Ontwerp, beter tijdsindelen
+- Ontwerp en beter tijdsindelen
+
+Peiwand
+- Scrum board werd gebruik van gemaakt (indruk hoe ver we waren), goeie samenwerking,
+- Minder snel afleiding (iemand er wat van zeggen) 
+- (Al genoemd) 
+
+Senad
+- Samenwerking beter dan verwacht
+- (al genoemd)  
+- Scrum board, Defenition of done
+
+Dani
+- Kwaleit goed 
+- Beter testen van dingen, testcases maken/defination of done. 
+- (Al genoemd)
+
+Erkan
+- 
+-
+- 
+
+3 verbeterpunten: 
+[-] Bas - Ontwerp master - checkt of Ontwerp gemaakt wordt.
+[-] wesley - Kwaliteit meester - checkt of iedereen met definition of done werkt.
+[-] Dani - Focus master - Houdt de focus erbij.
+ 

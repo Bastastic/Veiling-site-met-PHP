@@ -1,0 +1,19 @@
+- Discruptie bij High level architectuur maken, Gebruiker duidelijk uitwerken
+- Onderzoek front-end framework nakijken + opsturen
+- High level design aanpassen, met voorbeelden van websites (hoe gaan we catogoriën laten zien)
+- Definition of done uitleggen
+- User stories voor de eerte sprint mee beginnen. 
+- elke keer foto van scrum board maken. 
+- volgende meeting scrumaster en notulist aanwijzen. 
+
+Doel: navigeerbare site met mooi design. 
+
+Sprint doel: 
+Homepagina (2 per scherm)
+Navigeerbare website, hoe de website volledig werkt. 
+gast en gebruiker, kan rondkijken naar producten. filteren.
+Database: categoriën en artikelen. 
+
+Wesley Smeltink: notulist
+Scrum master: Bas slijkhuis
+
