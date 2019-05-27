@@ -294,6 +294,8 @@ $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze,
         echo 'Geen afbeelding toegevoegt, voegt standaard afbeelding toe.';
 
 }
+header('Location: ../profiel.php');
+
 
 
 ?>
