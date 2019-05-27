@@ -1,6 +1,7 @@
 <?php
     require '../php/connectDB.php';
 
+    // Hier wordt de gestuurde Verificatiecode gecontroleerd met de ingevulde code. Als het klopt ga je naar profiel en anders blijf je op dezelfde pagina
     if (isset($_POST['code'])) {
         $code = intval($_POST['code']);
         $query = "SELECT *
