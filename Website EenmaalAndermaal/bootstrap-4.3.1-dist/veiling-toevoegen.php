@@ -69,18 +69,7 @@
                                                 </div>
                                                 
                                             </div>
-                                            <div class="form-row justify-content-center mx-5">
-                                                <div class="form-group col-xs-12 col-sm-12 col-md-8">
-                                                    <h4 class="card-title">Categorie:</h4>
-                                                    <select class="custom-select" name="Categorie">
-                                                        <!-- Moet nog worden geimplementeert -->
-                                                        <option selected>Choose...</option> 
-                                                        <option value="1">Games</option>
-                                                        <option value="2">twee</option>
-                                                        <option value="3">Drie</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
                                             <div class="form-row justify-content-center mx-5">
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-8">
                                                     <h4 class="card-title">Kies Betaalmethode:</h4>
@@ -98,6 +87,8 @@
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-8">
                                                 <br>
                                                 <br>
+                                                <?php $cat = $_POST['cat'];?> 
+                                                <input type="hidden" name="cat" value="<?=$cat;?>">
                                                 <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
                                                 tabindex="7">
                                                 </div>
