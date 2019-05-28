@@ -11,6 +11,16 @@
 
 <?php include 'includes/header.php';
 
+  require_once 'php/countries.php';
+
+  $sql = $dbh->prepare(
+      "SELECT *
+      FROM Vraag
+      "
+  );
+  $sql->execute();
+  $vragen = $sql->fetchAll();
+
   if (isset($_GET['errc'])) {
       if ($_GET['errc'] == '1') {
           $msg = 'Deze gebruikersnaam is al bezet. Probeer het opnieuw!';
@@ -41,14 +51,14 @@
         ?>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-              <input type="text" name="Voornaam" id="Voornaam" class="form-control input-lg" placeholder="Voornaam"
+              <input type="text" name="Voornaam" id="Voornaam" class="form-control input-lg" placeholder="Voornaam*"
                 tabindex="1">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <input type="text" name="Achternaam" id="Achternaam" class="form-control input-lg"
-                placeholder="Achternaam" tabindex="2">
+                placeholder="Achternaam*" tabindex="2">
             </div>
           </div>
         </div>
@@ -56,7 +66,7 @@
           <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="form-group">
               <input type="text" name="Adresregel1" id="Adresregel1" class="form-control input-lg"
-                placeholder="Adresregel 1" tabindex="3">
+                placeholder="Adresregel 1*" tabindex="3">
             </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4">
@@ -67,7 +77,7 @@
           </div>
           <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="form-group">
-              <input type="text" name="Postcode" id="Postcode" class="form-control input-lg" placeholder="Postcode"
+              <input type="text" name="Postcode" id="Postcode" class="form-control input-lg" placeholder="Postcode*"
                 tabindex="5">
             </div>
           </div>
@@ -76,57 +86,63 @@
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <input type="text" name="Plaatsnaam" id="Plaatsnaam" class="form-control input-lg"
-                placeholder="Plaatsnaam" tabindex="6">
+                placeholder="Plaatsnaam*" tabindex="6">
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <select id="Land" name="Land" class="form-control" tabindex="7">
-                <option selected>Kies een land...</option>
-                <option>...</option>
+              <?php
+                  foreach ($countries as $key => $value) {
+                      echo "<option value='$value' title='$value'>$value</option>";
+                  }
+              ?>
               </select>
             </div>
           </div>
         </div>
         <div class="form-group">
           <input type="date" name="Geboortedatum" id="Geboortedatum" class="form-control input-lg"
-            placeholder="Geboortedatum" tabindex="8">
+            placeholder="Geboortedatum*" tabindex="8">
         </div>
         <div class="form-group">
-          <input type="email" name="Emailadres" id="Emailadres" class="form-control input-lg" placeholder="Emailadres"
+          <input type="email" name="Emailadres" id="Emailadres" class="form-control input-lg" placeholder="Emailadres*"
             tabindex="9">
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <select id="Vraag" name="Vraag" class="form-control" tabindex="10">
-                <option selected>Kies een beveiligingsvraag...</option>
-                <option>...</option>
+              <?php
+                foreach ($vragen as $key => $value) {
+                    $vraagnr = $value['Vraagnummer'];
+                    $vraag = $value['Tekst_vraag'];
+
+                    echo "<option value='$vraagnr'>$vraag</option>";
+                }
+              ?>
               </select>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
-              <input type="text" name="Antwoord" id="Antwoord" class="form-control input-lg" placeholder="Antwoord"
+              <input type="text" name="Antwoord" id="Antwoord" class="form-control input-lg" placeholder="Antwoord*"
                 tabindex="11">
             </div>
           </div>
         </div>
         <div class="form-group">
           <input type="text" name="Gebruikersnaam" id="Gebruikersnaam" class="form-control input-lg"
-            placeholder="Gebruikersnaam" tabindex="12">
+            placeholder="Gebruikersnaam*" tabindex="12">
         </div>
         <div class="form-group">
-          <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg" placeholder="Wachtwoord"
+          <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg" placeholder="Wachtwoord*"
             tabindex="13">
         </div>
         <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Verkoper?
-            </label>
           </div>
+          <small>Velden gemarkeerd met een * zijn verplicht</small>
         </div>
         <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
             class="btn btn-primary btn-block btn-lg" tabindex="14"></div>

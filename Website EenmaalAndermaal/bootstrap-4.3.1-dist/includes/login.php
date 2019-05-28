@@ -74,13 +74,13 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Voornaam" id="Voornaam" class="form-control input-lg"
-                                        placeholder="Voornaam" tabindex="1" required>
+                                        placeholder="Voornaam*" tabindex="1" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Achternaam" id="Achternaam" class="form-control input-lg"
-                                        placeholder="Achternaam" tabindex="2" required>
+                                        placeholder="Achternaam*" tabindex="2" required>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Adresregel" id="Adresregel" class="form-control input-lg"
-                                        placeholder="Adresregel" tabindex="3" required>
+                                        placeholder="Adresregel*" tabindex="3" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -100,7 +100,7 @@
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Postcode" id="Postcode" class="form-control input-lg"
-                                        placeholder="Postcode" tabindex="5" required>
+                                        placeholder="Postcode*" tabindex="5" required>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Plaatsnaam" id="Plaatsnaam" class="form-control input-lg"
-                                        placeholder="Plaatsnaam" tabindex="6" required>
+                                        placeholder="Plaatsnaam*" tabindex="6" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
@@ -125,11 +125,11 @@
                         </div>
                         <div class="form-group">
                             <input type="date" name="Geboortedatum" id="Geboortedatum" class="form-control input-lg"
-                                placeholder="Geboortedatum" tabindex="8" required>
+                                placeholder="Geboortedatum*" tabindex="8" required>
                         </div>
                         <div class="form-group">
                             <input type="email" name="Emailadres" id="Emailadres" class="form-control input-lg"
-                                placeholder="Emailadres" tabindex="9" required>
+                                placeholder="Emailadres*" tabindex="9" required>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6">
@@ -149,18 +149,19 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Antwoord" id="Antwoord" class="form-control input-lg"
-                                        placeholder="Antwoord" tabindex="11" required>
+                                        placeholder="Antwoord*" tabindex="11" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="text" name="Gebruikersnaam" id="Gebruikersnaam" class="form-control input-lg"
-                                placeholder="Gebruikersnaam" tabindex="12" required>
+                                placeholder="Gebruikersnaam*" tabindex="12" required>
                         </div>
                         <div class="form-group">
                             <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg"
-                                placeholder="Wachtwoord" tabindex="13" required>
+                                placeholder="Wachtwoord*" tabindex="13" required>
                         </div>
+                        <small>Velden gemarkeerd met een * zijn verplicht</small>
                         <div class="col-xs-20 col-md-20"><input type="submit" value="Registreren"
                                 class="btn btn-primary btn-block btn-lg" tabindex="15">
                         </div>
