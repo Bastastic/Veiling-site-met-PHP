@@ -42,9 +42,9 @@ if (isset($_SESSION['userID'])) {
                                 echo "<a href='php/logout.php' class='btn btn-secondary ml-1' role='button'>Uitloggen</a>
                                 <a href='profiel.php' class='btn btn-primary ml-1' role='button'>$voornaam $achternaam</a>";
                             } else {
-                                echo "<a class='btn btn-secondary ml-1' data-toggle='modal' data-target='#exampleModal'
+                                echo "<a class='btn btn-secondary ml-1' style='cursor: pointer' data-toggle='modal' data-target='#exampleModal'
                                 role='button'>Inloggen</a>
-                                <a class='btn btn-primary ml-1' data-toggle='modal' data-target='#exampleModal2'
+                                <a class='btn btn-primary ml-1' style='cursor: pointer' data-toggle='modal' data-target='#exampleModal2'
                                 role='button'>Registreren</a>";
                             }
                             ?>
