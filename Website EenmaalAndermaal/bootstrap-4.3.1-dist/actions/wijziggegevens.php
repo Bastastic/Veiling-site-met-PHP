@@ -114,7 +114,8 @@ if(  password_verify( $_POST['wachtwoordcheck'] , $wachtwoord ) ){
 
 
 
-
+// deze mail wordt verstuurd na het wijzigen van je gegevens. 
+// met een link als je het niet zelf gedaan naar contactformulier.
                 $subject = "Uw gegevens zijn gewijzigd!";
                 $txt = "
                 <html>
