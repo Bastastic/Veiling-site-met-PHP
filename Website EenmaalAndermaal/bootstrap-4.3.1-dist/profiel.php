@@ -378,12 +378,14 @@
                                             <hr>
                                         </div>
                                     </div>
+
+                                    <!-- ///////////////////////////////////////// -->
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form>
+                                            <form action="actions/wijzigwachtwoord.php" method="post">
                                                 <div class="form-group row">
                                                     <label for="username"
-                                                        class="col-4 col-form-label">Wachtwoord</label>
+                                                        class="col-4 col-form-label">Oude wachtwoord</label>
                                                     <div class="col-8">
                                                         <input id="oudWW" name="oudWW" placeholder="Wachtwoord"
                                                             class="form-control here" required="required"

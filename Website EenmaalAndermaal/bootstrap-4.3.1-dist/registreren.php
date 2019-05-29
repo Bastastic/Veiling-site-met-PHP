@@ -136,7 +136,7 @@
             placeholder="Gebruikersnaam*" tabindex="12">
         </div>
         <div class="form-group">
-          <input type="text" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg" placeholder="Wachtwoord*"
+          <input type="password" name="Wachtwoord" id="Wachtwoord" class="form-control input-lg" placeholder="Wachtwoord*"
             tabindex="13">
         </div>
         <div class="form-group">
