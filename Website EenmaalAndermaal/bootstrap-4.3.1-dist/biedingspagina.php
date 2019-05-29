@@ -57,7 +57,7 @@
         $isaf = $sqlaf->fetch();
 
         $afgelopen = 'Veiling afgelopen!';
-        $rapoteerder = $_SESSION['userID'];
+        // $rapoteerder = $_SESSION['userID'];
         $titel = $resultaat['titel'];
         $beschrijving = $resultaat['beschrijving'];
         $eindedag = $resultaat['LooptijdeindeDag'];
@@ -70,7 +70,6 @@
         $plaatsnaam = $resultaat['plaatsnaam'];
         $startprijs = $resultaat['startprijs'];
         // $omschrijving = $_POST['omschrijving'];
-
         //Selecteert bedrag, bieder, boddatum en tijd.
         $sql = $dbh->prepare(
             'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
