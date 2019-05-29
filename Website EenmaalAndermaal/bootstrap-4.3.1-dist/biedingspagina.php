@@ -187,12 +187,11 @@
                     </div>';
                     }
                     ?>
-                    &nbsp; &nbsp;
-                    <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van
+                    <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary ml-2" role="button">Meer van
                         <?=$verkoper?></a>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Raporteren
+                    <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal">
+                        Rapporteren
                     </button>
 
                     <!-- Modal -->
@@ -259,6 +258,22 @@
                         return false;
                     } 
                     </script>';
+
+                    // deze query haalt het hoogste bod op voordat het nieuwe bod geplaatst wordt
+                    $query = "SELECT Bodbedrag, Gebruiker 
+                                from bod 
+                                where bodbedrag =
+                                    (select max(Bodbedrag) from bod)
+                                    and bod.Voorwerp = :voorwerpnummer";
+                    $sql = $dbh->prepare($query);
+                    $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+                    $tweedeBod = $sql->fetch(PDO::FETCH_ASSOC);
+                    $tweedeBodBedrag = $tweedeBod['Bodbedrag'];
+                    $tweedeGebruiker = $tweedeBod['Gebruiker'];
+                    echo '
+                    <input type="hidden" name="tweedeBodBedrag" value="' . $tweedeBodBedrag . '"/>
+                    <input type="hidden" name="tweedeGebruiker" value="' . $tweedeGebruiker . '"/>
+                    ';
                     
                     //Biedknop weergeven als gebruiker is ingelogd anders disabled
                     if (isset($_SESSION['userID'])) {
@@ -360,6 +375,7 @@
                 document.getElementById('timer').innerHTML = 'Veiling is afgelopen!';
             }
         }, 1000);
+
     </script>
 </body>
 
