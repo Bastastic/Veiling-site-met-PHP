@@ -25,6 +25,10 @@
         $titel = 'Sorry!';
         if ($_GET['errc'] == '1') {
             $msg = 'Gegevens niet gewijzigd. Wachtwoord incorrect';
+        }else if ($_GET['errc'] == '2') {
+            $msg = 'Wachtwoord niet gewijzigd. Nieuwe wachtwoorden komen niet overeen!';
+        }else if ($_GET['errc'] == '3') {
+            $msg = 'Wachtwoord niet gewijzigd. Oude wachtwoord incorrect!';
         }
     }
     if (isset($_GET['succ'])) {
@@ -32,6 +36,10 @@
         $titel = 'Top!';
         if ($_GET['succ'] == '1') {
             $msg = 'U heeft uw account succesvol geactiveerd!';
+        }else if ($_GET['succ'] == '2') {
+            $msg = 'U heeft uw wachtwoord succesvol gewijzigd!';
+        }else if ($_GET['succ'] == '3') {
+            $msg = 'U heeft uw gegevens succesvol gewijzigd!';
         }
     }
 ?>
