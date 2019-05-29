@@ -110,7 +110,7 @@ if(  password_verify( $_POST['wachtwoordcheck'] , $wachtwoord ) ){
                 Postcode = '$nieuwepostcode', Plaatsnaam = '$nieuweplaatsnaam', Land = '$nieuweland', Mailbox = '$nieuwemailbox'
                 WHERE Gebruikersnaam = '$gebruikersnaam'");
                 $updategegevens->execute();
-                header('Location: ../profiel.php');
+                header('Location: ../profiel.php?succ=3');
 
 
 
