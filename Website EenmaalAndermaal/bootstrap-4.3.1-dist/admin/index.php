@@ -19,7 +19,7 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="index.php" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
+                <a href="index.php" class="spur-logo"><span>EA Admin</span></a>
             </header>
             <nav class="dash-nav-list">
                 <a href="index.php" class="dash-nav-item">
@@ -61,14 +61,6 @@
                         <a href="signup.php" class="dash-nav-dropdown-item">Sign up</a>
                     </div>
                 </div>
-                <div class="dash-nav-dropdown">
-                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-info"></i> About </a>
-                    <div class="dash-nav-dropdown-menu">
-                        <a href="https://github.com/HackerThemes/spur-template" target="_blank" class="dash-nav-dropdown-item">GitHub</a>
-                        <a href="http://hackerthemes.com" target="_blank" class="dash-nav-dropdown-item">HackerThemes</a>
-                    </div>
-                </div>
             </nav>
         </div>
         <div class="dash-app">
@@ -85,9 +77,6 @@
                     <input type="text" class="searchbox-input" placeholder="type to search">
                 </form>
                 <div class="tools">
-                    <a href="https://github.com/HackerThemes/spur-template" target="_blank" class="tools-item">
-                        <i class="fab fa-github"></i>
-                    </a>
                     <a href="#!" class="tools-item">
                         <i class="fas fa-bell"></i>
                         <i class="tools-item-count">4</i>
@@ -97,7 +86,6 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="#!">Profile</a>
                             <a class="dropdown-item" href="login.php">Logout</a>
                         </div>
                     </div>
