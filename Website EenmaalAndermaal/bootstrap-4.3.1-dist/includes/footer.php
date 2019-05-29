@@ -24,10 +24,10 @@
                     </div>
                 </div>
                 <ul class="nav">
-                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-facebook fa-lg"></i></a></li>
-                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
-                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
-                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fab fa-facebook fa-lg"></i></a></li>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fab fa-twitter fa-lg"></i></a></li>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fab fa-github fa-lg"></i></a></li>
+                    <li class="nav-item col-3"><a href="" class="nav-link"><i class="fab fa-instagram fa-lg"></i></a>
                     </li>
                 </ul>
                 <br>
