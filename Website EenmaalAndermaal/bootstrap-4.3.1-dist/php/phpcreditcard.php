@@ -1,3 +1,4 @@
+<!-- Luhn Algoritme -->
 <?php
   function check_cc($cc, $extra_check = false){
       $cards = array(
