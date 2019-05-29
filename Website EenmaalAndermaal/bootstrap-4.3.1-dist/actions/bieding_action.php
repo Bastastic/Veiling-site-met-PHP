@@ -4,7 +4,6 @@
     // hier wordt gecheckt of de gebruiker is ingelogd om te kunnen bieden. Als gebruiker ingelogd is wordt het bod in de Database toegevoegd. 
     if(isset($_SESSION['userID'])){
         $bod = $_POST["bod"];
-        $hoogstebod = $_POST["hoogstebod"];
         $voorwerpnummer = $_POST['voorwerpnummer'];
         $bodBedrag = $_POST['tweedeBodBedrag'];
         $bodGebruiker = $_POST['tweedeGebruiker'];
@@ -37,6 +36,14 @@
             $resultTitel = $sql->fetch(PDO::FETCH_ASSOC);
             $voorwerpTitel = $resultTitel['Titel'];
 
+            $queryTitel = "SELECT Titel
+                        from Voorwerp
+                        where Voorwerpnummer = :Voorwerpnummer";
+            $sql = $dbh->prepare($queryTitel);
+            $sql->execute(['Voorwerpnummer' => $voorwerpnummer]);
+            $resultTitel = $sql->fetch(PDO::FETCH_ASSOC);
+            $voorwerpTitel = $resultTitel['Titel'];
+
             $subject = "U bent overboden";
             $txt = "
             <html>
@@ -45,7 +52,8 @@
                 </head>
                 <body style='text-algin: center;'>
                     <h1>Uw bod op $voorwerpTitel is overboden</h1>
-                    <p>Uw vorige bod was €$bodBedrag, als u een nieuw bod wilt plaatsen klik dan 
+                    <p>Uw vorige bod was €$bodBedrag, er is €$bod geboden.
+                    Als u een nieuw bod wilt plaatsen klik dan 
                     <a href='http://localhost/biedingspagina.php?voorwerpnummer=$voorwerpnummer'>hier</a>.</p>
                 </body>
             </html>
