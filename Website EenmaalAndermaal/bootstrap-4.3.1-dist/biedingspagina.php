@@ -57,7 +57,7 @@
         $isaf = $sqlaf->fetch();
 
         $afgelopen = 'Veiling afgelopen!';
-
+        $rapoteerder = $_SESSION['userID'];
         $titel = $resultaat['titel'];
         $beschrijving = $resultaat['beschrijving'];
         $eindedag = $resultaat['LooptijdeindeDag'];
@@ -69,7 +69,7 @@
         $achternaam = $resultaat['achternaam'];
         $plaatsnaam = $resultaat['plaatsnaam'];
         $startprijs = $resultaat['startprijs'];
-
+        $omschrijving = $_POST['omschrijving'];
         //Selecteert bedrag, bieder, boddatum en tijd.
         $sql = $dbh->prepare(
             'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
@@ -131,7 +131,7 @@
 
                         ?>
                     </ul>
-                    <div class="carousel-inner">     
+                    <div class="carousel-inner">
 
                         <?php
                         //Geeft foto's weer. De eerste als active, de rest niet.
@@ -190,7 +190,48 @@
                     &nbsp; &nbsp;
                     <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary" role="button">Meer van
                         <?=$verkoper?></a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Raporteren
+                    </button>
 
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Rapoteer advertentie</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="comment">Omschrijving:</label>
+                                        <textarea name="omschrijving" class="form-control" rows="5"
+                                            id="comment"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Sluiten</button>
+                                    <button type="button" class="btn btn-primary">Versturen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        <?php $query = "INSERT INTO Reporten (AdvertentieID, Raporteerde, Omschrijving) 
+            VALUES (
+                :AdvertentieID, 
+                :Raporteerde,
+                :Omschrijving )";
+
+        $sql = $dbh->prepare($query);
+        $sql->bindValue(":AdvertentieID", $voorwerpnummer);
+        $sql->bindValue(":Raporteerde", $rapoteerder);
+        $sql->bindValue(":Omschrijving", $omschrijving);
+        $sql->execute(); ?>
                 </div>
                 <br>
                 <hr>
@@ -268,7 +309,7 @@
 
         //Biedknop disabled als input niet genoeg is
         bod.addEventListener("input", function (e) {
-            if (this.value <= <?=$hoogstebod?> ) {
+            if (this.value <= < ? = $hoogstebod ? > ) {
                 biedknop.disabled = true;
             } else {
                 biedknop.disabled = false;
@@ -281,7 +322,7 @@
 
             bod = document.getElementById("bod").value;
 
-            if (isNaN(bod) || bod <= <?=$hoogstebod?> ) {
+            if (isNaN(bod) || bod <= < ? = $hoogstebod ? > ) {
                 alert("Je moet meer bieden!");
                 return false;
             } else {
