@@ -57,7 +57,7 @@
         $isaf = $sqlaf->fetch();
 
         $afgelopen = 'Veiling afgelopen!';
-        $rapoteerder = $_SESSION['userID'];
+        // $rapoteerder = $_SESSION['userID'];
         $titel = $resultaat['titel'];
         $beschrijving = $resultaat['beschrijving'];
         $eindedag = $resultaat['LooptijdeindeDag'];
@@ -69,7 +69,7 @@
         $achternaam = $resultaat['achternaam'];
         $plaatsnaam = $resultaat['plaatsnaam'];
         $startprijs = $resultaat['startprijs'];
-        $omschrijving = $_POST['omschrijving'];
+        // $omschrijving = $_POST['omschrijving'];
         //Selecteert bedrag, bieder, boddatum en tijd.
         $sql = $dbh->prepare(
             'SELECT bodbedrag, gebruiker, boddag, bodtijdstip
@@ -201,7 +201,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Rapoteer advertentie</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Rapporteer advertentie</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -221,17 +221,19 @@
                             </div>
                         </div>
                     </div>
-        <?php $query = "INSERT INTO Reporten (AdvertentieID, Raporteerde, Omschrijving) 
-            VALUES (
-                :AdvertentieID, 
-                :Raporteerde,
-                :Omschrijving )";
+        <?php 
+        // $query = "INSERT INTO Reporten (AdvertentieID, Raporteerde, Omschrijving) 
+        //     VALUES (
+        //         :AdvertentieID, 
+        //         :Raporteerde,
+        //         :Omschrijving )";
 
-        $sql = $dbh->prepare($query);
-        $sql->bindValue(":AdvertentieID", $voorwerpnummer);
-        $sql->bindValue(":Raporteerde", $rapoteerder);
-        $sql->bindValue(":Omschrijving", $omschrijving);
-        $sql->execute(); ?>
+        // $sql = $dbh->prepare($query);
+        // $sql->bindValue(":AdvertentieID", $voorwerpnummer);
+        // $sql->bindValue(":Raporteerde", $rapoteerder);
+        // $sql->bindValue(":Omschrijving", $omschrijving);
+        // $sql->execute(); 
+        ?>
                 </div>
                 <br>
                 <hr>
