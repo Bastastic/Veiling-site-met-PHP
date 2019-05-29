@@ -24,7 +24,7 @@
         $type = 'danger';
         $titel = 'Sorry!';
         if ($_GET['errc'] == '1') {
-            $msg = 'Error msg 1';
+            $msg = 'Gegevens niet gewijzigd. Wachtwoord incorrect';
         }
     }
     if (isset($_GET['succ'])) {
@@ -151,9 +151,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form>
+                                            <form action="actions/wijziggegevens.php" method="post">
 
                                             <?php
+
                                             // hier worden alle gegevens van de betreffende gebruiker laten zien via de Database.
                                             $sql = $dbh->prepare("SELECT Gebruikersnaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, Mailbox 
                                             FROM Gebruiker
@@ -161,70 +162,204 @@
                                             $sql->execute();
                                             $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
                                             $adres = $resultaat['Adresregel1'];
-                                            $tussenvoegsel = $resultaat['Adresregel2'];
+                                            $adres2 = $resultaat['Adresregel2'];
                                             $postcode = $resultaat['Postcode'];
                                             $plaatsnaam = $resultaat['Plaatsnaam'];
                                             $land = $resultaat['Land'];
                                             $mailbox= $resultaat['Mailbox'];
-                                            
-                                            $test = 0;
-                                            $latenzien = 'disabled';    
-                                            if($test == 0){
-                                                $latenzien = 'disabled';
-                                            } else if($test == 1){
-                                                $latenzien = '';
-                                            }
-                                                
-                                            
-
-
-
+                                            $wachtwoordcheck = 'Wachtwoord check';
+      
                                             echo "<div class='row'>
                                                     <label for='name' class='col-3 col-form-label mb-3'>Voornaam:</label>
                                                     <div class='col-8'>
                                                         <input id='voornaam' name='voornaam'
-                                                            value='$voornaam' class='form-control here' $latenzien>
+                                                            value='$voornaam' class='form-control here' disabled>
                                                     </div>
                                                   </div>
+                                                  
                                                   <div class='row'>
                                                     <label for='name' class='col-3 col-form-label mb-3'>Achternaam:</label>
                                                     <div class='col-8'>
                                                         <input id='achternaam' name='achternaam'
-                                                            value='$achternaam' class='form-control here' $latenzien>
+                                                            value='$achternaam' class='form-control here' disabled>
                                                     </div>
                                                   </div> 
+                                                  
                                                   <div class='row'>
                                                     <label for='name' class='col-3 col-form-label mb-3'>Gebruikersnaam:</label>
                                                     <div class='col-8'>
                                                         <input id='gebruikersnaam' name='gebruikersnaam'
-                                                            value='$gebruikersnaam' class='form-control here' $latenzien>
+                                                            value='$gebruikersnaam' class='form-control here' disabled>
                                                     </div>
-                                                  </div>   "
-                                            ?>
-
-                                            
-
-                                            
-                                            
-                                                <div class="form-group row">
-                                                    <div class="offset-4 col-8">
-
-                                                    <?php
-                                                     
-                                                     if( $test == 0){
-                                                        echo "<a href='wijziggegevens.php' class='btn btn-primary' role='button'>
-                                                        Wijzig gegevens
-                                                        </a>";
-                                                     }else if($test == 1){
-                                                        echo "<a href='wijziggegevens.php' class='btn btn-primary' role='button'>
-                                                        Wijzig gegevens nu!!!!
-                                                        </a>";
-                                                     }
-                                                        
-                                                    ?>
-                                                   
+                                                  </div>
+                                                  
+                                                  <div class='row'>
+                                                    <label for='name' class='col-3 col-form-label mb-3'>Adres:</label>
+                                                    <div class='col-8'>
+                                                        <input id='adres' name='adres'
+                                                            value='$adres' class='form-control here' disabled>
                                                     </div>
-                                                </div>
+                                                  </div> 
+
+                                                  <div class='row'>
+                                                    <label for='name' class='col-3 col-form-label mb-3'>Adres 2:</label>
+                                                    <div class='col-8'>
+                                                        <input id='adres2' name='adres2'
+                                                            value='$adres2' class='form-control here' disabled>
+                                                    </div>
+                                                  </div> 
+
+                                                  <div class='row'>
+                                                  <label for='name' class='col-3 col-form-label mb-3'>Postcode:</label>
+                                                    <div class='col-8'>
+                                                      <input id='postcode' name='postcode'
+                                                          value='$postcode' class='form-control here' disabled>
+                                                    </div>
+                                                  </div> 
+
+                                                <div class='row'>
+                                                <label for='name' class='col-3 col-form-label mb-3'>Plaatsnaam:</label>
+                                                    <div class='col-8'>
+                                                    <input id='plaatsnaam' name='plaatsnaam'
+                                                        value='$plaatsnaam' class='form-control here' disabled>
+                                                    </div>
+                                                </div> 
+
+                                                <div class='row'>
+                                                <label for='name' class='col-3 col-form-label mb-3'>Land:</label>
+                                                    <div class='col-8'>
+                                                    <input id='land' name='land'
+                                                        value='$land' class='form-control here' disabled>
+                                                    </div>
+                                                </div> 
+
+                                                <div class='row'>
+                                                <label for='name' class='col-3 col-form-label mb-3'>Mailbox:</label>
+                                                    <div class='col-8'>
+                                                    <input id='mailbox' name='mailbox'
+                                                        value='$mailbox' class='form-control here' disabled>
+                                                    </div>
+                                                </div> 
+
+                                            
+                                                  
+                                                  <div class='form-group row'>
+                                                    <div class='offset-4 col-8'>
+                                                    <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#wijziggegevens'>
+                                                             Wijzig hier je gegevens!
+                                                   </button>
+
+                                                    </div>
+                                                    </div>"  
+                                                    ?>                                               
+                                                    
+                                                    <div class="modal fade" id="wijziggegevens" tabindex="-1" role="dialog" aria-labelledby="wijziggegevenslabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="wijziggegevenslabel">Gegevens wijzigen</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                
+                                                                <?php
+
+                                                                    echo "<div class='row'>
+                                                                    <label for='name' class='col-3 col-form-label mb-3'>Voornaam:</label>
+                                                                    <div class='col-8'>
+                                                                        <input id='voornaamwijzigen' name='voornaamwijzigen'
+                                                                            value='$voornaam' class='form-control here' maxlength='30'>
+                                                                    </div>
+                                                                    </div>";
+
+                                                                    echo "<div class='row'>
+                                                                    <label for='name' class='col-3 col-form-label mb-3'>Achternaam:</label>
+                                                                    <div class='col-8'>
+                                                                        <input id='achternaamwijzigen' name='achternaamwijzigen'
+                                                                            value='$achternaam' class='form-control here' maxlength='30'>
+                                                                    </div>
+                                                                    </div>";
+
+
+                                                                    echo "<div class='row'>
+                                                                    <label for='name' class='col-3 col-form-label mb-3'>Adres:</label>
+                                                                    <div class='col-8'>
+                                                                        <input id='adreswijzigen' name='adreswijzigen'
+                                                                            value='$adres' class='form-control here' maxlength='40'>
+                                                                    </div>
+                                                                    </div>"; 
+
+                                                                    echo "<div class='row'>
+                                                                        <label for='name' class='col-3 col-form-label mb-3'>Adres 2:</label>
+                                                                        <div class='col-8'>
+                                                                            <input id='adres2wijzigen' name='adres2wijzigen'
+                                                                                value='$adres2' class='form-control here' maxlength='40'>
+                                                                        </div>
+                                                                    </div>";
+
+
+                                                                    echo "<div class='row'>
+                                                                        <label for='name' class='col-3 col-form-label mb-3'>Postcode:</label>
+                                                                        <div class='col-8'>
+                                                                        <input id='postcodewijzigen' name='postcodewijzigen'
+                                                                            value='$postcode' class='form-control here' maxlength='7'>
+                                                                        </div>
+                                                                    </div>"; 
+
+
+                                                                    echo "<div class='row'>
+                                                                        <label for='name' class='col-3 col-form-label mb-3'>Plaatsnaam:</label>
+                                                                        <div class='col-8'>
+                                                                        <input id='plaatsnaamwijzigen' name='plaatsnaamwijzigen'
+                                                                            value='$plaatsnaam' class='form-control here' maxlength='50'>
+                                                                        </div>
+                                                                    </div>"; 
+
+                                                                    echo "<div class='row'>
+                                                                        <label for='landwijzigen' class='col-3 col-form-label mb-3'>Land:</label>
+                                                                        <div class='col-8'>
+                                                                            <select id='landwijzigen' name='landwijzigen' class='form-control' tabindex='7'> "; 
+                                                                                    foreach ($countries as $key => $value) {
+                                                                                    echo "<option value='$value' title='$value'>$value</option>";
+                                                                                    }
+                                                                    echo    "</select>                         
+                                                                    </div>
+                                                                    </div>"; 
+
+
+                                                                    echo "<div class='row'>
+                                                                        <label for='name' class='col-3 col-form-label mb-3'>Mailbox:</label>
+                                                                        <div class='col-8'>
+                                                                        <input id='mailboxwijzigen' name='mailboxwijzigen'
+                                                                            value='$mailbox' class='form-control here' maxlength='255' >
+                                                                        </div>
+                                                                    </div>";
+
+                                                                    echo "<div class='row'>
+                                                                        <label for='name' class='col-3 col-form-label mb-3'>Mailbox:</label>
+                                                                        <div class='col-8'>
+                                                                        <input type='password' id='wachtwoordcheck' name='wachtwoordcheck'
+                                                                            placeholder='$wachtwoordcheck' class='form-control here' maxlength='300' required>
+                                                                        </div>
+                                                                    </div>";
+ 
+
+                                                                ?>
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <input type="submit" id="sluiten" name='sluiten' class="btn btn-secondary" data-dismiss="modal" value="Sluiten">
+                                                                <input type="submit" id="wijziggegevens" name='wijziggegevens' class="btn btn-primary" value="Wijzigingen opslaan" > 
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                  
+                                            
+
                                             </form>
                                         </div>
                                     </div>
