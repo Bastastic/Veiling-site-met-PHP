@@ -16,20 +16,18 @@ $admin = $sql->fetch(PDO::FETCH_ASSOC);
 // Iedere keer nadat er is ingelogd wordt er gecontroleerd of je bent geactiveerd. Als je bent geactiveerd kan je overal naar toe
 // anders wordt je steeds naar de mailversturen.php gestuurd.
 
-if (password_verify($wachtwoord, $admin['Gebruikersnaam'])) {
+if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
     $_SESSION['adminID'] = $gebruikersnaam;
-    header('Location: ../admin/index.php');
+    header('Location: ../admin/index.html');
 }else{
-    header('Location: ../inloggen.php?errc=1');
-}
-
-if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
-    $_SESSION['userID'] = $gebruikersnaam;
-    if ($gebruiker['Geactiveerd'] == 1) {
-        header('Location: ../profiel.php');
+    if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
+        $_SESSION['userID'] = $gebruikersnaam;
+        if ($gebruiker['Geactiveerd'] == 1) {
+            header('Location: ../profiel.php');
+        } else {
+            header('Location: ../mailversturen.php');
+        }
     } else {
-        header('Location: ../mailversturen.php');
+        header('Location: ../inloggen.php?errc=1');
     }
-} else {
-    header('Location: ../inloggen.php?errc=1');
 }
