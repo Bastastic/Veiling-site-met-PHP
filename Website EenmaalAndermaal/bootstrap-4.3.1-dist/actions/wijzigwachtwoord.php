@@ -25,15 +25,13 @@ if( password_verify( $_POST['oudWW'] , $wachtwoord ) ){
 
     if( $_POST['nieuwWW'] == $_POST['nieuwWWher'] ){
 
-  
-
         $nieuwewachtwoord =  password_hash($_POST['nieuwWW'], PASSWORD_ARGON2I);
          
                 $updatewachtwoord = $dbh->prepare("UPDATE Gebruiker 
                 SET Wachtwoord = '$nieuwewachtwoord' 
                 WHERE Gebruikersnaam = '$gebruikersnaam'");
                 $updatewachtwoord->execute();
-                header('Location: ../profiel.php?succ=2');
+                
 
                 $subject = "Uw wachtwoord is gewijzigd!";
                 $txt = "
@@ -53,18 +51,16 @@ if( password_verify( $_POST['oudWW'] , $wachtwoord ) ){
                 $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
             
                 mail($nieuwemailbox, $subject, $txt, $headers);
-
+                header('Location: ../profiel.php?succ=2');
                 } else{
-                    header('Location: ../profiel.php?errc=1');
+                    header('Location: ../profiel.php?errc=2');
                 }
 
     }else{
-        header('Location: ../profiel.php?errc=2');
+        header('Location: ../profiel.php?errc=3');
     }
+    
 
-}else{
-    header('Location: ../profiel.php?errc=3');
-}
 
 
 ?>
