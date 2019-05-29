@@ -1,6 +1,8 @@
 use iproject15
 go
 
+drop table Admin
+go
 drop table Verificatie
 go
 drop table Bestand
@@ -33,8 +35,6 @@ drop table Vraag
 go
 drop table Verificatie
 GO
-
-
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,
@@ -89,7 +89,18 @@ create table Gebruiker (
 	Geactiveerd			bit				not null,
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
 	constraint CK_GeboorteDag_currdate check (GeboorteDag <= GETDATE()),
-	constraint CK_Mailbox_At check (Mailbox LIKE '%@%')
+	constraint CK_Mailbox_Gebruiker check (Mailbox LIKE '%@%')
+)
+go
+
+create table Admin (
+	Gebruikersnaam		varchar(25)		not null,
+	Voornaam			varchar(30)		not null,
+	Achternaam			varchar(30)		not null,
+	Mailbox				varchar(255)	not null,
+	Wachtwoord			varchar(300)	not null /* hashed */
+	constraint PK_Admin primary key (Gebruikersnaam),
+	constraint CK_Mailbox_Admin check (Mailbox LIKE '%@%')
 )
 go
 
@@ -222,7 +233,6 @@ alter table Voorwerp_in_Rubriek
 		constraint FK_VRubriek_Ref_Rubrieknummer foreign key (Rubriek_op_Laagste_Niveau)
 			references Rubriek (Rubrieknummer)
 			on update no action on delete no action
-
 
 alter table Verificatie
 	add constraint FK_Verificatie_Ref_Gebruiker foreign key (Gebruikersnaam)
