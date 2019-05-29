@@ -13,12 +13,13 @@ if (isset($_SESSION['userID'])) {
 }
 
 
-$pakwachtwoord = $dbh->prepare("SELECT  Wachtwoord
+$pakwachtwoord = $dbh->prepare("SELECT  Wachtwoord, Mailbox
 FROM Gebruiker
 WHERE Gebruikersnaam = '$gebruikersnaam'");
 $pakwachtwoord->execute();
 $resultaat = $pakwachtwoord->fetch(PDO::FETCH_ASSOC);
 $wachtwoord = $resultaat['Wachtwoord'];
+$nieuwemailbox = $resultaat['Mailbox'];
 
 if( password_verify( $_POST['oudWW'] , $wachtwoord ) ){
 
