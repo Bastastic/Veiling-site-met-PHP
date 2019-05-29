@@ -19,46 +19,46 @@
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="index.html" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
+                <a href="index.php" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
             </header>
             <nav class="dash-nav-list">
-                <a href="index.html" class="dash-nav-item">
+                <a href="index.php" class="dash-nav-item">
                     <i class="fas fa-home"></i> Dashboard </a>
                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-chart-bar"></i> Charts </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Chart.js</a>
+                        <a href="chartjs.php" class="dash-nav-dropdown-item">Chart.js</a>
                     </div>
                 </div>
                 <div class="dash-nav-dropdown ">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-cube"></i> Components </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="cards.html" class="dash-nav-dropdown-item">Cards</a>
-                        <a href="forms.html" class="dash-nav-dropdown-item">Forms</a>
+                        <a href="cards.php" class="dash-nav-dropdown-item">Cards</a>
+                        <a href="forms.php" class="dash-nav-dropdown-item">Forms</a>
                         <div class="dash-nav-dropdown ">
                             <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Icons</a>
                             <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html" class="dash-nav-dropdown-item">Solid Icons</a>
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Regular Icons</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Brand Icons</a>
+                                <a href="icons.php" class="dash-nav-dropdown-item">Solid Icons</a>
+                                <a href="icons.php#regular-icons" class="dash-nav-dropdown-item">Regular Icons</a>
+                                <a href="icons.php#brand-icons" class="dash-nav-dropdown-item">Brand Icons</a>
                             </div>
                         </div>
-                        <a href="stats.html" class="dash-nav-dropdown-item">Stats</a>
-                        <a href="tables.html" class="dash-nav-dropdown-item">Tables</a>
-                        <a href="typography.html" class="dash-nav-dropdown-item">Typography</a>
-                        <a href="userinterface.html" class="dash-nav-dropdown-item">User Interface</a>
+                        <a href="stats.php" class="dash-nav-dropdown-item">Stats</a>
+                        <a href="tables.php" class="dash-nav-dropdown-item">Tables</a>
+                        <a href="typography.php" class="dash-nav-dropdown-item">Typography</a>
+                        <a href="userinterface.php" class="dash-nav-dropdown-item">User Interface</a>
                     </div>
                 </div>
                 <div class="dash-nav-dropdown show">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-file"></i> Layouts </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="blank.html" class="dash-nav-dropdown-item">Blank</a>
-                        <a href="content.html" class="dash-nav-dropdown-item">Content</a>
-                        <a href="login.html" class="dash-nav-dropdown-item">Log in</a>
-                        <a href="signup.html" class="dash-nav-dropdown-item">Sign up</a>
+                        <a href="blank.php" class="dash-nav-dropdown-item">Blank</a>
+                        <a href="content.php" class="dash-nav-dropdown-item">Content</a>
+                        <a href="login.php" class="dash-nav-dropdown-item">Log in</a>
+                        <a href="signup.php" class="dash-nav-dropdown-item">Sign up</a>
                     </div>
                 </div>
                 <div class="dash-nav-dropdown">
@@ -98,7 +98,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="#!">Profile</a>
-                            <a class="dropdown-item" href="login.html">Logout</a>
+                            <a class="dropdown-item" href="login.php">Logout</a>
                         </div>
                     </div>
                 </div>

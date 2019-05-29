@@ -14,7 +14,7 @@
 
 <body>
     <div class="form-screen">
-        <a href="index.html" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
+        <a href="index.php" class="spur-logo"><i class="fas fa-bolt"></i> <span>Spur</span></a>
         <div class="card account-dialog">
             <div class="card-header bg-primary text-white"> Create an account </div>
             <div class="card-body">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="account-dialog-actions">
                         <button type="submit" class="btn btn-primary">Sign up</button>
-                        <a class="account-dialog-link" href="login.html">Already have an account?</a>
+                        <a class="account-dialog-link" href="login.php">Already have an account?</a>
                     </div>
                 </form>
             </div>
