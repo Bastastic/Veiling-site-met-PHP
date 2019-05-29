@@ -64,15 +64,19 @@
                         aria-selected="true">
                         <i class="mdi mdi-help-circle"></i> Dashboard
                     </a>
-                    <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2"
+                    <a href="#tab2" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
+                        aria-selected="false">
+                        <i class="mdi mdi-heart"></i> Gegevens
+                    </a>
+                    <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2"
                         aria-selected="false">
                         <i class="mdi mdi-account"></i> Wachtwoord
                     </a>
-                    <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3"
+                    <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3"
                         aria-selected="false">
                         <i class="mdi mdi-account-settings"></i> Lopende veilingen
                     </a>
-                    <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
+                    <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
                         aria-selected="false">
                         <i class="mdi mdi-heart"></i> Veiling historie
                     </a>
@@ -134,7 +138,102 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab2">
+                        <div class="accordion" id="accordion-tab-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Gegevens</h4>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form>
+
+                                            <?php
+                                            // hier worden alle gegevens van de betreffende gebruiker laten zien via de Database.
+                                            $sql = $dbh->prepare("SELECT Gebruikersnaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, Mailbox 
+                                            FROM Gebruiker
+                                            WHERE Gebruikersnaam = '$gebruikersnaam'");
+                                            $sql->execute();
+                                            $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+                                            $adres = $resultaat['Adresregel1'];
+                                            $tussenvoegsel = $resultaat['Adresregel2'];
+                                            $postcode = $resultaat['Postcode'];
+                                            $plaatsnaam = $resultaat['Plaatsnaam'];
+                                            $land = $resultaat['Land'];
+                                            $mailbox= $resultaat['Mailbox'];
+                                            
+                                            $test = 0;
+                                            $latenzien = 'disabled';    
+                                            if($test == 0){
+                                                $latenzien = 'disabled';
+                                            } else if($test == 1){
+                                                $latenzien = '';
+                                            }
+                                                
+                                            
+
+
+
+                                            echo "<div class='row'>
+                                                    <label for='name' class='col-3 col-form-label mb-3'>Voornaam:</label>
+                                                    <div class='col-8'>
+                                                        <input id='voornaam' name='voornaam'
+                                                            value='$voornaam' class='form-control here' $latenzien>
+                                                    </div>
+                                                  </div>
+                                                  <div class='row'>
+                                                    <label for='name' class='col-3 col-form-label mb-3'>Achternaam:</label>
+                                                    <div class='col-8'>
+                                                        <input id='achternaam' name='achternaam'
+                                                            value='$achternaam' class='form-control here' $latenzien>
+                                                    </div>
+                                                  </div> 
+                                                  <div class='row'>
+                                                    <label for='name' class='col-3 col-form-label mb-3'>Gebruikersnaam:</label>
+                                                    <div class='col-8'>
+                                                        <input id='gebruikersnaam' name='gebruikersnaam'
+                                                            value='$gebruikersnaam' class='form-control here' $latenzien>
+                                                    </div>
+                                                  </div>   "
+                                            ?>
+
+                                            
+
+                                            
+                                            
+                                                <div class="form-group row">
+                                                    <div class="offset-4 col-8">
+
+                                                    <?php
+                                                     
+                                                     if( $test == 0){
+                                                        echo "<a href='wijziggegevens.php' class='btn btn-primary' role='button'>
+                                                        Wijzig gegevens
+                                                        </a>";
+                                                     }else if($test == 1){
+                                                        echo "<a href='wijziggegevens.php' class='btn btn-primary' role='button'>
+                                                        Wijzig gegevens nu!!!!
+                                                        </a>";
+                                                     }
+                                                        
+                                                    ?>
+                                                   
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                            
+
+                    <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab3">
                         <div class="accordion" id="accordion-tab-2">
                             <div class="card">
                                 <div class="card-body">
@@ -187,7 +286,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab3">
+
+                    <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
                         <div class="accordion" id="accordion-tab-3">
                             <div class="card">
                                 <div class="card-body">
@@ -264,7 +364,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
+
+                    <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
                         <div class="accordion" id="accordion-tab-4">
                             <div class="card">
                                 <div class="card-body">
