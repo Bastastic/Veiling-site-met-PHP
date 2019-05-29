@@ -24,9 +24,6 @@ $nieuwemailbox = $resultaat['Mailbox'];
 if( password_verify( $_POST['oudWW'] , $wachtwoord ) ){
 
     if( $_POST['nieuwWW'] == $_POST['nieuwWWher'] ){
-
-  
-
         $nieuwewachtwoord =  password_hash($_POST['nieuwWW'], PASSWORD_ARGON2I);
          
                 $updatewachtwoord = $dbh->prepare("UPDATE Gebruiker 
@@ -55,16 +52,14 @@ if( password_verify( $_POST['oudWW'] , $wachtwoord ) ){
                 mail($nieuwemailbox, $subject, $txt, $headers);
 
                 } else{
-                    header('Location: ../profiel.php?errc=1');
+                    header('Location: ../profiel.php?errc=2');
                 }
 
     }else{
-        header('Location: ../profiel.php?errc=2');
+        header('Location: ../profiel.php?errc=3');
     }
+    
 
-}else{
-    header('Location: ../profiel.php?errc=3');
-}
 
 
 ?>
