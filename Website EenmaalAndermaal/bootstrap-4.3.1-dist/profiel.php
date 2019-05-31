@@ -194,7 +194,7 @@
                                                   </div> 
                                                   
                                                   <div class='row'>
-                                                    <label for='name' class='col-3 col-form-label mb-3'>Gebruikersnaam:</label>
+                                                    <label for='name' class='col-3 col-form-label mb-3'>Gebruiker:</label>
                                                     <div class='col-8'>
                                                         <input id='gebruikersnaam' name='gebruikersnaam'
                                                             value='$gebruikersnaam' class='form-control here' disabled>
@@ -290,6 +290,13 @@
                                                                     </div>
                                                                     </div>";
 
+                                                                   echo  "<div class='row'>
+                                                                    <label for='name' class='col-3 col-form-label mb-3'>Gebruiker:</label>
+                                                                    <div class='col-8'>
+                                                                            <input id='gebruikersnaam' name='gebruikersnaam'
+                                                                                value='$gebruikersnaam' class='form-control here' disabled>
+                                                                    </div>
+                                                                    </div>";
 
                                                                     echo "<div class='row'>
                                                                     <label for='name' class='col-3 col-form-label mb-3'>Adres:</label>
@@ -341,12 +348,12 @@
                                                                         <label for='name' class='col-3 col-form-label mb-3'>Mailbox:</label>
                                                                         <div class='col-8'>
                                                                         <input id='mailboxwijzigen' name='mailboxwijzigen'
-                                                                            value='$mailbox' class='form-control here' maxlength='255' >
+                                                                            value='$mailbox' class='form-control here' maxlength='255' disabled>
                                                                         </div>
                                                                     </div>";
 
                                                                     echo "<div class='row'>
-                                                                        <label for='name' class='col-3 col-form-label mb-3'>Mailbox:</label>
+                                                                        <label for='name' class='col-3 col-form-label mb-3'>Wachtwoord:</label>
                                                                         <div class='col-8'>
                                                                         <input type='password' id='wachtwoordcheck' name='wachtwoordcheck'
                                                                             placeholder='$wachtwoordcheck' class='form-control here' maxlength='300' required>
