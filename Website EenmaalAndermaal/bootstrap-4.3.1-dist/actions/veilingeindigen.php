@@ -58,6 +58,9 @@
         </html>
         ";
 
+        // <p> Klik <a href='http://iproject15.icasites.nl/biedingspagina.php?voorwerpnummer=$voorwerpnummer'>hier</a> om naar de veiling toe te gaan.</p>
+
+
         $query = $dbh->prepare("SELECT Mailbox 
                                 from Voorwerp inner join Gebruiker 
                                 on Voorwerp.Verkoper = Gebruiker.Gebruikersnaam 
