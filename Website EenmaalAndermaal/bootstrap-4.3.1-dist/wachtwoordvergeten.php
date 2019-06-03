@@ -82,7 +82,7 @@
                        
                     
                 
-
+                        // hiermee controleer je of het ingevulde antwoord gelijk is aan dei uit de database.
                          if( $antwoord == $_POST['antwoord'] ) {
 
 
@@ -113,11 +113,6 @@
 
                                 mail($emailadres, $subject, $txt, $headers);
 
-                               echo 'het is gelijk';
-                               echo '<br>';
-   
-                               echo  $antwoord;
-
                                 //Success message en knop naar inlogpagina
                                 echo '<h1>Wachtwoord gereset!</h1>
                                     <p>U vind uw nieuwe wachtwoord in uw mailbox.</p>
@@ -126,15 +121,6 @@
 
                          } else {
                              //Geen juiste antwoord? Dan redirect naar zichzelf met error code 3. Antwoord is niet bekend.
-                             echo '<pre>';
-                             print_r($vraag);
-                            echo '</pre>';
-
-                            echo ';;;;;;;;;;;;';
-                            echo '<br>';
-
-                            echo  $antwoord;
-
                                 echo '<script>window.location.replace("wachtwoordvergeten.php?errc=3");</script>';
                          }
 
