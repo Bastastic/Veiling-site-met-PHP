@@ -77,14 +77,14 @@ create table Gebruiker (
 	Achternaam			varchar(30)		not null,
 	Adresregel1			varchar(40)		not null,
 	Adresregel2			varchar(40)		null,
-	Postcode			char(7)			not null,
+	Postcode			char(12)		not null,
 	Plaatsnaam			varchar(50)		not null,
 	Land				varchar(40)		not null,
 	GeboorteDag			date			not null,
 	Mailbox				varchar(255)	not null,
 	Wachtwoord			varchar(300)	not null, /* hashed */
 	Vraag				tinyint			not null,
-	Antwoordtext		varchar(300)	not null, /* hashed */
+	Antwoordtext		varchar(300)	not null,
 	Verkoper			bit				not null,
 	Geactiveerd			bit				not null,
 	constraint PK_Gebruiker primary key (Gebruikersnaam),
@@ -114,10 +114,10 @@ create table Gebruikerstelefoon (
 go
 
 create table Rubriek (
-	Rubrieknummer		int		not null,
+	Rubrieknummer		int				not null,
 	Rubrieknaam			varchar(50)		not null,
-	Hoofdrubriek		int		null,
-	Volgnr				int		not null,
+	Hoofdrubriek		int				null,
+	Volgnr				int				not null,
 	constraint PK_Rubriek primary key (rubrieknummer),
 	constraint CK_Hoofdrubriek check (Hoofdrubriek <> Rubrieknummer)
 )
@@ -130,7 +130,7 @@ create table Verkoper (
 	Controle_optie		varchar(20)		not null,
 	Creditcard			varchar(20)		null
 	constraint PK_Verkoper primary key (Gebruiker),
-	constraint CK_Controleoptie check (Controle_optie IN ('Creditcard', 'Bank', 'Post', 'iDeal', 'In afwachting'))
+	constraint CK_Controleoptie check (Controle_optie IN ('Goedgekeurd', 'In afwachting'))
 )
 go
 
