@@ -103,7 +103,7 @@
                                     <h1>Uw nieuwe wachtwoord</h1>
                                     <h3>" . $nieuwwachtwoord . "</h3>
                                     <br>
-                                    <p> Klik <a href='http://iproject15.icasites.nl/inloggen.php'>hier</a> om in te loggen. </p>
+                                    <p> Klik <a href='http://iproject15.icasites.nl/inloggen.php' target='_blank'>hier</a> om in te loggen. </p>
                                     </body>
                                     </html>
                                     ";
