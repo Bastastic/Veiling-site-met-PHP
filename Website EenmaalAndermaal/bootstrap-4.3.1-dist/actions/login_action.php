@@ -17,11 +17,11 @@ $admin = $sql->fetch(PDO::FETCH_ASSOC);
 // anders wordt je steeds naar de mailversturen.php gestuurd.
 
 if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
-    $_SESSION['adminID'] = $gebruikersnaam;
+    $_SESSION['adminID'] = $admin['Gebruikersnaam'];
     header('Location: ../admin/index.php');
-}else{
+} else {
     if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
-        $_SESSION['userID'] = $gebruikersnaam;
+        $_SESSION['userID'] = $gebruiker['Gebruikersnaam'];
         if ($gebruiker['Geactiveerd'] == 1) {
             header('Location: ../profiel.php');
         } else {
