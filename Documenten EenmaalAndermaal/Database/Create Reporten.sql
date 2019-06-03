@@ -1,14 +1,14 @@
-DROP TABLE IF EXISTS Reporten
+DROP TABLE IF EXISTS Rapporteren
 
-CREATE TABLE Reporten (
-    AdvertendieID BIGINT NOT NULL,
-    Raporteerde VARCHAR (25) NOT NULL,
+CREATE TABLE Rapporteren (
+    AdvertentieID BIGINT NOT NULL,
+    Rapporteerde VARCHAR (25) NOT NULL,
     Omschrijving VARCHAR (1000) NOT NULL,
-    CONSTRAINT PK_Reporten PRIMARY KEY (AdvertendieID, Raporteerde),
-    add constraint FK_Report_Rapoteerde foreign key (Raporteerde)
+    CONSTRAINT PK_Rapporteren PRIMARY KEY (AdvertentieID, Rapporteerde),
+    constraint FK_Rapporteren_Rappoteerde foreign key (Rapporteerde)
 		references Gebruiker (Gebruikersnaam)
             on update no action on delete no action,
-        constraint FK_Report_AdvertentieID foreign key (AdvertendieID)
+        constraint FK_Rapporteren_AdvertentieID foreign key (AdvertentieID)
 		references Voorwerp (Voorwerpnummer)
             on update no action on delete no action
 
