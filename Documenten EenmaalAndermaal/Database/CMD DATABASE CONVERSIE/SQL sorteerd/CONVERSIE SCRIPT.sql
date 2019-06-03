@@ -66,7 +66,7 @@ INSERT INTO iproject15.dbo.Verkoper
 SELECT DISTINCT LEFT(Username,25) AS Gebruikersnaam,
 NULL AS Bank,
 NULL AS Bankrekening,
-'Creditcard' AS Controleoptie,
+'Goedgekeurd' AS Controleoptie,
 123244232 AS Creditcard
 FROM iproject15.dbo.Users
 
