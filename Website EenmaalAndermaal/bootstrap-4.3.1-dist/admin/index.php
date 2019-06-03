@@ -13,6 +13,20 @@
 </head>
 
 <body>
+    <?php session_start();
+    require_once '../php/connectDB.php';
+    if(!isset($_SESSION['adminID'])){
+        header('Location: ../inloggen.php');
+    }else{
+        $adminID = $_SESSION['adminID'];
+        $query = 'SELECT * FROM Admin WHERE Gebruikersnaam = :gebruikersnaam';
+        $sql = $dbh->prepare($query);
+        $sql->execute(['gebruikersnaam' => $adminID]);
+        $admin = $sql->fetch(PDO::FETCH_ASSOC);
+        $voornaam = $admin['Voornaam'];
+        $achternaam = $admin['Achternaam'];
+    }
+    ?>
     <div class="dash">
         <div class="dash-nav dash-nav-dark">
             <header>
@@ -86,7 +100,8 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="login.php">Logout</a>
+                            <span class="dropdown-item"><?=$voornaam?> <?=$achternaam?></span>
+                            <a class="dropdown-item" href="../php/logout.php">Logout</a>
                         </div>
                     </div>
                 </div>
