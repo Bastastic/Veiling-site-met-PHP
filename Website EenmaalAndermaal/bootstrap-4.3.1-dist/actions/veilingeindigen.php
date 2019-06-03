@@ -54,11 +54,11 @@
         <h1>U heeft de veiling van " . $verkoper . " gewonnen!</h1>
         <p>Gefeliciteerd " . $winnaarvoornaam . " " . $winnaarachternaam . ".<br> U heeft de volgende veiling gewonnen:</p>
         <h3>" . $titel . "</h3>
+        <p> Klik <a href='http://iproject15.icasites.nl/biedingspagina.php?voorwerpnummer=$voorwerpnummer'>hier</a> om naar de veiling toe te gaan.</p>
         </body>
         </html>
         ";
 
-        // <p> Klik <a href='http://iproject15.icasites.nl/biedingspagina.php?voorwerpnummer=$voorwerpnummer'>hier</a> om naar de veiling toe te gaan.</p>
 
 
         $query = $dbh->prepare("SELECT Mailbox 
