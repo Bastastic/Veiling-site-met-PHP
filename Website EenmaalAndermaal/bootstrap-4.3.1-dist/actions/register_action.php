@@ -30,9 +30,15 @@
     $sql->execute();
     $result = $sql->fetch(PDO::FETCH_ASSOC);
 
+    $queryMail = "SELECT * FROM Gebruiker WHERE Mailbox=:mailbox";
+    $sqlMail = $dbh->prepare($queryMail);
+    $sqlMail->bindValue(":mailbox", $emailadres);
+    $sqlMail->execute();
+    $resultMail = $sqlMail->fetch(PDO::FETCH_ASSOC);
+
     // Nadat alle velden zijn ingevuld moet dit in de database worden geinstert. Dat gebeurd hieronder.
     // daarna zal je gaan naar mailversturen.php
-    if (!$result) {
+    if (!$result && !$resultMail) {
         $query = "INSERT INTO Gebruiker (Gebruikersnaam, Voornaam, Achternaam, Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, GeboorteDag, Mailbox, Wachtwoord, Vraag, Antwoordtext, Verkoper, Geactiveerd) 
             VALUES (
                 :gebruikersnaam,
@@ -70,6 +76,10 @@
         $sql->execute();
         $_SESSION['userID'] = $gebruikersnaam;
         header('Location: ../mailversturen.php');
-    } else {
+    } else if (!$resultMail && $result) {
         header('Location: ../registreren.php?errc=1');
+    } else if (!$result && $resultMail) {
+        header('Location: ../registreren.php?errc=2');
+    } else {
+        header('Location: ../registreren.php?errc=3');
     }
