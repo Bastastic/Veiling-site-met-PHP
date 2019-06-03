@@ -27,17 +27,44 @@
     }
 </style>
 
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php'; 
+
+if (isset($_GET['succ'])) {
+    $type = 'success';
+    $titel = 'Oke!';
+    if ($_GET['succ'] == '1') {
+        $msg = 'U heeft de advertentie gerapporteerd';
+    }
+}
+
+
+if (isset($_GET['errc'])) {
+    $type = 'danger';
+    $titel = 'Oeps!';
+    if ($_GET['errc'] == '1') {
+        $msg = 'U heeft de advertentie al een keer gerapporteerd!';
+    }
+}
+
+?>
 <?php require_once 'php/connectDB.php'; ?>
 
 <body>
+<?php 
 
-    <?php
-
+    if (isset($msg)) {
+        echo '<div class="container col-xs-12 col-sm-12 col-md-12">
+        <div class="alert alert-' . $type . ' alert-dismissible fade show text-center" role="alert">
+        <strong>'. $titel .'</strong> ' . $msg . '
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+    </div>';
+    }
 
     if (isset($_GET['voorwerpnummer'])) {
         $voorwerpnummer = $_GET['voorwerpnummer'];
-
         //Selecteert alle gegevens van veiling en verkoper
         $sql = $dbh->prepare(
             'SELECT titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip, Veiliggesloten, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam, Mailbox
@@ -190,17 +217,18 @@
                     <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary ml-2" role="button">Meer van
                         <?=$verkoper?></a>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal3">
                         Rapporteren
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <form action="raporteren.php" method="post">
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel3" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Rapporteer advertentie</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel3">Rapporteer advertentie</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -212,27 +240,18 @@
                                             id="comment"></textarea>
                                     </div>
                                 </div>
+                                <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer;?>">
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-dismiss="modal">Sluiten</button>
-                                    <button type="button" class="btn btn-primary">Versturen</button>
+                                    <button type="submit"  class="btn btn-primary">Versturen</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-        <?php 
-        // $query = "INSERT INTO Reporten (AdvertentieID, Raporteerde, Omschrijving) 
-        //     VALUES (
-        //         :AdvertentieID, 
-        //         :Raporteerde,
-        //         :Omschrijving )";
-
-        // $sql = $dbh->prepare($query);
-        // $sql->bindValue(":AdvertentieID", $voorwerpnummer);
-        // $sql->bindValue(":Raporteerde", $rapoteerder);
-        // $sql->bindValue(":Omschrijving", $omschrijving);
-        // $sql->execute(); 
-        ?>
+                    </form>
+        
                 </div>
                 <br>
                 <hr>
@@ -339,7 +358,7 @@
 
             bod = document.getElementById("bod").value;
 
-            if (isNaN(bod) || bod <= <?= $hoogstebod?> ) {
+            if (isNaN(bod) || bod <= <?=$hoogstebod?> ) {
                 alert("Je moet meer bieden!");
                 return false;
             } else {

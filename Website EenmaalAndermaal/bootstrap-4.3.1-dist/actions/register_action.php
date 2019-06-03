@@ -20,7 +20,7 @@
     $vraagid = $_POST['Vraag'];
     $antwoord = $_POST['Antwoord'];
     $gebruikersnaam = $_POST['Gebruikersnaam'];
-    $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
+    $wachtwoord = password_hash($_POST['wachtwoord'], PASSWORD_ARGON2I);
     $verkoper = 0;
     
 
