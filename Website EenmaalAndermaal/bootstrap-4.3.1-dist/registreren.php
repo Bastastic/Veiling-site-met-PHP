@@ -22,15 +22,19 @@
   $vragen = $sql->fetchAll();
 
   if (isset($_GET['errc'])) {
-      if ($_GET['errc'] == '1') {
-          $msg = 'Deze gebruikersnaam is al bezet. Probeer het opnieuw!';
-      }
+    if ($_GET['errc'] == '1') {
+      $msg = 'Deze gebruikersnaam is al bezet. Probeer het opnieuw!';
+    } else if ($_GET['errc'] == '2') {
+      $msg = 'Dit e-mailadres is al bezet. Probeer het opnieuw!';
+    } else if ($_GET['errc'] == '3') {
+      $msg = 'Er is iets fout gegaan. Probeer het opnieuw!';
+    }
   }
 ?>
 
 <body>
   <div class="container">
-    <form class="inlogform" action="actions/regsiter_action.php" method="post">
+    <form class="inlogform" action="actions/register_action.php" method="post">
       <div class="logincontainer">
         <div class="imgcontainer">
           <img src="images/512px-Circle-icons-profile.svg.png" class="avatar" alt="" />
@@ -65,7 +69,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4">
             <div class="form-group">
-              <input type="text" name="Adresregel1" id="Adresregel1" class="form-control input-lg"
+              <input type="text" name="Adresregel" id="Adresregel" class="form-control input-lg"
                 placeholder="Adresregel 1*" tabindex="3">
             </div>
           </div>
