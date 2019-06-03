@@ -6,18 +6,19 @@
     $gebruiker = $_SESSION['userID'];
 
     $query = "SELECT * FROM Voorwerp 
-    WHERE Voorwerpnummer = :voorwerpnummer 
+    WHERE Voorwerpnummer = :voorwerpnummer
+    AND Verkoper = :gebruiker 
     AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) <= GETDATE()";
     $sql = $dbh->prepare($query);
-    $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+    $sql->execute(['voorwerpnummer' => $voorwerpnummer,
+                    'gebruiker' => $gebruiker]);
     $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
     $titel = $resultaat['Titel'];
-
 
     if(!isset($_SESSION['userID'])){
         header('Location: ../inloggen.php');
     }elseif (!$resultaat) {
-        header('Location: ../profiel.php');
+        header('Location: ../profiel.php?errc=5');
     }
 
     $query = "UPDATE Voorwerp SET Veiliggesloten = '1' WHERE voorwerpnummer = :voorwerpnummer";
@@ -41,8 +42,6 @@
     $winnaarvoornaam = $hoogstebod['Voornaam'];
     $winnaarachternaam = $hoogstebod['Achternaam'];
 
-
-    // $bestaatBod = count($hoogstebod->fetchAll());
     if ($hoogstebod) {
         $winnaarsubject = "U heeft gewonnen!";
         $winnaartxt = "
