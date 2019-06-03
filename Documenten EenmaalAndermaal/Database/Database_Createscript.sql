@@ -136,7 +136,7 @@ go
 
 create table Voorwerp (
 	Voorwerpnummer			bigint			IDENTITY(0,1),
-	Titel					varchar(50)		not null,
+	Titel					varchar(100)	not null,
 	Beschrijving			varchar(2000)	not null,
 	Startprijs				numeric(8,2)	not null,
 	Betalingswijze			varchar(40)		not null,
