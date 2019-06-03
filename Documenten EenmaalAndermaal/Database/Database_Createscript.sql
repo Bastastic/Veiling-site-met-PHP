@@ -201,7 +201,8 @@ alter table Feedback
 alter table Gebruiker
 	add constraint FK_Gebruiker_Ref_Vraagnummer foreign key (Vraag)
 			references Vraag (Vraagnummer)
-			on update cascade on delete cascade /* veranderingen aan een gebruiker moeten overal komen */
+			on update cascade on delete cascade, /* veranderingen aan een gebruiker moeten overal komen */
+		constraint UNIQUE_Mail unique (Mailbox)
 
 alter table Gebruikerstelefoon
 	add constraint FK_Gebruikerstelefoon_Ref_Gebruikersnaam foreign key (Gebruiker)

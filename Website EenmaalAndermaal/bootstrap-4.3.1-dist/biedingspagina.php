@@ -326,7 +326,7 @@
 
         //Biedknop disabled als input niet genoeg is
         bod.addEventListener("input", function (e) {
-            if (this.value <= < ? = $hoogstebod ? > ) {
+            if (this.value <= <?=$hoogstebod?> ) {
                 biedknop.disabled = true;
             } else {
                 biedknop.disabled = false;
@@ -339,7 +339,7 @@
 
             bod = document.getElementById("bod").value;
 
-            if (isNaN(bod) || bod <= < ? = $hoogstebod ? > ) {
+            if (isNaN(bod) || bod <= <?= $hoogstebod?> ) {
                 alert("Je moet meer bieden!");
                 return false;
             } else {
