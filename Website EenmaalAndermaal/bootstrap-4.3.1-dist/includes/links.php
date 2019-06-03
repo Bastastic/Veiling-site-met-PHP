@@ -29,3 +29,4 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <script src="js/bootstrap.min.js"></script>
 <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.0-beta.1/js/froala_editor.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
