@@ -54,7 +54,7 @@
                     <h1>Uw bod op $voorwerpTitel is overboden</h1>
                     <p>Uw vorige bod was €$bodBedrag, er is €$bod geboden.
                     Als u een nieuw bod wilt plaatsen klik dan 
-                    <a href='http://localhost/biedingspagina.php?voorwerpnummer=$voorwerpnummer'>hier</a>.</p>
+                    <a href='http://iproject15.icasites.nl/biedingspagina.php?voorwerpnummer=$voorwerpnummer'>hier</a>.</p>
                 </body>
             </html>
             ";
