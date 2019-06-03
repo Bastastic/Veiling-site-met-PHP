@@ -31,6 +31,8 @@
             $msg = 'Wachtwoord niet gewijzigd. Oude wachtwoord incorrect!';
         }else if ($_GET['errc'] == '4') {
             $msg = 'De ingevulde gegevens kloppen niet. Probeer het opnieuw!';
+        }else if ($_GET['errc'] == '5') {
+            $msg = 'Er is iets foutgegaan met het sluiten van de veiling. Probeer het opnieuw!';
         }
     }
     if (isset($_GET['succ'])) {
