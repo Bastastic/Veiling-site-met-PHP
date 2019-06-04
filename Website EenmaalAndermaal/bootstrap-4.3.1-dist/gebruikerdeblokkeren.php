@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include 'includes/links.php'; ?>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Algemene Voorwaarden</title>
 </head>
 
 <?php include 'includes/header.php'; ?>
 <body>
-  
+
+
 <?php
 
 if (isset($_GET['errc'])) {
     $type = 'danger';
     $titel = 'Sorry!';
     if ($_GET['errc'] == '1') {
-        $msg = 'Gebruikersnaam is niet bekend. Probeer het nog een keer!';
-    }else if ($_GET['errc'] == '2') {
-        $msg = 'Gebruiker is al geblokkeerd. Een gebruiker kan niet meerdere keren geblokkeerd worden!';
+        $msg = 'Gebruikersnaam is niet geblokkeerd. Probeer het nog een keer!';
     }
 }
 
@@ -28,7 +26,7 @@ if (isset($_GET['succ'])) {
     $type = 'success';
     $titel = 'Top!';
     if ($_GET['succ'] == '1') {
-        $msg = 'De gebruikers is succesvol geblokkeerd!';
+        $msg = 'De gebruikers is succesvol gedeblokkeerd!';
     }
 }
 
@@ -49,42 +47,20 @@ if (isset($msg)) {
 
 if( isset($_POST['submit'])){
     $gebruiker = $_POST['gebruikersnaam'];
-    $reden = $_POST['reden'];
 
-    $query = "SELECT * FROM Gebruiker WHERE Gebruikersnaam = '$gebruiker'"; 
+    $query = "SELECT * FROM geblokkeerd WHERE Gebruiker = '$gebruiker'"; 
     $sql = $dbh->prepare($query);
     $sql->execute();
     $resultaten = $sql->fetch(PDO::FETCH_ASSOC);
-
-    
-
-
         
     if($resultaten == 0){
-        echo '<script>window.location.replace("gebruikerblokkeren.php?errc=1");</script>'; 
+        echo '<script>window.location.replace("gebruikerdeblokkeren.php?errc=1");</script>'; 
     }else{
-
-
-        $query1 = "SELECT * FROM geblokkeerd WHERE Gebruiker = '$gebruiker'"; 
+        echo '<script>window.location.replace("gebruikerdeblokkeren.php?succ=1");</script>';
+        $query1 = "DELETE FROM geblokkeerd WHERE Gebruiker = '$gebruiker'"; 
         $sql1 = $dbh->prepare($query1);
         $sql1->execute();
         $resultaten1 = $sql1->fetch(PDO::FETCH_ASSOC);
-        // $gebruikerblokkade = $resultaten1['Gebruiker'];
-
-        if( $resultaten1 == 0){
-            echo '<script>window.location.replace("gebruikerblokkeren.php?succ=1");</script>';
-        $gebruikersblokkeren = "INSERT INTO geblokkeerd ( Gebruiker, Datum, Reden)
-    VALUES ( 
-    :Gebruiker,
-    GETDATE(),
-    :Reden )";
-    $blokkeer = $dbh->prepare($gebruikersblokkeren);
-    $blokkeer->bindValue(":Gebruiker", $gebruiker);
-    $blokkeer->bindValue(":Reden", $reden);    
-    $blokkeer->execute();
-    }else{
-        echo '<script>window.location.replace("gebruikerblokkeren.php?errc=2");</script>';
-    }
         }
         
 
@@ -92,6 +68,10 @@ if( isset($_POST['submit'])){
     
 
 ?>
+
+
+
+
 <!-- Hieronder is het formulier om de gebruiker te blokkeren -->
 <div class="container text-center">
             <form method="post" class="w-25 mx-auto">
@@ -99,23 +79,22 @@ if( isset($_POST['submit'])){
                     <input type="text" name="gebruikersnaam" class="form-control" placeholder="Gebruiker" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="reden" class="form-control" placeholder="Reden" required>
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="submit" value="Blokkeer" class="btn btn-primary w-50">
+                    <input type="submit" name="submit" value="Deblokkeer" class="btn btn-primary w-50">
                 </div>
             </form>
 </div>
 
 
 
+
+
+
+<!-- gebruikers laten zien in geblokkeerd -->
 <?php
 // met deze query halen we alle geblokkeerde gebruikers uit de database. 
-$query = $dbh->prepare("SELECT Voorwerp.Verkoper, Count(Voorwerp.Verkoper) as Aantal_keer_Gerappoteerd
-from Voorwerp
-INNER JOIN Rapporteren ON Voorwerp.Voorwerpnummer = Rapporteren.AdvertentieID
-GROUP BY Voorwerp.Verkoper 
-ORDER BY Aantal_keer_Gerappoteerd DESC");
+$query = $dbh->prepare("SELECT Gebruiker, Datum, Reden
+FROM geblokkeerd
+ORDER BY Datum DESC, Gebruiker DESC");
 $query->execute();
 $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -126,24 +105,26 @@ $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
 <table style="width:50%">
   <tr>
     <th>Gebruiker</th>
-    <th>Aantal keer Gerappoteerd</th>
+    <th>Datum</th>
+    <th>Reden</th>
   </tr>
   
 <?php
     foreach ( $gebruikers as $key => $value){
         
-        $gebruiker = $value['Verkoper'];
-        $aantalkeer = $value['Aantal_keer_Gerappoteerd'];
-        echo  "<tr>
-            <td>$gebruiker</td>
-            <td>$aantalkeer</td>
-            <td><a href='rapportinformatie.php?Verkoper=$gebruiker' class='w3-button w3-black'>Rapporteerinformatie</a></td>    
-            </tr>";
+        $gebruiker = $value['Gebruiker'];
+        $datum = $value['Datum'];
+        $reden = $value['Reden'];
+
+        echo  " <tr>
+            <td>$gebruiker</td>";
+        echo  "<td>$datum</td>";
+        echo  "<td>$reden</td>
+        </tr>";
     }
 ?>
   </tr>
 </table>
-
 
 
 
