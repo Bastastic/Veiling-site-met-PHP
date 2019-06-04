@@ -13,6 +13,24 @@
 <body>
 
 
+<?php $gebruiker = $_GET['Verkoper']; ?>
+
+<!-- Hieronder is het formulier om de gebruiker te blokkeren -->
+<div class="container text-center">
+            <form method="post" class="w-25 mx-auto">
+                <div class="form-group">
+                    <input type="text" name="gebruikersnaam" class="form-control" value='<?php echo $gebruiker; ?>' disabled>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="reden" class="form-control" placeholder="Reden" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" value="Blokkeer" class="btn btn-primary w-50">
+                </div>
+            </form>
+</div>
+
+
 <?php 
 
 $gebruiker = $_GET['Verkoper']; 
@@ -20,7 +38,7 @@ $gebruiker = $_GET['Verkoper'];
 $query = $dbh->prepare("SELECT AdvertentieID, Rapporteerde, Omschrijving
 FROM Rapporteren
 INNER JOIN Voorwerp ON AdvertentieID = Voorwerpnummer 
-WHERE Voorwerp.Verkoper = 'bagijntje'");
+WHERE Voorwerp.Verkoper = '$gebruiker'");
 $query->execute();
 $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -49,13 +67,6 @@ $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
 
 </tr>
 </table>
-
-
-
-
-
-
-
 
 </body>
 <?php include 'includes/footer.php' ; ?>
