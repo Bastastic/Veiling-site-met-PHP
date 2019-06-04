@@ -19,12 +19,12 @@
     <section id="team" class="pb-5">
         <div class="container">
             <br>
-            <h2>Veilingen van <?=$_GET['verkoper']?></h2>
+            <h2>Veilingen van <?=strip_tags($_GET['verkoper'])?></h2>
             <div class="row">
                 <?php
                 // hier worden alle veilingen van een bepaalde verkoper gehaald. Als er geen zijn komt er niks.
                 if (isset($_GET['verkoper'])) {
-                    $verkoper = $_GET['verkoper'];
+                    $verkoper = strip_tags($_GET['verkoper']);
                     $sql = $dbh->prepare(
                         "SELECT voorwerpnummer, titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip 
                         FROM Voorwerp
@@ -71,18 +71,18 @@
 
                         // hier worden alle veilingen laten zien van de betreffende verkoper
                         echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
-                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\"		>
+                        onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . "';\"		>
                         <div class='image-flip' ontouchstart='this.classList.toggle('hover');'>
                             <div class='mainflip'>
                                 <div class='frontside'>
                                     <div class='card'>
                                         <div class='card-body text-center'>
-                                            <p><img class=' img-fluid' src='http://iproject15.icasites.nl/$foto' alt='advertentie afbeelding'>
+                                            <p><img class=' img-fluid' src='http://iproject15.icasites.nl/".htmlspecialchars($foto, ENT_QUOTES, 'UTF-8')."' alt='advertentie afbeelding'>
                                             </p>
-                                            <h4>$titel</h4>
-                                            <p> $bescrhijving...</p>
-                                            <h5>€$hoogstebod</h5>
-										    <p>Nog: <span id='$voorwerpnummer'></span> </p>
+                                            <h4>" . htmlspecialchars($titel, ENT_QUOTES, 'UTF-8'). "</h4>
+                                            <p> " . htmlspecialchars($bescrhijving, ENT_QUOTES, 'UTF-8'). "...</p>
+                                            <h5>€" . htmlspecialchars($hoogstebod, ENT_QUOTES, 'UTF-8'). "</h5>
+										    <p>Nog: <span id='" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8'). "'></span> </p>
                                         </div>
                                     </div>
                                 </div>
