@@ -1,0 +1,15 @@
+Testen 3 belangrijke redenenen:
+
+Kwaliteitsborging: controleren of functies in alle gevallen de juiste output geven
+
+Acceptatie: Zijn alle afgesproken functionaliteiten gerealiseerd? 
+
+Stuurinformatie: hoeveel % van het software is 
+
+-----------------------------
+
+Goed teams/developers testen eigen code, Whitebox testing. 
+
+-----------------------------
+
+Groep 13 is onze tester. 

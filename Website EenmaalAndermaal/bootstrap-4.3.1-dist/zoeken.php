@@ -90,12 +90,12 @@
 																for($i = 0; $i < count($q_fetchAll); $i++){
 																	echo '
 																	<label>
-																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
-																		<span class="ml-5">' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '">
+																		<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
 																	</label>';
 																}
 															}
-															Rubrieken($_GET['cat']);
+															Rubrieken(strip_tags($_GET['cat']));
 												echo '</div>
 														</div>
 													</article>';
@@ -115,8 +115,8 @@
 																for($i = 0; $i < count($q_fetchAll); $i++){
 																	echo '
 																	<label>
-																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
-																		<span class="ml-5">' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '">
+																		<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
 																	</label>';
 																}
 															}
@@ -127,7 +127,7 @@
 											}
 											// voegt de zoekopdracht toe aan het filteren
 											echo "
-											<input type='hidden' name='zoeken' value='" . $_GET['zoeken'] . "'/>
+											<input type='hidden' name='zoeken' value='" . strip_tags($_GET['zoeken']) . "'/>
 											";
 										?>
 									</div>
@@ -149,21 +149,21 @@
 				// kijkt of de filters prijsMin en prijsMax een waarde mee krijgen
 				// als dit zo is krijgen ze die waarde, anders krijgen ze min/max geld waarde mee
 				if (isset($_GET['prijsMin'])) {
-					$prijsMin = $_GET['prijsMin'];
+					$prijsMin = strip_tags($_GET['prijsMin']);
 				} else {
 					$prijsMin = 0;
 				}
 
 				if (isset($_GET['prijsMax'])) {
-					$prijsMax = $_GET['prijsMax'];
+					$prijsMax = strip_tags($_GET['prijsMax']);
 				} else {
 					$prijsMax = 999999.99;
 				}
 											
 				// kijkt op welke dingen gezocht is
                 if (isset($_GET['cat']) && isset($_GET['zoeken'])) { //categorie en trefwoord
-					$trefwoord = strval($_GET['zoeken']);
-					$cat = $_GET['cat'];
+					$trefwoord = strip_tags(strval($_GET['zoeken']));
+					$cat = strip_tags($_GET['cat']);
 					
 					// checkt of er op het product geboden is
 					$bodCheck = $dbh->prepare("SELECT * FROM Bod");
@@ -195,7 +195,7 @@
 					}
 
                 } elseif (isset($_GET['cat'])) { // enkel categorie
-					$cat = $_GET['cat'];
+					$cat = strip_tags($_GET['cat']);
 					$sql = $dbh->prepare(
 							"SELECT distinct top(50) Voorwerp_in_Rubriek.voorwerp, Rubriek_op_Laagste_Niveau, 
 							titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip
@@ -216,7 +216,7 @@
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 				} elseif (isset($_GET['zoeken'])) { // enkel trefwoord
-					$trefwoord = strval($_GET['zoeken']);
+					$trefwoord = strip_tags(strval($_GET['zoeken']));
 					$sql = $dbh->prepare(
 							"SELECT distinct top(50) Voorwerp_in_Rubriek.voorwerp, Rubriek_op_Laagste_Niveau, 
 							titel, beschrijving, startprijs, looptijdeindedag, looptijdeindetijdstip
@@ -249,13 +249,13 @@
 				// elk resultaat uit de query wordt weergeven 
 				foreach ($result as $key => $value) { 
 						$afgelopen = 'Veiling afgelopen!';
-						$voorwerpnummer = $value['voorwerp'];
-						$titel = $value['titel'];
-						$bescrhijving = $value['beschrijving'];
-						$bescrhijving = substr($bescrhijving, 0 , 200);
-						$startprijs = $value['startprijs'];
-						$looptijdeindedag = $value['looptijdeindedag'];
-						$looptijdeindetijdstip = $value['looptijdeindetijdstip'];
+						$voorwerpnummer = strip_tags($value['voorwerp']);
+						$titel = strip_tags($value['titel']);
+						$bescrhijving = strip_tags($value['beschrijving']);
+						$bescrhijving = strip_tags(substr($bescrhijving, 0 , 200));
+						$startprijs = strip_tags($value['startprijs']);
+						$looptijdeindedag = strip_tags($value['looptijdeindedag']);
+						$looptijdeindetijdstip = strip_tags($value['looptijdeindetijdstip']);
 
 						// haalt het hoogste bod op van het huidige voorwerp
 						$sql = $dbh->prepare(
@@ -264,27 +264,27 @@
 								WHERE Bod.voorwerp = Voorwerp.voorwerpnummer
 								AND voorwerpnummer = :voorwerpnummer
 								ORDER BY bodbedrag DESC');
-						$sql->execute(['voorwerpnummer' => $voorwerpnummer]);
+						$sql->execute(['voorwerpnummer' => strip_tags($voorwerpnummer)]);
 						$resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
 						$hoogstebod = $startprijs;
 						if ($resultaat) {
-								$hoogstebod = $resultaat[0]['bodbedrag'];
+								$hoogstebod = strip_tags($resultaat[0]['bodbedrag']);
 						}
 
 						// maakt zoekresultaten zichtbaar en maakt de timer
 						echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
-						onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+						onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . "';\">
 							<div class='image-flip' ontouchstart='this.classList.toggle('hover');'>
 								<div class='mainflip'>
 										<div class='frontside'>
 											<div class='card'>
 												<div class='card-body text-center'>
-												<p><img class=' img-fluid' src='http://iproject15.icasites.nl/pics/dt_1_".$voorwerpnummer.".jpg' alt='advertentie afbeelding'>
+												<p><img class=' img-fluid' src='http://iproject15.icasites.nl/pics/dt_1_".htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8').".jpg' alt='advertentie afbeelding'>
 												</p>
-												<h4>$titel</h4>
-												<p>$bescrhijving</p>
-												<h5>€$hoogstebod</h5>
-												<p id='$voorwerpnummer'></p>
+												<h4>". htmlspecialchars($titel, ENT_QUOTES, 'UTF-8') . "</h4>
+												<p>". htmlspecialchars($bescrhijving, ENT_QUOTES, 'UTF-8') . "</p>
+												<h5>€". htmlspecialchars($hoogstebod, ENT_QUOTES, 'UTF-8') . "</h5>
+												<p id='". htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . "'></p>
 											</div>
 										</div>
 									</div>
@@ -293,7 +293,7 @@
 						</div>
 						
 						<script>
-						var countDownDate$voorwerpnummer = new Date('$looptijdeindedag $looptijdeindetijdstip').getTime();
+						var countDownDate". htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . " = new Date('$looptijdeindedag $looptijdeindetijdstip').getTime();
 
 						var x = setInterval(function() {
 

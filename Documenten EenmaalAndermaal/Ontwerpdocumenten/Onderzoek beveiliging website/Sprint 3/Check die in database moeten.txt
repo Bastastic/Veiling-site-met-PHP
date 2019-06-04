@@ -1,0 +1,3 @@
+in verkoper tabel, alle mogelijke betaalmethodes
+Land moet gechekt worden
+
