@@ -46,8 +46,7 @@ if (isset($_GET['errc'])) {
     }
 }
 
-?>
-<?php require_once 'php/connectDB.php'; ?>
+ require_once 'php/connectDB.php'; ?>
 
 <body>
 <?php 
@@ -96,6 +95,13 @@ if (isset($_GET['errc'])) {
         $achternaam = $resultaat['achternaam'];
         $plaatsnaam = $resultaat['plaatsnaam'];
         $startprijs = $resultaat['startprijs'];
+        $sql = $dbh->prepare("SELECT * FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam");
+    $sql->execute(['gebruikersnaam' => $verkoper]);
+    $geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
+    if($geblokkeerd){
+        session_destroy();
+        header('Location: index.php');
+    }
         // $omschrijving = $_POST['omschrijving'];
         //Selecteert bedrag, bieder, boddatum en tijd.
         $sql = $dbh->prepare(

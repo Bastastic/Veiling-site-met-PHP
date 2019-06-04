@@ -9,9 +9,19 @@ if (isset($_SESSION['userID'])) {
                     FROM Gebruiker
                     WHERE Gebruikersnaam = :gebruikersnaam");
     $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
-    $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
+    $gebruiker = $sql->fetch(PDO::FETCH_ASSOC); 
     $voornaam = $gebruiker['Voornaam'];
     $achternaam = $gebruiker['Achternaam'];
+
+    $sql = $dbh->prepare("SELECT * FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam");
+    $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
+    $geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
+    if($geblokkeerd){
+        session_destroy();
+        header('Location: ../geblokkeerd.php?gebruiker=' . $gebruikersnaam);
+    }
+
+
     if($gebruiker['Geactiveerd'] == 0){
         // hier controleren we of de gebruiker Geactiveerd is, als dit het geval is zal je alles kunnen doen. anders kom je steeds terug op de pagina 
         // om een mail te versturen naar je zelf met een code. 

@@ -18,7 +18,7 @@ $admin = $sql->fetch(PDO::FETCH_ASSOC);
 
 $sql = $dbh->prepare("SELECT * FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam");
 $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
-$geblokeerd = $sql->fetch(PDO::FETCH_ASSOC);
+$geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
 
 
 if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
@@ -26,7 +26,7 @@ if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
     header('Location: ../admin/index.php');
 } else {
     if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
-        if(isset($geblokeerd)){
+        if($geblokkeerd){
             header('Location: ../geblokkeerd.php?gebruiker=' . $gebruikersnaam);
         }else{
         $_SESSION['userID'] = $gebruiker['Gebruikersnaam'];
