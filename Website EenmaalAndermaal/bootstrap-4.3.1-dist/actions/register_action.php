@@ -17,6 +17,7 @@
     $land = $_POST['Land'];
     $geboortedatum = date('Y-m-d', strtotime($_POST['Geboortedatum']));
     $emailadres = $_POST['Emailadres'];
+    $telefoonnummer = $_POST['telefoonnummer'];
     $vraagid = $_POST['Vraag'];
     $antwoord = $_POST['Antwoord'];
     $gebruikersnaam = $_POST['Gebruikersnaam'];
@@ -75,6 +76,19 @@
         $sql->bindValue(":geactiveerd", 0);
         $sql->execute();
         $_SESSION['userID'] = $gebruikersnaam;
+
+        $query1 = "INSERT INTO Gebruikerstelefoon ( Volgnr, Gebruiker, Telefoon )
+        VALUES  (  :Volgnr,
+                   :Gebruiker, 
+                   :Telefoon )";
+   
+           $sql1 = $dbh->prepare($query1);
+           $sql1->bindValue(":Volgnr", 1);
+           $sql1->bindValue(":Gebruiker", $gebruikersnaam);
+           $sql1->bindValue(":Telefoon", $telefoonnummer);
+           $sql1->execute();
+
+
         header('Location: ../mailversturen.php');
     } else if (!$resultMail && $result) {
         header('Location: ../registreren.php?errc=1');
@@ -83,3 +97,4 @@
     } else {
         header('Location: ../registreren.php?errc=3');
     }
+

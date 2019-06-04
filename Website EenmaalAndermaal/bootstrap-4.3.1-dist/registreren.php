@@ -113,6 +113,10 @@
           <input type="email" name="Emailadres" id="Emailadres" class="form-control input-lg" placeholder="Emailadres*"
             tabindex="9">
         </div>
+        <div class="form-group">
+          <input type="number" name="telefoonnummer" id="telefoonnummer" class="form-control input-lg"  step="1" placeholder="Telefoonnummer"
+            tabindex="9">
+        </div>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
