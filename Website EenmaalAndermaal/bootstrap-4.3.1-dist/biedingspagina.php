@@ -99,8 +99,9 @@ if (isset($_GET['errc'])) {
     $sql->execute(['gebruikersnaam' => $verkoper]);
     $geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
     if($geblokkeerd){
-        session_destroy();
-        header('Location: index.php');
+        echo '<div class="container text-center"> <h1>Veiling niet (meer) beschikbaar</h1><br><br></div>';
+        include 'includes/footer.php';
+        die();
     }
         // $omschrijving = $_POST['omschrijving'];
         //Selecteert bedrag, bieder, boddatum en tijd.
