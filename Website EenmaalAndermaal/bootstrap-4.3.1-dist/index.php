@@ -23,7 +23,7 @@
     #ad {
         color: white;
         background-color: #ff814f;
-        padding-left: 1%;
+        /* padding-left: 1%; */
     }
 </style>
 
@@ -174,11 +174,15 @@ if ($aantalfoto > 4) {
             <div class="row mt-5">
                 <?php
             // veiling gesloten in Voorwerp is standaard 0, dit betekent dus dat de veiling nog open is. Bij het aflopen van de veiling wordt de waarde naar 1 gezet.
-                $sql = $dbh->prepare("SELECT top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp where Voorwerp.veiliggesloten = 0 AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()");
+                $sql = $dbh->prepare("SELECT top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam 
+                from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp 
+                where Voorwerp.veiliggesloten = 0 AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+                order by NEWID()");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                 //Geeft de 12 random veilingen weer
+                shuffle($result);
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
                     $titel = substr($titel, 0, 25);
