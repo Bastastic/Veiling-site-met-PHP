@@ -63,7 +63,7 @@ if (isset($_GET['errc'])) {
     }
 
     if (isset($_GET['voorwerpnummer'])) {
-        $voorwerpnummer = $_GET['voorwerpnummer'];
+        $voorwerpnummer = strip_tags($_GET['voorwerpnummer']);
         //Selecteert alle gegevens van veiling en verkoper
         $sql = $dbh->prepare(
             'SELECT titel, beschrijving, startprijs, LooptijdeindeDag, LooptijdeindeTijdstip, Veiliggesloten, gebruikersnaam, voornaam, achternaam, Gebruiker.plaatsnaam, Mailbox
@@ -174,12 +174,12 @@ if (isset($_GET['errc'])) {
                          
                             if ($a == 0) {
                                 echo   "<div class='carousel-item active' style='cursor: pointer'>
-                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    <img src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Slider afbeelding'>
                                     </div>";
                                 $a++;
                             } else {
                                 echo   "<div class='carousel-item' style='cursor: pointer'>
-                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                                    <img src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Slider afbeelding'>
                                     </div>";
                             }
                         }
@@ -196,32 +196,32 @@ if (isset($_GET['errc'])) {
                 </div>
                 <!-- Geeft titel en beschrijving weer -->
                 <div class="my-3">
-                    <h2><?=$titel;?></h2>
-                    <p><?=$beschrijving;?></p>
+                    <h2><?=htmlspecialchars($titel, ENT_QUOTES, 'UTF-8');?></h2>
+                    <p><?=htmlspecialchars($beschrijving, ENT_QUOTES, 'UTF-8');?></p>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-5">
                 <p>
                     <!-- Laat voornaam achternaam verkoper zien -->
-                    <h4><?=$voornaam . " " . $achternaam;?></h4>
+                    <h4><?=htmlspecialchars($voornaam, ENT_QUOTES, 'UTF-8') . " " . htmlspecialchars($achternaam, ENT_QUOTES, 'UTF-8');?></h4>
                 </p>
                 <!-- Laat plaats van verkoper zien -->
-                <p>Regio <?=$plaatsnaam;?></p>
+                <p>Regio <?=htmlspecialchars($plaatsnaam, ENT_QUOTES, 'UTF-8');?></p>
                 <hr>
                 <br>
                 <div class="row justify-content-center">
                     <?php
                     //Ingelogd dan contact opnemen knop ander disabled
                     if (isset($_SESSION['userID'])) {
-                        echo '<a href="mailto:' . $email .'" class="btn btn-secondary" role="button">Contact opnemen</a>';
+                        echo '<a href="mailto:'  . htmlspecialchars($email, ENT_QUOTES, 'UTF-8'). '" class="btn btn-secondary" role="button">Contact opnemen</a>';
                     } else {
                         echo '<div class="tooltip-wrapper" data-placement="bottom" data-content="Hiervoor moet je ingelogd zijn">
                         <a href="" class="btn btn-secondary disabled" role="button" disabled>Contact opnemen</a>
                     </div>';
                     }
                     ?>
-                    <a href="meervan.php?verkoper=<?=$verkoper?>" class="btn btn-primary ml-2" role="button">Meer van
-                        <?=$verkoper?></a>
+                    <a href="meervan.php?verkoper=<?=htmlspecialchars($verkoper, ENT_QUOTES, 'UTF-8')?>" class="btn btn-primary ml-2" role="button">Meer van
+                        <?=htmlspecialchars($verkoper, ENT_QUOTES, 'UTF-8')?></a>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal3">
                         Rapporteren
@@ -272,10 +272,10 @@ if (isset($_GET['errc'])) {
                 if ($veilinggesloten == '0' && !$isaf) {
                     echo '<form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">
-                    <input type="number" class="form-control my-4" placeholder="Minimaal € ' . $hoogstebod . '" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="' . $hoogstebod . '" step="0.01" required>
-                        <input type="hidden" name="voorwerpnummer" value="' . $voorwerpnummer . '"/>
-                        <input type="hidden" name="hoogstebod" value="' . $hoogstebod . '">
+                    <input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars($hoogstebod, ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . htmlspecialchars($hoogstebod, ENT_QUOTES, 'UTF-8') . '" step="0.01" required>
+                        <input type="hidden" name="voorwerpnummer" value="' . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . '"/>
+                        <input type="hidden" name="hoogstebod" value="' . htmlspecialchars($hoogstebod, ENT_QUOTES, 'UTF-8') . '">
                     <div class="input-group-prepend my-4">
                     <script>
                     function getdata() {
@@ -293,8 +293,8 @@ if (isset($_GET['errc'])) {
                     $sql = $dbh->prepare($query);
                     $sql->execute(['voorwerpnummer' => $voorwerpnummer]);
                     $tweedeBod = $sql->fetch(PDO::FETCH_ASSOC);
-                    $tweedeBodBedrag = $tweedeBod['Bodbedrag'];
-                    $tweedeGebruiker = $tweedeBod['Gebruiker'];
+                    $tweedeBodBedrag = strip_tags($tweedeBod['Bodbedrag']);
+                    $tweedeGebruiker = strip_tags($tweedeBod['Gebruiker']);
                     echo '
                     <input type="hidden" name="tweedeBodBedrag" value="' . $tweedeBodBedrag . '"/>
                     <input type="hidden" name="tweedeGebruiker" value="' . $tweedeGebruiker . '"/>
@@ -330,8 +330,8 @@ if (isset($_GET['errc'])) {
                                 $datetime = date_format($datetime, "d-m-Y H:i");
                                 echo "
                                 <tr>
-                                <td>" . $value['gebruiker'] . "</td>
-                                <td>€ " . $value['bodbedrag'] . "</td>
+                                <td>" . htmlspecialchars($value['gebruiker'], ENT_QUOTES, 'UTF-8') . "</td>
+                                <td>€ " . htmlspecialchars($value['bodbedrag'], ENT_QUOTES, 'UTF-8') . "</td>
                                 <td>" . $datetime . "</td>
                                 </tr>
                                 ";

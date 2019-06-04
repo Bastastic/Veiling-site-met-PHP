@@ -103,20 +103,20 @@ if ($aantalfoto > 4) {
                         $a = 0;
                         //Zet alle foto's in carousel
                         foreach ($fotos as $key => $value) {
-                            $foto = $value['Filenaam'];
+                            $foto = strip_tags($value['Filenaam']);
                             
                             //Eerste foto is active
                             if ($a == 0) {
                                 echo   "<div class='carousel-item active' style='cursor: pointer'
-                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . "';\">
+                                    <img src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Slider afbeelding'>
                                     </div>";
                                 $a++;
                             //De volgende foto's allemaal niet active
                             } else {
                                 echo   "<div class='carousel-item' style='cursor: pointer'
-                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
-                                    <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
+                            onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . "';\">
+                                    <img src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Slider afbeelding'>
                                     </div>";
                             }
                         }
@@ -136,16 +136,16 @@ if ($aantalfoto > 4) {
                 </div>
                 <!-- Details van de uitglichte veiling -->
                 <?php    echo    "<div class='col-lg-5 mt-2'>
-                <h2>$titel</h2>
-                <h6>$gebruikersnaam</h6>
+                <h2>" . htmlspecialchars($titel, ENT_QUOTES, 'UTF-8'). "</h2>
+                <h6>" . htmlspecialchars($gebruikersnaam, ENT_QUOTES, 'UTF-8'). "</h6>
                 <h4>Omschrijving:</h4>
-                <small> $beschrijving...
+                <small> " . htmlspecialchars($beschrijving, ENT_QUOTES, 'UTF-8'). "...
                 </small>
             </div>" ?>
             </div>
             <!-- Countdown timer -->
             <div class="col-lg-7 d-flex justify-content-center">
-                <?php    echo    "<h4>Nog&nbsp</h4>  <h4 id='$voorwerpnummer'></h4>
+                <?php    echo    "<h4>Nog&nbsp</h4>  <h4 id='" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8'). "'></h4>
                      </div>
                                 <script>
 										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
@@ -182,13 +182,14 @@ if ($aantalfoto > 4) {
                 foreach ($result as $key => $value) {
                     $titel = $value['titel'];
                     $titel = substr($titel, 0, 25);
-                    $foto = $value['Filenaam'];
-                    $voorwerpnummer = $value['voorwerpnummer'];
+                    $titel = strip_tags($titel);
+                    $foto = strip_tags($value['Filenaam']);
+                    $voorwerpnummer = strip_tags($value['voorwerpnummer']);
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
-                    onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . $voorwerpnummer . "';\">
+                    onclick=\"window.location='biedingspagina.php?voorwerpnummer=" .  htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8')  . "';\">
                     <div id='ad'>
-                        <img style='height:150px' src='http://iproject15.icasites.nl/$foto' alt='Responsive image'>
-                        <p>$titel</p>
+                        <img style='height:150px' src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Responsive image'>
+                        <p>" . htmlspecialchars($titel, ENT_QUOTES, 'UTF-8'). "</p>
                     </div>
                 </div>";
                 }

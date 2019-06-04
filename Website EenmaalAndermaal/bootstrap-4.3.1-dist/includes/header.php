@@ -31,6 +31,7 @@ if (isset($_SESSION['userID'])) {
     }
 }
 
+
 ?>
 <header>
     <div id="Top-Header" style="background-color: #ff814f">

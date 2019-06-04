@@ -3,7 +3,7 @@
 
 <head>
     <?php include 'includes/links.php' ?>
-    <title>Spur - A Bootstrap Admin Template</title>
+    <title>Rubrieken</title>
 </head>
 
 <body>
@@ -99,8 +99,17 @@
             </header>
             <main class="dash-content">
                 <div class="container-fluid">
-                    <h1 class="dash-title">Blank</h1>
+                    <h1 class="dash-title">Rubrieken</h1>
                     <!-- put your rows / columns here -->
+                    
+
+                    <div class="row">
+                        <input class="col-8">
+                        <button class="col-2 btn btn-primary"></button>
+                        <button class="col-2 btn btn-primary"></button>
+                    </div>
+
+
                 </div>
             </main>
         </div>

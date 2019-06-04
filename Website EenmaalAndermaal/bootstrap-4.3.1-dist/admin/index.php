@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <?php include 'sidebar.php'; ?>
-    <title>Dashboard</title>
-</head>
+    <head>
+        <?php include 'includes/links.php' ?>
+        <title>Dashboard</title>
+    </head>
 
-<body>
-<a>indecaaddx</a>
-</body>
+    <body>
+    <?php include 'includes/sidebar.php' ?>
+
+    <a>indecaaddx</a>
+    </body>
 </html>
