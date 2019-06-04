@@ -6,8 +6,8 @@ if(!isset($_SESSION['userID'])){
     header('Location: inloggen.php');
 }
 
-$voorwerpnummer = $_POST['voorwerpnummer'];
-$omschrijving = $_POST['omschrijving'];
+$voorwerpnummer = strip_tags($_POST['voorwerpnummer']);
+$omschrijving = strip_tags($_POST['omschrijving']);
 $rappoteerder = $_SESSION['userID'];
 
 $query = "SELECT * FROM Rapporteren WHERE AdvertentieID = :AdvertentieID and Rapporteerde = :Rapporteerde"; 
@@ -18,7 +18,7 @@ $sql->execute();
 $resultaten = $sql->fetch(PDO::FETCH_ASSOC);
 
 if(isset($resultaten)){
-    header('Location: biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '&errc=1');
+    header('Location: biedingspagina.php?voorwerpnummer=' . strip_tags($voorwerpnummer) . '&errc=1');
 }
 
 
@@ -36,5 +36,5 @@ $sql->execute();
 ?>
 
 <?php
-header('Location: biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '&succ=1');
+header('Location: biedingspagina.php?voorwerpnummer=' . strip_tags($voorwerpnummer) . '&succ=1');
 ?>

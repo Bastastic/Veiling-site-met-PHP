@@ -3,10 +3,10 @@
 
 <head>
     <?php include 'sidebar.php'; ?>
-    <title>Dashboard</title>
+    <title>Gebruiker</title>
 </head>
 
 <body>
-<a>indecaaddx</a>
+<a>aaa</a>
 </body>
 </html>

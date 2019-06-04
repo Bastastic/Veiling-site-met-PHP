@@ -174,12 +174,12 @@
                                             WHERE Gebruikersnaam = '$gebruikersnaam'");
                                             $sql->execute();
                                             $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
-                                            $adres = $resultaat['Adresregel1'];
-                                            $adres2 = $resultaat['Adresregel2'];
-                                            $postcode = $resultaat['Postcode'];
-                                            $plaatsnaam = $resultaat['Plaatsnaam'];
-                                            $land = $resultaat['Land'];
-                                            $mailbox= $resultaat['Mailbox'];
+                                            $adres = strip_tags($resultaat['Adresregel1']);
+                                            $adres2 = strip_tags($resultaat['Adresregel2']);
+                                            $postcode = strip_tags($resultaat['Postcode']);
+                                            $plaatsnaam = strip_tags($resultaat['Plaatsnaam']);
+                                            $land = strip_tags($resultaat['Land']);
+                                            $mailbox= strip_tags($resultaat['Mailbox']);
                                             $wachtwoordcheck = 'Wachtwoord check';
       
                                             echo "<div class='row'>

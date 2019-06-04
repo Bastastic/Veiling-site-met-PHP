@@ -98,7 +98,7 @@
               <select id="Land" name="Land" class="form-control" tabindex="7">
               <?php
                   foreach ($countries as $key => $value) {
-                      echo "<option value='$value' title='$value'>$value</option>";
+                      echo "<option value='". strip_tags($value) ."' title='". strip_tags($value) ."'>". strip_tags($value) ."</option>";
                   }
               ?>
               </select>
@@ -119,10 +119,10 @@
               <select id="Vraag" name="Vraag" class="form-control" tabindex="10">
               <?php
                 foreach ($vragen as $key => $value) {
-                    $vraagnr = $value['Vraagnummer'];
-                    $vraag = $value['Tekst_vraag'];
+                    $vraagnr = strip_tags($value['Vraagnummer']);
+                    $vraag = strip_tags($value['Tekst_vraag']);
 
-                    echo "<option value='$vraagnr'>$vraag</option>";
+                    echo "<option value='". strip_tags($vraagnr). "'>" . strip_tags($vraag) . "</option>";
                 }
               ?>
               </select>
