@@ -324,7 +324,7 @@
                                                                         <label for='name' class='col-3 col-form-label mb-3'>Postcode:</label>
                                                                         <div class='col-8'>
                                                                         <input id='postcodewijzigen' name='postcodewijzigen'
-                                                                            value='$postcode' class='form-control here' maxlength='7'>
+                                                                            value='$postcode' class='form-control here' maxlength='12'>
                                                                         </div>
                                                                     </div>"; 
 
