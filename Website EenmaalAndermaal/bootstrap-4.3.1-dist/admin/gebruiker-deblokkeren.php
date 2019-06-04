@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    <?php include 'sidebar.php'; ?>
     <title>Gebruikers deblokkeren</title>
 </head>
 
 <body>
+<?php include 'sidebar.php'; ?>
+
 <a>aaa</a>
 </body>
 </html>

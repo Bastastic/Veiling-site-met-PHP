@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php include 'sidebar.php'; ?>
+    <?php include 'includes/sidebar.php'; ?>
     <title>Gebruiker</title>
 </head>
 
