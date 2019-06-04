@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<?php include 'sidebar.php'; ?>
+<?php include 'includes/sidebar.php' ?>
 <a>aaa</a>
 </body>
 </html>

@@ -7,6 +7,8 @@
 </head>
 
 <body>
+<?php include 'includes/sidebar.php' ?>
+
 <a>aaa</a>
 </body>
 </html>
