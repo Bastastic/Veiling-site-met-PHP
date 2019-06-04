@@ -70,8 +70,13 @@
                                                 </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Looptijd (in dagen):</h4>
-                                                    <input type="number" class="form-control"  name="Looptijd" min="1" max="60">
-                                                </div>
+                                                    <select class="custom-select" name="Looptijd">
+                                                        <option selected>Choose...</option>
+                                                        <option value="1">Post</option>
+                                                        <option value="2">Creditcard</option>
+                                                        <option value="3">Bank</option>
+                                                        <option value="4">iDeal</option>
+                                                    </select>                                                </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Verzendkosten (in euros):</h4>
                                                     <input type="number" class="form-control"  name="Verzondkosten">
@@ -84,10 +89,11 @@
                                                     <h4 class="card-title">Kies Betaalmethode:</h4>
                                                     <select class="custom-select" name="betalingwijze">
                                                         <option selected>Choose...</option>
-                                                        <option value="1">Post</option>
-                                                        <option value="2">Creditcard</option>
-                                                        <option value="3">Bank</option>
-                                                        <option value="4">iDeal</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">3</option>
+                                                        <option value="3">5</option>
+                                                        <option value="4">7</option>
+                                                        <option value="5">10</option>
                                                     </select>
                                                 </div>
                                             </div>
