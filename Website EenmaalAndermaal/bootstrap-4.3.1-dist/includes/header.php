@@ -15,7 +15,7 @@ if (isset($_SESSION['userID'])) {
     if($gebruiker['Geactiveerd'] == 0){
         // hier controleren we of de gebruiker Geactiveerd is, als dit het geval is zal je alles kunnen doen. anders kom je steeds terug op de pagina 
         // om een mail te versturen naar je zelf met een code. 
-        if(basename($_SERVER['PHP_SELF']) != 'mailversturen.php' && basename($_SERVER['PHP_SELF']) != 'mailverstuurd.php'){
+        if(basename($_SERVER['PHP_SELF']) != 'mailversturen.php' && basename($_SERVER['PHP_SELF']) != 'mailverstuurd.php' && basename($_SERVER['PHP_SELF']) != 'geblokkeerd.php'){
             header('Location: mailversturen.php');
         }
     }

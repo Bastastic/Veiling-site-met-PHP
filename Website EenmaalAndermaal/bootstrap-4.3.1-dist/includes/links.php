@@ -16,6 +16,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Arvo%7CEB+Garamond%7CLobster" rel="stylesheet">
 <link rel="stylesheet" href="/css/fonts.css">
