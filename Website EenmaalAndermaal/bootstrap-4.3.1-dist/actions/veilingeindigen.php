@@ -103,7 +103,7 @@
         $eigenaartxt = "
         <html>
         <head>
-        <title>Veiling gewonnen!</title>
+        <title>Niet verkocht</title>
         </head>
         <body style='text-algin: center;'>
         <h1>Uw veiling, " . $titel . ", is niet verkocht</h1>
