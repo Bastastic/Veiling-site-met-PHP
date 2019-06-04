@@ -23,7 +23,7 @@
     #ad {
         color: white;
         background-color: #ff814f;
-        padding-left: 1%;
+        /* padding-left: 1%; */
     }
 </style>
 
