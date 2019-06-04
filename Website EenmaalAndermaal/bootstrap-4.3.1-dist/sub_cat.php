@@ -37,14 +37,14 @@
 															//schrijft de subcategorieën op
 																	function Rubrieken($parent) {
 																		global $dbh;
-																		$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
+																		$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=".strip_tags($parent));
 																		$q->execute();
 																		$q_fetchAll = $q->fetchAll();
 																		for($i = 0; $i < count($q_fetchAll); $i++){
 																			echo '
 																			<label>
-																				<input type="radio" name="cat" class="form-check-input ml-3" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
-																				<span class="ml-5">' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+																				<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknummer'], ENT_QUOTES, 'UTF-8') . '">
+																				<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
 																			</label>';
 																		}
 																	}
@@ -66,8 +66,8 @@
 																for($i = 0; $i < count($q_fetchAll); $i++){
 																	echo '
 																	<label>
-																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . $q_fetchAll[$i]['Rubrieknummer'] . '">
-																		<span class="ml-5">' . $q_fetchAll[$i]['Rubrieknaam'] . '</span>
+																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknummer'], ENT_QUOTES, 'UTF-8') . '">
+																		<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
 																	</label>';
 																}
 															}

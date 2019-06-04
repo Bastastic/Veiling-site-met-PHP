@@ -54,7 +54,7 @@
 
         if (isset($_POST['submit'])) {
             if ($_POST['email'] != "") {
-                $emailadres = $_POST['email'];
+                $emailadres = strip_tags($_POST['email']);
 
                 //Vraagt gebruiker op met meegegeven emailadres
                 $query = "SELECT Mailbox
