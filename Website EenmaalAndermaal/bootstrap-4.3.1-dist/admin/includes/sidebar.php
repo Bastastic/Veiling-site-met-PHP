@@ -12,9 +12,9 @@
 </style>
 
 <?php session_start();
-require_once '../../php/connectDB.php';
+require_once '../php/connectDB.php';
 if(!isset($_SESSION['adminID'])){
-    header('Location: ../../inloggen.php');
+    header('Location: ../inloggen.php');
 }else{
     $adminID = $_SESSION['adminID'];
     $query = 'SELECT * FROM Admin WHERE Gebruikersnaam = :gebruikersnaam';
