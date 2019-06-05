@@ -27,7 +27,7 @@
                 <input type='text' name='gebruikersnaam' class="form-control" placeholder='Gebruikersnaam*' required>
             </div>
             <div class='col-2 form-group'>
-                <input type='number' name='duur' class='form-control' placeholder='Dagen*'>
+                <input type='number' name='duur' class='form-control' placeholder='Dagen'>
             </div>
             <div class='col-6 form-group'>
                 <input type='text' name='reden' class='form-control' placeholder='Reden*' required>

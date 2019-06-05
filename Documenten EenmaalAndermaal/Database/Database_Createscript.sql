@@ -1,39 +1,45 @@
 use iproject15
 go
 
-drop table Admin
+drop table IF exists Admin
 go
-drop table Verificatie
+drop table IF exists Verificatie
 go
-drop table Bestand
+drop table IF exists Bestand
 go
-drop table Bod
+drop table IF exists Bod
 go
-drop table Feedback
+drop table IF exists Feedback
 go
-drop table Gebruikerstelefoon
+drop table IF exists Gebruikerstelefoon
 go
-drop table Voorwerp_in_Rubriek
+drop table IF exists Voorwerp_in_Rubriek
 go
-drop table Voorwerp
+drop table IF exists Voorwerp
 go
-drop table Verkoper
+drop table IF exists Verkoper
 go
-drop table Gebruiker
+drop table IF exists Gebruiker
 go
-drop table Gebruikerstelefoon
+drop table IF exists Gebruikerstelefoon
 go
-drop table Rubriek
+drop table IF exists Rubriek
 go
-drop table Verkoper
+drop table IF exists Verkoper
 go
-drop table Voorwerp
+drop table IF exists Voorwerp
 go
-drop table Voorwerp_in_Rubriek
+drop table IF exists Voorwerp_in_Rubriek
 go
-drop table Vraag
+drop table IF exists Vraag
 go
-drop table Verificatie
+drop table IF exists Verificatie
+GO
+drop table IF exists geblokkeerdeVeilingen
+GO
+drop table IF exists Rapporteren
+GO
+drop table IF exists geblokkeerd
 GO
 
 create table Bestand (
@@ -44,7 +50,7 @@ create table Bestand (
 go
 
 create table Bod (
-	Voorwerp			bigint				not null,
+	Voorwerp			bigint			not null,
 	Bodbedrag			numeric(8,2)	not null,
 	Gebruiker			varchar(25)		not null,
 	BodDag				date			not null,
@@ -130,7 +136,8 @@ create table Verkoper (
 	Controle_optie		varchar(20)		not null,
 	Creditcard			varchar(20)		null
 	constraint PK_Verkoper primary key (Gebruiker),
-	constraint CK_Controleoptie check (Controle_optie IN ('Goedgekeurd', 'In afwachting'))
+	constraint CK_Controleoptie check (Controle_optie IN ('Goedgekeurd', 'In afwachting', 'Afgekeurd')),
+	constraint CK_Bank check (Bank IN ('ING','Rabobank', 'ABN-Amro', 'ASN', 'SNS', 'DHB', 'Bunq', 'Knab', 'Triodos bank'))
 )
 go
 
@@ -155,9 +162,12 @@ create table Voorwerp (
 	VeiligGesloten			bit				not null,
 	Verkoopprijs			numeric(8,2)	null
 	constraint PK_Voorwerp primary key (Voorwerpnummer),
-	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00)
+	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00),
+	constraint CK_LooptijdeindeDAg CHECK (LooptijdeindeDag > GETDATE()),
+	constraint CK_Looptijdeindetijdstip CHECK (LooptijdeindeTijdstip > CONVERT(TIME, GETDATE()))
 )
 go
+
 
 create table Voorwerp_in_Rubriek (
 	Voorwerp					bigint			not null,
@@ -179,6 +189,45 @@ create table Verificatie (
 	constraint PK_Verificatie primary key (Gebruikersnaam)
 )
 go
+
+CREATE TABLE geblokkeerdeVeilingen (
+    AdvertentieID BIGINT NOT NULL,
+    Datum date NOT NULL,
+    Reden VARCHAR (1000) NOT NULL,
+    CONSTRAINT PK_geblokkeerdeVeilingen PRIMARY KEY (AdvertentieID),
+    constraint FK_geblokkeerdeVeilingen_AdvertentieID foreign key (AdvertentieID)
+		references Voorwerp (Voorwerpnummer)
+            on update no action on delete no action,
+);
+
+
+CREATE TABLE Rapporteren (
+    AdvertentieID BIGINT NOT NULL,
+    Rapporteerde VARCHAR (25) NOT NULL,
+    Omschrijving VARCHAR (1000) NOT NULL,
+    CONSTRAINT PK_Rapporteren PRIMARY KEY (AdvertentieID, Rapporteerde),
+    constraint FK_Rapporteren_Rappoteerde foreign key (Rapporteerde)
+		references Gebruiker (Gebruikersnaam)
+            on update no action on delete no action,
+        constraint FK_Rapporteren_AdvertentieID foreign key (AdvertentieID)
+		references Voorwerp (Voorwerpnummer)
+            on update no action on delete no action
+
+);
+
+CREATE TABLE geblokkeerd (
+    Gebruiker VARCHAR (25) NOT NULL,
+    Datum date NOT NULL,
+    Reden VARCHAR (1000) NOT NULL,
+	Duur int NOT NULL 
+    CONSTRAINT PK_geblokkeerd PRIMARY KEY (Gebruiker),
+    constraint FK_Geblokkeerd_Gebruiker foreign key (Gebruiker)
+		references Gebruiker (Gebruikersnaam)
+            on update no action on delete no action,
+
+);
+
+
 
 alter table Bestand
 	add constraint FK_Bestand_Ref_Voorwerp foreign key (Voorwerp)
@@ -239,3 +288,4 @@ alter table Verificatie
 	add constraint FK_Verificatie_Ref_Gebruiker foreign key (Gebruikersnaam)
 			references Gebruiker (Gebruikersnaam)
 			on update no action on delete no action
+
