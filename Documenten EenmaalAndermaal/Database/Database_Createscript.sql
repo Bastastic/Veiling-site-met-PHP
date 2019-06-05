@@ -233,7 +233,7 @@ alter table Voorwerp_in_Rubriek
 			on update no action on delete no action,
 		constraint FK_VRubriek_Ref_Rubrieknummer foreign key (Rubriek_op_Laagste_Niveau)
 			references Rubriek (Rubrieknummer)
-			on update no action on delete no action
+			on update cascade on delete no action
 
 alter table Verificatie
 	add constraint FK_Verificatie_Ref_Gebruiker foreign key (Gebruikersnaam)
