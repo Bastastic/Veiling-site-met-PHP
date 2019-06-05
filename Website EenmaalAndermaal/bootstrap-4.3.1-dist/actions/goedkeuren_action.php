@@ -38,9 +38,7 @@ if(isset($_POST[$gebruiker] ) ){
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
     mail($emailadres, $subject, $txt, $headers);
-
-
-    header('Location: ../test.php');
+    header('Location: http://iproject15.icasites.nl/contact.php');
 }
 
 if( isset($_POST[$voornaam]) ){
@@ -68,9 +66,10 @@ if( isset($_POST[$voornaam]) ){
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
     mail($emailadres, $subject, $txt, $headers);
-
-    header('Location: ../test.php');
+    header('Location: http://iproject15.icasites.nl/contact.php');
 }
+
+// header('Location: http://iproject15.icasites.nl/contact.php');
  
 ?>
 
