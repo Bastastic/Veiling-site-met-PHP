@@ -90,7 +90,7 @@
 																for($i = 0; $i < count($q_fetchAll); $i++){
 																	echo '
 																	<label>
-																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '">
+																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknummer'], ENT_QUOTES, 'UTF-8') . '">
 																		<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
 																	</label>';
 																}
@@ -115,7 +115,7 @@
 																for($i = 0; $i < count($q_fetchAll); $i++){
 																	echo '
 																	<label>
-																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '">
+																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknummer'], ENT_QUOTES, 'UTF-8') . '">
 																		<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
 																	</label>';
 																}
