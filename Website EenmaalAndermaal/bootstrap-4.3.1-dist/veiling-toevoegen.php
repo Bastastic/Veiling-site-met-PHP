@@ -42,7 +42,7 @@
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <form enctype="multipart/form-data" action="uploadfoto.php" method="POST">
+                                            <form enctype="multipart/form-data" action="veiling-toevoegen-voorbeeld.php" method="POST">
                                             <div class="form-group mx-5">
                                                 <h4 class="card-title">Titel van Veiling:</h4>
                                                 <input type="text" class="form-control" name="Titel" placeholder="Titel">
@@ -72,10 +72,12 @@
                                                     <h4 class="card-title">Looptijd (in dagen):</h4>
                                                     <select class="custom-select" name="Looptijd">
                                                         <option selected>Choose...</option>
-                                                        <option value="1">Post</option>
-                                                        <option value="2">Creditcard</option>
-                                                        <option value="3">Bank</option>
-                                                        <option value="4">iDeal</option>
+                
+                                                        <option value="1">1</option>
+                                                        <option value="3">3</option>
+                                                        <option value="5">5</option>
+                                                        <option value="7">7</option>
+                                                        <option value="10">10</option>
                                                     </select>                                                </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Verzendkosten (in euros):</h4>
@@ -89,11 +91,10 @@
                                                     <h4 class="card-title">Kies Betaalmethode:</h4>
                                                     <select class="custom-select" name="betalingwijze">
                                                         <option selected>Choose...</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">3</option>
-                                                        <option value="3">5</option>
-                                                        <option value="4">7</option>
-                                                        <option value="5">10</option>
+                                                        <option value="1">Post</option>
+                                                        <option value="2">Creditcard</option>
+                                                        <option value="3">Bank</option>
+                                                        <option value="4">iDeal</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -103,7 +104,7 @@
                                                 <br>
                                                 <?php $cat = strip_tags($_POST['cat']);?> 
                                                 <input type="hidden" name="cat" value="<?=$cat;?>">
-                                                <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
+                                                <input type="submit" value="Voorbeeld inzien en plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
                                                 tabindex="7">
                                                 </div>
                                             </div>

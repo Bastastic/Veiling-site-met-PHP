@@ -3,7 +3,7 @@
 
 <head>
     <?php include 'includes/links.php'; ?>
-    <title>Verkoper blokkeren</title>
+    <title>Gerapporteerde verkopers</title>
 </head>
 
 <?php include 'includes/sidebar.php';
@@ -21,7 +21,7 @@
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Verkopers blokkeren</h1>
+        <h1 class="dash-title">Gerapporteerde verkopers</h1>
         <form method='post' action='actions/blokkeer.php' target='_self' class="row">
             <div class="col-2 form-group">
                 <input type='text' name='gebruikersnaam' class="form-control" placeholder='Gebruikersnaam*' required>
@@ -50,6 +50,7 @@
                             <th scope="col">Gebruiker</th>
                             <th scope="col">Aantal</th>
                             <th scope="col">Meer info</th>
+                            <th scope="col">Bezichtig advertentie</th>
                             <th scope="col">Blokkeer gebruiker</th>
                         </tr>
                     </thead>
@@ -64,6 +65,7 @@
                                 <td>$gebruiker</td>
                                 <td>$aantalkeer</td>
                                 <td><a href='reportinformation.php?Verkoper=$gebruiker' class='btn btn-primary'>Meer info</a></td>
+                                <td><a href='../biedingspagina.php?voorwerpnummer=$advertentieID' class='btn btn-primary'>Bekijk</a></td>
                                 <td><form method='post' action='actions/blokkeer.php' target='_self' class='row'>
                                 <div class='col form-group'>
                                     <input type='number' name='duur' class='form-control' placeholder='Duur in dagen*' required>
