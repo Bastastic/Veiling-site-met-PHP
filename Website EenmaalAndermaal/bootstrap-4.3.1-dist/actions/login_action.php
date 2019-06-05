@@ -20,13 +20,14 @@ $sql = $dbh->prepare("SELECT * FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam"
 $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
 $geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
 
+$banOphefDatum = date("Y-m-d", strtotime($geblokkeerd['datum']. ' + ' . $geblokkeerd['duur'] . ' days'));
 
 if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
     $_SESSION['adminID'] = $admin['Gebruikersnaam'];
     header('Location: ../admin/index.php');
 } elseif (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
     if ($geblokkeerd) {
-        if ($geblokkeerd['datum'] <= date(Y-m-d)) {
+        if ($banOphefDatum <= date(Y-m-d)) {
             $sql = $dbh->prepare("DELETE * FROM geblokkeerd WHERE Gebruiker=:gebruiker");
             $sql->execute(['gebruiker' => $gebruikersnaam]);
             $_SESSION['userID'] = $gebruiker['Gebruikersnaam'];
