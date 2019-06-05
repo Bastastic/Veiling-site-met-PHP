@@ -21,7 +21,7 @@ $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Rapporten van <?=$AdvertentieID?></h1>
+        <h1 class="dash-title">Rapporten van <?=$AdvertentieID?> &nbsp <a class='btn btn-primary'>Blokkeer</a></h1>
         <div class="card spur-card">
             <div class="card-header">
                 <div class="spur-card-icon">
@@ -35,7 +35,6 @@ $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <th scope="col">Gerapporteerd door</th>
                             <th scope="col">Omschrijving</th>
-                            <th scope="col">Blokkeer advertentie</th>
                             
                         </tr>
                     </thead>
@@ -48,7 +47,6 @@ $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
                             echo  "<tr>
                                 <td>$Rapporteerde</td>
                                 <td>$Omschrijving</td>
-                                <td><a class='btn btn-primary'>Blokkeer</a></td>
                                 </tr>";
                         }
                     ?>

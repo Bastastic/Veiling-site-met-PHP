@@ -98,7 +98,10 @@ if (isset($_GET['errc'])) {
         $sql = $dbh->prepare("SELECT * FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam");
     $sql->execute(['gebruikersnaam' => $verkoper]);
     $geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
-    if($geblokkeerd){
+    $sql = $dbh->prepare("SELECT * FROM geblokkeerdeVeilingen WHERE AdvertentieID=:ad");
+    $sql->execute(['ad' => $voorwerpnummer]);
+    $geblokkeerdVeiling = $sql->fetch(PDO::FETCH_ASSOC);
+    if($geblokkeerd || $geblokkeerdVeiling){
         echo '<div class="container text-center"> <h1>Veiling niet (meer) beschikbaar</h1><br><br></div>';
         include 'includes/footer.php';
         die();
