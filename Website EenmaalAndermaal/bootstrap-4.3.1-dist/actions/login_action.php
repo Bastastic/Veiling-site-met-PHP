@@ -28,6 +28,7 @@ if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
 
         if ($geblokkeerd['Duur'] == null) {
             $banOphefDatum = $geblokkeerd['Datum'];
+            header('Location: ../geblokkeerd.php?gebruiker=' . $gebruikersnaam);
         } else {
             $banOphefDatum = date("Y-m-d", strtotime($geblokkeerd['Datum']. ' + ' . $geblokkeerd['Duur'] . ' days'));
         }

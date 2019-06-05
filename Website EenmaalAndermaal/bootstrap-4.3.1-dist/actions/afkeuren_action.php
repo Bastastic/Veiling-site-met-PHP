@@ -12,24 +12,22 @@ $mailbox = $sqlemail->fetch(PDO::FETCH_ASSOC);
 $emailadres = $mailbox['Mailbox'];
 
 
-
-if(isset($_POST[$gebruiker] ) ){
-    $updatecontroleoptie = $dbh->prepare("UPDATE Verkoper 
-    SET Controle_optie = 'Goedgekeurd' 
+if( isset($_POST[$gebruiker]) ){
+    $updatecontroleoptie1 = $dbh->prepare("UPDATE Verkoper 
+    SET Controle_optie = 'Afgekeurd' 
     WHERE Gebruiker = '$gebruiker'");
-    $updatecontroleoptie->execute();
-    
-    
-    $subject = "Goedkeuring van uw aanvraag";
+    $updatecontroleoptie1->execute();
+
+    $subject = "Afkeuring van uw aanvraag";
     $txt = "
     <html>
     <head>
-    <title>Goedkeuring</title>
+    <title>Afgekeurd</title>
     </head>
     <body style='text-algin: center;'>
-    <h1>Gefeliciteerd</h1>
-    <p>U bent goedgekeurd en bent nu officieel verkoper op EenmaalAndermaal. Uw kunt nu veilingen plaatsten.</p>
-    <p>U kunt <a href='http://iproject15.icasites.nl/inloggen.php'>hier</a> inloggen.</p>
+    <h1>Uw aanvraag voor verkoper</h1>
+    <p>U aanvraag voor het worden van verkoper is afgekeurd.</p>
+    <p>U kunt <a href='http://iproject15.icasites.nl/contact.php'>hier</a> contact opnemen mocht u dat willen.</p>
     </body>
     </html>
     ";
