@@ -50,7 +50,7 @@ $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);
             <td>$bank</td>
             <td>$bankrekening</td>
             <td><form action='actions/goedkeuren_action.php?Gebruiker=$gebruiker' method='post'><input type='submit' id='$gebruiker' name='$gebruiker' class='btn btn-primary' value='Goedkeuren'></form></td>    
-            <td><form action='actions/afkeuren.php?Gebruiker=$gebruiker' method='post'><input type='submit' id='$gebruiker' name='$gebruiker' class='btn btn-primary' value='Afkeuren'></form></td>    
+            <td><form action='actions/afkeuren_action.php?Gebruiker=$gebruiker' method='post'><input type='submit' id='$gebruiker' name='$gebruiker' class='btn btn-primary' value='Afkeuren'></form></td>    
             </tr>";
     }
 ?>

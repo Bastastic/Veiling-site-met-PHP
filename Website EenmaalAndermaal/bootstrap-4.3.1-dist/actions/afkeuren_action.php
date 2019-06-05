@@ -12,7 +12,6 @@ $mailbox = $sqlemail->fetch(PDO::FETCH_ASSOC);
 $emailadres = $mailbox['Mailbox'];
 
 
-
 if( isset($_POST[$gebruiker]) ){
     $updatecontroleoptie1 = $dbh->prepare("UPDATE Verkoper 
     SET Controle_optie = 'Afgekeurd' 
