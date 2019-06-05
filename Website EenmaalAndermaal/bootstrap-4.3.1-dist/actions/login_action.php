@@ -24,10 +24,20 @@ $geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
 if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
     $_SESSION['adminID'] = $admin['Gebruikersnaam'];
     header('Location: ../admin/index.php');
-} else {
-    if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
+} else if (password_verify($wachtwoord, $gebruiker['Wachtwoord'])) {
         if($geblokkeerd){
+            if($geblokkeerd['datum'] <= date(Y-m-d)){
+                $sql = $dbh->prepare("DELETE * FROM geblokkeerd WHERE Gebruiker=:gebruiker");
+                $sql->execute(['gebruiker' => $gebruikersnaam]);
+                $_SESSION['userID'] = $gebruiker['Gebruikersnaam'];
+                if ($gebruiker['Geactiveerd'] == 1) {
+                    header('Location: ../profiel.php');
+                } else {
+                    header('Location: ../mailversturen.php');
+        }
+            } else{
             header('Location: ../geblokkeerd.php?gebruiker=' . $gebruikersnaam);
+        }
         }else{
         $_SESSION['userID'] = $gebruiker['Gebruikersnaam'];
         if ($gebruiker['Geactiveerd'] == 1) {
@@ -36,7 +46,6 @@ if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
             header('Location: ../mailversturen.php');
         }
     }
-    } else {
+}else {
         header('Location: ../inloggen.php?errc=1');
     }
-}

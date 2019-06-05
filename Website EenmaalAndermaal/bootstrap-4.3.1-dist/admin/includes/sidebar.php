@@ -1,15 +1,18 @@
-<style>
-.dash-nav-dropdown{
-    width:300px;
-}
-.dash-nav-dropdown, .show {
-    width:300px;
-}
-.dash-toolbar{
-    margin-left:61px;
+<!-- <style>
+    .dash-nav-dropdown {
+        width: 300px;
+    }
 
-}
-</style>
+    .dash-nav-dropdown,
+    .show {
+        width: 300px;
+    }
+
+    .dash-toolbar {
+        margin-left: 61px;
+
+    }
+</style> -->
 
 <?php session_start();
 require_once '../php/connectDB.php';
@@ -51,15 +54,14 @@ if(!isset($_SESSION['adminID'])){
                     <a href="gebruiker-blokkeren.php" class="dash-nav-dropdown-item">Gebruiker blokkeren</a>
                     <a href="gebruiker-deblokkeren.php" class="dash-nav-dropdown-item">Gebruiker deblokkeren</a>
                 </div>
-            </div>
-            <div class="dash-nav-dropdown">
-                <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                    <i class="fas fa-file"></i> Veilingen </a>
-                <div class="dash-nav-dropdown-menu">
-                    <a href="veiling-blokkeren.php" class="dash-nav-dropdown-item">Veiling blokkeren</a>
-                    <a href="veiling-deblokkeren.php" class="dash-nav-dropdown-item">Veiling deblokkeren</a>
+                <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                        <i class="fas fa-file"></i> Veilingen </a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="veiling-blokkeren.php" class="dash-nav-dropdown-item">Veiling blokkeren</a>
+                        <a href="veiling-deblokkeren.php" class="dash-nav-dropdown-item">Veiling deblokkeren</a>
+                    </div>
                 </div>
-            </div>
         </nav>
     </div>
     <div class="dash-app">
@@ -81,7 +83,8 @@ if(!isset($_SESSION['adminID'])){
                     <i class="tools-item-count">4</i>
                 </a>
                 <div class="dropdown tools-item">
-                    <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         <i class="fas fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
