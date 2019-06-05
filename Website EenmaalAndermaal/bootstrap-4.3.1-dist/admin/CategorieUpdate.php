@@ -18,17 +18,27 @@
             $msg = 'Dit rubrieknummer is al in gebruik.';
         } else if ($_GET['errc'] == '3') {
             $msg = 'Er is iets fout gegaan.';
+        } else if ($_GET['errc'] == '4') {
+            $msg = 'Deze naam is al in gebruik.';
+        } else if ($_GET['errc'] == '5') {
+            $msg = 'Naam en nummer zijn al in gebruik.';
+        } else if ($_GET['errc'] == '6') {
+            $msg = 'Vul alstublieft alle velden in.';
+        } else if ($_GET['errc'] == '7') {
+            $msg = 'Deze hoofdrubriek bestaat niet.';
+        } else if ($_GET['errc'] == '8') {
+            $msg = 'ROOT Rubrieken moeten geen subrubrieken hebben &eacute;n moeten geen voorwerpen bevatten.';
         }
     }
     if (isset($_GET['succ'])) {
         $type = 'success';
         $titel = 'Top!';
         if ($_GET['succ'] == '1') {
-            $msg = 'De rubriek is succesvol verwijderd';
+            $msg = 'De rubriek is succesvol verwijderd.';
         } else if ($_GET['succ'] == '2') {
-            $msg = 'De rubriek is succesvol geüpdatet';
+            $msg = 'De rubriek is succesvol geüpdatet.';
         } else if ($_GET['succ'] == '3') {
-            $msg = 'De nieuwe rubriek is succesvol toegevoegd';
+            $msg = 'De nieuwe rubriek is succesvol toegevoegd.';
         }
     }
     ?>
@@ -108,10 +118,10 @@
                                     <!-- nieuwe rubriek toevoegen -->
                                             <tr><form method='POST' action='actions/rubriekaction.php'>
                                             <div>
-                                                <td><input type='number' class='form-control' name='Rubrieknummer' placeholder='...' require min='1' max='2147483646'></td>
-                                                <td><input style='width:350px' class='form-control' name='Rubrieknaam' placeholder='...' require maxlength='50'></td>
-                                                <td><input type='number' class='form-control' name='Hoofdrubriek' placeholder='...' require min='-1' max='2147483646'></td>
-                                                <td><input type='number' class='form-control' name='Volgnr' placeholder='...' require min='1' max='2147483646'></td>
+                                                <td><input type='number' class='form-control' name='Rubrieknummer' placeholder='...' min='1' max='2147483646'></td>
+                                                <td><input style='width:350px' class='form-control' name='Rubrieknaam' placeholder='...' maxlength='50'></td>
+                                                <td><input type='number' class='form-control' name='Hoofdrubriek' placeholder='...' min='-1' max='2147483646'></td>
+                                                <td><input type='number' class='form-control' name='Volgnr' placeholder='...' min='1' max='2147483646'></td>
                                                 <td><input type='submit' style='width:100%' class='btn btn-info' name='action' value='Nieuw'></td>
                                                 <td></td>
                                                 <td></td>
@@ -131,6 +141,7 @@
                                                 <td><input type='submit' style='width:100%' class='btn btn-secondary' name='action' value='Drill down'></td>
                                             </div>  
                                             <input type='hidden' class='' name='originalrub' value='" . $rubriek['Rubrieknummer'] . "'> 
+                                            <input type='hidden' class='' name='originalnaam' value='" . $rubriek['Rubrieknaam'] . "'> 
                                             </form>
                                             </tr>";
                                         }
