@@ -17,11 +17,11 @@ DELETE Vraag
 
 ---- Testvragen ------
 insert into Vraag values
-	(1, 'Wat is je lievelingsfruit?'),
-	(2, 'Wat is je lievelingseten?'),
-	(3, 'Hoe heet jouw beste vriend/vriedin?'),
-	(4, 'wat is de naam van jouw eerste baas?'),
-	(5, 'Hoe hete jouw eerste engels docent?')
+	(1, 'In welke straat ben je geboren?'),
+	(2, 'Wat is de meisjesnaam je moeder'),
+	(3, 'Wat is je lievelingsgerecht?'),
+	(4, 'Hoe heet je oudste zusje?'),
+	(5, 'Hoe heet je huisdier?')
 
 
 ---------------Rubriek--------------------------
@@ -50,7 +50,7 @@ LEFT(Username,240) + '@gmail.com' AS Mailbox,
 1 AS Vraag,
 'soep met aardappelen' AS Antwoordtext,
 0 AS Verkoper,
-0 AS Geactiveerd
+1 AS Geactiveerd
 FROM iproject15.dbo.Users
 
 -- Checkt of de gebruiker veilingen heeft, als dat zo is, wordt verkoper = 1
