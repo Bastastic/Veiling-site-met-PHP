@@ -17,11 +17,11 @@ DELETE Vraag
 
 ---- Testvragen ------
 insert into Vraag values
-	(1, 'Wat is je lievelingsfruit?'),
-	(2, 'Wat is je lievelingseten?'),
-	(3, 'Hoe heet jouw beste vriend/vriedin?'),
-	(4, 'wat is de naam van jouw eerste baas?'),
-	(5, 'Hoe hete jouw eerste engels docent?')
+	(1, 'In welke straat ben je geboren?'),
+	(2, 'Wat is de meisjesnaam je moeder'),
+	(3, 'Wat is je lievelingsgerecht?'),
+	(4, 'Hoe heet je oudste zusje?'),
+	(5, 'Hoe heet je huisdier?')
 
 
 ---------------Rubriek--------------------------
