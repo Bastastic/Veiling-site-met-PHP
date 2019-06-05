@@ -8,7 +8,7 @@ $voornaam = $_GET['Voornaam'];
 
 $emailophalen = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam";
 $sqlemail = $dbh->prepare($emailophalen);
-$sqlemail->execute(['gebruikersnaam' => $gebruikersnaam]);
+$sqlemail->execute(['gebruikersnaam' => $gebruiker]);
 $mailbox = $sqlemail->fetch(PDO::FETCH_ASSOC);
 $emailadres = $mailbox['Mailbox'];
 
