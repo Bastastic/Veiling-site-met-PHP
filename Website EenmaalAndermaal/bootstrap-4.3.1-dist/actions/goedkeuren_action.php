@@ -6,9 +6,9 @@
 $gebruiker = $_GET['Gebruiker'];
 $voornaam = $_GET['Voornaam'];
 
-$emailophalen = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = :gebruikersnaam";
+$emailophalen = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = $gebruiker";
 $sqlemail = $dbh->prepare($emailophalen);
-$sqlemail->execute(['gebruikersnaam' => $gebruiker]);
+$sqlemail->execute();
 $mailbox = $sqlemail->fetch(PDO::FETCH_ASSOC);
 $emailadres = $mailbox['Mailbox'];
 
@@ -49,7 +49,7 @@ if( isset($_POST[$voornaam]) ){
     WHERE Gebruiker = '$gebruiker'");
     $updatecontroleoptie1->execute();
 
-    $subject = "Afgkeuring van uw aanvraag";
+    $subject = "Afkeuring van uw aanvraag";
     $txt = "
     <html>
     <head>
