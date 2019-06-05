@@ -88,7 +88,6 @@
            $sql1->bindValue(":Telefoon", $telefoonnummer);
            $sql1->execute();
 
-
         header('Location: ../mailversturen.php');
     } else if (!$resultMail && $result) {
         header('Location: ../registreren.php?errc=1');

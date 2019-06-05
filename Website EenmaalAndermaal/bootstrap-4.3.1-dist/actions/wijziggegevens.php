@@ -13,8 +13,6 @@ if (isset($_SESSION['userID'])) {
 }
 
 
-
-
 // Met deze query halen we alle gegevens van de gebruiker die aangepast kunnen worden. 
 $sqlupdategegevens = $dbh->prepare("SELECT  Adresregel1, Adresregel2, Postcode, Plaatsnaam, Land, Mailbox, Wachtwoord
 FROM Gebruiker
