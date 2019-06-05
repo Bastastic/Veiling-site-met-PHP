@@ -44,6 +44,10 @@
             $msg = 'U heeft uw wachtwoord succesvol gewijzigd!';
         }else if ($_GET['succ'] == '3') {
             $msg = 'U heeft uw gegevens succesvol gewijzigd!';
+        }else if ($_GET['succ'] == '4') {
+            $msg = 'U heeft uw telefoonnummer succesvol gewijzigd!';
+        }else if ($_GET['succ'] == '5') {
+            $msg = 'U heeft uw telefoonnummer succesvol toegevoegd!';
         }
     }
 ?>
@@ -82,13 +86,17 @@
                     </a>
                     <a href="#tab3" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2"
                         aria-selected="false">
+                        <i class="mdi mdi-account"></i> Telefoonnummer
+                    </a>
+                    <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab2"
+                        aria-selected="false">
                         <i class="mdi mdi-account"></i> Wachtwoord
                     </a>
-                    <a href="#tab4" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3"
+                    <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab3"
                         aria-selected="false">
                         <i class="mdi mdi-account-settings"></i> Lopende veilingen
                     </a>
-                    <a href="#tab5" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
+                    <a href="#tab6" class="nav-link" data-toggle="pill" role="tab" aria-controls="tab4"
                         aria-selected="false">
                         <i class="mdi mdi-heart"></i> Veiling historie
                     </a>
@@ -388,7 +396,73 @@
                         </div>
                     </div>                            
 
+
+                    <?php
+                    $sqltelefoon = $dbh->prepare("SELECT Telefoon
+                                            FROM Gebruikerstelefoon
+                                            WHERE Gebruiker = '$gebruikersnaam'");
+                                            $sqltelefoon->execute();
+                                            $resultaattelefoon = $sqltelefoon->fetch(PDO::FETCH_ASSOC);
+                                            $telefoon = strip_tags($resultaattelefoon['Telefoon']);
+                                
+                    ?>
+
                     <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab3">
+                        <div class="accordion" id="accordion-tab-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4>Telefoonnummer veranderen </h4>
+                                            <hr>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form action="actions/wijzigtelefoon_action.php" method="post">
+                                                <div class="form-group row">
+                                                    <label for="username"
+                                                        class="col-4 col-form-label">Telefoonnummer</label>
+                                                    <div class="col-8">
+                                                        <input id="telefoon" name="telefoon" value=" <?php if( $telefoon == ''){ echo 'Geen telefoonnummer bekend';}else{  echo $telefoon; }?>"
+                                                            class="form-control here" required="required"
+                                                            type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="offset-4 col-8">
+                                                        <button name="submittelefoon" type="submit"
+                                                            class="btn btn-primary">Update Telefoonnummer</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
                         <div class="accordion" id="accordion-tab-2">
                             <div class="card">
                                 <div class="card-body">
@@ -444,7 +518,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4">
+                    <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
                         <div class="accordion" id="accordion-tab-3">
                             <div class="card">
                                 <div class="card-body">
@@ -522,7 +596,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane" id="tab5" role="tabpanel" aria-labelledby="tab5">
+                    <div class="tab-pane" id="tab6" role="tabpanel" aria-labelledby="tab6">
                         <div class="accordion" id="accordion-tab-4">
                             <div class="card">
                                 <div class="card-body">
@@ -697,6 +771,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
+
                     </form>
                 </div>
             </div>
