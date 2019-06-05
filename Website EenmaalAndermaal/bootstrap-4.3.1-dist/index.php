@@ -9,32 +9,29 @@
     <title>EenmaalAndermaal</title>
 </head>
 
+<?php
+    include 'includes/header.php';
+    require_once 'php/connectDB.php';
+?>
+<body>
 <style>
     .carousel-inner img {
         width: 100%;
         height: 100%;
     }
 
-    #ad img {
+    .ad img {
         width: 100%;
         height: 100%;
     }
 
-    #ad {
+    .ad {
         color: white;
         background-color: #ff814f;
         /* padding-left: 1%; */
     }
 </style>
-
 <?php
-    include 'includes/header.php';
-    require_once 'php/connectDB.php';
-?>
-
-<body>
-
-    <?php
 
 //Haalt laatst toegevoegde voorwerp uit de database
 $sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voorwerp.Beschrijving, Voorwerp.LooptijdeindeDag, Voorwerp.LooptijdeindeTijdstip, Gebruiker.Gebruikersnaam 
@@ -191,7 +188,7 @@ if ($aantalfoto > 4) {
                     $voorwerpnummer = strip_tags($value['voorwerpnummer']);
                     echo "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' style='cursor: pointer'
                     onclick=\"window.location='biedingspagina.php?voorwerpnummer=" .  htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8')  . "';\">
-                    <div id='ad'>
+                    <div class='ad'>
                         <img style='height:150px' src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Responsive image'>
                         <p>" . htmlspecialchars($titel, ENT_QUOTES, 'UTF-8'). "</p>
                     </div>

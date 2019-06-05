@@ -1,5 +1,3 @@
-<head>
-</head>
 <?php
     require_once 'php/countries.php';
     require_once 'php/connectDB.php';
@@ -113,10 +111,10 @@
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <select id="Land" name="Land" class="form-control" placeholder="Kies een land..." tabindex="7">
+                                    <select id="Land" name="Land" class="form-control" tabindex="7">
                                         <?php
                                             foreach ($countries as $key => $value) {
-                                                echo "<option value='$value' title='$value'>$value</option>";
+                                                echo '<option value="'.$value.'" title="'.$value.'">'.$value.'</option>';
                                             }
                                         ?>
                                     </select>
@@ -125,14 +123,14 @@
                         </div>
                         <div class="form-group">
                             <input type="date" name="Geboortedatum" id="Geboortedatum" class="form-control input-lg"
-                                placeholder="Geboortedatum*" tabindex="8" required>
+                                 tabindex="8" required>
                         </div>
                         <div class="form-group">
                             <input type="email" name="Emailadres" id="Emailadres" class="form-control input-lg"
                                 placeholder="Emailadres*" tabindex="9" required>
                         </div>
                         <div class="form-group">
-                            <input type="input" name="telefoonnummer" id="telefoonnummer" class="form-control input-lg"
+                            <input type="number" name="telefoonnummer" id="telefoonnummer" class="form-control input-lg"
                                 placeholder="Telefoonnummer" tabindex="9">
                         </div>
                         <div class="row">
@@ -210,6 +208,4 @@ function checkPass()
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>

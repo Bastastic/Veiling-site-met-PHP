@@ -1,4 +1,4 @@
-<meta http-equiv="refresh" content="1200;url=php/logout.php" />
+
 
 <?php
 require_once('php/connectDB.php');
@@ -34,6 +34,7 @@ if (isset($_SESSION['userID'])) {
 
 ?>
 <header>
+<meta http-equiv="refresh" content="1200;url=php/logout.php" />
     <div id="Top-Header" style="background-color: #ff814f">
         <div class="container">
             <nav class="navbar navbar-dark navbar-expand-md static-top">
