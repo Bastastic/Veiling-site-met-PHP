@@ -33,7 +33,7 @@ if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
         }
 
         if ($banOphefDatum <= date("Y-m-d")) {
-            $sql = $dbh->prepare("DELETE * FROM geblokkeerd WHERE Gebruiker=:gebruiker");
+            $sql = $dbh->prepare("DELETE FROM geblokkeerd WHERE Gebruiker=:gebruiker");
             $sql->execute(['gebruiker' => $gebruikersnaam]);
             $_SESSION['userID'] = $gebruikersnaam;
             
