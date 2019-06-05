@@ -144,12 +144,12 @@ $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
                      
                         if ($a == 0) {
                             echo   "<div class='carousel-item active' style='cursor: pointer'>
-                                <img src='upload/dt_1_400807919239.jpg' alt='Slider afbeelding'>
+                                <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
                                 </div>";
                             $a++;
                         } else {
                             echo   "<div class='carousel-item' style='cursor: pointer'>
-                                <img src='upload/dt_1_' alt='Slider afbeelding'>
+                                <img src='http://iproject15.icasites.nl/$foto' alt='Slider afbeelding'>
                                 </div>";
                         }
                     }
@@ -383,7 +383,16 @@ $fotos = $sql->fetchAll(PDO::FETCH_ASSOC);
             <input type="submit" value="Wijzigen" name="AdvertentieP"
             class="btn btn-primary btn-block btn-lg" tabindex="7">
             </form>
-            <form action="profiel.php">
+            
+
+            <form action="uploadfoto.php" method='POST'>
+            <input type="hidden" name="cat" value="<?=$cat;?>">
+            <input type="hidden" name="Titel" value="<?=$_POST['Titel']?>">
+            <input type="hidden" name="Beschrijving" value="<?=$_POST['Beschrijving']?>">
+            <input type="hidden" name="Startprijs" value="<?=$_POST['Startprijs']?>">
+            <input type="hidden" name="Looptijs" value="<?=$_POST['Looptijd']?>">
+            <input type="hidden" name="Betalingwijze" value="<?=$_POST['betalingwijze']?>">
+            <input type="hidden" name="Verzendkosten" value="<?=$_POST['Verzendkosten']?>">
             <input type="submit" value="Advertentie plaatsen" name="AdvertentieP"
             class="btn btn-primary btn-block btn-lg" tabindex="7">
             </form>
