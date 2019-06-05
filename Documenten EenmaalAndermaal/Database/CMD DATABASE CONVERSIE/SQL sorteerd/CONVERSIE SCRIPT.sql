@@ -50,7 +50,7 @@ LEFT(Username,240) + '@gmail.com' AS Mailbox,
 1 AS Vraag,
 'soep met aardappelen' AS Antwoordtext,
 0 AS Verkoper,
-0 AS Geactiveerd
+1 AS Geactiveerd
 FROM iproject15.dbo.Users
 
 -- Checkt of de gebruiker veilingen heeft, als dat zo is, wordt verkoper = 1

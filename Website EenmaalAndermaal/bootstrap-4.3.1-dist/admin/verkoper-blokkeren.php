@@ -12,6 +12,7 @@
     $query = $dbh->prepare("SELECT Voorwerp.Verkoper, Count(Voorwerp.Verkoper) as Aantal_keer_Gerappoteerd
     from Voorwerp
     INNER JOIN Rapporteren ON Voorwerp.Voorwerpnummer = Rapporteren.AdvertentieID
+    WHERE Voorwerp.Verkoper NOT IN (SELECT Gebruiker FROM geblokkeerd)
     GROUP BY Voorwerp.Verkoper 
     ORDER BY Aantal_keer_Gerappoteerd DESC");
     $query->execute();
@@ -20,7 +21,21 @@
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Gerapporteerde verkopers</h1>
+        <h1 class="dash-title">Verkopers blokkeren</h1>
+        <form method='post' action='actions/blokkeer.php' target='_self' class="row">
+            <div class="col-2 form-group">
+                <input type='text' name='gebruikersnaam' class="form-control" placeholder='Gebruikersnaam*' required>
+            </div>
+            <div class='col-2 form-group'>
+                <input type='number' name='duur' class='form-control' placeholder='Dagen*'>
+            </div>
+            <div class='col-6 form-group'>
+                <input type='text' name='reden' class='form-control' placeholder='Reden*' required>
+            </div>
+            <div class='col-2 form-group'>
+                <input type='submit' name='submit' value='Blokkeer' class='btn btn-primary'>
+            </div>
+        </form>
         <div class="card spur-card">
             <div class="card-header">
                 <div class="spur-card-icon">
@@ -49,9 +64,13 @@
                                 <td>$gebruiker</td>
                                 <td>$aantalkeer</td>
                                 <td><a href='reportinformation.php?Verkoper=$gebruiker' class='btn btn-primary'>Meer info</a></td>
-                                <td><form method='post' action='actions/blokkeer.php' class='row'>
+                                <td><form method='post' action='actions/blokkeer.php' target='_self' class='row'>
                                 <div class='col form-group'>
-                                    <input type='text' name='reden' class='form-control' placeholder='Reden' required>
+                                    <input type='number' name='duur' class='form-control' placeholder='Duur in dagen*' required>
+                                </div>
+                                <div class='col form-group'>
+                                    <input type='text' name='reden' class='form-control' placeholder='Reden*' required>
+                                    <input type='hidden' name='gebruikersnaam' value='$gebruiker'>
                                 </div>
                                 <div class='col form-group'>
                                     <input type='submit' name='submit' value='Blokkeer' class='btn btn-primary'>
