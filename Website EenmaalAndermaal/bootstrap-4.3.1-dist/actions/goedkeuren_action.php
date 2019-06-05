@@ -6,7 +6,7 @@
 $gebruiker = $_GET['Gebruiker'];
 $voornaam = $_GET['Voornaam'];
 
-$emailophalen = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = $gebruiker";
+$emailophalen = "SELECT Mailbox FROM Gebruiker WHERE Gebruikersnaam = '$gebruiker'";
 $sqlemail = $dbh->prepare($emailophalen);
 $sqlemail->execute();
 $mailbox = $sqlemail->fetch(PDO::FETCH_ASSOC);
@@ -38,7 +38,8 @@ if(isset($_POST[$gebruiker] ) ){
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
     mail($emailadres, $subject, $txt, $headers);
-    header('Location: http://iproject15.icasites.nl/contact.php');
+
+    header('Location: http://iproject15.icasites.nl/test.php');
 }
 
 if( isset($_POST[$voornaam]) ){
@@ -66,7 +67,7 @@ if( isset($_POST[$voornaam]) ){
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
     mail($emailadres, $subject, $txt, $headers);
-    header('Location: http://iproject15.icasites.nl/contact.php');
+    header('Location: http://iproject15.icasites.nl/test.php');
 }
 
 // header('Location: http://iproject15.icasites.nl/contact.php');
