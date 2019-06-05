@@ -25,7 +25,7 @@ if( isset($_POST[$gebruiker]) ){
     <title>Afgekeurd</title>
     </head>
     <body style='text-algin: center;'>
-    <h1>Gefeliciteerd</h1>
+    <h1>Uw aanvraag voor verkoper</h1>
     <p>U aanvraag voor het worden van verkoper is afgekeurd.</p>
     <p>U kunt <a href='http://iproject15.icasites.nl/contact.php'>hier</a> contact opnemen mocht u dat willen.</p>
     </body>
