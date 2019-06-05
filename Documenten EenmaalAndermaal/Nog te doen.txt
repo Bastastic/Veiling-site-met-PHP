@@ -5,3 +5,4 @@ Nog te doen:
 - verkoper-blokkeren.php fixen (staan undefined variable errors)
 - veiling-deblokkeren.php is nog leeg
 - Looptijd van veilingen moet in database ook gecheckt worden (alleen de hoeveelheden die in appendix C staan)
+- alle onnodige bestanden en pagina's verwijderen
