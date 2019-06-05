@@ -29,7 +29,7 @@ if(!isset($_SESSION['adminID'])){
 }
 ?>
 <div class="dash">
-    <div class="dash-nav dash-nav-dark">
+    <div class="dash-nav dash-nav-dark" style="background-color: #FF814F">
         <header>
             <a href="#!" class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -41,27 +41,20 @@ if(!isset($_SESSION['adminID'])){
                 <i class="fas fa-home"></i> Dashboard </a>
             <div class="dash-nav-dropdown">
                 <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                    <i class="fas fa-chart-bar"></i> Verkoper </a>
+                    <i class="fas fa-user-tie"></i> Verkoper </a>
                 <div class="dash-nav-dropdown-menu">
-                    <a href="verkoper-blokkeren.php" class="dash-nav-dropdown-item">Verkoper blokkeren</a>
-                    <a href="verkoper-deblokkeren.php" class="dash-nav-dropdown-item">Verkoper deblokkeren</a>
+                    <a href="verkoper-blokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-flag"></i> &nbsp Gerapporteerd </a>
+                    <a href="verkoper-deblokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-ban"></i> &nbsp Geblokkeerd</a>
                 </div>
             </div>
-            <div class="dash-nav-dropdown ">
+            <div class="dash-nav-dropdown">
                 <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                    <i class="fas fa-cube"></i> Gebruiker </a>
+                <i class="fas fa-gavel"></i> Veilingen </a>
                 <div class="dash-nav-dropdown-menu">
-                    <a href="gebruiker-blokkeren.php" class="dash-nav-dropdown-item">Gebruiker blokkeren</a>
-                    <a href="gebruiker-deblokkeren.php" class="dash-nav-dropdown-item">Gebruiker deblokkeren</a>
+                    <a href="veiling-blokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-flag"></i> &nbsp Gerapporteerd</a>
+                    <a href="veiling-deblokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-ban"></i> &nbsp Geblokkeerd</a>
                 </div>
-                <div class="dash-nav-dropdown">
-                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-file"></i> Veilingen </a>
-                    <div class="dash-nav-dropdown-menu">
-                        <a href="veiling-blokkeren.php" class="dash-nav-dropdown-item">Veiling blokkeren</a>
-                        <a href="veiling-deblokkeren.php" class="dash-nav-dropdown-item">Veiling deblokkeren</a>
-                    </div>
-                </div>
+            </div>
         </nav>
     </div>
     <div class="dash-app">

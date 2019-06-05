@@ -3,7 +3,7 @@
 
 <head>
     <?php include 'includes/links.php'; ?>
-    <title>Verkoper blokkeren</title>
+    <title>Gerapporteerde verkopers</title>
 </head>
 
 <?php include 'includes/sidebar.php';
@@ -21,7 +21,7 @@
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Verkopers blokkeren</h1>
+        <h1 class="dash-title">Gerapporteerde verkopers</h1>
         <form method='post' action='actions/blokkeer.php' target='_self' class="row">
             <div class="col-2 form-group">
                 <input type='text' name='gebruikersnaam' class="form-control" placeholder='Gebruikersnaam*' required>
