@@ -53,6 +53,8 @@ if(!isset($_SESSION['adminID'])){
                     <a href="veiling-blokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-flag"></i> &nbsp Gerapporteerd</a>
                     <a href="veiling-deblokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-ban"></i> &nbsp Geblokkeerd</a>
                 </div>
+                <a href="CategorieUpdate.php" class="dash-nav-item">
+                <i class="fas fa-table"></i> Rubrieken </a>
             </div>
         </nav>
     </div>
