@@ -21,18 +21,18 @@
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Gerapporteerde verkopers</h1>
-        <form method='post' action='actions/blokkeer.php' target='_self' class='row'>
-            <div class="col form-group">
+        <h1 class="dash-title">Verkopers blokkeren</h1>
+        <form method='post' action='actions/blokkeer.php' target='_self' class="row">
+            <div class="col-2 form-group">
                 <input type='text' name='gebruikersnaam' class="form-control" placeholder='Gebruikersnaam*' required>
             </div>
-            <div class='col form-group'>
-                <input type='number' name='duur' class='form-control' placeholder='Dagen*' required>
+            <div class='col-2 form-group'>
+                <input type='number' name='duur' class='form-control' placeholder='Dagen*'>
             </div>
-            <div class='col form-group'>
+            <div class='col-6 form-group'>
                 <input type='text' name='reden' class='form-control' placeholder='Reden*' required>
             </div>
-            <div class='col form-group'>
+            <div class='col-2 form-group'>
                 <input type='submit' name='submit' value='Blokkeer' class='btn btn-primary'>
             </div>
         </form>

@@ -18,7 +18,15 @@
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Deblokkeren verkopers</h1>
+        <h1 class="dash-title">Verkopers deblokkeren</h1>
+        <form method='post' action='actions/deblokkeer.php' target='_self' class='row'>
+            <div class='col-2 form-group'>
+                <input type='text' name='gebruikersnaam' placeholder='Gebruikersnaam*' class='form-control' required>
+            </div>
+            <div class='col-2 form-group'>
+                <input type='submit' name='submit' value='Deblokkeer' class='btn btn-primary'>
+            </div>
+        </form>
         <div class="card spur-card">
             <div class="card-header">
                 <div class="spur-card-icon">
@@ -53,6 +61,7 @@
                                 <td>$reden</td>
                                 <td><form method='post' action='actions/deblokkeer.php' target='_self' class='row'>
                                 <div class='col form-group'>
+                                    <input type='hidden' name='gebruikersnaam' value='$gebruiker'>
                                     <input type='submit' name='submit' value='Deblokkeer' class='btn btn-primary'>
                                 </div>
                             </form></td>
