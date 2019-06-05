@@ -34,8 +34,7 @@ if(!isset($_SESSION['adminID'])){
             <a href="#!" class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </a>
-            <a href="index.php" class="spur-logo"><span>EA Admin</span></a>
-        </header>
+            <img src="../images/LogoWit.png" style="width: 120px" alt="">        </header>
         <nav class="dash-nav-list">
             <a href="index.php" class="dash-nav-item">
                 <i class="fas fa-home"></i> Dashboard </a>
