@@ -12,6 +12,8 @@ $sqlemail->execute();
 $mailbox = $sqlemail->fetch(PDO::FETCH_ASSOC);
 $emailadres = $mailbox['Mailbox'];
 
+
+
 if(isset($_POST[$gebruiker] ) ){
     $updatecontroleoptie = $dbh->prepare("UPDATE Verkoper 
     SET Controle_optie = 'Goedgekeurd' 
@@ -38,8 +40,7 @@ if(isset($_POST[$gebruiker] ) ){
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
     mail($emailadres, $subject, $txt, $headers);
-
-    header('Location: http://iproject15.icasites.nl/test.php');
+    header('Location: ../test.php');
 }
 
 if( isset($_POST[$voornaam]) ){
@@ -67,10 +68,10 @@ if( isset($_POST[$voornaam]) ){
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
     mail($emailadres, $subject, $txt, $headers);
-    header('Location: http://iproject15.icasites.nl/test.php');
+    header('Location: ../test.php');
 }
 
-// header('Location: http://iproject15.icasites.nl/contact.php');
+
  
 ?>
 
