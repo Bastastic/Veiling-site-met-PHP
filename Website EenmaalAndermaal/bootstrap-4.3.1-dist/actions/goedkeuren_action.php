@@ -18,6 +18,8 @@ if(isset($_POST[$gebruiker] ) ){
     SET Controle_optie = 'Goedgekeurd' 
     WHERE Gebruiker = '$gebruiker'");
     $updatecontroleoptie->execute();
+    $updatecontroleoptie = $dbh->prepare("UPDATE Gebruiker SET Verkoper = 1 WHERE Gebruiker = '$gebruiker'");
+    $updatecontroleoptie->execute();
     
     
     $subject = "Goedkeuring van uw aanvraag";

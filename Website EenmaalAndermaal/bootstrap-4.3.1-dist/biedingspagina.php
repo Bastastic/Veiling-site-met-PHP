@@ -276,31 +276,30 @@ if (isset($_GET['errc'])) {
                 if ($veilinggesloten == '0' && !$isaf) {
                     echo '<form name="biedform" onsubmit="return validateForm()" method="post" action="actions/bieding_action.php">
                 <div class="input-group mb-3 mx-auto" style="max-width: 300px;">';
-                
                     if ($hoogstebod >= 1 && $hoogstebod <= 49.99)
                     {
-                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars($hoogstebod + 0.50, ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="' . htmlspecialchars($hoogstebod + 0.50, ENT_QUOTES, 'UTF-8') . '" step="0.50" required>';
+                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 0.50), ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 0.50), ENT_QUOTES, 'UTF-8') . '" step="0.01" required>';
                     }
                     else if ($hoogstebod >= 49.99 && $hoogstebod <= 499.99)
                     {
-                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars($hoogstebod + 1.00, ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="' . htmlspecialchars($hoogstebod + 1.00, ENT_QUOTES, 'UTF-8') . '" step="1.00" required>';
+                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 1.00), ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 1.00), ENT_QUOTES, 'UTF-8') . '" step="0.01" required>';
                     }
                     else if ($hoogstebod >= 500 && $hoogstebod <= 999.99)
                     {
-                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars($hoogstebod + 5.00, ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="' . htmlspecialchars($hoogstebod + 5.00, ENT_QUOTES, 'UTF-8') . '" step="5.00" required>';
+                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 5.00), ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 5.00), ENT_QUOTES, 'UTF-8') . '" step="0.01" required>';
                     }
                     else if ($hoogstebod >= 1000 && $hoogstebod <= 4999.99)
                     {
-                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars($hoogstebod + 10.00, ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="' . htmlspecialchars($hoogstebod + 10.00, ENT_QUOTES, 'UTF-8') . '" step="10.00" required>';
+                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 10.00), ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 10.00), ENT_QUOTES, 'UTF-8') . '" step="0.010" required>';
                     }
                     else
                     {
-                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars($hoogstebod + 50.00, ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
-                        aria-describedby="basic-addon1" min="' . htmlspecialchars($hoogstebod + 50.00, ENT_QUOTES, 'UTF-8') . '" step="50.00" required>';
+                    echo '<input type="number" class="form-control my-4" placeholder="Minimaal € ' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 50.00), ENT_QUOTES, 'UTF-8') . '" name="bod" id="bod" aria-label=""
+                        aria-describedby="basic-addon1" min="' . htmlspecialchars(str_replace(',', '.', $hoogstebod + 50.00), ENT_QUOTES, 'UTF-8') . '" step="0.010" required>';
                     }
                     echo  '<input type="hidden" name="voorwerpnummer" value="' . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . '"/>
                         <input type="hidden" name="hoogstebod" value="' . htmlspecialchars($hoogstebod, ENT_QUOTES, 'UTF-8') . '">
