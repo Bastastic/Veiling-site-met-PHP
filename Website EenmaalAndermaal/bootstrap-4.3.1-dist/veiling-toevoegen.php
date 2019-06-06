@@ -42,7 +42,7 @@
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <form enctype="multipart/form-data" action="uploadfoto.php" method="POST">
+                                            <form enctype="multipart/form-data" action="veiling-toevoegen-voorbeeld.php" method="POST">
                                             <div class="form-group mx-5">
                                                 <h4 class="card-title">Titel van Veiling:</h4>
                                                 <input type="text" class="form-control" name="Titel" placeholder="Titel">
@@ -102,13 +102,9 @@
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-8">
                                                 <br>
                                                 <br>
-                                                <?php $cat = $_POST['cat'];?> 
+                                                <?php $cat = strip_tags($_POST['cat']);?> 
                                                 <input type="hidden" name="cat" value="<?=$cat;?>">
-<<<<<<< HEAD
-                                                <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
-=======
                                                 <input type="submit" value="Voorbeeld inzien en plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
->>>>>>> parent of 9b98f35... veiling toevoegen revert
                                                 tabindex="7">
                                                 </div>
                                             </div>
