@@ -45,7 +45,7 @@ LEFT(Username,29) + 'A' AS Achternaam,
 LEFT(Username,38) + '11' AS Adresregel1,
 NULL AS Adresregel2,
 LEFT (Postalcode,7) AS Postcode,
-'Plek' AS Plaatsnaam,
+LEFT (location,40) AS Plaatsnaam,
 LEFT (Location,40) AS Land,
 '1999-05-19' AS Geboortedag,
 LEFT(Username,240) + '@gmail.com' AS Mailbox,
@@ -55,6 +55,13 @@ LEFT(Username,240) + '@gmail.com' AS Mailbox,
 0 AS Verkoper,
 1 AS Geactiveerd
 FROM iproject15.dbo.Users
+
+UPDATE Gebruiker
+SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
+WHERE CHARINDEX(',', Plaatsnaam) > 0
+
+UPDATE Gebruiker
+SET Land = right(Land, len(Land) - charindex(',', Land))
 
 -- Checkt of de gebruiker veilingen heeft, als dat zo is, wordt verkoper = 1
 UPDATE iproject15.dbo.Gebruiker
@@ -112,10 +119,10 @@ SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
 WHERE CHARINDEX(',', Plaatsnaam) > 0
 
 UPDATE Voorwerp
-SET Land = LEFT(Land, CHARINDEX(',', Land) - 1)
-WHERE CHARINDEX(',', Land) > 0
+SET Land = right(Land, len(Land) - charindex(',', Land))
 
-right(Land, len(Land) - charindex('-', Land))
+
+
 
 
 ----------Bestand---------------
