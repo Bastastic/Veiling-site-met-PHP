@@ -13,7 +13,7 @@
    
 <?php
 //met deze query halen we alle gebruikers op die verkoper willen worden uit de database. 
-$query = $dbh->prepare("SELECT Gebruiker.Voornaam, Gebruiker.Achternaam, Verkoper.Gebruiker, Verkoper.Bank, Verkoper.Bankrekening
+$query = $dbh->prepare("SELECT Gebruiker.Voornaam, Gebruiker.Achternaam, Verkoper.Gebruiker, Verkoper.Bank, Verkoper.Bankrekening, Verkoper.Creditcard
 FROM Verkoper
 INNER JOIN Gebruiker ON Gebruiker.Gebruikersnaam = Verkoper.Gebruiker 
 WHERE  Controle_optie = 'In afwachting' ");

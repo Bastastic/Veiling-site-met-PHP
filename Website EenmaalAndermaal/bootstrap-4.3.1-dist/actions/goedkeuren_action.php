@@ -1,4 +1,4 @@
-<?php require '../php/connectDB.php'; ?>
+<?php require '../../php/connectDB.php'; ?>
 
 
 <?php
@@ -17,6 +17,8 @@ if(isset($_POST[$gebruiker] ) ){
     $updatecontroleoptie = $dbh->prepare("UPDATE Verkoper 
     SET Controle_optie = 'Goedgekeurd' 
     WHERE Gebruiker = '$gebruiker'");
+    $updatecontroleoptie->execute();
+    $updatecontroleoptie = $dbh->prepare("UPDATE Gebruiker SET Verkoper = 1 WHERE Gebruiker = '$gebruiker'");
     $updatecontroleoptie->execute();
     
     
