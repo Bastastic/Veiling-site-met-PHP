@@ -115,7 +115,6 @@ create table Gebruikerstelefoon (
 	Gebruiker			varchar(25)		not null,
 	Telefoon			varchar(15)		not null
 	constraint PK_Gebruikerstelefoon primary key (Volgnr, Gebruiker),
-	constraint CK_Telefoon_corr check (Telefoon LIKE '+%')
 )
 go
 
@@ -163,11 +162,11 @@ create table Voorwerp (
 	Verkoopprijs			numeric(8,2)	null
 	constraint PK_Voorwerp primary key (Voorwerpnummer),
 	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00),
-	constraint CK_LooptijdeindeDAg CHECK (LooptijdeindeDag > GETDATE()),
-	constraint CK_Looptijdeindetijdstip CHECK (LooptijdeindeTijdstip > CONVERT(TIME, GETDATE()))
+	constraint CK_LooptijdeindeDag CHECK (LooptijdeindeDag > GETDATE()),
+	constraint CK_Looptijdeindetijdstip CHECK (LooptijdeindeTijdstip > CONVERT(TIME, GETDATE())),
+	constraint CK_LooptijdWaarde CHECK (Looptijd IN (1, 3, 5, 7, 10))
 )
 go
-
 
 create table Voorwerp_in_Rubriek (
 	Voorwerp					bigint			not null,
@@ -191,20 +190,20 @@ create table Verificatie (
 go
 
 CREATE TABLE geblokkeerdeVeilingen (
-    AdvertentieID BIGINT NOT NULL,
-    Datum date NOT NULL,
-    Reden VARCHAR (1000) NOT NULL,
+    AdvertentieID				BIGINT			NOT NULL,
+    Datum						date			NOT NULL,
+    Reden						VARCHAR (1000)	NOT NULL
     CONSTRAINT PK_geblokkeerdeVeilingen PRIMARY KEY (AdvertentieID),
     constraint FK_geblokkeerdeVeilingen_AdvertentieID foreign key (AdvertentieID)
 		references Voorwerp (Voorwerpnummer)
-            on update no action on delete no action,
+            on update no action on delete no action
 );
 
 
 CREATE TABLE Rapporteren (
-    AdvertentieID BIGINT NOT NULL,
-    Rapporteerde VARCHAR (25) NOT NULL,
-    Omschrijving VARCHAR (1000) NOT NULL,
+    AdvertentieID				BIGINT			NOT NULL,
+    Rapporteerde				VARCHAR (25)	NOT NULL,
+    Omschrijving				VARCHAR (1000)	NOT NULL
     CONSTRAINT PK_Rapporteren PRIMARY KEY (AdvertentieID, Rapporteerde),
     constraint FK_Rapporteren_Rappoteerde foreign key (Rapporteerde)
 		references Gebruiker (Gebruikersnaam)
@@ -216,15 +215,14 @@ CREATE TABLE Rapporteren (
 );
 
 CREATE TABLE geblokkeerd (
-    Gebruiker VARCHAR (25) NOT NULL,
-    Datum date NOT NULL,
-    Reden VARCHAR (1000) NOT NULL,
-	Duur int NOT NULL 
+    Gebruiker					VARCHAR (25)	NOT NULL,
+    Datum						date			NOT NULL,
+    Reden						VARCHAR (1000)	NOT NULL,
+	Duur						int				NOT NULL 
     CONSTRAINT PK_geblokkeerd PRIMARY KEY (Gebruiker),
     constraint FK_Geblokkeerd_Gebruiker foreign key (Gebruiker)
 		references Gebruiker (Gebruikersnaam)
-            on update no action on delete no action,
-
+            on update no action on delete no action
 );
 
 
