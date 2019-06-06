@@ -70,8 +70,15 @@
                                                 </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Looptijd (in dagen):</h4>
-                                                    <input type="number" class="form-control"  name="Looptijd" min="1" max="60">
-                                                </div>
+                                                    <select class="custom-select" name="Looptijd">
+                                                        <option selected>Choose...</option>
+                
+                                                        <option value="1">1</option>
+                                                        <option value="3">3</option>
+                                                        <option value="5">5</option>
+                                                        <option value="7">7</option>
+                                                        <option value="10">10</option>
+                                                    </select>                                                </div>
                                                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                     <h4 class="card-title">Verzendkosten (in euros):</h4>
                                                     <input type="number" class="form-control"  name="Verzondkosten">
@@ -97,7 +104,11 @@
                                                 <br>
                                                 <?php $cat = $_POST['cat'];?> 
                                                 <input type="hidden" name="cat" value="<?=$cat;?>">
+<<<<<<< HEAD
                                                 <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
+=======
+                                                <input type="submit" value="Voorbeeld inzien en plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg"
+>>>>>>> parent of 9b98f35... veiling toevoegen revert
                                                 tabindex="7">
                                                 </div>
                                             </div>
