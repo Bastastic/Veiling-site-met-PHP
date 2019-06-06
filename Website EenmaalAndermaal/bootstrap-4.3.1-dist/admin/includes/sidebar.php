@@ -44,6 +44,7 @@ if(!isset($_SESSION['adminID'])){
                 <div class="dash-nav-dropdown-menu">
                     <a href="verkoper-blokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-flag"></i> &nbsp Gerapporteerd </a>
                     <a href="verkoper-deblokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-ban"></i> &nbsp Geblokkeerd</a>
+                    <a href="verkoper-activeren.php" class="dash-nav-dropdown-item"><i class="fas fa-hourglass-half"></i> &nbsp In afwachting</a>
                 </div>
             </div>
             <div class="dash-nav-dropdown">
@@ -63,19 +64,7 @@ if(!isset($_SESSION['adminID'])){
             <a href="#!" class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </a>
-            <a href="#!" class="searchbox-toggle">
-                <i class="fas fa-search"></i>
-            </a>
-            <form class="searchbox" action="#!">
-                <a href="#!" class="searchbox-toggle"> <i class="fas fa-arrow-left"></i> </a>
-                <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i> </button>
-                <input type="text" class="searchbox-input" placeholder="type to search">
-            </form>
             <div class="tools">
-                <a href="#!" class="tools-item">
-                    <i class="fas fa-bell"></i>
-                    <i class="tools-item-count">4</i>
-                </a>
                 <div class="dropdown tools-item">
                     <a href="#" class="" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
