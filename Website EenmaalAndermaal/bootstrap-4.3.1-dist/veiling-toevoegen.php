@@ -42,7 +42,7 @@
                                 <div class="frontside">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <form enctype="multipart/form-data" action="veiling-toevoegen-voorbeeld.php" method="POST">
+                                            <form enctype="multipart/form-data" action="uploadfoto.php" method="POST">
                                             <div class="form-group mx-5">
                                                 <h4 class="card-title">Titel van Veiling:</h4>
                                                 <input type="text" class="form-control" name="Titel" placeholder="Titel">
