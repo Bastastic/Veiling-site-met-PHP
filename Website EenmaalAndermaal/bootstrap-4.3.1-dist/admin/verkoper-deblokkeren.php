@@ -18,7 +18,7 @@
 
 <main class="dash-content">
     <div class="container-fluid">
-        <h1 class="dash-title">Geblokkeerde verkopers</h1>
+        <h1 class="dash-title">Geblokkeerde gebruikers</h1>
         <form method='post' action='actions/deblokkeer.php' target='_self' class='row'>
             <div class='col-2 form-group'>
                 <input type='text' name='gebruikersnaam' placeholder='Gebruikersnaam*' class='form-control' required>

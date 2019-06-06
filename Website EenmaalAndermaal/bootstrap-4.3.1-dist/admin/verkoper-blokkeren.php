@@ -41,7 +41,7 @@
                 <div class="spur-card-icon">
                     <i class="fas fa-table"></i>
                 </div>
-                <div class="spur-card-title">Gerapporteerde verkopers</div>
+                <div class="spur-card-title">Gerapporteerde gebruikers</div>
             </div>
             <div class="card-body ">
                 <table class="table table-hover table-in-card">

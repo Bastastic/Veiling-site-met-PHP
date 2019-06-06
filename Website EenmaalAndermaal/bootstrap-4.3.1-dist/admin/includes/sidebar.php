@@ -40,7 +40,7 @@ if(!isset($_SESSION['adminID'])){
                 <i class="fas fa-home"></i> Dashboard </a>
             <div class="dash-nav-dropdown">
                 <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                    <i class="fas fa-user-tie"></i> Verkoper </a>
+                    <i class="fas fa-user-tie"></i> Gebruikers </a>
                 <div class="dash-nav-dropdown-menu">
                     <a href="verkoper-blokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-flag"></i> &nbsp Gerapporteerd </a>
                     <a href="verkoper-deblokkeren.php" class="dash-nav-dropdown-item"><i class="fas fa-ban"></i> &nbsp Geblokkeerd</a>
