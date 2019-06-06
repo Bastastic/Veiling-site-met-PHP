@@ -5,7 +5,7 @@ if(isset($_SESSION['adminID'])){
 if(isset($_POST['gebruikersnaam']) && isset($_POST['reden'])){
     $gebruiker = $_POST['gebruikersnaam'];
     $reden = $_POST['reden'];
-    if($_POST['duur'] == "" || isset($_POST['duur'])){
+    if($_POST['duur'] == "" || !isset($_POST['duur'])){
         $duur = null;
     }else{
         $duur = $_POST['duur'];

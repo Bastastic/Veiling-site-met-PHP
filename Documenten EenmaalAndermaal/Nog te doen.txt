@@ -1,6 +1,0 @@
-Nog te doen:
-- elke admin pagina om laten leiden als je niet bent ingelogd
-- index pagina van admin
-- tab icon bij admin pagina is er niet
-- Looptijd van veilingen moet in database en bij aanmaken gecheckt worden (alleen de hoeveelheden die in appendix C staan)
-- alle onnodige bestanden en pagina's verwijderen
