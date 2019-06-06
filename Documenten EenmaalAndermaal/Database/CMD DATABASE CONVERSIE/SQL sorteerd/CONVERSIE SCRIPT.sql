@@ -5,6 +5,9 @@ DELETE Bod
 DELETE Feedback
 DELETE Gebruikerstelefoon
 DELETE Voorwerp_in_Rubriek
+DELETE Rapporteren
+DELETE geblokkeerd
+DELETE geblokkeerdeVeilingen
 DELETE Voorwerp
 DELETE Verkoper
 DELETE Gebruiker
@@ -88,7 +91,7 @@ CAST (dbo.udf_OmzetValuta([Prijs], [Valuta]) AS numeric(8,2)) AS Startprijs,
 NULL AS Betalingsinstructie,
 LEFT (Locatie,50) AS Plaatsnaam,
 LEFT (Locatie,40) AS Land,
-6 AS Looptijd,
+7 AS Looptijd,
 '2019-05-15' AS LooptijdbeginDag,
 '12:34:54' AS LooptijdbeginTijdstip,
 LEFT (Verkoper,25) AS Verkoper,
@@ -107,6 +110,12 @@ GO
 UPDATE Voorwerp
 SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
 WHERE CHARINDEX(',', Plaatsnaam) > 0
+
+UPDATE Voorwerp
+SET Land = LEFT(Land, CHARINDEX(',', Land) - 1)
+WHERE CHARINDEX(',', Land) > 0
+
+right(Land, len(Land) - charindex('-', Land))
 
 
 ----------Bestand---------------
