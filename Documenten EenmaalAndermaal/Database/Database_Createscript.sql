@@ -163,7 +163,6 @@ create table Voorwerp (
 	constraint PK_Voorwerp primary key (Voorwerpnummer),
 	constraint CK_Startprijs_min CHECK (Startprijs > 000000.00),
 	constraint CK_LooptijdeindeDag CHECK (LooptijdeindeDag > GETDATE()),
-	constraint CK_Looptijdeindetijdstip CHECK (LooptijdeindeTijdstip > CONVERT(TIME, GETDATE())),
 	constraint CK_LooptijdWaarde CHECK (Looptijd IN (1, 3, 5, 7, 10))
 )
 go
