@@ -22,13 +22,43 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-3">
                 <div class="card spur-card">
                     <div class="card-header">
-                        <div class="spur-card-title">Geactiveerde / Niet-Geactiveerde Accounts</div>
+                        <div class="spur-card-title">Niet-Geactiveerde Accounts</div>
                     </div>
-                    <div class="card-body">
-                    <canvas id="pie-chart-geactiveerd-nietgeactiveerd"></canvas>
+                    <div class="card-body text-center">
+                    <?php
+                    //Geactiveerd, Niet-geactiveerd Pie chart
+                    $query = "SELECT COUNT(Gebruikersnaam) as Aantal FROM Gebruiker WHERE Geactiveerd = '0'";
+                    $sql = $dbh->prepare($query);
+                    $sql->execute();
+                    $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+                    $aantalnietgeactiveerd = $resultaat['Aantal'];
+                    ?>
+                    <h1><?=$aantalnietgeactiveerd?></h1>
+                    <a href="" class="btn btn-primary">Opschonen</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="card spur-card">
+                    <div class="card-header">
+                        <div class="spur-card-title">Gemiddelde aantal veilingen dat geplaatst wordt per dag</div>
+                    </div>
+                    <div class="card-body text-center">
+                    <?php
+                    //Geactiveerd, Niet-geactiveerd Pie chart
+                    $query = "SELECT AVG(Aantal) as Aantal
+                    FROM (SELECT COUNT(Voorwerpnummer) as Aantal
+                    FROM Voorwerp
+                    GROUP BY LooptijdbeginDag) AVG_table";
+                    $sql = $dbh->prepare($query);
+                    $sql->execute();
+                    $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+                    $gemaantal = $resultaat['Aantal'];
+                    ?>
+                    <h1><?=$gemaantal?></h1>
                     </div>
                 </div>
             </div>
@@ -78,7 +108,7 @@ $aantalgebruikers = $resultaat['aantal'];
 <script>
 
 new Chart(document.getElementById("pie-chart-gebruiker-verkoper"), {
-    type: 'pie',
+    type: 'doughnut',
     data: {
       labels: ["Gebruikers", "Verkopers"],
       datasets: [{
@@ -93,34 +123,7 @@ new Chart(document.getElementById("pie-chart-gebruiker-verkoper"), {
 </script>
 
 <?php
-//Geactiveerd, Niet-geactiveerd Pie chart
-$query = "SELECT Geactiveerd, COUNT(Gebruikersnaam) as aantal FROM Gebruiker group by Geactiveerd";
-$sql = $dbh->prepare($query);
-$sql->execute();
-$resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-$aantalnietgeactiveerd = $resultaat[0]['aantal'];
-$aantalgeactiveerd = $resultaat[1]['aantal'];
-?>
-
-<script>
-new Chart(document.getElementById("pie-chart-geactiveerd-nietgeactiveerd"), {
-    type: 'pie',
-    data: {
-      labels: ["Niet-Geactiveerd", "Geactiveerd"],
-      datasets: [{
-        label: "Aantal",
-        backgroundColor: ["#3e95cd", "#8e5ea2"],
-        data: [<?=$aantalnietgeactiveerd?>,<?=$aantalgeactiveerd?>]
-      }]
-    },
-    options: {
-    }
-});
-
-</script>
-
-<?php
-//Geactiveerd, Niet-geactiveerd Pie chart
+//Aantalveilingen
 $query = "SELECT Gebruiker.Land, COUNT(Voorwerpnummer) AS Aantalveilingen 
 FROM Voorwerp 
 INNER JOIN Gebruiker 
@@ -175,13 +178,14 @@ new Chart(document.getElementById("bar-chart-aantal-veilingen"), {
 </script>
 
 <?php 
-    $query = "SELECT Gebruiker.Land, COUNT(Gebruikersnaam) as Aantalgebruikers 
-    FROM Gebruiker 
-    GROUP BY Gebruiker.Land
-    ORDER BY Gebruiker.Land";
-    $sql = $dbh->prepare($query);
-    $sql->execute();
-    $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+  //Aantalgebruiks
+  $query = "SELECT Gebruiker.Land, COUNT(Gebruikersnaam) as Aantalgebruikers 
+  FROM Gebruiker 
+  GROUP BY Gebruiker.Land
+  ORDER BY Gebruiker.Land";
+  $sql = $dbh->prepare($query);
+  $sql->execute();
+  $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
     
 ?>
 
