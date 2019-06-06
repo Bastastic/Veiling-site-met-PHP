@@ -5,6 +5,9 @@ DELETE Bod
 DELETE Feedback
 DELETE Gebruikerstelefoon
 DELETE Voorwerp_in_Rubriek
+DELETE Rapporteren
+DELETE geblokkeerd
+DELETE geblokkeerdeVeilingen
 DELETE Voorwerp
 DELETE Verkoper
 DELETE Gebruiker
@@ -42,7 +45,7 @@ LEFT(Username,29) + 'A' AS Achternaam,
 LEFT(Username,38) + '11' AS Adresregel1,
 NULL AS Adresregel2,
 LEFT (Postalcode,7) AS Postcode,
-'Plek' AS Plaatsnaam,
+LEFT (location,40) AS Plaatsnaam,
 LEFT (Location,40) AS Land,
 '1999-05-19' AS Geboortedag,
 LEFT(Username,240) + '@gmail.com' AS Mailbox,
@@ -52,6 +55,13 @@ LEFT(Username,240) + '@gmail.com' AS Mailbox,
 0 AS Verkoper,
 1 AS Geactiveerd
 FROM iproject15.dbo.Users
+
+UPDATE Gebruiker
+SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
+WHERE CHARINDEX(',', Plaatsnaam) > 0
+
+UPDATE Gebruiker
+SET Land = right(Land, len(Land) - charindex(',', Land))
 
 -- Checkt of de gebruiker veilingen heeft, als dat zo is, wordt verkoper = 1
 UPDATE iproject15.dbo.Gebruiker
@@ -88,7 +98,7 @@ CAST (dbo.udf_OmzetValuta([Prijs], [Valuta]) AS numeric(8,2)) AS Startprijs,
 NULL AS Betalingsinstructie,
 LEFT (Locatie,50) AS Plaatsnaam,
 LEFT (Locatie,40) AS Land,
-6 AS Looptijd,
+7 AS Looptijd,
 '2019-05-15' AS LooptijdbeginDag,
 '12:34:54' AS LooptijdbeginTijdstip,
 LEFT (Verkoper,25) AS Verkoper,
@@ -107,6 +117,12 @@ GO
 UPDATE Voorwerp
 SET Plaatsnaam = LEFT(Plaatsnaam, CHARINDEX(',', Plaatsnaam) - 1)
 WHERE CHARINDEX(',', Plaatsnaam) > 0
+
+UPDATE Voorwerp
+SET Land = right(Land, len(Land) - charindex(',', Land))
+
+
+
 
 
 ----------Bestand---------------
