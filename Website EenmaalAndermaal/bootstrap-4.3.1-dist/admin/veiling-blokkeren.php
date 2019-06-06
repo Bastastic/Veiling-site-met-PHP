@@ -19,7 +19,7 @@
 <main class="dash-content">
     <div class="container-fluid">
         <h1 class="dash-title">Advertenties blokkeren</h1>
-        <form method='post' action='actions/blokkeer_advertentie.php' target='_self' class="row">
+        <form method='post' action='actions/blokkeer.1.php' target='_self' class="row">
             <div class="col-2 form-group">
                 <input type='number' name='AdvertentieID' class="form-control" placeholder='AdvertentieID *' required>
             </div>
@@ -60,7 +60,7 @@
                                 <td>$aantalkeer</td>
                                 <td><a href='reportinformation.1.php?AdvertentieID=$adID' class='btn btn-primary'>Meer info</a></td>
                                 <td><a href='../biedingspagina.php?voorwerpnummer=$adID' class='btn btn-primary'>Bekijk</a></td>
-                                <td><form method='post' action='actions/blokkeer.php' target='_self' class='row'>
+                                <td><form method='post' action='actions/blokkeer.1.php' target='_self' class='row'>
                                 <div class='col form-group'>
                                     <input type='text' name='reden' class='form-control' placeholder='Reden*' required>
                                     <input type='hidden' name='AdvertentieID' value='$adID'>

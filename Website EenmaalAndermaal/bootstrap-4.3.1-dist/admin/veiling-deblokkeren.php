@@ -19,9 +19,9 @@
 <main class="dash-content">
     <div class="container-fluid">
         <h1 class="dash-title">Geblokkeerde verkopers</h1>
-        <form method='post' action='actions/deblokkeer.php' target='_self' class='row'>
+        <form method='post' action='actions/deblokkeer.1.php' target='_self' class='row'>
             <div class='col-2 form-group'>
-                <input type='number' name='gebruikersnaam' placeholder='AdvertentieID*' class='form-control' required>
+                <input type='number' name='AdvertentieID' placeholder='AdvertentieID*' class='form-control' required>
             </div>
             <div class='col-2 form-group'>
                 <input type='submit' name='submit' value='Deblokkeer' class='btn btn-primary'>
@@ -48,17 +48,17 @@
                         <?php
                         foreach ( $gebruikers as $key => $value){
                             
-                            $gebruiker = $value['AdvertentieID'];
+                            $advertentieID = $value['AdvertentieID'];
                             $datum = $value['Datum'];
                             $reden = $value['Reden'];
                             echo  "<tr>
                             <div>
-                                <td>$gebruiker</td>
+                                <td>$advertentieID</td>
                                 <td>$datum</td>
                                 <td>$reden</td>
-                                <td><form method='post' action='actions/deblokkeer.php' target='_self' class='row'>
+                                <td><form method='post' action='actions/deblokkeer.1.php' target='_self' class='row'>
                                 <div class='col form-group'>
-                                    <input type='hidden' name='advertentieID' value='$gebruiker'>
+                                    <input type='hidden' name='AdvertentieID' value='$advertentieID'>
                                     <input type='submit' name='submit' value='Deblokkeer' class='btn btn-primary'>
                                 </div>
                             </form></td>
