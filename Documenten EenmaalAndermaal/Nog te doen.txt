@@ -2,7 +2,5 @@ Nog te doen:
 - elke admin pagina om laten leiden als je niet bent ingelogd
 - index pagina van admin
 - tab icon bij admin pagina is er niet
-- verkoper-blokkeren.php fixen (staan undefined variable errors)
-- veiling-deblokkeren.php is nog leeg
-- Looptijd van veilingen moet in database ook gecheckt worden (alleen de hoeveelheden die in appendix C staan)
+- Looptijd van veilingen moet in database en bij aanmaken gecheckt worden (alleen de hoeveelheden die in appendix C staan)
 - alle onnodige bestanden en pagina's verwijderen
