@@ -115,7 +115,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Seand Kurtovic -->
+                    <!-- Senad Kurtovic -->
                     <div class="col-xs-12 col-sm-6 col-md-4" style="padding-top: 20px;">
                         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                             <div class="mainflip">
@@ -125,7 +125,7 @@
                                             <p><img class=" img-fluid" src="images/senad-kurtovic.jpg"
                                                     alt="card image">
                                             </p>
-                                            <h4 class="card-title">Seand Kurtovic (555081)</h4>
+                                            <h4 class="card-title">Senad Kurtovic (555081)</h4>
                                             <p class="card-text">Profiel: Software Development (SD)</p>
                                         </div>
                                     </div>
