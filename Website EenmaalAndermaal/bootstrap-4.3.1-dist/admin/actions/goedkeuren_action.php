@@ -15,7 +15,7 @@ if(isset($_POST['Gebruiker'] ) ){
 
     $updatecontroleoptie = $dbh->prepare("UPDATE Verkoper SET Controle_optie = 'Goedgekeurd' WHERE Gebruiker = :gebruiker");
     $updatecontroleoptie->execute(['gebruiker' => $gebruiker]);
-    $updatecontroleoptie = $dbh->prepare("UPDATE Gebruiker SET Verkoper = '1' WHERE Gebruiker = :gebruiker");
+    $updatecontroleoptie = $dbh->prepare("UPDATE Gebruiker SET Verkoper = '1' WHERE Gebruikersnaam = :gebruiker");
     $updatecontroleoptie->execute(['gebruiker' => $gebruiker]);
     
     
