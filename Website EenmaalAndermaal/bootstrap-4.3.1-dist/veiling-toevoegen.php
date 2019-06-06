@@ -91,7 +91,7 @@
                                             <br>
                                             <?php $cat = $_POST['cat'];?> 
                                             <input type="hidden" name="cat" value="<?=$cat;?>">
-                                            <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg" tabindex="7">                                                tabindex="7">
+                                            <input type="submit" value="Advertentie plaatsen" name="AdvertentieP" class="btn btn-primary btn-block btn-lg" tabindex="7">                                             
                                             </div>
                                         </div>
                                         </form>
