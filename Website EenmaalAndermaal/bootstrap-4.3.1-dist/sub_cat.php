@@ -25,7 +25,7 @@
 ?>
 
 <body>
-	<h1 class="text-center">Hoofd categorie</h1>
+	<h1 class="text-center">Subcategorie</h1>
 	<form method="POST" class="container w-25" action="veiling-toevoegen.php">
 		<?php
 											if(isset($_POST['cat'])) {
