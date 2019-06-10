@@ -36,21 +36,13 @@
             $resultTitel = $sql->fetch(PDO::FETCH_ASSOC);
             $voorwerpTitel = $resultTitel['Titel'];
 
-            $queryTitel = "SELECT Titel
-                        from Voorwerp
-                        where Voorwerpnummer = :Voorwerpnummer";
-            $sql = $dbh->prepare($queryTitel);
-            $sql->execute(['Voorwerpnummer' => $voorwerpnummer]);
-            $resultTitel = $sql->fetch(PDO::FETCH_ASSOC);
-            $voorwerpTitel = $resultTitel['Titel'];
-
             $subject = "U bent overboden";
             $txt = "
             <html>
                 <head>
                     <title>Wilt u opnieuw bieden?</title>
                 </head>
-                <body style='text-algin: center;'>
+                <body>
                     <h1>Uw bod op $voorwerpTitel is overboden</h1>
                     <p>Uw vorige bod was €$bodBedrag, er is €$bod geboden.
                     Als u een nieuw bod wilt plaatsen klik dan 
@@ -62,7 +54,6 @@
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
-            // $emailadres = 'peiwand@hotmail.nl';
             mail($emailadres, $subject, $txt, $headers);
         }
 
