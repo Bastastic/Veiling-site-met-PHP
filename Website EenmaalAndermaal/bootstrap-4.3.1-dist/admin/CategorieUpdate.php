@@ -128,6 +128,7 @@
                                             </div>
                                             </form></tr>
 
+                                    <!-- Rubrieken updaten/verwijderen -->
                                         <?php
                                         foreach ($resultaat as $rubriek) {
                                             echo  "<tr><form method='POST' action='actions/rubriekaction.php'>
@@ -144,10 +145,13 @@
                                             <input type='hidden' class='' name='originalnaam' value='" . $rubriek['Rubrieknaam'] . "'> 
                                             </form>
                                             </tr>";
+                                            //stuurt ook de originele nummer en naam op om checks op uit te kunnen voeren
                                         }
                                     ?>
                                     </tbody>
                                 </table>
+
+                                <!-- dubbelcheck of je wilt verwijderen -->
                                 <script>
                                     function validateForm() {
                                         if (confirm("Weet u zeker dat u deze rubriek wilt verwijderen")) {
