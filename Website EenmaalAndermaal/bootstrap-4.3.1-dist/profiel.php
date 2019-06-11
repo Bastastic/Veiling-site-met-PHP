@@ -577,11 +577,11 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="card-body">
-                                                            <h5 class="card-title">' . $titel . '</h5>
-                                                            <p class="card-text">' . $beschrijving . '</p>
-                                                            <p class="card-text">Hoogste bod: ' . $hoogstebod . '</p>
+                                                            <h5 class="card-title">' . strip_tags($titel) . '</h5>
+                                                            <p class="card-text">' . strip_tags($beschrijving) . '</p>
+                                                            <p class="card-text">Hoogste bod: ' . strip_tags($hoogstebod) . '</p>
                                                             <p class="card-text"><small class="text-muted">Loopt af op ' . $datetime . '</small></p>
-                                                            <a href="biedingspagina.php?voorwerpnummer=' . $voorwerpnummer . '" class="btn btn-primary stretched-link">Bekijk veiling</a>
+                                                            <a href="biedingspagina.php?voorwerpnummer=' . strip_tags($voorwerpnummer) . '" class="btn btn-primary stretched-link">Bekijk veiling</a>
                                                         </div>
                                                     </div>
                                                 </div>
