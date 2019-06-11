@@ -225,48 +225,87 @@ if (isset($_GET['errc'])) {
                     }
                     ?>
                     <a href="meervan.php?verkoper=<?=htmlspecialchars($verkoper, ENT_QUOTES, 'UTF-8')?>" class="btn btn-primary ml-2" role="button">Meer van
-                        <?=htmlspecialchars($verkoper, ENT_QUOTES, 'UTF-8')?></a>
+                        <?=htmlspecialchars( substr($verkoper, 0, 10).'...', ENT_QUOTES, 'UTF-8')?></a>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal3">
-                        Rapporteren
-                    </button>
+                    
 
                     <!-- Modal -->
-                    <form action="raporteren.php" method="post">
-                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel3">Rapporteer advertentie</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="comment">Omschrijving:</label>
-                                        <textarea name="omschrijving" class="form-control" rows="5"
-                                            id="comment"></textarea>
+                    <?php
+                    if(isset($_SESSION['userID'])){
+                        echo '<button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal3">
+                            Rapporteren
+                            </button>
+                        <form action="raporteren.php" method="post">
+                        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel3">Rapporteer advertentie</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                </div>
-                                <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer;?>">
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-dismiss="modal">Sluiten</button>
-                                    <button type="submit"  class="btn btn-primary">Versturen</button>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="comment">Omschrijving:</label>
+                                            <textarea name="omschrijving" class="form-control" rows="5"
+                                                id="comment"></textarea>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer;?>">
+    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Sluiten</button>
+                                        <button type="submit"  class="btn btn-primary">Versturen</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    </form>
+                        </form>';
+                    }else{
+                        echo '<button type="button" class="btn btn-primary ml-2" disabled>
+                        Rapporteren
+                        </button>';
+                    }
+                    ?>
+
+
         
                 </div>
                 <br>
                 <hr>
                 <p>Nog:</p>
-                <h2 class="text-center" id="timer"></h2>
+                <!-- <h2 class="text-center" id="timer"></h2> -->
+                <?php
+                echo    "<h2 id='" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8'). "'></h2>
+                     
+                                <script>
+										var countDownDate$voorwerpnummer = new Date('$eindedag $eindetijdstip').getTime();
+
+										var x = setInterval(function() {
+
+											var now = new Date().getTime();
+
+											var distance = countDownDate$voorwerpnummer - now;
+
+											var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+											var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+											var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+											var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+											document.getElementById('$voorwerpnummer').innerHTML = days + 'd ' + hours + 'h '
+											+ minutes + 'm ' + seconds + 's ';
+
+											if (distance < 0) {
+												clearInterval(x);
+												document.getElementById('$voorwerpnummer').innerHTML = 'Veiling afgelopen!';
+											}
+										}, 1000);
+								  </script>" ?>
+
+                                  
                 <br>
                 <hr>
                 <h4>Biedingen</h4>
@@ -404,30 +443,6 @@ if (isset($_GET['errc'])) {
                 }
             }
         }
-
-        //Timer
-        var countDownDate = new Date('<?=$eindedag?> <?=$eindetijdstip?>').getTime();
-
-        var x = setInterval(function () {
-
-            var now = new Date().getTime();
-
-            var distance = countDownDate - now;
-
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('timer').innerHTML = days + 'd ' + hours + 'h ' +
-                minutes + 'm ' + seconds + 's ';
-
-            if (distance <= 0) {
-                clearInterval(x);
-                document.getElementById('timer').innerHTML = 'Veiling is afgelopen!';
-            }
-        }, 1000);
-
     </script>
 </body>
 
