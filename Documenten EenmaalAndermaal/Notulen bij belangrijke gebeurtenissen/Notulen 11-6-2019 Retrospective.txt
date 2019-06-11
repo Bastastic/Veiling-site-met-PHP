@@ -1,0 +1,39 @@
+Notulus Retrospective 11-6-2019
+
+afspraken van vorige sprint:
+
+Verdeling van tijd bijhouden:
+- Via excel sheet, tijd invullen ging goed
+- maar achteraf deden we pas tijd in vullen
+
+User stories opdelen in kleine stories:
+- iedereen deed niet te lang over taken.
+- om die reden het goed opgedeelt in taken.
+
+Beter overleg over pullen en pushen:
+- ging beter dan de vorige sprint
+- dingen pushen die nog niet af zijn (NIET DOEN)
+
+-------------------------------------------------------
+
+Wat ging goed deze sprint:
+
+- beter dingen ingepland, beter voorberijdt.
+- Samenwerking ging deze sprint goed: admin panel samenvoegen ging makkelijk.
+- Overige taken ook gedaan.
+- rekening houden met andere groepsleden.
+
+Wat kan beter kunnnen deze sprint:
+
+- als je iets nieuws maakt, het gewoon weer opieuw testen
+- Rommelig start doormiddeln van OV 
+
+Waarmee gaan we aan de slag Postgame:
+- Dingen meer testen, opnieuw testen als je de code update, iemand moet daar de verantwoordelijk ervoor krijgt
+- (planning?)
+
+Verantwoordelijke:
+Tester - Peiwand - zorgt ervoor dat het testen goed verloopt
+
+
+
