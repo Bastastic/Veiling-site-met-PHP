@@ -84,17 +84,17 @@ if (isset($_GET['errc'])) {
 
         $afgelopen = 'Veiling afgelopen!';
         // $rapoteerder = $_SESSION['userID'];
-        $titel = $resultaat['titel'];
-        $beschrijving = $resultaat['beschrijving'];
-        $eindedag = $resultaat['LooptijdeindeDag'];
-        $eindetijdstip = $resultaat['LooptijdeindeTijdstip'];
-        $email = $resultaat['Mailbox'];
-        $veilinggesloten = $resultaat['Veiliggesloten'];
-        $verkoper = $resultaat['gebruikersnaam'];
-        $voornaam = $resultaat['voornaam'];
-        $achternaam = $resultaat['achternaam'];
-        $plaatsnaam = $resultaat['plaatsnaam'];
-        $startprijs = $resultaat['startprijs'];
+        $titel = strip_tags($resultaat['titel']);
+        $beschrijving = strip_tags($resultaat['beschrijving']);
+        $eindedag = strip_tags($resultaat['LooptijdeindeDag']);
+        $eindetijdstip = strip_tags($resultaat['LooptijdeindeTijdstip']);
+        $email = strip_tags($resultaat['Mailbox']);
+        $veilinggesloten = strip_tags($resultaat['Veiliggesloten']);
+        $verkoper = strip_tags($resultaat['gebruikersnaam']);
+        $voornaam = strip_tags($resultaat['voornaam']);
+        $achternaam = strip_tags($resultaat['achternaam']);
+        $plaatsnaam = strip_tags($resultaat['plaatsnaam']);
+        $startprijs = strip_tags($resultaat['startprijs']);
         $sql = $dbh->prepare("SELECT * FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam");
     $sql->execute(['gebruikersnaam' => $verkoper]);
     $geblokkeerd = $sql->fetch(PDO::FETCH_ASSOC);
