@@ -37,7 +37,7 @@ FROM iproject15.dbo.Categorieen
 
 
 ------------Gebruikers------------
--- Maken van unieke data, doormiddel van gebruiker van unieke gebruikersnamen. 
+-- Maken van unieke data, door middel van gebruik van unieke gebruikersnamen. 
 INSERT INTO iproject15.dbo.Gebruiker
 SELECT DISTINCT LEFT(Username,25) AS Gebruikersnaam,
 LEFT(Username,29) + 'V' AS Voornaam,
