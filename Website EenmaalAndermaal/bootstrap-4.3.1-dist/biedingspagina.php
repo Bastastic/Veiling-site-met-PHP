@@ -227,40 +227,51 @@ if (isset($_GET['errc'])) {
                     <a href="meervan.php?verkoper=<?=htmlspecialchars($verkoper, ENT_QUOTES, 'UTF-8')?>" class="btn btn-primary ml-2" role="button">Meer van
                         <?=htmlspecialchars($verkoper, ENT_QUOTES, 'UTF-8')?></a>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal3">
-                        Rapporteren
-                    </button>
+                    
 
                     <!-- Modal -->
-                    <form action="raporteren.php" method="post">
-                    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel3">Rapporteer advertentie</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="comment">Omschrijving:</label>
-                                        <textarea name="omschrijving" class="form-control" rows="5"
-                                            id="comment"></textarea>
+                    <?php
+                    if(isset($_SESSION['userID'])){
+                        echo '<button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#exampleModal3">
+                            Rapporteren
+                            </button>
+                        <form action="raporteren.php" method="post">
+                        <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel3">Rapporteer advertentie</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                </div>
-                                <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer;?>">
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-dismiss="modal">Sluiten</button>
-                                    <button type="submit"  class="btn btn-primary">Versturen</button>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="comment">Omschrijving:</label>
+                                            <textarea name="omschrijving" class="form-control" rows="5"
+                                                id="comment"></textarea>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer;?>">
+    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Sluiten</button>
+                                        <button type="submit"  class="btn btn-primary">Versturen</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    </form>
+                        </form>';
+                    }else{
+                        echo '<button type="button" class="btn btn-primary ml-2" disabled>
+                        Rapporteren
+                        </button>';
+                    }
+                    ?>
+
+
         
                 </div>
                 <br>
