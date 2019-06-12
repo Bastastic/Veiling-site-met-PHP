@@ -2,7 +2,15 @@
 <html lang="en">
 
 <head>
-    <?php include 'includes/links.php' ?>
+    <?php include 'includes/links.php'; 
+      if (isset($_GET['succ'])) {
+        $type = 'success';
+        $titel = 'Top!';
+        if ($_GET['succ'] == '1') {
+            $msg = 'Niet geactiveerde accounts succesvol verwijderd!';
+        }
+    }
+    ?>
     <title>Dashboard</title>
 </head>
 
@@ -12,6 +20,18 @@
     <div class="container-fluid">
         <h1 class="dash-title">Grafieken</h1>
         <div class="row">
+        <?php
+            if (isset($msg)) {
+                echo '<div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="alert alert-' . $type . ' alert-dismissible fade show text-center" role="alert">
+                <strong>'. $titel .'</strong> ' . $msg . '
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            </div>';
+            }
+        ?>
             <div class="col-sm-12 col-md-6">
                 <div class="card spur-card">
                     <div class="card-header">
@@ -37,7 +57,7 @@
                     $aantalnietgeactiveerd = $resultaat['Aantal'];
                     ?>
                     <h1><?=$aantalnietgeactiveerd?></h1>
-                    <a href="" class="btn btn-primary">Opschonen</a>
+                    <a href="actions/verwijdergebruiker_action.php" class="btn btn-primary">Opschonen</a>
                     </div>
                 </div>
             </div>
