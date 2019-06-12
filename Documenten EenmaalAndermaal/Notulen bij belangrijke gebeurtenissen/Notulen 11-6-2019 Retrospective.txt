@@ -26,7 +26,8 @@ Wat ging goed deze sprint:
 Wat kan beter kunnnen deze sprint:
 
 - als je iets nieuws maakt, het gewoon weer opieuw testen
-- Rommelig start doormiddeln van OV 
+- Rommelig start doormiddeln van OV
+-  
 
 Waarmee gaan we aan de slag Postgame:
 - Dingen meer testen, opnieuw testen als je de code update, iemand moet daar de verantwoordelijk ervoor krijgt
