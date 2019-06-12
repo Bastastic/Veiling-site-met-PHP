@@ -1,0 +1,14 @@
+- Categoriën houden geen rekening met volgnummer op website
+- Gegevens wijzengen, error handling
+- Mail (), we doen niks met return waarde van Mail()
+- We doen niks met excute (True of false waarden)
+- Kijken wanneer je ster moet gebruiken, niet alles benoemen met *
+- Nog een keer Kijken naar al onze code, zitten volgens mij fouten in.
+- nooit wachtwoorden sturen via mail (!)
+
+---Opmerkingen------
+
+- presetatie lastig te volgen, geen powerpoints
+- De presenteerder, mee met de hand nemen (bijvoorbeeld nu ga ik dit doen)
+
+
