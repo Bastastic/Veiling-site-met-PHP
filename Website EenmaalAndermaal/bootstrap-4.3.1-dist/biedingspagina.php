@@ -253,7 +253,7 @@ if (isset($_GET['errc'])) {
                                                 id="comment"></textarea>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer;?>">
+                                    <input type="hidden" name="voorwerpnummer" value="'. $voorwerpnummer . '">
     
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
