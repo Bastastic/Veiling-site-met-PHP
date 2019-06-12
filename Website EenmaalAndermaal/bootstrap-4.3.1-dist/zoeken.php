@@ -186,6 +186,7 @@
 							AND titel LIKE CONCAT('%', :trefwoord, '%')
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 					");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -211,6 +212,7 @@
 							Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub)
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 							");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -227,6 +229,7 @@
 							WHERE titel LIKE CONCAT('%', :trefwoord, '%')
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 							");
 					$sql->execute(['trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -241,6 +244,7 @@
 							on Bod.Voorwerp=Voorwerp.voorwerpnummer 
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 					");
 					$sql->execute(['prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
