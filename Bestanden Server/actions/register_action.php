@@ -2,25 +2,25 @@
     session_start();
     require '../php/connectDB.php';
 
-    $voornaam = $_POST['Voornaam'];
-    $achternaam = $_POST['Achternaam'];
-    $adresregel = $_POST['Adresregel'];
+    $voornaam = strip_tags($_POST['Voornaam']);
+    $achternaam = strip_tags($_POST['Achternaam']);
+    $adresregel = strip_tags($_POST['Adresregel']);
     if (isset($_POST['Adresregel2'])) {
         if ($_POST['Adresregel2'] == '') {
             $adresregel2 = null;
         } else {
-            $adresregel2 = $_POST['Adresregel2'];
+            $adresregel2 = strip_tags($_POST['Adresregel2']);
         }
     }
-    $postcode = $_POST['Postcode'];
-    $plaatsnaam = $_POST['Plaatsnaam'];
-    $land = $_POST['Land'];
+    $postcode = strip_tags($_POST['Postcode']);
+    $plaatsnaam = strip_tags($_POST['Plaatsnaam']);
+    $land = strip_tags($_POST['Land']);
     $geboortedatum = date('Y-m-d', strtotime($_POST['Geboortedatum']));
-    $emailadres = $_POST['Emailadres'];
-    $telefoonnummer = $_POST['telefoonnummer'];
-    $vraagid = $_POST['Vraag'];
-    $antwoord = $_POST['Antwoord'];
-    $gebruikersnaam = $_POST['Gebruikersnaam'];
+    $emailadres = strip_tags($_POST['Emailadres']);
+    $telefoonnummer = strip_tags($_POST['telefoonnummer']);
+    $vraagid = strip_tags($_POST['Vraag']);
+    $antwoord = strip_tags($_POST['Antwoord']);
+    $gebruikersnaam = strip_tags($_POST['Gebruikersnaam']);
     $wachtwoord = password_hash($_POST['wachtwoord'], PASSWORD_ARGON2I);
     $verkoper = 0;
     

@@ -72,13 +72,13 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Voornaam" id="Voornaam" class="form-control input-lg"
-                                        placeholder="Voornaam*" tabindex="1" required>
+                                        placeholder="Voornaam*" tabindex="1" maxlength="30" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Achternaam" id="Achternaam" class="form-control input-lg"
-                                        placeholder="Achternaam*" tabindex="2" required>
+                                        placeholder="Achternaam*" tabindex="2" maxlength="30" required>
                                 </div>
                             </div>
                         </div>
@@ -86,19 +86,19 @@
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Adresregel" id="Adresregel" class="form-control input-lg"
-                                        placeholder="Adresregel*" tabindex="3" required>
+                                        placeholder="Adresregel*" tabindex="3" maxlength="30" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Adresregel2" id="Adresregel2" class="form-control input-lg"
-                                        placeholder="Adresregel 2" tabindex="4">
+                                        placeholder="Adresregel 2" maxlength="40" tabindex="4">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="Postcode" id="Postcode" class="form-control input-lg"
-                                        placeholder="Postcode*" tabindex="5" required>
+                                        placeholder="Postcode*" tabindex="5" maxlength="12" required>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Plaatsnaam" id="Plaatsnaam" class="form-control input-lg"
-                                        placeholder="Plaatsnaam*" tabindex="6" required>
+                                        placeholder="Plaatsnaam*" tabindex="6" maxlength="50" required>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6">
@@ -127,11 +127,11 @@
                         </div>
                         <div class="form-group">
                             <input type="email" name="Emailadres" id="Emailadres" class="form-control input-lg"
-                                placeholder="Emailadres*" tabindex="9" required>
+                                placeholder="Emailadres*" tabindex="9" maxlength="255" required>
                         </div>
                         <div class="form-group">
                             <input type="number" name="telefoonnummer" id="telefoonnummer" class="form-control input-lg"
-                                placeholder="Telefoonnummer" tabindex="9">
+                                placeholder="Telefoonnummer" tabindex="9" maxlength="15">
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6">
@@ -151,21 +151,21 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="text" name="Antwoord" id="Antwoord" class="form-control input-lg"
-                                        placeholder="Antwoord*" tabindex="11" required>
+                                        placeholder="Antwoord*" tabindex="11" maxlength="300" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="text" name="Gebruikersnaam" id="Gebruikersnaam" class="form-control input-lg"
-                                placeholder="Gebruikersnaam*" tabindex="12" required>
+                                placeholder="Gebruikersnaam*" tabindex="12" maxlength="25" required>
                         </div>
                         <div class="form-group">
                             <input type="password" name="Wachtwoord" id="wachtwoord" class="form-control input-lg"
-                                placeholder="Wachtwoord*" tabindex="13" onkeyup="checkPass();" required>
+                                placeholder="Wachtwoord*" tabindex="13" onkeyup="checkPass();" maxlength="300" required>
                         </div>
                         <div class="form-group">
                             <input type="password" name="Wachtwoord" id="wachtwoord2" class="form-control input-lg" 
-                                placeholder="Wachtwoord herhalen*" tabindex="14" onkeyup="checkPass();" required>
+                                placeholder="Wachtwoord herhalen*" tabindex="14" onkeyup="checkPass();" maxlength="300" required>
                         </div>
                         <span id="confirm-message2" class="confirm-message"></span>
                         <script type="text/javascript">
