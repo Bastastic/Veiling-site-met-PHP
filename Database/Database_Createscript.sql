@@ -1,46 +1,10 @@
-use iproject15
+use master
+
+create database iproject15
 go
 
-drop table IF exists Admin
+use iproject15
 go
-drop table IF exists Verificatie
-go
-drop table IF exists Bestand
-go
-drop table IF exists Bod
-go
-drop table IF exists Feedback
-go
-drop table IF exists Gebruikerstelefoon
-go
-drop table IF exists Voorwerp_in_Rubriek
-go
-drop table IF exists Voorwerp
-go
-drop table IF exists Verkoper
-go
-drop table IF exists Gebruiker
-go
-drop table IF exists Gebruikerstelefoon
-go
-drop table IF exists Rubriek
-go
-drop table IF exists Verkoper
-go
-drop table IF exists Voorwerp
-go
-drop table IF exists Voorwerp_in_Rubriek
-go
-drop table IF exists Vraag
-go
-drop table IF exists Verificatie
-GO
-drop table IF exists geblokkeerdeVeilingen
-GO
-drop table IF exists Rapporteren
-GO
-drop table IF exists geblokkeerd
-GO
 
 create table Bestand (
 	Filenaam			varchar(200)	not null,

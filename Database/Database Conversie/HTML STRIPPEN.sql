@@ -1,3 +1,6 @@
+use iproject15
+go
+
 CREATE FUNCTION [dbo].[udf_StripHTML] (@HTMLText VARCHAR(MAX))
 RETURNS VARCHAR(MAX) AS
 BEGIN
@@ -166,13 +169,4 @@ END
 RETURN LTRIM(RTRIM(@HTMLText))
 
 END
-
--- Strippen van de bescrhijving met functie. we voegde het tabel 'items' toe aan bestaande database, en  
-UPDATE iproject15.dbo.Items
-SET iproject15.dbo.Items.Beschrijving = dbo.udf_StripHTML([Beschrijving])
-FROM iproject15.dbo.Items
-
--- Select statement om te testen of het strippen heeft gewerkt
-SELECT top(10) Beschrijving
-FROM iproject15.dbo.Items
-
+GO

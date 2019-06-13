@@ -1,3 +1,6 @@
+use iproject15
+go
+
 INSERT Categorieen (ID,Name,Parent) VALUES (-1,'Root',NULL)
 INSERT Categorieen (ID,Name,Parent) VALUES (1,'Verzamelen',-1)
 INSERT Categorieen (ID,Name,Parent) VALUES (30,'Overig klassiek speelgoed',19016)

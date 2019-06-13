@@ -1,3 +1,6 @@
+use iproject15
+go
+
 ----leegmaken van database-------
 DELETE Verificatie
 DELETE Bestand
@@ -17,6 +20,7 @@ DELETE Verkoper
 DELETE Voorwerp
 DELETE Voorwerp_in_Rubriek
 DELETE Vraag
+
 
 ---- Testvragen ------
 insert into Vraag values

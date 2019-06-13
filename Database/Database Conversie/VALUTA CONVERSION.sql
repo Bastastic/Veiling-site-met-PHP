@@ -1,3 +1,6 @@
+use iproject15
+go
+
 CREATE FUNCTION [dbo].[udf_OmzetValuta] (@bedrag
 NUMERIC (8,2), @valuta VARCHAR(MAX))
 -- in functie moet je de prijs en soort valuta invoeren
@@ -20,4 +23,4 @@ IF @valuta = 'CAD'
 			SET @bedrag = @bedrag * 0.8682
 	END
 	RETURN @bedrag
-	END
+END

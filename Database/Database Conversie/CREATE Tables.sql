@@ -1,13 +1,4 @@
-DROP TABLE IF EXISTS Users
-DROP TABLE IF EXISTS Items
-DROP TABLE IF EXISTS Categorieen
-DROP TABLE IF EXISTS Illustraties
-DROP TABLE IF EXISTS tblIMAOLand
-
---CREATE DATABASE Dataconversie
---go
-
-use Dataconversie
+use iproject15
 go
 
 CREATE TABLE Users
@@ -18,6 +9,7 @@ CREATE TABLE Users
   Country VARCHAR(100),
   Rating NUMERIC(4,1) 
 )
+Go
 
 CREATE TABLE Categorieen
 (
@@ -26,6 +18,7 @@ CREATE TABLE Categorieen
 	Parent int NULL,
 	CONSTRAINT PK_Categorieen PRIMARY KEY (ID)
 )
+Go
 
 CREATE TABLE Items
 (
@@ -43,6 +36,7 @@ CREATE TABLE Items
 	Thumbnail varchar(max) NULL,
 	CONSTRAINT PK_Items PRIMARY KEY (ID),
 )
+Go
 
 CREATE TABLE Illustraties
 (
@@ -50,6 +44,7 @@ CREATE TABLE Illustraties
 	IllustratieFile varchar(100) NOT NULL,
     CONSTRAINT PK_ItemPlaatjes PRIMARY KEY (ItemID, IllustratieFile),
 )
+Go
 
 CREATE TABLE tblIMAOLand
 (
@@ -63,16 +58,16 @@ CREATE TABLE tblIMAOLand
   CONSTRAINT CHK_CODE CHECK ( LEN(GBA_CODE) = 4 ),
   CONSTRAINT CHK_DATUM CHECK ( BEGINDATUM < EINDDATUM )
 )
+Go
 
 alter table Items
 	add constraint FK_items_In_Categorie foreign key (Categorie)
 			references Categorieen (ID)
 			on update no action on delete no action
+Go
 
 alter table Illustraties
 	add constraint [ItemsVoorPlaatje] foreign key (ItemID)
 			references Items (ID)
 			on update no action on delete no action
-
---CREATE INDEX IX_Items_Categorie ON Items (Categorie)
---CREATE INDEX IX_Categorieen_Parent ON Categorieen (Parent)
+Go
