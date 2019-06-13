@@ -1,0 +1,20 @@
+ze hebben geen fav icon
+
+zoeken op categorie leeg laten geeft lege pagina
+
+kan nog steeds bieden op gesloten veiling
+
+lange titels/afbeeldingen laten de content van een product uit het veld lopen
+
+bij veiling aanmaken staat '1 dagen' ipv '1 dag'
+
+Footer is niet overal hetzelfde, bied pagina heeft een andere dan index.php
+http://iproject17.icasites.nl/pages/veilingsite.php?voorwerp=111391250628&bekijkNu=Bekijk+Nu
+In de beschrijfing van het product staat waarschijnlijk iets dat het verknoeid
+
+Bij het veranderen van een rubrieknaam veranderen alle rubrieken met die naam, bijvoorbeeld:
+Hernoemen van subrubriek 1 cent van bovenligende rubriek 1890 - 1948 Wilhelmina veranderd 
+ook de subrubriek 1 cent van bovenligende rubriek 1948 - 1980 Juliana.
+Er wordt dus op de naam gekeken in plaats van op het rubrieknummer.
+
+Je kan bij zoeken de categorie ROOT aanklikken.
