@@ -1,0 +1,3 @@
+- Kan geen komma getal invoeren bij prijs en verzendkosten veiling aanmaken
+- Bij het zoeken, komt de 'geen afbeelding' niet er tussen te staan
+- bij invullen gebruikersnaam, invullen van html tags werkt
