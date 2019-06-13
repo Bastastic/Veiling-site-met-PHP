@@ -17,12 +17,10 @@ $sql->bindValue(":Rapporteerde", $rappoteerder);
 $sql->execute();
 $resultaten = $sql->fetch(PDO::FETCH_ASSOC);
 
-if(isset($resultaten)){
+if($resultaten){
     header('Location: biedingspagina.php?voorwerpnummer=' . strip_tags($voorwerpnummer) . '&errc=1');
-}
-
-
-$query = "INSERT INTO Rapporteren (AdvertentieID, Rapporteerde, Omschrijving) 
+}else{
+    $query = "INSERT INTO Rapporteren (AdvertentieID, Rapporteerde, Omschrijving) 
             VALUES (
                 :AdvertentieID, 
                 :Rapporteerde,
@@ -33,8 +31,7 @@ $sql->bindValue(":AdvertentieID", $voorwerpnummer);
 $sql->bindValue(":Rapporteerde", $rappoteerder);
 $sql->bindValue(":Omschrijving", $omschrijving);
 $sql->execute(); 
+header('Location: biedingspagina.php?voorwerpnummer=' . strip_tags($voorwerpnummer) . '&succ=1');
+}
 ?>
 
-<?php
-header('Location: biedingspagina.php?voorwerpnummer=' . strip_tags($voorwerpnummer) . '&succ=1');
-?>

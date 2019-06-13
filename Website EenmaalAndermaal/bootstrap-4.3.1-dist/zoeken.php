@@ -72,6 +72,22 @@
 
 											<!-- categorie filter -->
 											<?php
+
+											// deze functie schrijft de categorieën op waar op gefilterd kan worden
+											function Rubrieken($parent = -1) {
+												global $dbh;
+												$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent ORDER BY Volgnr");
+												$q->execute();
+												$q_fetchAll = $q->fetchAll();
+												for($i = 0; $i < count($q_fetchAll); $i++){
+													echo '
+													<label>
+														<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknummer'], ENT_QUOTES, 'UTF-8') . '">
+														<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
+													</label>';
+												}
+											}
+
 											// kijkt of er gezocht wordt op een categorie
 											if(isset($_GET['cat'])) {
 												echo '
@@ -81,20 +97,6 @@
 														<div class="filter-content">
 															<div class="list-group list-group-flush">';
 															//schrijft de subcategorieën op
-															function Rubrieken($parent) {
-																global $dbh;
-																// haalt alle subrubrieken op van de categorie waar op gezocht is
-																$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
-																$q->execute();
-																$q_fetchAll = $q->fetchAll();
-																for($i = 0; $i < count($q_fetchAll); $i++){
-																	echo '
-																	<label>
-																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknummer'], ENT_QUOTES, 'UTF-8') . '">
-																		<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
-																	</label>';
-																}
-															}
 															Rubrieken(strip_tags($_GET['cat']));
 												echo '</div>
 														</div>
@@ -107,19 +109,6 @@
 														<div class="filter-content">
 															<div class="list-group list-group-flush">';
 															// haalt alle hoofdrubrieken op
-															function Rubrieken($parent = -1){
-																global $dbh;
-																$q = $dbh->prepare("SELECT * FROM Rubriek WHERE Hoofdrubriek=$parent");
-																$q->execute();
-																$q_fetchAll = $q->fetchAll();
-																for($i = 0; $i < count($q_fetchAll); $i++){
-																	echo '
-																	<label>
-																		<input type="radio" name="cat" class="form-check-input ml-3" value="' . htmlspecialchars($q_fetchAll[$i]['Rubrieknummer'], ENT_QUOTES, 'UTF-8') . '">
-																		<span class="ml-5">' . htmlspecialchars($q_fetchAll[$i]['Rubrieknaam'], ENT_QUOTES, 'UTF-8') . '</span>
-																	</label>';
-																}
-															}
 															Rubrieken();
 												echo '</div>
 														</div>
@@ -186,6 +175,7 @@
 							AND titel LIKE CONCAT('%', :trefwoord, '%')
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 					");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -211,6 +201,7 @@
 							Voorwerp_in_Rubriek.Rubriek_op_Laagste_Niveau = :catSub)
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 							");
 					$sql->execute(['cat' => $cat, 'catSub' => $cat, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -227,6 +218,7 @@
 							WHERE titel LIKE CONCAT('%', :trefwoord, '%')
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 							");
 					$sql->execute(['trefwoord' => $trefwoord, 'prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -241,6 +233,7 @@
 							on Bod.Voorwerp=Voorwerp.voorwerpnummer 
 							AND Startprijs > :prijsMin AND Startprijs < :prijsMax
 							AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+							AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen)
 					");
 					$sql->execute(['prijsMin' => $prijsMin, 'prijsMax' => $prijsMax]);
 					$result = $sql->fetchAll(PDO::FETCH_ASSOC);

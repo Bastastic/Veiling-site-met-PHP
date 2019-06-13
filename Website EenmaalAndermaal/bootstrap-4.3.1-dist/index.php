@@ -38,7 +38,8 @@ $sql = $dbh->prepare("SELECT TOP 1 Voorwerp.Voorwerpnummer, Voorwerp.Titel, Voor
 FROM Voorwerp
 LEFT JOIN Gebruiker
 ON Voorwerp.Verkoper = Gebruiker.Gebruikersnaam
-WHERE cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+WHERE cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE() 
+AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen) 
 ORDER BY LooptijdbeginDag DESC, LooptijdbeginTijdstip DESC");
 $sql->execute();
 $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
@@ -174,6 +175,7 @@ if ($aantalfoto > 4) {
                 $sql = $dbh->prepare("SELECT top 12 Voorwerp.voorwerpnummer, Voorwerp.titel , Bestand.Filenaam 
                 from Voorwerp inner join Bestand on Voorwerp.voorwerpnummer = Bestand.voorwerp 
                 where Voorwerp.veiliggesloten = 0 AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
+                AND Voorwerpnummer not in (select AdvertentieID from geblokkeerdeVeilingen) 
                 order by NEWID()");
                 $sql->execute();
                 $result = $sql->fetchAll(PDO::FETCH_ASSOC);

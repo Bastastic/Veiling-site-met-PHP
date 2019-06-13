@@ -173,19 +173,23 @@ if (isset($_GET['errc'])) {
                         <?php
                         //Geeft foto's weer. De eerste als active, de rest niet.
                         $a = 0;
+                        $fotoaantal = 0;
                         foreach ($fotos as $key => $value) {
                             $foto = $value['Filenaam'];
-                         
+                            if ($fotoaantal < 4) {
                             if ($a == 0) {
                                 echo   "<div class='carousel-item active' style='cursor: pointer'>
                                     <img src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Slider afbeelding'>
                                     </div>";
+                                $fotoaantal++;    
                                 $a++;
                             } else {
                                 echo   "<div class='carousel-item' style='cursor: pointer'>
                                     <img src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Slider afbeelding'>
                                     </div>";
+                                    $fotoaantal++;
                             }
+                        }
                         }
 
                         ?>
@@ -253,7 +257,7 @@ if (isset($_GET['errc'])) {
                                                 id="comment"></textarea>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="voorwerpnummer" value="<?=$voorwerpnummer;?>">
+                                    <input type="hidden" name="voorwerpnummer" value="'. $voorwerpnummer . '">
     
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
