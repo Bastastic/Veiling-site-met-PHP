@@ -264,6 +264,12 @@
 								$hoogstebod = strip_tags($resultaat[0]['bodbedrag']);
 						}
 
+						$query = 'SELECT TOP (1) Filenaam, Voorwerp FROM Bestand WHERE Voorwerp = :voorwerp';
+						$sql = $dbh->prepare($query);
+						$sql->execute(['voorwerp' => $voorwerpnummer]);
+						$foto = $sql->fetch(PDO::FETCH_ASSOC);
+						$foto = $foto['Filenaam'];
+
 						// maakt zoekresultaten zichtbaar en maakt de timer
 						echo "<div class='col-xs-12 col-sm-12 col-md-6' style='padding-top: 20px; cursor: pointer'
 						onclick=\"window.location='biedingspagina.php?voorwerpnummer=" . htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8') . "';\">
@@ -272,7 +278,7 @@
 										<div class='frontside'>
 											<div class='card'>
 												<div class='card-body text-center'>
-												<p><img class=' img-fluid' src='http://iproject15.icasites.nl/pics/dt_1_".htmlspecialchars($voorwerpnummer, ENT_QUOTES, 'UTF-8').".jpg' alt='advertentie afbeelding'>
+												<p><img src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Advertentie afbeelding'>
 												</p>
 												<h4>". htmlspecialchars($titel, ENT_QUOTES, 'UTF-8') . "</h4>
 												<p>". htmlspecialchars($bescrhijving, ENT_QUOTES, 'UTF-8') . "</p>
