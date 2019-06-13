@@ -169,6 +169,9 @@ if ($aantalfoto > 4) {
 										}, 1000);
 								  </script>" ?>
                     </div>
+
+            <hr>
+
             <div class="row mt-5">
                 <?php
             // veiling gesloten in Voorwerp is standaard 0, dit betekent dus dat de veiling nog open is. Bij het aflopen van de veiling wordt de waarde naar 1 gezet.
