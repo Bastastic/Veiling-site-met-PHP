@@ -207,6 +207,10 @@ new Chart(document.getElementById("bar-chart-aantal-veilingen"), {
   $sql->execute();
   $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
     
+  $kleuren = "";
+    foreach($resultaat as $key => $value){
+        $kleuren .= '"#' . random_color() . '", ';
+    }
 ?>
 
 <script>
