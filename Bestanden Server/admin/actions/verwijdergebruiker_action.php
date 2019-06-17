@@ -3,6 +3,10 @@ session_start();
 require '../../php/connectDB.php';
 if(isset($_SESSION['adminID'])){
 
+    $query = 'DELETE FROM Gebruikerstelefoon WHERE Gebruiker IN (SELECT Gebruikersnaam FROM Gebruiker WHERE Geactiveerd = 0)';
+    $sql = $dbh->prepare($query);
+    $sql->execute();
+
     $query = 'DELETE FROM Gebruiker WHERE Geactiveerd = 0';
     $sql = $dbh->prepare($query);
     $sql->execute();
