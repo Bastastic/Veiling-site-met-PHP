@@ -12,7 +12,7 @@
 
 <?php include 'includes/header.php'; 
     $gebruiker = $_GET['gebruiker'];
-    $sql = $dbh->prepare("SELECT * FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam");
+    $sql = $dbh->prepare("SELECT Reden FROM geblokkeerd WHERE Gebruiker=:gebruikersnaam");
     $sql->execute(['gebruikersnaam' => $gebruiker]);
     $geblokeerd = $sql->fetch(PDO::FETCH_ASSOC);
     $reden = $geblokeerd['Reden']

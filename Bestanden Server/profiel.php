@@ -133,7 +133,7 @@
 
                                             //kijkt of de gebruiker zijn gegevens al heeft opgegeven
                                             $verkoper = $dbh->prepare(
-                                                "SELECT * FROM Verkoper inner join Gebruiker on Verkoper.Gebruiker = Gebruiker.Gebruikersnaam WHERE Verkoper.Gebruiker = :gebruikersnaam"
+                                                "SELECT Gebruiker.Verkoper FROM Verkoper inner join Gebruiker on Verkoper.Gebruiker = Gebruiker.Gebruikersnaam WHERE Verkoper.Gebruiker = :gebruikersnaam"
                                                 );
                                             $verkoper->execute(['gebruikersnaam' => $gebruikersnaam]);
                                             $result = $verkoper->fetch(PDO::FETCH_ASSOC);
@@ -539,7 +539,7 @@
                                         <div class="col-md-12">
 
                                         <?php
-                                            $query = "SELECT * 
+                                            $query = "SELECT *
                                             FROM Voorwerp
                                             WHERE Verkoper = :verkoper
                                             AND cast(LooptijdeindeDag as datetime) + cast(LooptijdeindeTijdstip as datetime) > GETDATE()
