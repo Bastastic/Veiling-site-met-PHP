@@ -278,8 +278,7 @@
 										<div class='frontside'>
 											<div class='card'>
 												<div class='card-body text-center'>
-												<p><img style='height:auto width:100%' src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Advertentie afbeelding'>
-												</p>
+												<img style='max-width:100% height:auto' src='http://iproject15.icasites.nl/" . htmlspecialchars($foto, ENT_QUOTES, 'UTF-8'). "' alt='Advertentie afbeelding'>
 												<h4>". htmlspecialchars($titel, ENT_QUOTES, 'UTF-8') . "</h4>
 												<p>". htmlspecialchars($bescrhijving, ENT_QUOTES, 'UTF-8') . "</p>
 												<h5>€". htmlspecialchars($hoogstebod, ENT_QUOTES, 'UTF-8') . "</h5>
