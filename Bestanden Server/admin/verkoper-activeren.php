@@ -15,6 +15,13 @@
     WHERE  Controle_optie = 'In afwachting' ");
     $query->execute();
     $gebruikers = $query->fetchAll(PDO::FETCH_ASSOC);  
+    if (isset($_GET['errc'])) {
+        $type = 'danger';
+        $titel = 'Sorry!';
+        if ($_GET['errc'] == '1') {
+            $msg = 'mail is niet verstuurd, probeer het opnieuw';
+        }
+    }
 ?>
 
 <main class="dash-content">

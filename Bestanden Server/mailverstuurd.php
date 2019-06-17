@@ -9,7 +9,6 @@
 </head>
 
 <?php include 'includes/header.php';
-
     if(!isset($_SESSION['userID'])){
         echo '<script>window.location.replace("inloggen.php");</script>';
     }
@@ -24,6 +23,8 @@
         }
     }
 ?>
+
+
 
 <body>
     
@@ -40,6 +41,7 @@
                 </div>
             </div>';
             }
+
         ?>
 
 

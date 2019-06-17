@@ -33,11 +33,13 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
-    mail($emailadres, $subject, $txt, $headers);
+
     $success =  mail($emailadres, $subject, $txt, $headers);
     if (!$success) {
-        $errorMessage = error_get_last()['message'];
+        header("Location: ../mailversturen.php?errc=1");
     }
+    else
+    {
 
     $query = "SELECT * FROM Verificatie WHERE Gebruikersnaam = '$gebruikersnaam'";
     $sql = $dbh->prepare($query);
@@ -61,6 +63,7 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
     }
 
     header("Location: ../mailverstuurd.php");
+}
 } else {
     header("Location: ../mailversturen.php?errc=1");
 }

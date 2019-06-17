@@ -31,6 +31,10 @@
             if ($_GET['errc'] == '3') {
                 $msg = 'U heeft een verkeerd antwoord op de beveiligingsvraag ingevuld. Probeer het opnieuw!';
             }
+            if ($_GET['errc'] == '4')
+            {
+                $msg = 'mail is niet verstuurd, probeer het opnieuw';
+            }
         }
         if (isset($_GET['succ'])) {
             $type = 'success';
@@ -94,18 +98,18 @@
                     $headers = "MIME-Version: 1.0" . "\r\n";
                     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
-
-                    mail($emailadres, $subject, $txt, $headers);
                     $success =  mail($emailadres, $subject, $txt, $headers);
                     if (!$success) {
-                        $errorMessage = error_get_last()['message'];
+                        header("Location: ../wachtwoordvergeten.php?errc=4");
                     }
-
+                    else
+                    {
                     //Success message en knop naar inlogpagina
                     echo '<h1>Wachtwoord gereset!</h1>
                         <p>U vind uw nieuwe wachtwoord in uw mailbox.</p>
                         <a href="inloggen.php" class="btn btn-primary">Inloggen</a>';
-                    echo '<script>window.location.replace("wachtwoordvergeten.php?succ=1");</script>';     
+                    echo '<script>window.location.replace("wachtwoordvergeten.php?succ=1");</script>';
+                    }     
                 } else {
                 //Geen juiste antwoord? Dan redirect naar zichzelf met error code 3. Antwoord is niet bekend.
                     echo '<script>window.location.replace("wachtwoordvergeten.php?errc=3");</script>';
