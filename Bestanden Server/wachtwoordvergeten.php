@@ -86,7 +86,7 @@
                         <h1>Uw nieuwe wachtwoord</h1>
                         <h3>" . $nieuwwachtwoord . "</h3>
                         <br>
-                        <h3>LET OP! HET IS BELANGRIJK DAT U UW WACHTWOORD METEEN WIJZIGD!</h3>
+                        <h3>LET OP! HET IS BELANGRIJK DAT U UW WACHTWOORD METEEN WIJZIGT!</h3>
                         <p> Klik <a href='http://iproject15.icasites.nl/inloggen.php?opt=1' target='_blank'>hier</a> om in te loggen. </p>
                         </body>
                         </html>
