@@ -96,6 +96,10 @@
                     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
                     mail($emailadres, $subject, $txt, $headers);
+                    $success =  mail($emailadres, $subject, $txt, $headers);
+                    if (!$success) {
+                        $errorMessage = error_get_last()['message'];
+                    }
 
                     //Success message en knop naar inlogpagina
                     echo '<h1>Wachtwoord gereset!</h1>
