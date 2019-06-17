@@ -34,6 +34,10 @@ if (isset($_POST['geklikt']) &&  $emailadres == $mailbox) {
     $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
     mail($emailadres, $subject, $txt, $headers);
+    $success =  mail($emailadres, $subject, $txt, $headers);
+    if (!$success) {
+        $errorMessage = error_get_last()['message'];
+    }
 
     $query = "SELECT * FROM Verificatie WHERE Gebruikersnaam = '$gebruikersnaam'";
     $sql = $dbh->prepare($query);
