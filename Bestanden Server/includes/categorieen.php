@@ -2,7 +2,7 @@
 <div class="container">
     <?php
     // query om de hoofdcategorieën op te halen
-    $sqlHoofd = $dbh->prepare("SELECT * FROM Rubriek WHERE HoofdRubriek = -1 ORDER BY HoofdRubriek");
+    $sqlHoofd = $dbh->prepare("SELECT * FROM Rubriek WHERE HoofdRubriek = -1 ORDER BY Volgnr");
     $sqlHoofd->execute();
     $resultaatHoofd = $sqlHoofd->fetchAll(PDO::FETCH_NUM);
     $first = true;

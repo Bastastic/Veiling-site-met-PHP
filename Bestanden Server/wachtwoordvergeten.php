@@ -52,117 +52,128 @@
         </div>';
         }
 
-        if (isset($_POST['submit'])) {
-            if ($_POST['email'] != "") {
-                $emailadres = strip_tags($_POST['email']);
+        if (isset($_POST['email']) && isset($_POST['antwoord'])) {
+            $emailadres = strip_tags($_POST['email']);
+            $antwoordtext = strip_tags($_POST['antwoord']);
 
-                //Vraagt gebruiker op met meegegeven emailadres
-                $query = "SELECT Mailbox
+                //Vraagt antwoord op beveilingsvraag van emailadres.
+                $query1 = "SELECT Antwoordtext
                 FROM Gebruiker
-                WHERE Mailbox = :emailadres";
-                $sql = $dbh->prepare($query);
-                $sql->execute(['emailadres' => $emailadres]);
-                $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+                WHERE Mailbox = :mail";
+                $sql1 = $dbh->prepare($query1);
+                $sql1->execute(['mail' => $emailadres]);
+                $vraag = $sql1->fetch(PDO::FETCH_ASSOC);
+                $antwoord = $vraag['Antwoordtext'];
 
-
-
-                //Als er resultaat is nieuw wachtwoord genereren. Gebruiker record updaten met nieuwe wachtwoord. Mail versturen.
-                if ($resultaat) {
+                // hiermee controleer je of het ingevulde antwoord gelijk is aan die uit de database.
+                if( $antwoord == $antwoordtext ) {
                     $nieuwwachtwoord = generateRandomString();
                     $nieuwwachtwoordhash = password_hash($nieuwwachtwoord, PASSWORD_ARGON2I);
 
-                   //Vraagt antwoord op beveilingsvraag van emailadres.
-                        $query1 = "SELECT Antwoordtext
-                        FROM Gebruiker
-                        WHERE Mailbox = :mail";
-                        $sql1 = $dbh->prepare($query1);
-                        $sql1->execute(['mail' => $emailadres]);
-                        $vraag = $sql1->fetch(PDO::FETCH_ASSOC);
-                        $antwoord = $vraag['Antwoordtext'];
-                       
-                    
-                
-                        // hiermee controleer je of het ingevulde antwoord gelijk is aan dei uit de database.
-                         if( $antwoord == $_POST['antwoord'] ) {
+                    $query = "UPDATE Gebruiker
+                    SET Wachtwoord = :nieuwwachtwoordhash
+                    WHERE Mailbox = :emailadres";
+                    $sql = $dbh->prepare($query);
+                    $sql->execute(['nieuwwachtwoordhash' => $nieuwwachtwoordhash,
+                                    'emailadres' => $emailadres]);
 
+                    $subject = "Reset Wachtwoord";
+                    $txt = "<html>
+                        <head>
+                        <title>Uw nieuwe wachtwoord!</title>
+                        </head>
+                        <body style=text-alignn: center;'>
+                        <h1>Uw nieuwe wachtwoord</h1>
+                        <h3>" . $nieuwwachtwoord . "</h3>
+                        <br>
+                        <p> Klik <a href='http://iproject15.icasites.nl/inloggen.php' target='_blank'>hier</a> om in te loggen. </p>
+                        </body>
+                        </html>
+                        ";
+                    $headers = "MIME-Version: 1.0" . "\r\n";
+                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                    $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
 
+                    mail($emailadres, $subject, $txt, $headers);
 
-                            $query = "UPDATE Gebruiker
-                            SET Wachtwoord = :nieuwwachtwoordhash
-                            WHERE Mailbox = :emailadres";
-                            $sql = $dbh->prepare($query);
-                            $sql->execute(['nieuwwachtwoordhash' => $nieuwwachtwoordhash,
-                                            'emailadres' => $emailadres]);
+                    //Success message en knop naar inlogpagina
+                    echo '<h1>Wachtwoord gereset!</h1>
+                        <p>U vind uw nieuwe wachtwoord in uw mailbox.</p>
+                        <a href="inloggen.php" class="btn btn-primary">Inloggen</a>';
+                    echo '<script>window.location.replace("wachtwoordvergeten.php?succ=1");</script>';     
+                } else {
+                //Geen juiste antwoord? Dan redirect naar zichzelf met error code 3. Antwoord is niet bekend.
+                    echo '<script>window.location.replace("wachtwoordvergeten.php?errc=3");</script>';
+                }
+            
+        } else if (isset($_POST['vraag'])) {
+            $emailadres = strip_tags($_POST['email']);
 
-                                $subject = "Reset Wachtwoord";
-                                $txt = "<html>
-                                    <head>
-                                    <title>Uw nieuwe wachtwoord!</title>
-                                    </head>
-                                    <body style=text-alignn: center;'>
-                                    <h1>Uw nieuwe wachtwoord</h1>
-                                    <h3>" . $nieuwwachtwoord . "</h3>
-                                    <br>
-                                    <p> Klik <a href='http://iproject15.icasites.nl/inloggen.php' target='_blank'>hier</a> om in te loggen. </p>
-                                    </body>
-                                    </html>
-                                    ";
-                                $headers = "MIME-Version: 1.0" . "\r\n";
-                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                                $headers .= "From: noreply@eenmaalandermaal.nl" . "\r\n";
+            //Vraagt gebruiker op met meegegeven emailadres
+            $query = "SELECT Mailbox
+            FROM Gebruiker
+            WHERE Mailbox = :emailadres";
+            $sql = $dbh->prepare($query);
+            $sql->execute(['emailadres' => $emailadres]);
+            $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-                                mail($emailadres, $subject, $txt, $headers);
+            //Als er resultaat is nieuw wachtwoord genereren. Gebruiker record updaten met nieuwe wachtwoord. Mail versturen.
+            if ($resultaat) {
+                if ($_POST['email'] != "") {
+                    $emailadres = strip_tags($_POST['email']);
 
-                                //Success message en knop naar inlogpagina
-                                echo '<h1>Wachtwoord gereset!</h1>
-                                    <p>U vind uw nieuwe wachtwoord in uw mailbox.</p>
-                                     <a href="inloggen.php" class="btn btn-primary">Inloggen</a>';
-                                echo '<script>window.location.replace("wachtwoordvergeten.php?succ=1");</script>';     
+                    //deze query haalt de beveiligingsvraag op
+                    $query = "SELECT Tekst_vraag 
+                    FROM Gebruiker INNER JOIN Vraag 
+                    ON Vraag = Vraagnummer 
+                    WHERE Mailbox = :mail";
+                    $sql = $dbh->prepare($query);
+                    $sql->execute(['mail' => $emailadres]);
+                    $resultaat = $sql->fetch(PDO::FETCH_ASSOC);
+                    $vraag = $resultaat['Tekst_vraag'];
 
-                         } else {
-                             //Geen juiste antwoord? Dan redirect naar zichzelf met error code 3. Antwoord is niet bekend.
-                                echo '<script>window.location.replace("wachtwoordvergeten.php?errc=3");</script>';
-                         }
-
-                    
-                }   
-
-                else {
-                    //Geen resultaat? Dan redirect naar zichzelf met error code 1. Emailadres niet bekend.
-                    echo '<script>window.location.replace("wachtwoordvergeten.php?errc=1");</script>';
+                    echo '<h1>Wachtwoord vergeten?</h1>
+                    <p>'.$vraag.'</p>
+                    <form action="" method="post" class="w-25 mx-auto">
+                    <div class="form-group">
+                        <input type="text" name="antwoord" class="form-control" placeholder="Antwoord" maxlength="300" required>
+                    </div>
+                    <input type="hidden" name="email" value="'.$emailadres.'" class="form-control">
+                    <div class="form-group">
+                        <input type="submit" name="submit" value="Verzenden" class="btn btn-primary w-50">
+                    </div>
+                    </from>';
                 }
             } else {
-                //Geen emailadres ingevuld. Redirect naar zichzelf met error code 2. Geen email ingevuld.
-                echo '<script>window.location.replace("wachtwoordvergeten.php?errc=2");</script>';
+                //Geen resultaat? Dan redirect naar zichzelf met error code 1. Emailadres niet bekend.
+                echo '<script>window.location.replace("wachtwoordvergeten.php?errc=1");</script>';
             }
         } else {
-            //Beginpunt. Form voor invullen email als deze pagina zonder POST/GET info wordt geladen.
-            echo '<h1>Wachtwoord vergeten?</h1>
-            <p>Voer uw email in om uw wachtwoord te resetten!</p>
-            <form action="" method="post" class="w-25 mx-auto">
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Emailadres" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="antwoord" class="form-control" placeholder="Antwoord" required>
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="submit" value="Verzenden" class="btn btn-primary w-50">
-                </div>
-            </form>';
+        //Beginpunt. Form voor invullen email als deze pagina zonder POST info wordt geladen.
+        echo '<h1>Wachtwoord vergeten?</h1>
+        <p>Voer uw email in om uw wachtwoord te resetten!</p>
+        <form action="" method="post" class="w-25 mx-auto">
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Emailadres" maxlength="255" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" name="vraag" value="Verzenden" class="btn btn-primary w-50">
+            </div>
+        </form>';
         }
 
-        //Genereert een random string met een bepaalde lengte (standaard 10)
-        function generateRandomString($length = 10)
-        {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $charactersLength = strlen($characters);
-            $randomString = '';
-            for ($i = 0; $i < $length; $i++) {
-                $randomString .= $characters[rand(0, $charactersLength - 1)];
-            }
-            return $randomString;
+    //Genereert een random string met een bepaalde lengte (standaard 10)
+    function generateRandomString($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
+        return $randomString;
+    }
     ?>
 
     </div>
