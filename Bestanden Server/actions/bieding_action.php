@@ -65,6 +65,4 @@
     } else {
         header("Location: ../inloggen.php");
     }
-
-    
 ?>
