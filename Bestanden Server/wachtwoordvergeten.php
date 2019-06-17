@@ -36,7 +36,7 @@
             $type = 'success';
             $titel = 'Top!';
             if ($_GET['succ'] == '1') {
-                $msg = 'U heeft uw wachtwoord succesvol gewijzigd!';
+                $msg = 'Uw nieuwe wachtwoord is naar u gemaild. Vergeet niet uw wachtwoord te wijzigen na het inloggen!';
             }
         }
 
@@ -77,7 +77,7 @@
                     $sql->execute(['nieuwwachtwoordhash' => $nieuwwachtwoordhash,
                                     'emailadres' => $emailadres]);
 
-                    $subject = "Reset Wachtwoord";
+                    $subject = "Nieuw Wachtwoord";
                     $txt = "<html>
                         <head>
                         <title>Uw nieuwe wachtwoord!</title>
@@ -86,7 +86,8 @@
                         <h1>Uw nieuwe wachtwoord</h1>
                         <h3>" . $nieuwwachtwoord . "</h3>
                         <br>
-                        <p> Klik <a href='http://iproject15.icasites.nl/inloggen.php' target='_blank'>hier</a> om in te loggen. </p>
+                        <h3>LET OP! HET IS BELANGRIJK DAT U UW WACHTWOORD METEEN WIJZIGD!</h3>
+                        <p> Klik <a href='http://iproject15.icasites.nl/inloggen.php?opt=1' target='_blank'>hier</a> om in te loggen. </p>
                         </body>
                         </html>
                         ";

@@ -5,6 +5,13 @@ session_start();
 $gebruikersnaam = $_POST['Gebruikersnaam'];
 $wachtwoord = $_POST['Wachtwoord'];
 
+$passwordreset = false;
+if(isset($_POST['passwordreset'])){
+    if($_POST['passwordreset'] == '1'){
+        $passwordreset = true;
+    }
+}
+
 $sql = $dbh->prepare("SELECT * FROM Gebruiker WHERE Gebruikersnaam=:gebruikersnaam");
 $sql->execute(['gebruikersnaam' => $gebruikersnaam]);
 $gebruiker = $sql->fetch(PDO::FETCH_ASSOC);
@@ -49,7 +56,11 @@ if (password_verify($wachtwoord, $admin['Wachtwoord'])) {
     } else {
         $_SESSION['userID'] = $gebruiker['Gebruikersnaam'];
         if ($gebruiker['Geactiveerd'] == 1) {
-            header('Location: ../profiel.php');
+            if($passwordreset){
+                header('Location: ../profiel.php?warn=1');
+            }else{
+                header('Location: ../profiel.php');
+            }
         } else {
             header('Location: ../mailversturen.php');
         }

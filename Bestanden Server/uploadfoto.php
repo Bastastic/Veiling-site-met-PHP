@@ -36,11 +36,13 @@ $LooptijdEind = date("Y-m-d", strtotime($LooptijdBegin. ' + ' . $looptijd . ' da
 $betalingswijze =strip_tags($_POST['betalingwijze']);
 $betalingsinstructie = NULL;
 $koper = NULL;
-$verzendkosten = strip_tags($_POST['Verzondkosten']);
+$verzendkosten = strip_tags($_POST['Verzendkosten']);
 $veilinggesloten = "0";
 $verkoopprijs = NULL;
 $verzendinstructie = NULL;
 
+print_r($verzendkosten);
+print_r($startprijs);
 $query = "INSERT INTO Voorwerp (Titel, Beschrijving, Startprijs, Betalingswijze, Betalingsinstructie, Plaatsnaam, Land, Looptijd, LooptijdbeginDag, looptijdbeginTijdstip, Verzendkosten, Verzendinstructies, Verkoper, Koper, looptijdeindeDag, looptijdeindeTijdstip, Veiliggesloten, Verkoopprijs) 
             VALUES (
                 :Titel, 
