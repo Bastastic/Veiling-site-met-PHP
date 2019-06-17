@@ -57,6 +57,13 @@
         <br>
         <span class="password"><a href="wachtwoordvergeten.php">Wachtwoord vergeten?</a></span>
       </div>
+      <?php 
+           if(isset($_GET['opt'])){
+            if($_GET['opt'] == '1'){
+             echo '<input type="hidden" name="passwordreset" value="1">';
+            }
+          }
+      ?>
     </form>
   </div>
 </body>
