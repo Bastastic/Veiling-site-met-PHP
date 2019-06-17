@@ -50,6 +50,13 @@
             $msg = 'U heeft uw telefoonnummer succesvol toegevoegd!';
         }
     }
+    if (isset($_GET['warn'])) {
+        $type = 'warning';
+        $titel = 'BELANGRIJK!';
+        if ($_GET['warn'] == '1') {
+            $msg = 'U MOET UW TIJDELIJKE WACHTWOORD WIJZIGEN!';
+        }
+    }
 ?>
 
 <body>
