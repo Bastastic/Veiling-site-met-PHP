@@ -60,7 +60,7 @@
                                         <div class="form-row justify-content-center mx-5">
                                             <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                 <h4 class="card-title">Startprijs:</h4>
-                                                <input type="text" class="form-control" name="Startprijs" min="1" placeholder="Prijs">
+                                                <input type="number" class="form-control" name="Startprijs" min="0" step="0.01">
                                             </div>
                                             <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                 <h4 class="card-title">Kies Looptijd:</h4>
@@ -74,7 +74,7 @@
                                             </div>
                                             <div class="form-group col-xs-12 col-sm-12 col-md-4">
                                                 <h4 class="card-title">Verzendkosten (in euros):</h4>
-                                                <input type="number" class="form-control"  name="Verzondkosten">
+                                                <input type="number" class="form-control" min="0" step="0.01" name="Verzendkosten">
                                             </div>
                                             
                                         </div>
