@@ -35,6 +35,8 @@ $nieuwevoornaam = $voornaam;
                                                                      
 if (isset($_POST['voornaamwijzigen']) && $_POST['voornaamwijzigen'] != '' ) {
     $nieuwevoornaam = $_POST['voornaamwijzigen'];
+}else if($_POST['voornaamwijzigen'] == ''){
+    $nieuwevoornaam = $voornaam;  
 }else{
     $nieuwevoornaam = $voornaam;     
 }
@@ -43,6 +45,8 @@ $nieuweachternaam = $achternaam;
                                                                      
 if (isset($_POST['achternaamwijzigen'])   && $_POST['achternaamwijzigen'] != '' ) {
     $nieuweachternaam = $_POST['achternaamwijzigen'];
+}else if($_POST['achternaamwijzigen'] == ''){
+    $nieuweachternaam = $achternaam;  
 }else{
     $nieuweachternaam = $achternaam;     
 }
@@ -51,6 +55,8 @@ $nieuweadres = $adres;
     
 if (isset($_POST['adreswijzigen'])  && $_POST['adreswijzigen'] != '' ) {
     $nieuweadres = $_POST['adreswijzigen'];
+}else if($_POST['adreswijzigen'] == ''){
+    $nieuweadres = $adres;
 }else{
     $nieuweadres = $adres;     
 }
@@ -59,6 +65,8 @@ $nieuweadres2 = $adres2;
                                                                      
 if (isset($_POST['adres2wijzigen']) && $_POST['adres2wijzigen'] != '' ) {
     $nieuweadres2 = $_POST['adres2wijzigen'];
+}else if($_POST['adres2wijzigen'] == ''){
+    $nieuweadres2 = '';
 }else{
     $nieuweadres2 = $adres2;     
 }
@@ -67,6 +75,8 @@ $nieuwepostcode = $postcode;
                                                                      
 if (isset($_POST['postcodewijzigen']) && $_POST['postcodewijzigen'] != ''  ) {
     $nieuwepostcode = $_POST['postcodewijzigen'];
+}else if($_POST['postcodewijzigen'] == ''){
+    $nieuwepostcode = $postcode;    
 }else{
     $nieuwepostcode = $postcode;     
 }
@@ -75,6 +85,8 @@ $nieuweplaatsnaam = $plaatsnaam;
     
 if (isset($_POST['plaatsnaamwijzigen']) && $_POST['plaatsnaamwijzigen'] != '' ) {
     $nieuweplaatsnaam = $_POST['plaatsnaamwijzigen'];
+}else if($_POST['plaatsnaamwijzigen'] == ''){
+    $nieuweplaatsnaam = $plaatsnaam;  
 }else{
     $nieuweplaatsnaam = $plaatsnaam;     
 }
@@ -83,6 +95,8 @@ $nieuweland= $land;
                                                                      
 if (isset($_POST['landwijzigen']) && $_POST['landwijzigen'] != '' ) {
     $nieuweland = $_POST['landwijzigen'];
+}else if($_POST['landwijzigen'] == ''){
+    $nieuweland= $land;  
 }else{
     $nieuweland = $nieuweland;     
 }
@@ -90,7 +104,6 @@ if (isset($_POST['landwijzigen']) && $_POST['landwijzigen'] != '' ) {
 $nieuwemailbox = $mailbox;   
 
 if (isset($_POST['mailboxwijzigen']) && $_POST['mailboxwijzigen'] != '') {
-
     $nieuwemailbox = $_POST['mailboxwijzigen'];
 }else{
     $nieuwemailbox = $mailbox;     
@@ -103,13 +116,17 @@ if (isset($_POST['mailboxwijzigen']) && $_POST['mailboxwijzigen'] != '') {
 // als het password correct is voeren we de UPDATE query uit. Is deze niet correct dan zal er een fout komen.
 if(  password_verify( $_POST['wachtwoordcheck'] , $wachtwoord ) ){
 
+            if ( $_POST['voornaamwijzigen'] == '' || $_POST['achternaamwijzigen'] == '' || $_POST['adreswijzigen'] == '' || $_POST['postcodewijzigen'] == ''
+                 || $_POST['plaatsnaamwijzigen'] == '' || $_POST['landwijzigen'] == '' ){
+                header('Location: ../profiel.php?errc=6');
+            }else{
                 $updategegevens = $dbh->prepare("UPDATE Gebruiker 
                 SET Voornaam = '$nieuwevoornaam' , Achternaam = '$nieuweachternaam', Adresregel1 = '$nieuweadres', Adresregel2 = '$nieuweadres2',
                 Postcode = '$nieuwepostcode', Plaatsnaam = '$nieuweplaatsnaam', Land = '$nieuweland', Mailbox = '$nieuwemailbox'
                 WHERE Gebruikersnaam = '$gebruikersnaam'");
                 $updategegevens->execute();
                 header('Location: ../profiel.php?succ=3');
-
+            }
 
 
 // deze mail wordt verstuurd na het wijzigen van je gegevens. 

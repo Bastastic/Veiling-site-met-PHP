@@ -33,6 +33,8 @@
             $msg = 'De ingevulde gegevens kloppen niet. Probeer het opnieuw!';
         }else if ($_GET['errc'] == '5') {
             $msg = 'Er is iets foutgegaan met het sluiten van de veiling. Probeer het opnieuw!';
+        }else if ($_GET['errc'] == '6') {
+            $msg = 'U kunt alleen Adres 2 leeg laten, de rest moet ingevuld zijn.';
         }
     }
     if (isset($_GET['succ'])) {
@@ -433,7 +435,7 @@
                                                         class="col-4 col-form-label">Telefoonnummer</label>
                                                     <div class="col-8">
                                                         <input id="telefoon" name="telefoon" value=" <?php if( $telefoon == ''){ echo 'Geen telefoonnummer bekend';}else{  echo $telefoon; }?>"
-                                                            class="form-control here" required="required"
+                                                            class="form-control here" 
                                                             type="text">
                                                     </div>
                                                 </div>

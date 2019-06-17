@@ -28,11 +28,11 @@ $nieuwetelefoon = $telefoon;
     
 if (isset($_POST['telefoon'])  && $_POST['telefoon'] != '' ) {
     $nieuwetelefoon = $_POST['telefoon'];
+}else if($_POST['telefoon'] == ''){
+    $nieuwetelefoon = '';
 }else{
     $nieuwetelefoon = $telefoon;     
 }
-
-
 
 
 if ( isset( $_POST['submittelefoon'])){
@@ -59,8 +59,6 @@ if ( isset( $_POST['submittelefoon'])){
         $updatetelefoon->execute();
          header('Location: ../profiel.php?succ=4');
     }
-
-
 
 }
 
