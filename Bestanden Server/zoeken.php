@@ -105,7 +105,7 @@
 												echo '
 												<div class="card">
 													<article class="card-group-item">
-														<header class="card-header"><h6 class="title">Subcategorie&euml;n</h6></header>
+														<header class="card-header"><h6 class="title">Categorie&euml;n</h6></header>
 														<div class="filter-content">
 															<div class="list-group list-group-flush">';
 															// haalt alle hoofdrubrieken op
