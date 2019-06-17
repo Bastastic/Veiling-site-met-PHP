@@ -8,11 +8,15 @@
         $bodBedrag = $_POST['tweedeBodBedrag'];
         $bodGebruiker = $_POST['tweedeGebruiker'];
 
+        if($bod >= 999999.99) {
+            header("Location: ../biedingspagina.php?voorwerpnummer=$voorwerpnummer&errc=2");
+        }
+
         $gebruikersnaam = $_SESSION['userID'];
         $datum = date('Y-m-d');
         $tijd = date('H:i:s');
-        $sql = $dbh->prepare("INSERT INTO Bod (Voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES ('$voorwerpnummer', '$bod', '$gebruikersnaam',  '$datum',
-        '$tijd')");
+        $sql = $dbh->prepare("INSERT INTO Bod (Voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES 
+                            ('$voorwerpnummer', '$bod', '$gebruikersnaam',  '$datum', '$tijd')");
         $sql->execute();
 
 

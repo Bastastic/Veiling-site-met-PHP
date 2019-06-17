@@ -43,6 +43,8 @@ if (isset($_GET['errc'])) {
     $titel = 'Oeps!';
     if ($_GET['errc'] == '1') {
         $msg = 'U heeft de advertentie al een keer gerapporteerd!';
+    } else if ($_GET['errc'] == '2') {
+        $msg = 'Dit bedrag is te groot.';
     }
 }
 
