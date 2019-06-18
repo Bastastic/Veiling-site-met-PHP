@@ -52,7 +52,7 @@
                             $sql = $dbh->prepare("SELECT *
                                                 FROM Rubriek 
                                                 where Hoofdrubriek = :cat
-                                                ORDER BY Hoofdrubriek, Volgnr
+                                                ORDER BY Rubrieknummer, Volgnr
                             ");
                             $sql->execute(['cat' => $cat]);
                             $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@
                             $sql = $dbh->prepare("SELECT Rubrieknaam
                                                 FROM Rubriek 
                                                 where Rubrieknummer = :cat
-                                                ORDER BY Hoofdrubriek, Volgnr
+                                                ORDER BY Rubrieknummer, Volgnr
                             ");
                             $sql->execute(['cat' => $cat]);
                             $rub = $sql->fetchAll(PDO::FETCH_ASSOC);
