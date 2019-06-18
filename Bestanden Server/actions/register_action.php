@@ -21,7 +21,7 @@
     $vraagid = strip_tags($_POST['Vraag']);
     $antwoord = strip_tags($_POST['Antwoord']);
     $gebruikersnaam = strip_tags($_POST['Gebruikersnaam']);
-    $wachtwoord = password_hash($_POST['wachtwoord'], PASSWORD_ARGON2I);
+    $wachtwoord = password_hash($_POST['Wachtwoord'], PASSWORD_ARGON2I);
     $verkoper = 0;
     
 
