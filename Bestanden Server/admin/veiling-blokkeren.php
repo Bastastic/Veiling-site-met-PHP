@@ -9,7 +9,7 @@
 <?php include 'includes/sidebar.php';
 
     $query = $dbh->prepare("SELECT AdvertentieID, Count(AdvertentieID) as Aantal_keer_Gerappoteerd
-    from Rapporteren
+    from Rapporteren WHERE AdvertentieID NOT IN (SELECT AdvertentieID from geblokkeerdeVeilingen)
     GROUP BY AdvertentieID
     ORDER BY Aantal_keer_Gerappoteerd DESC");
     $query->execute();
