@@ -56,6 +56,25 @@
                             ");
                             $sql->execute(['cat' => $cat]);
                             $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                            // haalt naam van categorie op
+                            $sql = $dbh->prepare("SELECT Rubrieknaam
+                                                FROM Rubriek 
+                                                where Rubrieknummer = :cat
+                                                ORDER BY Hoofdrubriek, Volgnr
+                            ");
+                            $sql->execute(['cat' => $cat]);
+                            $rub = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+                            $rubrieknaam = $rub[0]['Rubrieknaam'];
+                            echo '
+                            <div class="card spur-card">
+                            <div class="card-header">
+                                <div class="spur-card-icon">
+                                    <i class="fas fa-table"></i>
+                                </div>
+                                <div class="spur-card-title">'.$rubrieknaam.'</div>';
+
                         } else { //Haalt de hoofdcategorieën op
                             $sql = $dbh->prepare("SELECT *
                                             FROM Rubriek 
@@ -64,15 +83,17 @@
                             ");
                             $sql->execute();
                             $resultaat = $sql->fetchAll(PDO::FETCH_ASSOC);
-                        }
-                        ?>
-
-                        <div class="card spur-card">
+                            echo '
+                            <div class="card spur-card">
                             <div class="card-header">
                                 <div class="spur-card-icon">
                                     <i class="fas fa-table"></i>
                                 </div>
-                                <div class="spur-card-title">Rubrieken</div>
+                                <div class="spur-card-title">ROOT</div>';
+                        }
+                        ?>
+
+                        
                             </div>
                             <div class="card-body ">
                             <?php
